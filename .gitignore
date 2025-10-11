@@ -1,0 +1,25 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor Files
+*.swp
+*.swo
+*~
+.vscode/
+.idea/
+
+# Test Worlds
+test_world/
+testing/
+
+# Backup Files
+*.bak
+*_old/
+backup/
+
+# Temporary Files
+*.tmp
+temp/
+

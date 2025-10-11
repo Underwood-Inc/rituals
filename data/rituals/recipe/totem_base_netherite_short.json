@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "   ",
+    "IBI",
+    " B "
+  ],
+  "key": {
+    "I": "minecraft:netherite_ingot",
+    "B": "minecraft:netherite_block"
+  },
+  "result": {
+    "id": "minecraft:warped_fungus_on_a_stick",
+    "count": 1,
+    "components": {
+      "minecraft:custom_name": {
+        "text": "Short Netherite Totem",
+        "color": "dark_red",
+        "italic": false
+      },
+      "minecraft:custom_data": {
+        "rituals_totem": 1,
+        "totem_tier": 6,
+        "totem_short": 1
+      }
+    }
+  }
+}
+

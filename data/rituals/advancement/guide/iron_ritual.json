@@ -1,0 +1,24 @@
+{
+  "parent": "rituals:guide/first_ritual",
+  "display": {
+    "icon": {
+      "id": "minecraft:iron_ingot"
+    },
+    "title": {
+      "text": "Protection Ritual",
+      "color": "gray"
+    },
+    "description": {
+      "text": "Use iron ingots on 3+ totems to damage hostile mobs in the area"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
+

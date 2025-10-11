@@ -1,0 +1,24 @@
+{
+  "parent": "rituals:guide/display_item",
+  "display": {
+    "icon": {
+      "id": "minecraft:nether_star"
+    },
+    "title": {
+      "text": "Activate a Ritual",
+      "color": "light_purple",
+      "bold": true
+    },
+    "description": {
+      "text": "Place 3+ totems with the SAME item nearby. Range: 5x5 horizontal, 3 up/down"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "ritual": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

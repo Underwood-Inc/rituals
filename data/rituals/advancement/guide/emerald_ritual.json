@@ -1,0 +1,24 @@
+{
+  "parent": "rituals:guide/first_ritual",
+  "display": {
+    "icon": {
+      "id": "minecraft:emerald"
+    },
+    "title": {
+      "text": "Growth Ritual",
+      "color": "green"
+    },
+    "description": {
+      "text": "Use emeralds on 3+ totems to accelerate crop growth in the area"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
+

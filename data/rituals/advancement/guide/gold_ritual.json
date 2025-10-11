@@ -1,0 +1,24 @@
+{
+  "parent": "rituals:guide/first_ritual",
+  "display": {
+    "icon": {
+      "id": "minecraft:gold_ingot"
+    },
+    "title": {
+      "text": "Prosperity Ritual",
+      "color": "yellow"
+    },
+    "description": {
+      "text": "Use gold ingots on 3+ totems to attract nearby items to the center"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
+

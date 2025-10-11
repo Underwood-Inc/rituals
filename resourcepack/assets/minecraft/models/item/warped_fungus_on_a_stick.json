@@ -1,0 +1,27 @@
+{
+  "parent": "minecraft:item/handheld",
+  "textures": {
+    "layer0": "minecraft:item/warped_fungus_on_a_stick"
+  },
+  "overrides": [
+    {
+      "predicate": {
+        "custom_model_data": 100001
+      },
+      "model": "rituals:item/totem_wood"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 100002
+      },
+      "model": "rituals:item/totem_iron"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 100003
+      },
+      "model": "rituals:item/totem_diamond"
+    }
+  ]
+}
+

@@ -1,0 +1,178 @@
+=== TOTEM RITUALS - PIXEL ART GUIDE ===
+
+Use a 16x16 pixel canvas for each texture.
+You can use: https://www.pixilart.com/draw or https://piskelapp.com
+
+Colors are provided as HEX codes you can copy-paste into the color picker.
+
+================================================================================
+TOTEM_WOOD.PNG - Wooden Stone Wall with Runes
+================================================================================
+
+BASE COLORS:
+- Dark Brown: #3D2817
+- Medium Brown: #6B4423
+- Light Brown: #8B5A2B
+- Tan: #D4A574
+- Rune Color: #4A3622
+
+PIXEL LAYOUT (16x16):
+Row 1:  [........##......] (# = Dark Brown)
+Row 2:  [.......####.....]
+Row 3:  [.....########...]
+Row 4:  [....##MMMM##....]  (M = Medium Brown)
+Row 5:  [...##MMTTMM##...]  (T = Tan)
+Row 6:  [..##MMTTTTMM##..]
+Row 7:  [..##MTRRRRMM##..]  (R = Rune symbols)
+Row 8:  [..##MTRRRRMM##..]
+Row 9:  [..##MTRRRRMM##..]
+Row 10: [..##MTRRRRMM##..]
+Row 11: [..##MMTTTTMM##..]
+Row 12: [...##MMTTMM##...]
+Row 13: [....##MMMM##....]
+Row 14: [.....########...]
+Row 15: [.......####.....]
+Row 16: [........##......] 
+
+RUNE PATTERN (centered in rows 7-10):
+Make simple vertical lines and dots in Rune Color
+Example: | · | (simple carved marks)
+
+================================================================================
+TOTEM_IRON.PNG - Iron-Reinforced Stone Wall
+================================================================================
+
+BASE COLORS:
+- Dark Gray: #3F3F3F
+- Medium Gray: #6E6E6E
+- Light Gray: #9E9E9E  
+- Silver: #C0C0C0
+- Iron Glow: #8BA3C7
+
+PIXEL LAYOUT (same as wood, but with gray tones):
+- Use Dark Gray for outer edges
+- Medium Gray for stone
+- Light Gray for highlights
+- Silver for rune marks
+- Add 1-2 pixels of Iron Glow around runes for magical effect
+
+RUNE PATTERN:
+More geometric than wood - use squares and triangles
+Example: ▲ □ ▼ (simple shapes)
+
+================================================================================
+TOTEM_DIAMOND.PNG - Diamond-Powered Mystical Wall
+================================================================================
+
+BASE COLORS:
+- Black: #1A1A1A
+- Dark Gray: #2D2D2D
+- Blackstone: #3D3D3D
+- Cyan Glow: #00FFFF
+- Purple Accent: #AA00FF
+
+PIXEL LAYOUT:
+- Use Black/Dark Gray/Blackstone for wall
+- Cyan Glow for main runes (make them 2 pixels wide)
+- Purple Accent for additional glow effect around cyan
+
+RUNE PATTERN:
+Most complex - use connected lines forming magical symbols
+Example: ◊ ✦ ◊ (diamond shapes and stars)
+Make runes GLOW by adding lighter cyan around them
+
+================================================================================
+PASTE.PNG - Ritual Paste (Wheat Paste)
+================================================================================
+
+BASE COLORS:
+- Tan: #D4A574
+- Dark Tan: #B8935E
+- Yellow-Tan: #E6C896
+- Brown Flecks: #8B6F47
+
+PIXEL LAYOUT (blob/clump shape):
+Row 1:  [................]
+Row 2:  [................]
+Row 3:  [.......##.......]  (# = Dark Tan)
+Row 4:  [......####......]
+Row 5:  [.....##TT##.....]  (T = Tan)
+Row 6:  [....##TTTT##....]
+Row 7:  [...##TTYYTF##...]  (Y = Yellow-Tan, F = Fleck)
+Row 8:  [...##TYYTFF##...]
+Row 9:  [..##TTYYTFFF##..]
+Row 10: [..##TTYYTFF##...]
+Row 11: [...##TTYYFF##...]
+Row 12: [....##TTYY##....]
+Row 13: [.....##TTF#.....]
+Row 14: [......####......]
+Row 15: [.......##.......]
+Row 16: [................]
+
+Add random brown fleck pixels (F) for texture
+
+================================================================================
+UPGRADE_SLATE_IRON.PNG - Stone Tablet with Iron Runes
+================================================================================
+
+BASE COLORS:
+- Dark Stone: #4A4A4A
+- Stone: #707070
+- Light Stone: #A0A0A0
+- Iron Rune: #C0C0C0
+- Glow: #FFFFFF
+
+PIXEL LAYOUT (rectangular tablet):
+Row 1:  [................]
+Row 2:  [...##########...]
+Row 3:  [..##SSSSSSSS##..]  (S = Stone)
+Row 4:  [..##SLLLLLLS##..]  (L = Light Stone)
+Row 5:  [..##SLIIIILS##..]  (I = Iron Rune pattern)
+Row 6:  [..##SLIIIILS##..]
+Row 7:  [..##SLII▲ILS##..]  (▲ = upward arrow in iron)
+Row 8:  [..##SLI▲▲▲LS##..]
+Row 9:  [..##SL▲▲▲▲LS##..]
+Row 10: [..##SLI▲▲ILS##..]
+Row 11: [..##SLI▲▲ILS##..]
+Row 12: [..##SLIIIILS##..]
+Row 13: [..##SLLLLLLS##..]
+Row 14: [..##SSSSSSSS##..]
+Row 15: [...##########...]
+Row 16: [................]
+
+Draw upward arrows (Tier II symbol) in Iron Rune color
+
+================================================================================
+UPGRADE_SLATE_DIAMOND.PNG - Stone Tablet with Diamond Runes
+================================================================================
+
+BASE COLORS:
+- Dark Stone: #2D2D2D (darker than iron)
+- Stone: #4A4A4A
+- Light Stone: #707070
+- Cyan Rune: #00FFFF
+- Bright Glow: #88FFFF
+
+PIXEL LAYOUT (same as iron, but with glowing cyan runes):
+- Use darker stone base
+- Cyan for runes
+- Make runes GLOW by adding bright glow pixels around them
+- Draw THREE upward arrows (Tier III symbol)
+
+ARROW PATTERN:
+▲▲▲ (three arrows stacked or side by side)
+
+================================================================================
+
+EXPORT SETTINGS:
+- Size: 16x16 pixels
+- Format: PNG
+- Transparency: Yes (for background)
+- Save as: exact filename (totem_wood.png, etc.)
+
+PLACEMENT:
+Save all PNG files to:
+resourcepack/assets/rituals/textures/item/
+
+Then press F3+T in Minecraft to reload!
+

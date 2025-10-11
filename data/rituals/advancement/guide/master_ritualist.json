@@ -1,0 +1,25 @@
+{
+  "parent": "rituals:guide/upgrade_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:blackstone_wall"
+    },
+    "title": {
+      "text": "Master Ritualist",
+      "color": "dark_purple",
+      "bold": true
+    },
+    "description": {
+      "text": "You've mastered totem rituals! Tier 4 netherite totems are 4x more powerful"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
+

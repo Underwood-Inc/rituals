@@ -1,0 +1,36 @@
+{
+  "parent": "rituals:guide/get_materials",
+  "display": {
+    "icon": {
+      "id": "minecraft:warped_fungus_on_a_stick"
+    },
+    "title": {
+      "text": "Craft a Totem",
+      "color": "green"
+    },
+    "description": {
+      "text": "Crafting table: 3 Sticks + 2 Oak Planks in totem shape. See CRAFTING_RECIPES.md"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "has_totem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:warped_fungus_on_a_stick"],
+            "components": {
+              "minecraft:custom_data": {
+                "rituals_totem": 1
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
