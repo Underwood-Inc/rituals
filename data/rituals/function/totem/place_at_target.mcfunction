@@ -2,13 +2,13 @@
 # Get next ID
 scoreboard players add #global_totem_id rituals.id 1
 
-# Summon totem interaction entity
+# Summon totem interaction entity (for clicking/breaking)
 summon interaction ~ ~ ~ {width:1.2f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
 
-# Add end rod for collision (doesn't connect to other blocks, has post-like hitbox)
-setblock ~ ~ ~ end_rod[facing=up]
-# Only place second end rod for tall totems (not short variants)
-execute as @p unless score @s rituals.temp matches 1 run setblock ~ ~1 ~ end_rod[facing=up]
+# Add barrier for collision (invisible, unbreakable in survival)
+setblock ~ ~ ~ barrier
+# Only place second barrier for tall totems (not short variants)
+execute as @p unless score @s rituals.temp matches 1 run setblock ~ ~1 ~ barrier
 
 # Initialize
 execute as @e[type=interaction,tag=rituals.new_totem,limit=1,sort=nearest] run function rituals:totem/initialize
