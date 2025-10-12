@@ -3,13 +3,15 @@
 scoreboard players add #global_totem_id rituals.id 1
 
 # Summon totem interaction entity (for clicking/breaking)
-summon interaction ~ ~ ~ {width:1.2f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
+# Short totems = 1.5 blocks tall (like fences), tall totems = 2.5 blocks
+execute unless score @p rituals.temp matches 1 run summon interaction ~ ~ ~ {width:1.2f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
+execute if score @p rituals.temp matches 1 run summon interaction ~ ~ ~ {width:1.2f,height:1.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
 
 # Add barrier for collision (invisible, unbreakable in survival)
-# Place barriers ABOVE the ground, not replacing it
-setblock ~ ~1 ~ barrier
-# Only place second barrier for tall totems (not short variants)
-execute as @p unless score @s rituals.temp matches 1 run setblock ~ ~2 ~ barrier
+# Short totems: NO barriers (use interaction hitbox only - fence height 1.5 blocks)
+# Tall totems: barriers at ~1 and ~2 (full 2-block height)
+execute unless score @p rituals.temp matches 1 run setblock ~ ~1 ~ barrier
+execute unless score @p rituals.temp matches 1 run setblock ~ ~2 ~ barrier
 
 # Initialize
 execute as @e[type=interaction,tag=rituals.new_totem,limit=1,sort=nearest] run function rituals:totem/initialize
