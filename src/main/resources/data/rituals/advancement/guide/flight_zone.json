@@ -1,0 +1,24 @@
+{
+  "parent": "rituals:guide/advanced_rituals",
+  "display": {
+    "icon": {
+      "id": "minecraft:elytra"
+    },
+    "title": {
+      "text": "Flight Zone Ritual",
+      "color": "aqua"
+    },
+    "description": {
+      "text": "Grant levitation and slow falling in area. Requires 7+ totems in a tower pattern. (Coming Soon)"
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

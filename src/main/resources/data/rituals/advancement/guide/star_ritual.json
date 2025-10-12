@@ -1,0 +1,24 @@
+{
+  "parent": "rituals:guide/first_ritual",
+  "display": {
+    "icon": {
+      "id": "minecraft:nether_star"
+    },
+    "title": {
+      "text": "Healing Ritual",
+      "color": "light_purple"
+    },
+    "description": {
+      "text": "Right-click a totem with a nether star to heal players and animals"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
+

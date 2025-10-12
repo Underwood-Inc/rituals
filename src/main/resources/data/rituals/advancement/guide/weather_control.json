@@ -1,0 +1,24 @@
+{
+  "parent": "rituals:guide/advanced_rituals",
+  "display": {
+    "icon": {
+      "id": "minecraft:lightning_rod"
+    },
+    "title": {
+      "text": "Weather Control Ritual",
+      "color": "blue"
+    },
+    "description": {
+      "text": "Control weather (clear/rain/thunder). Requires 7+ totems in a storm pattern. (Coming Soon)"
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

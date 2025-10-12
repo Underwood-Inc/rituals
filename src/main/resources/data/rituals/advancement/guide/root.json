@@ -1,0 +1,24 @@
+{
+  "display": {
+    "icon": {
+      "id": "minecraft:totem_of_undying"
+    },
+    "title": {
+      "text": "Totem Rituals",
+      "color": "dark_purple",
+      "bold": true
+    },
+    "description": {
+      "text": "Harness ancient magic with ritual totems. Single totem = basic effect, multiple totems = amplified power!"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "background": "minecraft:textures/block/gray_concrete.png"
+  },
+  "criteria": {
+    "auto_grant": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}

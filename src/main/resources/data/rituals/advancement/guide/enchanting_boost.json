@@ -1,0 +1,24 @@
+{
+  "parent": "rituals:guide/advanced_rituals",
+  "display": {
+    "icon": {
+      "id": "minecraft:enchanting_table"
+    },
+    "title": {
+      "text": "Enchanting Nexus Ritual",
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "Boost enchanting levels and quality. Requires 4+ totems around enchanting table. (Coming Soon)"
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

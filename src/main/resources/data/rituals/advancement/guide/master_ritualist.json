@@ -1,0 +1,25 @@
+{
+  "parent": "rituals:guide/upgrade_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:blackstone_wall"
+    },
+    "title": {
+      "text": "Master Ritualist",
+      "color": "dark_purple",
+      "bold": true
+    },
+    "description": {
+      "text": "Mastered totem rituals! Higher tiers = greater range and power. Multi-totem rituals coming soon!"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:tick"
+    }
+  }
+}
+

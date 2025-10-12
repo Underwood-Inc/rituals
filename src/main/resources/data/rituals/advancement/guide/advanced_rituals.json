@@ -1,0 +1,25 @@
+{
+  "parent": "rituals:guide/master_ritualist",
+  "display": {
+    "icon": {
+      "id": "minecraft:netherite_block"
+    },
+    "title": {
+      "text": "Advanced Rituals",
+      "color": "dark_purple",
+      "bold": true
+    },
+    "description": {
+      "text": "Multi-totem rituals with complex patterns unlock powerful effects! (Coming Soon)"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

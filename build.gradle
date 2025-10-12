@@ -1,0 +1,108 @@
+plugins {
+    id 'fabric-loom' version '1.7-SNAPSHOT'
+    id 'maven-publish'
+}
+
+version = project.mod_version
+group = project.maven_group
+
+base {
+    archivesName = project.archives_base_name
+}
+
+repositories {
+    // Add repositories to retrieve artifacts from in here.
+}
+
+dependencies {
+    // To change the versions see the gradle.properties file
+    minecraft "com.mojang:minecraft:${project.minecraft_version}"
+    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
+    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+}
+
+// Task to sync datapack/resourcepack to mod resources before building
+task syncDatapack(type: Copy) {
+    description = 'Syncs datapack and resourcepack to mod resources folder'
+    from('data') {
+        into 'data'
+    }
+    from('resourcepack') {
+        into '.'
+        exclude 'pack.mcmeta' // Use the mod's pack.mcmeta instead
+    }
+    into 'src/main/resources'
+}
+
+// Make sure syncDatapack runs before processing resources
+processResources.dependsOn syncDatapack
+
+processResources {
+    inputs.property "version", project.version
+
+    filesMatching("fabric.mod.json") {
+        expand "version": project.version
+    }
+    
+    // Ensure datapack pack.mcmeta is NOT overwritten by root one
+    exclude 'pack.mcmeta.datapack'
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+}
+
+java {
+    withSourcesJar()
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+// Configure sourcesJar after it's created
+tasks.named('sourcesJar') {
+    dependsOn syncDatapack
+}
+
+jar {
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}"}
+    }
+}
+
+// Task to package standalone datapack (without mod code)
+task packageDatapack(type: Zip) {
+    description = 'Creates a standalone datapack zip'
+    archiveBaseName = "${project.archives_base_name}-datapack"
+    archiveVersion = project.mod_version
+    destinationDirectory = file("${buildDir}/datapacks")
+    
+    from('data') {
+        into 'data'
+    }
+    from('pack.mcmeta')
+}
+
+// Task to package standalone resourcepack
+task packageResourcepack(type: Zip) {
+    description = 'Creates a standalone resourcepack zip'
+    archiveBaseName = "${project.archives_base_name}-resourcepack"
+    archiveVersion = project.mod_version
+    destinationDirectory = file("${buildDir}/resourcepacks")
+    
+    from('resourcepack')
+}
+
+// Add tasks to build
+build.dependsOn packageDatapack, packageResourcepack
+
+// configure the maven publication
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        // Add repositories to publish to here.
+    }
+}

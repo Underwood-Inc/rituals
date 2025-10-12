@@ -1,25 +1,46 @@
-# OS Files
+# Gradle
+.gradle/
+build/
+out/
+classes/
+
+# Eclipse
+*.launch
+.settings/
+.metadata
+.classpath
+.project
+bin/
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# VSCode
+.vscode/
+
+# Fabric
+run/
+.fabric/
+
+# macOS
 .DS_Store
+
+# Windows
 Thumbs.db
 desktop.ini
 
-# Editor Files
-*.swp
-*.swo
-*~
-.vscode/
-.idea/
+# Logs
+*.log
 
-# Test Worlds
-test_world/
-testing/
-
-# Backup Files
-*.bak
-*_old/
-backup/
-
-# Temporary Files
+# Temporary files
 *.tmp
-temp/
+*.bak
+*~
 
+# Minecraft
+minecraft_server.jar
+server.properties
+server.jar

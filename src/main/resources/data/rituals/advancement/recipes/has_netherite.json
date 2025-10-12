@@ -1,0 +1,23 @@
+{
+  "parent": "rituals:guide/root",
+  "criteria": {
+    "has_netherite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:netherite_ingot"]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "rituals:totem_base_netherite",
+      "rituals:totem_base_netherite_short",
+      "rituals:upgrade_slate_netherite"
+    ]
+  }
+}
+

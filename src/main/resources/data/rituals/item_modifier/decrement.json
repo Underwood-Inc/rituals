@@ -1,0 +1,14 @@
+{
+  "function": "minecraft:set_count",
+  "count": {
+    "type": "minecraft:score",
+    "target": {
+      "type": "minecraft:fixed",
+      "name": "#-1"
+    },
+    "score": "rituals.data",
+    "scale": 1.0
+  },
+  "add": true
+}
+

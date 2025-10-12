@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "id": "rituals",
+  "version": "${version}",
+  "name": "Totem Rituals",
+  "description": "Mystical totems and powerful ritual magic. Place totems, perform fire sacrifices, and activate powerful rituals with dramatic effects!",
+  "authors": [
+    "Rituals Team"
+  ],
+  "contact": {
+    "homepage": "https://github.com/yourname/totem-rituals",
+    "issues": "https://github.com/yourname/totem-rituals/issues"
+  },
+  "license": "MIT",
+  "icon": "assets/rituals/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.rituals.TotemRitualsMod"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.15.0",
+    "minecraft": "~1.21",
+    "java": ">=21"
+  },
+  "suggests": {
+  }
+}
+

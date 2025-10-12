@@ -1,0 +1,36 @@
+{
+  "parent": "rituals:guide/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:clay_ball"
+    },
+    "title": {
+      "text": "Craft Ritual Paste",
+      "color": "yellow"
+    },
+    "description": {
+      "text": "Combine 3 wheat + 1 water bucket + 1 grass (shapeless) for upgrade material"
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "has_paste": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:clay_ball"],
+            "components": {
+              "minecraft:custom_data": {
+                "rituals_paste": 1
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+
