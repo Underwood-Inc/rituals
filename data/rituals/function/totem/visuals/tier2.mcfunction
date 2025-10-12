@@ -1,2 +1,6 @@
 # Spawn Copper Totem visual (tall variant) - using cut copper
-summon block_display ~ ~ ~ {Tags:["rituals.totem_visual","rituals.new_visual"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.25f,2.0f,0.25f]},block_state:{Name:"minecraft:cut_copper_slab",Properties:{type:"bottom",waterlogged:"false"}}}
+data modify storage rituals:temp block set value {Name:"minecraft:cut_copper_slab",Properties:{type:"bottom",waterlogged:"false"}}
+data modify storage rituals:temp scale set value 0.6
+data modify storage rituals:temp height set value 2.0
+data modify storage rituals:temp offset set value -0.3
+function rituals:totem/visuals/spawn_display with storage rituals:temp

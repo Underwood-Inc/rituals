@@ -1,3 +1,7 @@
 # Spawn Netherite Totem visual (tall variant)
-summon block_display ~ ~ ~ {Tags:["rituals.totem_visual","rituals.new_visual"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.25f,2.0f,0.25f]},block_state:{Name:"minecraft:polished_blackstone_brick_wall",Properties:{up:"true",north:"none",south:"none",east:"none",west:"none",waterlogged:"false"}}}
+data modify storage rituals:temp block set value {Name:"minecraft:polished_blackstone_brick_wall",Properties:{up:"true",north:"none",south:"none",east:"none",west:"none",waterlogged:"false"}}
+data modify storage rituals:temp scale set value 0.6
+data modify storage rituals:temp height set value 2.0
+data modify storage rituals:temp offset set value -0.3
+function rituals:totem/visuals/spawn_display with storage rituals:temp
 

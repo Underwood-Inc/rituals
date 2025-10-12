@@ -1,2 +1,6 @@
 # Spawn Gold Totem visual (short variant)
-summon block_display ~ ~ ~ {Tags:["rituals.totem_visual","rituals.new_visual"],transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.2f,1.0f,0.2f]},block_state:{Name:"minecraft:gold_block"}}
+data modify storage rituals:temp block set value {Name:"minecraft:gold_block"}
+data modify storage rituals:temp scale set value 0.6
+data modify storage rituals:temp height set value 1.0
+data modify storage rituals:temp offset set value -0.3
+function rituals:totem/visuals/spawn_display with storage rituals:temp

@@ -2,8 +2,12 @@
 # Get next ID
 scoreboard players add #global_totem_id rituals.id 1
 
-# Summon totem with larger hitbox
+# Summon totem interaction entity
 summon interaction ~ ~ ~ {width:1.2f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
+
+# Add oak fence for collision (smaller hitbox like a post)
+setblock ~ ~ ~ oak_fence
+setblock ~ ~1 ~ oak_fence
 
 # Initialize
 execute as @e[type=interaction,tag=rituals.new_totem,limit=1,sort=nearest] run function rituals:totem/initialize
