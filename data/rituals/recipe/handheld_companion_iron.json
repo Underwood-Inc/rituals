@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    "ITI",
+    " E "
+  ],
+  "key": {
+    "E": "minecraft:spider_eye",
+    "I": "minecraft:iron_ingot",
+    "T": {
+      "item": "minecraft:warped_fungus_on_a_stick",
+      "components": {
+        "minecraft:custom_data": {
+          "rituals_totem": 1,
+          "totem_tier": 3
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "minecraft:shield",
+    "count": 1,
+    "components": {
+      "minecraft:custom_name": {
+        "text": "Iron Companion Totem",
+        "color": "white",
+        "italic": false
+      },
+      "minecraft:lore": [
+        {"text":"Tier 3 - Summons Silverfish","color":"gray","italic":false},
+        {"text":"Hold in offhand to summon minion","color":"dark_gray","italic":false}
+      ],
+      "minecraft:custom_model_data": 772003,
+      "minecraft:custom_data": {
+        "rituals_companion": 1,
+        "companion_tier": 3
+      }
+    }
+  }
+}
+

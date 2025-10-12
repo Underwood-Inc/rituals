@@ -1,0 +1,42 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " E ",
+    "DTD",
+    " E "
+  ],
+  "key": {
+    "E": "minecraft:spider_eye",
+    "D": "minecraft:diamond",
+    "T": {
+      "item": "minecraft:warped_fungus_on_a_stick",
+      "components": {
+        "minecraft:custom_data": {
+          "rituals_totem": 1,
+          "totem_tier": 5
+        }
+      }
+    }
+  },
+  "result": {
+    "id": "minecraft:shield",
+    "count": 1,
+    "components": {
+      "minecraft:custom_name": {
+        "text": "Diamond Companion Totem",
+        "color": "aqua",
+        "italic": false
+      },
+      "minecraft:lore": [
+        {"text":"Tier 5 - Summons Silverfish","color":"gray","italic":false},
+        {"text":"Hold in offhand to summon minion","color":"dark_gray","italic":false}
+      ],
+      "minecraft:custom_model_data": 772005,
+      "minecraft:custom_data": {
+        "rituals_companion": 1,
+        "companion_tier": 5
+      }
+    }
+  }
+}
+

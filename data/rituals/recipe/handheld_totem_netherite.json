@@ -21,7 +21,11 @@
     "id": "minecraft:shield",
     "count": 1,
     "components": {
-      "minecraft:custom_name": {"text":"Netherite Handheld Totem","color":"dark_red","italic":false},
+      "minecraft:custom_name": {
+        "text": "Netherite Handheld Totem",
+        "color": "dark_red",
+        "italic": false
+      },
       "minecraft:lore": [
         {"text":"Tier 6 - Personal Ritual","color":"gray","italic":false},
         {"text":"Hold in offhand to apply effect","color":"dark_gray","italic":false}

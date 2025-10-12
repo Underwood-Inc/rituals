@@ -21,7 +21,11 @@
     "id": "minecraft:shield",
     "count": 1,
     "components": {
-      "minecraft:custom_name": {"text":"Copper Handheld Totem","color":"#B87333","italic":false},
+      "minecraft:custom_name": {
+        "text": "Copper Handheld Totem",
+        "color": "gold",
+        "italic": false
+      },
       "minecraft:lore": [
         {"text":"Tier 2 - Personal Ritual","color":"gray","italic":false},
         {"text":"Hold in offhand to apply effect","color":"dark_gray","italic":false}

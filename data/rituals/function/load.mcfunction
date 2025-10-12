@@ -19,6 +19,10 @@ function rituals:config/load
 # Apply config to scoreboards
 execute store result score #ritual_duration rituals.data run data get storage rituals:config ritual_duration
 execute store result score #min_totems rituals.data run data get storage rituals:config min_totems_required
+execute store result score #ritual_check_range rituals.data run data get storage rituals:config ritual_check_range
+execute store result score #sentry_target_range rituals.data run data get storage rituals:config sentry_target_range
+execute store result score #sentry_max_distance rituals.data run data get storage rituals:config sentry_max_distance
+execute store result score #sentry_range_mult rituals.data run data get storage rituals:config sentry_range_multiplier
 
 # Load tier-specific configs
 execute store result score #tier1_h_range rituals.data run data get storage rituals:config tier1_horizontal_range
@@ -35,12 +39,8 @@ execute store result score #tier4_v_range rituals.data run data get storage ritu
 execute store result score #tier5_v_range rituals.data run data get storage rituals:config tier5_vertical_range
 execute store result score #tier6_v_range rituals.data run data get storage rituals:config tier6_vertical_range
 
-execute store result score #tier1_freq rituals.data run data get storage rituals:config tier1_frequency
-execute store result score #tier2_freq rituals.data run data get storage rituals:config tier2_frequency
-execute store result score #tier3_freq rituals.data run data get storage rituals:config tier3_frequency
-execute store result score #tier4_freq rituals.data run data get storage rituals:config tier4_frequency
-execute store result score #tier5_freq rituals.data run data get storage rituals:config tier5_frequency
-execute store result score #tier6_freq rituals.data run data get storage rituals:config tier6_frequency
+# NOTE: Frequency is now per-ritual, loaded dynamically by get_*_settings functions
+# No longer loading generic tier frequencies
 
 # Tier multipliers for effect strength (not range)
 scoreboard players set #tier1_power rituals.data 1

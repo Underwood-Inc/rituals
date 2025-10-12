@@ -1,7 +1,6 @@
 # Recursive X scanning
 # Start Y scan at this X position
-scoreboard players operation #scan_y rituals.temp = #neg_v rituals.temp
-scoreboard players operation #max_y rituals.temp = #current_v_range rituals.temp
+scoreboard players set #scan_y rituals.temp 0
 function rituals:ritual/effects/growth_scan_y
 
 # Increment X and continue if not done

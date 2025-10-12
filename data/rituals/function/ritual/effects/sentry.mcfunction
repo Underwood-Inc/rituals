@@ -4,21 +4,46 @@
 # Fires magical projectiles at nearby hostile mobs
 # Range: Double the normal range (10x10 horizontal, 6 up, 6 down)
 
-# Get fire rate from config (default 40 ticks = 2 seconds)
-execute store result score #sentry_fire_rate rituals.temp run data get storage rituals:config sentry_fire_rate
+# Get tier-based range settings
+function rituals:ritual/get_tier_settings
 
-# Only fire every N ticks based on config
-execute store result score #fire_check rituals.temp run scoreboard players operation @s rituals.timer %= #sentry_fire_rate rituals.temp
-execute unless score #fire_check rituals.temp matches 0 run return 0
+# Get sentry-specific settings (fire rate, damage, projectile speed)
+function rituals:ritual/get_sentry_settings
 
-# Find nearest hostile mob in DOUBLE range (10 blocks horizontal, 6 up/down)
-execute positioned ~-10 ~-6 ~-10 as @e[type=#rituals:hostile_mobs,dx=20,dy=12,dz=20,limit=1,sort=nearest] run tag @s add rituals.sentry_target
+# Check timing using separate effect counter (don't touch main timer!)
+scoreboard players add @s rituals.distance 1
+execute unless score @s rituals.distance >= #current_freq rituals.temp run return 0
+scoreboard players set @s rituals.distance 0
 
-# If we found a target, fire at it
-execute if entity @e[tag=rituals.sentry_target] run function rituals:ritual/effects/sentry_fire
+# Calculate sentry range (multiplier from config, default 2x normal range)
+scoreboard players operation #sentry_h_range rituals.temp = #current_h_range rituals.temp
+scoreboard players operation #sentry_h_range rituals.temp *= #sentry_range_mult rituals.data
 
-# Clean up target tag
-tag @e[tag=rituals.sentry_target] remove rituals.sentry_target
+scoreboard players operation #sentry_v_range rituals.temp = #current_v_range rituals.temp
+scoreboard players operation #sentry_v_range rituals.temp *= #sentry_range_mult rituals.data
+
+# Calculate negative offsets for box selection (move back by range)
+scoreboard players operation #neg_h rituals.temp = #sentry_h_range rituals.temp
+scoreboard players operation #neg_h rituals.temp *= #-1 rituals.data
+
+scoreboard players operation #neg_v rituals.temp = #sentry_v_range rituals.temp
+scoreboard players operation #neg_v rituals.temp *= #-1 rituals.data
+
+# Calculate box size for dx/dy/dz (2x range)
+scoreboard players operation #box_h rituals.temp = #sentry_h_range rituals.temp
+scoreboard players operation #box_h rituals.temp *= #2 rituals.data
+
+scoreboard players operation #box_v rituals.temp = #sentry_v_range rituals.temp
+scoreboard players operation #box_v rituals.temp *= #2 rituals.data
+
+# Store values for macro
+execute store result storage rituals:temp neg_h int 1 run scoreboard players get #neg_h rituals.temp
+execute store result storage rituals:temp neg_v int 1 run scoreboard players get #neg_v rituals.temp
+execute store result storage rituals:temp box_h int 1 run scoreboard players get #box_h rituals.temp
+execute store result storage rituals:temp box_v int 1 run scoreboard players get #box_v rituals.temp
+
+# Find and fire at target using calculated range
+function rituals:ritual/effects/sentry_find_target with storage rituals:temp
 
 # Ambient particles
 particle dust{color:[1.0,0.3,0.3],scale:1.0} ~ ~1.5 ~ 0.3 0.5 0.3 0 2

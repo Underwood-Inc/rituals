@@ -1,5 +1,9 @@
-# Initialize totem
+# Initialize totem - copy tier from player
 scoreboard players operation @s rituals.tier = @p rituals.tier
+
+# Fallback: If tier still not set, default to 1 (shouldn't happen but prevents issues)
+execute unless score @s rituals.tier matches 1..6 run scoreboard players set @s rituals.tier 1
+
 execute if score @p rituals.temp matches 1 run tag @s add rituals.short_totem
 scoreboard players operation @s rituals.id = #global_totem_id rituals.id
 tag @s remove rituals.new_totem

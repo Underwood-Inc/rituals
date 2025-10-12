@@ -3,12 +3,13 @@
 # ========================================
 # Can be modified in-game with /data modify storage rituals:config
 
-# Ritual Settings
+# ==================== GENERAL RITUAL SETTINGS ====================
 data modify storage rituals:config ritual_duration set value 600
 data modify storage rituals:config min_totems_required set value 1
-data modify storage rituals:config ritual_range set value 32
+data modify storage rituals:config ritual_check_range set value 32
 
-# Tier-Based Range Settings (horizontal radius in blocks)
+# ==================== TIER-BASED RANGE SETTINGS ====================
+# Horizontal radius in blocks from totem
 data modify storage rituals:config tier1_horizontal_range set value 2
 data modify storage rituals:config tier2_horizontal_range set value 3
 data modify storage rituals:config tier3_horizontal_range set value 4
@@ -16,7 +17,7 @@ data modify storage rituals:config tier4_horizontal_range set value 5
 data modify storage rituals:config tier5_horizontal_range set value 6
 data modify storage rituals:config tier6_horizontal_range set value 7
 
-# Tier-Based Vertical Range (up/down from totem)
+# Vertical range (up/down from totem)
 data modify storage rituals:config tier1_vertical_range set value 3
 data modify storage rituals:config tier2_vertical_range set value 4
 data modify storage rituals:config tier3_vertical_range set value 5
@@ -24,25 +25,139 @@ data modify storage rituals:config tier4_vertical_range set value 6
 data modify storage rituals:config tier5_vertical_range set value 7
 data modify storage rituals:config tier6_vertical_range set value 8
 
-# Tier-Based Effect Frequency (in ticks between applications)
-data modify storage rituals:config tier1_frequency set value 20
-data modify storage rituals:config tier2_frequency set value 15
-data modify storage rituals:config tier3_frequency set value 10
-data modify storage rituals:config tier4_frequency set value 8
-data modify storage rituals:config tier5_frequency set value 5
-data modify storage rituals:config tier6_frequency set value 3
+# ==================== GROWTH RITUAL ====================
+# Frequency: How often to attempt growth (in ticks, lower = faster)
+data modify storage rituals:config growth_tier1_frequency set value 300
+data modify storage rituals:config growth_tier2_frequency set value 240
+data modify storage rituals:config growth_tier3_frequency set value 180
+data modify storage rituals:config growth_tier4_frequency set value 135
+data modify storage rituals:config growth_tier5_frequency set value 90
+data modify storage rituals:config growth_tier6_frequency set value 60
 
-# Sentry Totem Settings
-data modify storage rituals:config sentry_range_multiplier set value 2.0d
-data modify storage rituals:config sentry_fire_rate set value 40
-data modify storage rituals:config sentry_base_damage set value 1.0d
-data modify storage rituals:config sentry_projectile_speed set value 1.0d
+# ==================== STRENGTH RITUAL ====================
+# Frequency: How often to apply buff (in ticks)
+data modify storage rituals:config strength_tier1_frequency set value 40
+data modify storage rituals:config strength_tier2_frequency set value 35
+data modify storage rituals:config strength_tier3_frequency set value 30
+data modify storage rituals:config strength_tier4_frequency set value 25
+data modify storage rituals:config strength_tier5_frequency set value 20
+data modify storage rituals:config strength_tier6_frequency set value 15
 
-# Damage scaling per tier (wood=1, copper=2, iron=3, gold=4, diamond=5, netherite=6)
-data modify storage rituals:config sentry_damage_per_tier set value 0.5d
+# Effect durations (in seconds)
+data modify storage rituals:config strength_tier1_duration set value 10
+data modify storage rituals:config strength_tier2_duration set value 12
+data modify storage rituals:config strength_tier3_duration set value 15
+data modify storage rituals:config strength_tier4_duration set value 18
+data modify storage rituals:config strength_tier5_duration set value 22
+data modify storage rituals:config strength_tier6_duration set value 30
 
-# Speed scaling per tier
-data modify storage rituals:config sentry_speed_per_tier set value 0.15d
+# ==================== HEALING RITUAL ====================
+# Frequency: How often to apply healing (in ticks)
+data modify storage rituals:config healing_tier1_frequency set value 60
+data modify storage rituals:config healing_tier2_frequency set value 50
+data modify storage rituals:config healing_tier3_frequency set value 40
+data modify storage rituals:config healing_tier4_frequency set value 35
+data modify storage rituals:config healing_tier5_frequency set value 30
+data modify storage rituals:config healing_tier6_frequency set value 25
+
+# Effect durations (in seconds)
+data modify storage rituals:config healing_tier1_duration set value 10
+data modify storage rituals:config healing_tier2_duration set value 15
+data modify storage rituals:config healing_tier3_duration set value 20
+data modify storage rituals:config healing_tier4_duration set value 30
+data modify storage rituals:config healing_tier5_duration set value 60
+data modify storage rituals:config healing_tier6_duration set value 120
+
+# ==================== PROSPERITY RITUAL ====================
+# Frequency: How often to pull items and spawn XP (in ticks)
+data modify storage rituals:config prosperity_tier1_frequency set value 20
+data modify storage rituals:config prosperity_tier2_frequency set value 18
+data modify storage rituals:config prosperity_tier3_frequency set value 15
+data modify storage rituals:config prosperity_tier4_frequency set value 12
+data modify storage rituals:config prosperity_tier5_frequency set value 10
+data modify storage rituals:config prosperity_tier6_frequency set value 8
+
+# Item pull speed (blocks per tick)
+data modify storage rituals:config prosperity_tier1_pull_speed set value 0.3
+data modify storage rituals:config prosperity_tier2_pull_speed set value 0.4
+data modify storage rituals:config prosperity_tier3_pull_speed set value 0.5
+data modify storage rituals:config prosperity_tier4_pull_speed set value 0.6
+data modify storage rituals:config prosperity_tier5_pull_speed set value 0.8
+data modify storage rituals:config prosperity_tier6_pull_speed set value 1.0
+
+# Effect durations (in seconds)
+data modify storage rituals:config prosperity_tier1_duration set value 10
+data modify storage rituals:config prosperity_tier2_duration set value 12
+data modify storage rituals:config prosperity_tier3_duration set value 14
+data modify storage rituals:config prosperity_tier4_duration set value 16
+data modify storage rituals:config prosperity_tier5_duration set value 18
+data modify storage rituals:config prosperity_tier6_duration set value 20
+
+# XP orb values
+data modify storage rituals:config prosperity_tier1_xp set value 2
+data modify storage rituals:config prosperity_tier2_xp set value 2
+data modify storage rituals:config prosperity_tier3_xp set value 4
+data modify storage rituals:config prosperity_tier4_xp set value 4
+data modify storage rituals:config prosperity_tier5_xp set value 6
+data modify storage rituals:config prosperity_tier6_xp set value 8
+
+# ==================== PROTECTION RITUAL ====================
+# Frequency: How often to damage mobs and apply fire resistance (in ticks)
+data modify storage rituals:config protection_tier1_frequency set value 40
+data modify storage rituals:config protection_tier2_frequency set value 35
+data modify storage rituals:config protection_tier3_frequency set value 30
+data modify storage rituals:config protection_tier4_frequency set value 25
+data modify storage rituals:config protection_tier5_frequency set value 20
+data modify storage rituals:config protection_tier6_frequency set value 15
+
+# Damage to hostile mobs
+data modify storage rituals:config protection_tier1_damage set value 2.0
+data modify storage rituals:config protection_tier2_damage set value 3.0
+data modify storage rituals:config protection_tier3_damage set value 4.0
+data modify storage rituals:config protection_tier4_damage set value 5.0
+data modify storage rituals:config protection_tier5_damage set value 6.0
+data modify storage rituals:config protection_tier6_damage set value 8.0
+
+# Effect durations (in seconds)
+data modify storage rituals:config protection_tier1_duration set value 10
+data modify storage rituals:config protection_tier2_duration set value 12
+data modify storage rituals:config protection_tier3_duration set value 15
+data modify storage rituals:config protection_tier4_duration set value 17
+data modify storage rituals:config protection_tier5_duration set value 19
+data modify storage rituals:config protection_tier6_duration set value 20
+
+# ==================== SENTRY RITUAL ====================
+# Fire rate: How often to fire projectiles (in ticks, lower = faster)
+data modify storage rituals:config sentry_tier1_fire_rate set value 480
+data modify storage rituals:config sentry_tier2_fire_rate set value 420
+data modify storage rituals:config sentry_tier3_fire_rate set value 360
+data modify storage rituals:config sentry_tier4_fire_rate set value 300
+data modify storage rituals:config sentry_tier5_fire_rate set value 240
+data modify storage rituals:config sentry_tier6_fire_rate set value 180
+
+# Range multiplier (sentry range is this times normal range)
+data modify storage rituals:config sentry_range_multiplier set value 2
+
+# Projectile speed (blocks per tick)
+data modify storage rituals:config sentry_tier1_projectile_speed set value 0.4
+data modify storage rituals:config sentry_tier2_projectile_speed set value 0.5
+data modify storage rituals:config sentry_tier3_projectile_speed set value 0.6
+data modify storage rituals:config sentry_tier4_projectile_speed set value 0.7
+data modify storage rituals:config sentry_tier5_projectile_speed set value 0.9
+data modify storage rituals:config sentry_tier6_projectile_speed set value 1.2
+
+# Projectile damage (half-hearts) - Increased 50% for better usefulness
+# NOTE: Values hardcoded in sentry.mcfunction as x10 integers
+data modify storage rituals:config sentry_tier1_damage set value 1.5
+data modify storage rituals:config sentry_tier2_damage set value 3.0
+data modify storage rituals:config sentry_tier3_damage set value 4.5
+data modify storage rituals:config sentry_tier4_damage set value 6.0
+data modify storage rituals:config sentry_tier5_damage set value 9.0
+data modify storage rituals:config sentry_tier6_damage set value 12.0
+
+# Projectile targeting range and max distance
+data modify storage rituals:config sentry_target_range set value 30
+data modify storage rituals:config sentry_max_distance set value 50
 
 tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Config loaded! Use ","color":"yellow"},{"text":"/function rituals:help","color":"green","clickEvent":{"action":"suggest_command","value":"/function rituals:help"},"hoverEvent":{"action":"show_text","value":"Click for help"}},{"text":" for help","color":"yellow"}]
 

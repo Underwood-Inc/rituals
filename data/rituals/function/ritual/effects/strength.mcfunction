@@ -3,12 +3,16 @@
 # ========================================
 # Grants strength and resistance to nearby players
 
-# Get tier-based settings from config
+# Get tier-based range settings
 function rituals:ritual/get_tier_settings
 
-# Check if enough time has passed based on frequency
-execute unless score @s rituals.timer >= #current_freq rituals.temp run return 0
-scoreboard players operation @s rituals.timer -= #current_freq rituals.temp
+# Get strength-specific frequency
+function rituals:ritual/get_strength_settings
+
+# Check timing using separate effect counter
+scoreboard players add @s rituals.data 1
+execute unless score @s rituals.data >= #current_freq rituals.temp run return 0
+scoreboard players set @s rituals.data 0
 
 # Apply effects in tier-based range
 function rituals:ritual/apply_in_tier_range

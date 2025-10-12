@@ -4,7 +4,38 @@ Welcome to the Handheld Totem system, you magnificent warrior! ⚔️
 
 ## What Are Handheld Totems?
 
-Handheld Totems are **personal, portable ritual devices** that you equip in your **offhand** (like a shield). They grant you and nearby allies combat buffs without needing to place a stationary totem!
+Handheld Totems are **personal, portable ritual devices** that you equip in your **offhand** (like a shield). Unlike placed totems that require ritual items, handheld totems have **fixed effects** built into them!
+
+## Two Types of Handheld Totems
+
+### 1. Combat Totems (Standard Handheld)
+**Effect**: Grants Strength + Resistance buffs to you and nearby allies  
+**Best For**: Group combat, tanking, PvP
+
+### 2. Companion Totems (Summon Type)  
+**Effect**: Summons an invulnerable silverfish minion to attack for you  
+**Best For**: Solo play, extra DPS, exploration  
+**See**: `COMPANION_TOTEMS.md` for full details
+
+## Key Difference: Handheld vs Placed Totems
+
+**Placed Totems (Ritual System):**
+- Display an item (wheat, diamond, arrow, etc.)
+- Item determines effect type (growth, healing, sentry, etc.)
+- **Flexible** - change effect by changing displayed item
+- Large area of effect
+- Stationary
+
+**Handheld Totems (Fixed Effect):**
+- Equip in offhand
+- Effect is **built into the item type**
+- **Not flexible** - each handheld type does one thing
+- Small radius or single target
+- Mobile
+
+Think of it like this:
+- **Placed = Swiss Army Knife** (one tool, many functions based on what you put on it)
+- **Handheld = Specialized Tool** (dedicated purpose)
 
 ## Features
 
