@@ -6,8 +6,6 @@ function rituals:give/totem_gold
 function rituals:give/totem_master
 function rituals:give/totem_netherite
 function rituals:give/totems_short
-function rituals:give/handheld_totems
-function rituals:give/handheld_companions
 function rituals:give/paste
 function rituals:give/upgrade_slates
 function rituals:give/guidebook

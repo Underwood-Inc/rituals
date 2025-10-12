@@ -22,5 +22,3 @@ execute as @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual] at @
 # Update sentry projectiles
 execute as @e[type=marker,tag=rituals.sentry_projectile] at @s run function rituals:ritual/effects/sentry_projectile_motion
 
-# Update handheld totems
-function rituals:handheld/tick
