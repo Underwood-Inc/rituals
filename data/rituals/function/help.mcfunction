@@ -7,7 +7,7 @@ tellraw @s [{"text":"\n=== Totem Rituals Commands ===","color":"gold","bold":tru
 tellraw @s [{"text":"","color":"yellow"}]
 tellraw @s [{"text":"  /function rituals:help","color":"aqua"},{"text":" - Show this help menu","color":"white"}]
 tellraw @s [{"text":"  /function rituals:guidebook","color":"aqua"},{"text":" - Get the guidebook","color":"white"}]
-tellraw @s [{"text":"  /function rituals:get","color":"aqua"},{"text":" - Interactive item selection","color":"white"}]
+tellraw @s [{"text":"  /function rituals:get","color":"aqua"},{"text":" - List all item give commands","color":"white"}]
 tellraw @s [{"text":"","color":"yellow"}]
 tellraw @s [{"text":"Admin Commands:","color":"red","bold":true}]
 tellraw @s [{"text":"  /function rituals:admin/unlock_all_recipes","color":"dark_red"},{"text":" - Unlock all recipes","color":"gray"}]

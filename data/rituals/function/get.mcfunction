@@ -1,28 +1,46 @@
 # ========================================
-# Interactive Item Selection
+# Item Selection - Simple Command List
 # ========================================
-# Start the guided journey
 
-tellraw @s [{"text":"\n=== Totem Rituals - Item Selection ===","color":"gold","bold":true}]
-tellraw @s [{"text":"","color":"yellow"}]
-tellraw @s [{"text":"What would you like to get?","color":"white","bold":true}]
-tellraw @s [{"text":"","color":"yellow"}]
+tellraw @s [{"text":"\n=== Totem Rituals - Get Items ===","color":"gold","bold":true}]
+tellraw @s [{"text":""}]
 
-# Totem Bases
-tellraw @s [{"text":"[Totem Bases] ","color":"green","bold":true,"clickEvent":{"action":"run_command","value":"/function rituals:get/totems"},"hoverEvent":{"action":"show_text","contents":"Click to select totem tier and variant"}}]
+# Totem bases
+tellraw @s [{"text":"TOTEM BASES:","color":"green","bold":true}]
+tellraw @s [{"text":"/function rituals:give/totem_basic","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_basic_short","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_copper","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_copper_short","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_advanced","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_advanced_short","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_gold","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_gold_short","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_master","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_master_short","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_netherite","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/totem_netherite_short","color":"white"}]
 
-# Ritual Paste
-tellraw @s [{"text":"[Ritual Paste] ","color":"yellow","bold":true,"clickEvent":{"action":"run_command","value":"/function rituals:get/paste"},"hoverEvent":{"action":"show_text","contents":"Click to get Ritual Paste"}}]
+tellraw @s [{"text":""}]
 
-# Upgrade Slates
-tellraw @s [{"text":"[Upgrade Slates] ","color":"aqua","bold":true,"clickEvent":{"action":"run_command","value":"/function rituals:get/upgrade_slates"},"hoverEvent":{"action":"show_text","contents":"Click to select upgrade slate tier"}}]
+# Paste and upgrades
+tellraw @s [{"text":"RITUAL PASTE:","color":"yellow","bold":true}]
+tellraw @s [{"text":"/function rituals:give/paste","color":"white"}]
 
-# Guidebook
-tellraw @s [{"text":"[Guidebook] ","color":"light_purple","bold":true,"clickEvent":{"action":"run_command","value":"/function rituals:guidebook"},"hoverEvent":{"action":"show_text","contents":"Click to get the Totem Rituals Guidebook"}}]
+tellraw @s [{"text":""}]
 
-# All Items
-tellraw @s [{"text":"","color":"yellow"}]
-tellraw @s [{"text":"[Give Me Everything!] ","color":"red","bold":true,"clickEvent":{"action":"run_command","value":"/function rituals:give/all"},"hoverEvent":{"action":"show_text","contents":"Click to get all items (Creative/Testing)"}}]
+tellraw @s [{"text":"UPGRADE SLATES:","color":"aqua","bold":true}]
+tellraw @s [{"text":"/function rituals:give/upgrade_slate_copper","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/upgrade_slate_iron","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/upgrade_slate_gold","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/upgrade_slate_diamond","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/upgrade_slate_netherite","color":"white"}]
+
+tellraw @s [{"text":""}]
+
+# Other
+tellraw @s [{"text":"OTHER:","color":"light_purple","bold":true}]
+tellraw @s [{"text":"/function rituals:guidebook","color":"white"}]
+tellraw @s [{"text":"/function rituals:give/all","color":"red"}]
 
 tellraw @s [{"text":"================================","color":"gold","bold":true}]
 
