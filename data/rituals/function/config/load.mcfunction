@@ -128,12 +128,12 @@ data modify storage rituals:config protection_tier6_duration set value 20
 
 # ==================== SENTRY RITUAL ====================
 # Fire rate: How often to fire projectiles (in ticks, lower = faster)
-data modify storage rituals:config sentry_tier1_fire_rate set value 480
-data modify storage rituals:config sentry_tier2_fire_rate set value 420
-data modify storage rituals:config sentry_tier3_fire_rate set value 360
-data modify storage rituals:config sentry_tier4_fire_rate set value 300
-data modify storage rituals:config sentry_tier5_fire_rate set value 240
-data modify storage rituals:config sentry_tier6_fire_rate set value 180
+data modify storage rituals:config sentry_tier1_fire_rate set value 180
+data modify storage rituals:config sentry_tier2_fire_rate set value 140
+data modify storage rituals:config sentry_tier3_fire_rate set value 100
+data modify storage rituals:config sentry_tier4_fire_rate set value 70
+data modify storage rituals:config sentry_tier5_fire_rate set value 50
+data modify storage rituals:config sentry_tier6_fire_rate set value 30
 
 # Range multiplier (sentry range is this times normal range)
 data modify storage rituals:config sentry_range_multiplier set value 2

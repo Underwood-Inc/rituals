@@ -28,11 +28,14 @@ particle electric_spark ~ ~ ~ 0.1 0.1 0.1 0 1 force
 # Check for collision with hostile mobs
 execute positioned ~-0.5 ~-0.5 ~-0.5 as @e[type=#rituals:hostile_mobs,dx=1,dy=1,dz=1,limit=1,sort=nearest] run tag @s add rituals.projectile_hit
 
-# If hit a mob, apply damage
-execute if entity @e[tag=rituals.projectile_hit,limit=1] run function rituals:ritual/effects/sentry_hit
+# Store if we hit something BEFORE calling sentry_hit (which removes the tag)
+execute store result score #hit_mob rituals.temp if entity @e[tag=rituals.projectile_hit,limit=1]
 
-# Remove projectile if hit target, hit block, or too old
-execute if entity @e[tag=rituals.projectile_hit,limit=1] run kill @s
+# If hit a mob, apply damage
+execute if score #hit_mob rituals.temp matches 1.. run function rituals:ritual/effects/sentry_hit
+
+# Kill projectile if it hit something
+execute if score #hit_mob rituals.temp matches 1.. run kill @s
 execute unless block ~ ~ ~ #rituals:air run particle explosion ~ ~ ~ 0.1 0.1 0.1 0 1 force
 execute unless block ~ ~ ~ #rituals:air run playsound entity.generic.explode block @a ~ ~ ~ 0.3 1.5
 execute unless block ~ ~ ~ #rituals:air run kill @s
