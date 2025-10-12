@@ -16,9 +16,9 @@ execute if data storage rituals:temp {check_item:"minecraft:emerald"} run functi
 # Effect: Strength and resistance to nearby players
 execute if data storage rituals:temp {check_item:"minecraft:diamond"} run function rituals:ritual/types/check_strength
 
-# === PROSPERITY RITUAL === (Gold Ingots)
+# === PROSPERITY RITUAL === (Netherite Blocks)
 # Effect: Attract nearby items and occasionally spawn experience orbs
-execute if data storage rituals:temp {check_item:"minecraft:gold_ingot"} run function rituals:ritual/types/check_prosperity
+execute if data storage rituals:temp {check_item:"minecraft:netherite_block"} run function rituals:ritual/types/check_prosperity
 
 # === PROTECTION RITUAL === (Iron Ingots)
 # Effect: Damage nearby hostile mobs

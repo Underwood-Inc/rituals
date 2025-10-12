@@ -446,7 +446,7 @@ Place an item on a totem to activate a ritual:
 |-------------|-------------|------------------------------------------------|
 | 🟢 Emerald  | Growth      | Applies bonemeal effect to nearby crops        |
 | 💎 Diamond  | Strength    | Grants strength and resistance to players      |
-| 🟡 Gold Ingot | Prosperity | Attracts items and spawns experience orbs     |
+| 🟣 Netherite Block | Prosperity | Attracts items, grants XP directly to players, and provides Luck effect |
 | ⚪ Iron Ingot | Protection | Damages hostile mobs in range                 |
 | ⭐ Nether Star | Healing   | Heals and regenerates players and animals     |
 | 🏹 Arrow    | Sentry      | Fires magical projectiles at mobs (2x range!) |

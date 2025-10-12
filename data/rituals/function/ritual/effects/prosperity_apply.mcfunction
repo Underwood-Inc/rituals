@@ -26,9 +26,10 @@ $execute if score @s rituals.tier matches 3..4 positioned ~$(neg_h) ~$(neg_v) ~$
 $execute if score @s rituals.tier matches 5 positioned ~$(neg_h) ~$(neg_v) ~$(neg_h) run effect give @a[dx=$(box_h),dy=$(box_v),dz=$(box_h)] luck 15 1 false
 $execute if score @s rituals.tier matches 6 positioned ~$(neg_h) ~$(neg_v) ~$(neg_h) run effect give @a[dx=$(box_h),dy=$(box_v),dz=$(box_h)] luck 20 2 false
 
-# Occasionally spawn experience orbs (10% chance every check, value based on tier)
-execute if predicate rituals:random_10_percent if score @s rituals.tier matches 1..2 run summon experience_orb ~ ~1 ~ {Value:2}
-execute if predicate rituals:random_10_percent if score @s rituals.tier matches 3..4 run summon experience_orb ~ ~1 ~ {Value:4}
-execute if predicate rituals:random_10_percent if score @s rituals.tier matches 5 run summon experience_orb ~ ~1 ~ {Value:7}
-execute if predicate rituals:random_10_percent if score @s rituals.tier matches 6 run summon experience_orb ~ ~1 ~ {Value:10}
+# Give XP DIRECTLY to players (no entity spawning = zero lag!)
+# 2-8 XP points per tick based on tier (30-240 XP per ritual duration)
+$execute if score @s rituals.tier matches 1..2 positioned ~$(neg_h) ~$(neg_v) ~$(neg_h) run experience add @a[dx=$(box_h),dy=$(box_v),dz=$(box_h)] 2 points
+$execute if score @s rituals.tier matches 3..4 positioned ~$(neg_h) ~$(neg_v) ~$(neg_h) run experience add @a[dx=$(box_h),dy=$(box_v),dz=$(box_h)] 4 points
+$execute if score @s rituals.tier matches 5 positioned ~$(neg_h) ~$(neg_v) ~$(neg_h) run experience add @a[dx=$(box_h),dy=$(box_v),dz=$(box_h)] 6 points
+$execute if score @s rituals.tier matches 6 positioned ~$(neg_h) ~$(neg_v) ~$(neg_h) run experience add @a[dx=$(box_h),dy=$(box_v),dz=$(box_h)] 8 points
 

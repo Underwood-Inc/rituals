@@ -184,10 +184,11 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 - **Visual**: Critical hit particles
 
 ### Prosperity Ritual
-- **Required Item**: Gold Ingot
-- **Effect**: Attracts nearby items and spawns experience orbs
+- **Required Item**: Netherite Block
+- **Effect**: Attracts nearby items, grants XP and Luck effect to players
 - **Pull Speed**: 0.3 to 1.0 blocks/tick based on tier
-- **XP Orbs**: 2-8 XP per spawn based on tier
+- **XP Gain**: 2-8 XP points per check (direct transfer, no lag)
+- **Luck Effect**: Level 0-2 based on tier (helps with loot drops)
 - **Range**: Tier-based (see Totem Tiers)
 - **Visual**: Golden dust particles
 
