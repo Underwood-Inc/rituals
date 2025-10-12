@@ -11,8 +11,11 @@ execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remov
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.healing_ritual
 
 # Reset timers and effect type
-scoreboard players reset @s rituals.timer
-scoreboard players reset @s rituals.effect
+execute as @e[type=interaction,tag=rituals.totem,distance=..32] run scoreboard players reset @s rituals.timer
+execute as @e[type=interaction,tag=rituals.totem,distance=..32] run scoreboard players reset @s rituals.effect
+
+# Update display names to show Inactive
+execute as @e[type=interaction,tag=rituals.totem,distance=..32] run function rituals:totem/update_display_name
 
 # Feedback
 tellraw @a[distance=..32] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Ritual interrupted!","color":"red","bold":false}]

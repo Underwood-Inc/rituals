@@ -7,6 +7,7 @@
 # Remove all totem entities
 kill @e[type=interaction,tag=rituals.totem]
 kill @e[type=item_display,tag=rituals.totem_display]
+kill @e[type=text_display,tag=rituals.totem_name]
 kill @e[type=block_display,tag=rituals.totem_visual]
 
 # Remove scoreboards
