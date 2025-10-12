@@ -4,12 +4,16 @@
     "icon": {
       "id": "minecraft:netherite_ingot"
     },
-    "title": "Netherite Totem",
-    "description": "The ultimate tier! Craft with 5 netherite ingots. Max ritual power and range.",
+    "title": {
+      "text": "Netherite Totem",
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "The ultimate tier! Craft with 5 netherite ingots. Max ritual power and range."
+    },
     "frame": "goal",
     "show_toast": false,
-    "announce_to_chat": false,
-    "hidden": false
+    "announce_to_chat": false
   },
   "criteria": {
     "has_netherite": {
