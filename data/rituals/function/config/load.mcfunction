@@ -8,6 +8,10 @@ data modify storage rituals:config ritual_duration set value 600
 data modify storage rituals:config min_totems_required set value 1
 data modify storage rituals:config ritual_check_range set value 32
 
+# Fire Sacrifice Mode: If true, rituals require fire sacrifice (items + fire) to activate
+# If false, rituals activate automatically when totems have items (legacy mode)
+data modify storage rituals:config require_fire_sacrifice set value true
+
 # ==================== TIER-BASED RANGE SETTINGS ====================
 # Horizontal radius in blocks from totem
 data modify storage rituals:config tier1_horizontal_range set value 2

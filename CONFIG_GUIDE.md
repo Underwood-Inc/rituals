@@ -27,6 +27,28 @@ After modifying, reload the datapack:
 
 ## Configuration Values
 
+### Fire Sacrifice System
+
+#### `require_fire_sacrifice`
+- **Default**: `true`
+- **Description**: If true, rituals require a fire sacrifice (catalyst items + fire) to activate. If false, rituals activate automatically when items are placed on totems (legacy mode).
+- **Valid Values**: `true` or `false`
+- **Example**: 
+  ```mcfunction
+  # Enable fire sacrifice mode (default)
+  /data modify storage rituals:config require_fire_sacrifice set value true
+  
+  # Disable fire sacrifice (revert to auto-activation)
+  /data modify storage rituals:config require_fire_sacrifice set value false
+  
+  # Apply changes
+  /function rituals:config/reload
+  ```
+
+**See `FIRE_SACRIFICE_GUIDE.md` for complete instructions on the fire sacrifice system!**
+
+---
+
 ### Tier-Based Range Settings
 
 Each tier has its own horizontal and vertical range values:

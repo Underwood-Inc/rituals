@@ -13,8 +13,9 @@ execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_to
 # Update all active totems
 execute as @e[type=interaction,tag=rituals.totem] at @s run function rituals:totem/update
 
-# Check for ritual activation
-execute as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item] at @s run function rituals:ritual/check_activation
+# Check for ritual activation - use fire sacrifice or auto mode based on config
+execute if score #fire_sacrifice_mode rituals.data matches 1 as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item] at @s run function rituals:ritual/fire/check_sacrifice
+execute if score #fire_sacrifice_mode rituals.data matches 0 as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item] at @s run function rituals:ritual/check_activation
 
 # Update active rituals
 execute as @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual] at @s run function rituals:ritual/update_active

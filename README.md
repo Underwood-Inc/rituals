@@ -14,6 +14,7 @@ A Minecraft datapack that introduces mystical totems and powerful ritual magic t
 
 - [Installation](#installation)
 - [Getting Started](#getting-started)
+- [Fire Sacrifice System](#fire-sacrifice-system)
 - [Totem Tiers](#totem-tiers)
 - [How to Use Totems](#how-to-use-totems)
 - [Ritual Types](#ritual-types)
@@ -67,8 +68,50 @@ This datapack adds a new item category called "Totems" which can be crafted and 
 1. Craft totems (see [Crafting Recipes](#crafting-recipes))
 2. Sneak (Shift) and right-click to place a totem
 3. Right-click a placed totem with an item to display it
-4. Place 3+ totems with the same item type nearby
-5. The ritual automatically activates!
+4. Drop 4 catalyst items around the totem (N/S/E/W)
+5. Light fire at the totem base - the ritual activates!
+
+**Note**: Rituals now require a **Fire Sacrifice** to activate! See [Fire Sacrifice System](#fire-sacrifice-system) below.
+
+## Ritual System
+
+**NEW!** Rituals now require a fire sacrifice to activate, making them more immersive and balanced.
+
+### How It Works
+
+1. **Place your totem** and add a ritual item (Diamond, Emerald, etc.)
+2. **Drop 4 catalyst items** on the ground around your totem (North, South, East, West)
+3. **Light a fire** at the totem's base using flint & steel
+4. **The offerings are consumed** and your ritual begins!
+
+### Catalyst Costs by Tier
+
+- 🪵 **Wood**: 4× Coal
+- 🟠 **Copper**: 4× Copper Ingot  
+- ⚙️ **Iron**: 4× Iron Ingot
+- 🟡 **Gold**: 4× Gold Ingot
+- 💎 **Diamond**: 4× Diamond
+- 🟣 **Netherite**: 4× Netherite Ingot
+
+**Why this system?**
+- Makes rituals feel more magical and intentional
+- Balanced resource cost encourages totem upgrades
+- Prevents "set and forget" infinite rituals
+- You control when rituals activate
+
+**📖 See `FIRE_SACRIFICE_GUIDE.md` for complete instructions!**
+
+<details>
+<summary><b>⚙️ Prefer Auto-Activation? (Click to Expand)</b></summary>
+
+Server admins can disable fire sacrifice and restore the old automatic activation:
+
+```mcfunction
+/data modify storage rituals:config require_fire_sacrifice set value false
+/function rituals:config/reload
+```
+
+</details>
 
 ## Totem Tiers
 
@@ -227,7 +270,10 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 - **Maximum Distance**: 32 blocks between totems (for multi-totem rituals)
 - **Single-Totem Mode**: Enabled by default! Each totem works independently
 - **Duration**: 30 seconds (600 ticks)
+- **Activation Cost**: Requires fire sacrifice (4× catalyst items based on tier)
 - **Interruption**: Removing an item from any participating totem stops the ritual
+
+**💡 Tip**: Each ritual activation consumes the catalyst items, so higher-tier totems cost more to run but provide much better effects!
 
 </details>
 
@@ -492,13 +538,22 @@ See `RANGE_DIAGRAM.md` for detailed range specifications!
 
 </details>
 
+## Related Documentation
+
+- 🔥 **`FIRE_SACRIFICE_GUIDE.md`** - Complete fire sacrifice tutorial
+- 📐 **`RANGE_DIAGRAM.md`** - Detailed range specifications
+- 🔧 **`CONFIG_GUIDE.md`** - All configuration options
+- 📦 **`INSTALLATION.md`** - Detailed installation guide
+- 🛠️ **`SYSTEM_OVERVIEW.md`** - Technical architecture
+- 📝 **`CRAFTING_RECIPES.md`** - All crafting recipes
+
 ## Future Enhancements
 
 Planned features for future versions:
 - Ritual upgrade system to extend range
 - More ritual types and effects
 - Ritual combinations for unique effects
-- Configuration options
+- Multi-totem ritual networks
 - Integration with advancement system
 - Multi-item rituals requiring different items
 - Ritual altars and structures
