@@ -40,7 +40,6 @@ execute if entity @s[tag=!rituals.short_totem] run setblock ~ ~2 ~ air
 # Also kill any entities at this exact location (failsafe)
 kill @e[type=block_display,tag=rituals.totem_visual,distance=..0.1]
 kill @e[type=item_display,tag=rituals.totem_display,distance=..0.1]
-kill @e[type=block_display,tag=rituals.totem_barrier,distance=..50]
 
 # Visual and sound feedback
 particle block{block_state:"minecraft:cobblestone"} ~ ~1 ~ 0.3 0.5 0.3 0 20
