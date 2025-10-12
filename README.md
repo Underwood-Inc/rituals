@@ -66,25 +66,43 @@ This datapack adds a new item category called "Totems" which can be crafted and 
 
 ## Totem Tiers
 
-There are three tiers of totems, each with increasing effect power. All totems use the same **range** (5×5×6 blocks), but higher tiers provide stronger effects.
+There are six tiers of totems, each with increasing effect power. All totems use tier-based ranges, with higher tiers providing stronger effects and larger areas.
 
-### Basic Totem (Tier I)
-- **Range**: 5×5 horizontal, 3 up, 3 down (6 blocks tall)
-- **Material**: Wood
-- **Effect Power**: Standard (×1)
+### Tier 1 - Wood Totem
+- **Material**: Oak Planks + Sticks
+- **Range**: 2×2 horizontal, 3 up, 3 down
+- **Effect Power**: Basic
 - **Visual**: Oak fence post with item display on top
 
-### Advanced Totem (Tier II)
-- **Range**: 5×5 horizontal, 3 up, 3 down (6 blocks tall)
-- **Material**: Iron
-- **Effect Power**: Enhanced (×2)
-- **Visual**: Iron bars with blue particle effects
+### Tier 2 - Copper Totem
+- **Material**: Copper Ingots
+- **Range**: 3×3 horizontal, 4 up, 4 down
+- **Effect Power**: Improved
+- **Visual**: Copper-colored post
 
-### Master Totem (Tier III)
-- **Range**: 5×5 horizontal, 3 up, 3 down (6 blocks tall)
-- **Material**: Netherite & Diamond
-- **Effect Power**: Maximum (×3)
-- **Visual**: End rod with purple particle effects
+### Tier 3 - Iron Totem
+- **Material**: Iron Ingots
+- **Range**: 4×4 horizontal, 5 up, 5 down
+- **Effect Power**: Strong
+- **Visual**: Iron bars with particles
+
+### Tier 4 - Gold Totem
+- **Material**: Gold Ingots
+- **Range**: 5×5 horizontal, 6 up, 6 down
+- **Effect Power**: Very Strong
+- **Visual**: Golden post with particles
+
+### Tier 5 - Diamond Totem
+- **Material**: Diamonds
+- **Range**: 6×6 horizontal, 7 up, 7 down
+- **Effect Power**: Powerful
+- **Visual**: Diamond post with cyan particles
+
+### Tier 6 - Netherite Totem
+- **Material**: Netherite Ingots
+- **Range**: 7×7 horizontal, 8 up, 8 down
+- **Effect Power**: Maximum
+- **Visual**: Netherite post with purple particles
 
 ### Range Visualization
 
@@ -128,62 +146,61 @@ See `RANGE_DIAGRAM.md` for detailed range specifications.
 
 ## Ritual Types
 
-Rituals activate automatically when you have 3 or more totems displaying the same item type within range of each other. Each ritual lasts for 30 seconds and provides unique effects.
+Rituals activate automatically when you have 1 or more totems displaying the same item type within range of each other. Each ritual lasts for 30 seconds and provides unique effects. Higher tier totems provide stronger effects and larger ranges.
 
-### Growth Ritual 🌱
+### Growth Ritual
 - **Required Item**: Emerald
-- **Effect**: Accelerates crop and plant growth nearby
-- **Tier Scaling**: 
-  - Tier I: 1 growth attempt/second
-  - Tier II: 2 growth attempts/second
-  - Tier III: 3 growth attempts/second
-- **Range**: 5×5×6 blocks (same for all tiers)
-- **Use Case**: Perfect for automated farms and gardens
+- **Effect**: Accelerates crop and plant growth nearby by 30% chance per check
+- **Frequency Scaling**: 
+  - Tier 1: Every 15 seconds
+  - Tier 2: Every 12 seconds
+  - Tier 3: Every 9 seconds
+  - Tier 4: Every 6.75 seconds
+  - Tier 5: Every 4.5 seconds
+  - Tier 6: Every 3 seconds
+- **Range**: Tier-based (see Totem Tiers)
 - **Visual**: Green happy villager particles
 
-### Strength Ritual ⚔️
+### Strength Ritual
 - **Required Item**: Diamond
 - **Effect**: Grants Strength and Resistance to nearby players
-- **Tier Scaling**:
-  - Tier I: Strength I + Resistance I
-  - Tier II: Strength II + Resistance I
-  - Tier III: Strength III + Resistance II
-- **Range**: 5×5×6 blocks (same for all tiers)
-- **Use Case**: Combat preparation and boss fights
+- **Duration**: 10-30 seconds based on tier
+- **Frequency**: Every 2 seconds to 0.75 seconds based on tier
+- **Range**: Tier-based (see Totem Tiers)
 - **Visual**: Critical hit particles
 
-### Prosperity Ritual 💰
+### Prosperity Ritual
 - **Required Item**: Gold Ingot
 - **Effect**: Attracts nearby items and spawns experience orbs
-- **Tier Scaling**: 
-  - Tier I: Slow pull speed (0.3 blocks/tick)
-  - Tier II: Medium pull speed (0.5 blocks/tick)
-  - Tier III: Fast pull speed (0.7 blocks/tick)
-- **Range**: 5×5×6 blocks (same for all tiers)
-- **Use Case**: Automatic item collection and XP generation
+- **Pull Speed**: 0.3 to 1.0 blocks/tick based on tier
+- **XP Orbs**: 2-8 XP per spawn based on tier
+- **Range**: Tier-based (see Totem Tiers)
 - **Visual**: Golden dust particles
 
-### Protection Ritual 🛡️
+### Protection Ritual
 - **Required Item**: Iron Ingot
-- **Effect**: Damages hostile mobs in range
-- **Tier Scaling**:
-  - Tier I: 2 damage per second
-  - Tier II: 3 damage per second
-  - Tier III: 4 damage per second
-- **Range**: 5×5×6 blocks (same for all tiers)
-- **Use Case**: Base defense and mob farming
-- **Visual**: Blue dust particles
+- **Effect**: Damages hostile mobs in range periodically
+- **Damage**: 2-8 half-hearts per hit based on tier
+- **Frequency**: Every 9 seconds to 1.5 seconds based on tier
+- **Range**: Tier-based (see Totem Tiers)
+- **Visual**: Blue dust particles and magic damage
 
-### Healing Ritual ❤️
+### Healing Ritual
 - **Required Item**: Nether Star
-- **Effect**: Heals nearby players and animals
-- **Tier Scaling**:
-  - Tier I: Regeneration I
-  - Tier II: Regeneration II
-  - Tier III: Regeneration III + Absorption
-- **Range**: 5×5×6 blocks (same for all tiers)
-- **Use Case**: Survival zones and animal farming
+- **Effect**: Applies regeneration to nearby players and animals
+- **Duration**: 10-120 seconds based on tier
+- **Frequency**: Every 3 seconds to 1.25 seconds based on tier
+- **Range**: Tier-based (see Totem Tiers)
 - **Visual**: Pink/purple dust particles
+
+### Sentry Ritual
+- **Required Item**: Arrow
+- **Effect**: Fires homing magical projectiles at hostile mobs
+- **Damage**: 1.5-12 half-hearts based on tier
+- **Fire Rate**: Every 9 seconds to 1.5 seconds based on tier
+- **Projectile Speed**: 0.4-1.2 blocks/tick based on tier
+- **Range**: 2× the normal tier range
+- **Visual**: Glowing projectile with trail particles
 
 ### Ritual Requirements
 

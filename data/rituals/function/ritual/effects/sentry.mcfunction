@@ -15,6 +15,12 @@ scoreboard players add @s rituals.distance 1
 execute unless score @s rituals.distance >= #current_freq rituals.temp run return 0
 scoreboard players set @s rituals.distance 0
 
+# ONLY the totem with the lowest ID in this ritual should fire (prevents multiple totems from all firing)
+# Get this totem's stored item for comparison
+execute store result score #min_id rituals.temp run scoreboard players get @s rituals.id
+execute as @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual,distance=..32] if score @s rituals.effect = @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual,limit=1,sort=nearest] rituals.effect if score @s rituals.id < #min_id rituals.temp run scoreboard players operation #min_id rituals.temp = @s rituals.id
+execute unless score @s rituals.id = #min_id rituals.temp run return 0
+
 # Calculate sentry range (multiplier from config, default 2x normal range)
 scoreboard players operation #sentry_h_range rituals.temp = #current_h_range rituals.temp
 scoreboard players operation #sentry_h_range rituals.temp *= #sentry_range_mult rituals.data
