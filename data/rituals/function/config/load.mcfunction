@@ -103,12 +103,12 @@ data modify storage rituals:config prosperity_tier6_xp set value 8
 
 # ==================== PROTECTION RITUAL ====================
 # Frequency: How often to damage mobs and apply fire resistance (in ticks)
-data modify storage rituals:config protection_tier1_frequency set value 40
-data modify storage rituals:config protection_tier2_frequency set value 35
-data modify storage rituals:config protection_tier3_frequency set value 30
-data modify storage rituals:config protection_tier4_frequency set value 25
-data modify storage rituals:config protection_tier5_frequency set value 20
-data modify storage rituals:config protection_tier6_frequency set value 15
+data modify storage rituals:config protection_tier1_frequency set value 180
+data modify storage rituals:config protection_tier2_frequency set value 140
+data modify storage rituals:config protection_tier3_frequency set value 100
+data modify storage rituals:config protection_tier4_frequency set value 70
+data modify storage rituals:config protection_tier5_frequency set value 50
+data modify storage rituals:config protection_tier6_frequency set value 30
 
 # Damage to hostile mobs
 data modify storage rituals:config protection_tier1_damage set value 2.0
