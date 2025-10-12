@@ -17,9 +17,6 @@ execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remov
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run scoreboard players reset @s rituals.timer
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run scoreboard players reset @s rituals.effect
 
-# Update display names to show Inactive
-execute as @e[type=interaction,tag=rituals.totem,distance=..32] run function rituals:totem/update_display_name
-
 # Success feedback
 tellraw @a[distance=..32] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Ritual completed successfully!","color":"green","bold":true}]
 playsound ui.toast.challenge_complete block @a ~ ~ ~ 1.0 1.2

@@ -8,9 +8,6 @@ execute as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=.
 # Set effect type on all marked totems
 execute as @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual,distance=..32] run scoreboard players set @s rituals.effect 2
 
-# Update display name for all marked totems
-execute as @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual,distance=..32] run function rituals:totem/update_display_name
-
 # Visual feedback
 tellraw @a[distance=..32] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Strength Ritual Activated!","color":"aqua","bold":true}]
 playsound block.enchantment_table.use block @a ~ ~ ~ 1.5 0.8
