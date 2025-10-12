@@ -8,10 +8,10 @@ execute unless score @p rituals.temp matches 1 run summon interaction ~ ~ ~ {wid
 execute if score @p rituals.temp matches 1 run summon interaction ~ ~ ~ {width:1.2f,height:1.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
 
 # Add barrier for collision (invisible, unbreakable in survival)
-# Short totems: NO barriers (use interaction hitbox only - fence height 1.5 blocks)
-# Tall totems: barriers at ~1 and ~2 (full 2-block height)
+# Short totems: ONE barrier at ~ (1 block tall: Y=0 to Y=1)
+# Tall totems: TWO barriers at ~ and ~1 (2 blocks tall: Y=0 to Y=2)
+setblock ~ ~ ~ barrier
 execute unless score @p rituals.temp matches 1 run setblock ~ ~1 ~ barrier
-execute unless score @p rituals.temp matches 1 run setblock ~ ~2 ~ barrier
 
 # Initialize
 execute as @e[type=interaction,tag=rituals.new_totem,limit=1,sort=nearest] run function rituals:totem/initialize

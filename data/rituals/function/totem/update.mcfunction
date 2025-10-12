@@ -12,3 +12,6 @@ execute if data entity @s interaction run function rituals:totem/handle_interact
 # Check for redstone power and visualize range
 function rituals:totem/check_redstone
 
+# Animate item display (rotation and bobbing) if item is present
+execute if entity @s[tag=rituals.has_item] run function rituals:totem/animate_item_display
+

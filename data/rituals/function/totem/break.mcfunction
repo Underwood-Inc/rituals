@@ -33,10 +33,10 @@ execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.i
 execute as @e[type=block_display,tag=rituals.totem_barrier] if score @s rituals.id = #break_id rituals.temp run kill @s
 
 # Remove barrier blocks that provided collision
-# Short totems: no barriers to remove (used interaction hitbox only)
-# Tall totems: remove barriers at ~1 and ~2
+# Short totems: remove ONE barrier at ~ (1 block tall)
+# Tall totems: remove TWO barriers at ~ and ~1 (2 blocks tall)
+setblock ~ ~ ~ air
 execute if entity @s[tag=!rituals.short_totem] run setblock ~ ~1 ~ air
-execute if entity @s[tag=!rituals.short_totem] run setblock ~ ~2 ~ air
 
 # Also kill any entities at this exact location (failsafe)
 kill @e[type=block_display,tag=rituals.totem_visual,distance=..0.1]
