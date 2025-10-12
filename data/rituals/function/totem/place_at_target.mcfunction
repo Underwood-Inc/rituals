@@ -2,8 +2,9 @@
 # Get next ID
 scoreboard players add #global_totem_id rituals.id 1
 
-# Summon totem interaction entity (for clicking/breaking)
-summon interaction ~ ~ ~ {width:1.2f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
+# Summon totem interaction entity (for clicking/breaking) - wide and tall to cover entire totem visual
+# Positioned at Y-1.0 so the TOP (where label shows) is at eye level Y+1.5
+summon interaction ~ ~-1.0 ~ {width:2.0f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
 
 # Add barrier for collision (invisible, unbreakable in survival)
 setblock ~ ~ ~ barrier
