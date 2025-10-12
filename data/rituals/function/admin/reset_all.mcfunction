@@ -15,5 +15,9 @@ execute as @e[type=interaction,tag=rituals.totem] run tag @s remove rituals.heal
 scoreboard players reset @e[type=interaction,tag=rituals.totem] rituals.timer
 scoreboard players reset @e[type=interaction,tag=rituals.totem] rituals.effect
 
+# Clear all range markers (in case any are orphaned)
+kill @e[type=area_effect_cloud,tag=rituals.range_marker]
+execute as @e[type=interaction,tag=rituals.totem] run tag @s remove rituals.barrier_shown
+
 tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"All rituals have been reset.","color":"yellow","bold":false}]
 

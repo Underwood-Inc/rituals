@@ -9,7 +9,7 @@ execute if data entity @s attack run function rituals:totem/break
 # Check if totem has been right-clicked
 execute if data entity @s interaction run function rituals:totem/handle_interaction
 
-# Check for redstone power and visualize range
+# Check for redstone power and visualize range (using particles)
 function rituals:totem/check_redstone
 
 # Animate item display (rotation and bobbing) if item is present

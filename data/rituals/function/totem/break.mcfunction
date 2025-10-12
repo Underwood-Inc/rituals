@@ -31,6 +31,7 @@ execute if entity @s[tag=rituals.has_item] run function rituals:totem/drop_displ
 execute as @e[type=block_display,tag=rituals.totem_visual] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=block_display,tag=rituals.totem_barrier] if score @s rituals.id = #break_id rituals.temp run kill @s
+execute as @e[type=area_effect_cloud,tag=rituals.range_marker] if score @s rituals.id = #break_id rituals.temp run kill @s
 
 # Remove barrier blocks that provided collision
 # Short totems: remove ONE barrier at ~ (1 block tall)

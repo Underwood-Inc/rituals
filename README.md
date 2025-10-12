@@ -1,6 +1,6 @@
 # Totem Rituals Datapack
 
-![Totem Rituals Banner](banner.png)
+![Totem Rituals Banner](images/banner.png)
 
 A Minecraft datapack that introduces mystical totems and powerful ritual magic to your world. Place totems, display items upon them, and perform rituals to gain unique effects!
 
@@ -123,6 +123,10 @@ There are six tiers of totems, each with increasing effect power. All totems use
     ███████
 ```
 
+![Totem Ranges Comparison](images/totem%20ranges.png)
+
+*Visual comparison of effect ranges for all totem tiers*
+
 See `RANGE_DIAGRAM.md` for detailed range specifications.
 
 </details>
@@ -235,10 +239,10 @@ All totems come in two variants: **Tall** (2 blocks high) and **Short** (1 block
 <summary><b>🪵 Wood Totem Recipes</b></summary>
 
 ### Wood Totem (Tall)
-![Wood Totem Tall Recipe](wood%20tall.png)
+![Wood Totem Tall Recipe](images/wood%20tall.png)
 
 ### Wood Totem (Short)
-![Wood Totem Short Recipe](wood%20short.png)
+![Wood Totem Short Recipe](images/wood%20short.png)
 
 </details>
 
@@ -246,10 +250,10 @@ All totems come in two variants: **Tall** (2 blocks high) and **Short** (1 block
 <summary><b>🟠 Copper Totem Recipes</b></summary>
 
 ### Copper Totem (Tall)
-![Copper Totem Tall Recipe](copper%20tall.png)
+![Copper Totem Tall Recipe](images/copper%20tall.png)
 
 ### Copper Totem (Short)
-![Copper Totem Short Recipe](copper%20short.png)
+![Copper Totem Short Recipe](images/copper%20short.png)
 
 </details>
 
@@ -257,10 +261,10 @@ All totems come in two variants: **Tall** (2 blocks high) and **Short** (1 block
 <summary><b>⚙️ Iron Totem Recipes</b></summary>
 
 ### Iron Totem (Tall)
-![Iron Totem Tall Recipe](iron%20tall.png)
+![Iron Totem Tall Recipe](images/iron%20tall.png)
 
 ### Iron Totem (Short)
-![Iron Totem Short Recipe](iron%20short.png)
+![Iron Totem Short Recipe](images/iron%20short.png)
 
 </details>
 
@@ -268,10 +272,10 @@ All totems come in two variants: **Tall** (2 blocks high) and **Short** (1 block
 <summary><b>🟡 Gold Totem Recipes</b></summary>
 
 ### Gold Totem (Tall)
-![Gold Totem Tall Recipe](gold%20tall.png)
+![Gold Totem Tall Recipe](images/gold%20tall.png)
 
 ### Gold Totem (Short)
-![Gold Totem Short Recipe](gold%20short.png)
+![Gold Totem Short Recipe](images/gold%20short.png)
 
 </details>
 
@@ -279,10 +283,10 @@ All totems come in two variants: **Tall** (2 blocks high) and **Short** (1 block
 <summary><b>💎 Diamond Totem Recipes</b></summary>
 
 ### Diamond Totem (Tall)
-![Diamond Totem Tall Recipe](diamond%20tall.png)
+![Diamond Totem Tall Recipe](images/diamond%20tall.png)
 
 ### Diamond Totem (Short)
-![Diamond Totem Short Recipe](diamond%20short.png)
+![Diamond Totem Short Recipe](images/diamond%20short.png)
 
 </details>
 
@@ -290,10 +294,10 @@ All totems come in two variants: **Tall** (2 blocks high) and **Short** (1 block
 <summary><b>🟣 Netherite Totem Recipes</b></summary>
 
 ### Netherite Totem (Tall)
-![Netherite Totem Tall Recipe](netherite%20tall.png)
+![Netherite Totem Tall Recipe](images/netherite%20tall.png)
 
 ### Netherite Totem (Short)
-![Netherite Totem Short Recipe](netherite%20short.png)
+![Netherite Totem Short Recipe](images/netherite%20short.png)
 
 </details>
 

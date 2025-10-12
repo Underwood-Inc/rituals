@@ -8,6 +8,7 @@
 kill @e[type=interaction,tag=rituals.totem]
 kill @e[type=item_display,tag=rituals.totem_display]
 kill @e[type=block_display,tag=rituals.totem_visual]
+kill @e[type=area_effect_cloud,tag=rituals.range_marker]
 
 # Remove scoreboards
 scoreboard objectives remove rituals.data
