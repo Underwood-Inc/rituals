@@ -1,10 +1,7 @@
 {
   "display": {
     "icon": {
-      "id": "minecraft:warped_fungus_on_a_stick",
-      "components": {
-        "minecraft:custom_model_data": 100003
-      }
+      "id": "minecraft:totem_of_undying"
     },
     "title": {
       "text": "Totem Rituals",
@@ -17,7 +14,7 @@
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": false,
-    "background": "minecraft:textures/block/enchanting_table_top.png"
+    "background": "minecraft:textures/block/gray_concrete.png"
   },
   "criteria": {
     "auto_grant": {
