@@ -1,5 +1,7 @@
 # Totem Rituals Datapack
 
+![Totem Rituals Banner](banner.png)
+
 A Minecraft datapack that introduces mystical totems and powerful ritual magic to your world. Place totems, display items upon them, and perform rituals to gain unique effects!
 
 ## Version Information
@@ -17,39 +19,43 @@ A Minecraft datapack that introduces mystical totems and powerful ritual magic t
 - [Ritual Types](#ritual-types)
 - [Crafting Recipes](#crafting-recipes)
 - [Commands](#commands)
+- [Configuration](#configuration)
 - [Technical Details](#technical-details)
 
 ## Installation
 
-### Step-by-Step Installation Guide
+<details>
+<summary><b>📦 Step-by-Step Installation Guide (Click to Expand)</b></summary>
 
 This guide assumes you have no prior experience with Minecraft datapacks. A datapack is a special folder that adds new features to your Minecraft world.
 
-1. **Download the Datapack**
-   - If you received this as a ZIP file, you're ready to go
-   - If you have the folder structure, compress it into a ZIP file first
+### 1. Download the Datapack
+- If you received this as a ZIP file, you're ready to go
+- If you have the folder structure, compress it into a ZIP file first
 
-2. **Locate Your World Save Folder**
-   - Open Minecraft and note which world you want to add this to
-   - Close Minecraft (important!)
-   - Find your Minecraft saves folder:
-     - **Windows**: Press `Win + R`, type `%appdata%\.minecraft\saves` and press Enter
-     - **Mac**: Press `Cmd + Space`, type `~/Library/Application Support/minecraft/saves` and press Enter
-     - **Linux**: Navigate to `~/.minecraft/saves`
+### 2. Locate Your World Save Folder
+- Open Minecraft and note which world you want to add this to
+- Close Minecraft (important!)
+- Find your Minecraft saves folder:
+  - **Windows**: Press `Win + R`, type `%appdata%\.minecraft\saves` and press Enter
+  - **Mac**: Press `Cmd + Space`, type `~/Library/Application Support/minecraft/saves` and press Enter
+  - **Linux**: Navigate to `~/.minecraft/saves`
 
-3. **Install the Datapack**
-   - Find the folder with your world's name
-   - Open the `datapacks` folder inside (create it if it doesn't exist)
-   - Place the datapack ZIP file (or folder) into this `datapacks` folder
+### 3. Install the Datapack
+- Find the folder with your world's name
+- Open the `datapacks` folder inside (create it if it doesn't exist)
+- Place the datapack ZIP file (or folder) into this `datapacks` folder
 
-4. **Enable the Datapack**
-   - Launch Minecraft and open your world
-   - You should see a message in chat: "[Totem Rituals] Datapack loaded successfully!"
-   - If you don't see the message, type `/reload` in the chat and press Enter
+### 4. Enable the Datapack
+- Launch Minecraft and open your world
+- You should see a message in chat: "[Totem Rituals] Datapack loaded successfully!"
+- If you don't see the message, type `/reload` in the chat and press Enter
 
-5. **Get Started**
-   - Type `/function rituals:give/all` to receive all totem items
-   - You're now ready to perform rituals!
+### 5. Get Started
+- Type `/function rituals:give/all` to receive all totem items
+- You're now ready to perform rituals!
+
+</details>
 
 ## Getting Started
 
@@ -65,6 +71,9 @@ This datapack adds a new item category called "Totems" which can be crafted and 
 5. The ritual automatically activates!
 
 ## Totem Tiers
+
+<details>
+<summary><b>⚡ View All Totem Tiers (Click to Expand)</b></summary>
 
 There are six tiers of totems, each with increasing effect power. All totems use tier-based ranges, with higher tiers providing stronger effects and larger areas.
 
@@ -116,6 +125,8 @@ There are six tiers of totems, each with increasing effect power. All totems use
 
 See `RANGE_DIAGRAM.md` for detailed range specifications.
 
+</details>
+
 ## How to Use Totems
 
 ### Placing a Totem
@@ -145,6 +156,9 @@ See `RANGE_DIAGRAM.md` for detailed range specifications.
 3. All visual effects will be removed
 
 ## Ritual Types
+
+<details>
+<summary><b>✨ View All Ritual Types (Click to Expand)</b></summary>
 
 Rituals activate automatically when you have 1 or more totems displaying the same item type within range of each other. Each ritual lasts for 30 seconds and provides unique effects. Higher tier totems provide stronger effects and larger ranges.
 
@@ -210,150 +224,268 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 - **Duration**: 30 seconds (600 ticks)
 - **Interruption**: Removing an item from any participating totem stops the ritual
 
+</details>
+
 ## Crafting Recipes
 
-### Basic Totem
-```
- [ Stick ]
-[Stick][Oak Log][Stick]
- [Oak Log]
-```
+All totems come in two variants: **Tall** (2 blocks high) and **Short** (1 block high, walkable). Short variants use the same recipe but **without the top ingredient**.
 
-### Advanced Totem
-```
-    [Iron Ingot]
-[Iron Ingot][Basic Totem][Iron Ingot]
-    [Diamond]
-```
+<details>
+<summary><b>🪵 Wood Totem Recipes</b></summary>
 
-### Master Totem
-```
-      [Netherite Ingot]
-[Diamond Block][Advanced Totem][Emerald Block]
-      [Netherite Ingot]
-```
+### Wood Totem (Tall)
+![Wood Totem Tall Recipe](wood%20tall.png)
 
-**Note**: Advanced and Master totems require the previous tier as a crafting ingredient, creating a progression system.
+### Wood Totem (Short)
+![Wood Totem Short Recipe](wood%20short.png)
+
+</details>
+
+<details>
+<summary><b>🟠 Copper Totem Recipes</b></summary>
+
+### Copper Totem (Tall)
+![Copper Totem Tall Recipe](copper%20tall.png)
+
+### Copper Totem (Short)
+![Copper Totem Short Recipe](copper%20short.png)
+
+</details>
+
+<details>
+<summary><b>⚙️ Iron Totem Recipes</b></summary>
+
+### Iron Totem (Tall)
+![Iron Totem Tall Recipe](iron%20tall.png)
+
+### Iron Totem (Short)
+![Iron Totem Short Recipe](iron%20short.png)
+
+</details>
+
+<details>
+<summary><b>🟡 Gold Totem Recipes</b></summary>
+
+### Gold Totem (Tall)
+![Gold Totem Tall Recipe](gold%20tall.png)
+
+### Gold Totem (Short)
+![Gold Totem Short Recipe](gold%20short.png)
+
+</details>
+
+<details>
+<summary><b>💎 Diamond Totem Recipes</b></summary>
+
+### Diamond Totem (Tall)
+![Diamond Totem Tall Recipe](diamond%20tall.png)
+
+### Diamond Totem (Short)
+![Diamond Totem Short Recipe](diamond%20short.png)
+
+</details>
+
+<details>
+<summary><b>🟣 Netherite Totem Recipes</b></summary>
+
+### Netherite Totem (Tall)
+![Netherite Totem Tall Recipe](netherite%20tall.png)
+
+### Netherite Totem (Short)
+![Netherite Totem Short Recipe](netherite%20short.png)
+
+</details>
+
+**Tip**: Higher tier totems provide larger ranges and more powerful effects!
 
 ## Commands
+
+<details>
+<summary><b>⌨️ Available Commands (Click to Expand)</b></summary>
 
 ### Give Commands
 
 These commands give you totem items. They can only be used by players with operator permissions (or in creative mode).
 
 - `/function rituals:give/all` - Gives you one of each totem tier
-- `/function rituals:give/totem_basic` - Gives you a Basic Totem
-- `/function rituals:give/totem_advanced` - Gives you an Advanced Totem
-- `/function rituals:give/totem_master` - Gives you a Master Totem
+- `/function rituals:give/totem_basic` - Gives you a Wood Totem (tall)
+- `/function rituals:give/totem_basic_short` - Gives you a Wood Totem (short)
+- `/function rituals:give/totem_copper` - Gives you a Copper Totem (tall)
+- `/function rituals:give/totem_copper_short` - Gives you a Copper Totem (short)
+- `/function rituals:give/totem_gold` - Gives you a Gold Totem (tall)
+- `/function rituals:give/totem_gold_short` - Gives you a Gold Totem (short)
+- `/function rituals:give/totem_advanced` - Gives you a Diamond Totem (tall)
+- `/function rituals:give/totem_advanced_short` - Gives you a Diamond Totem (short)
+- `/function rituals:give/totem_master` - Gives you a Netherite Totem (tall)
+- `/function rituals:give/totem_master_short` - Gives you a Netherite Totem (short)
+- `/function rituals:give/guidebook` - Gives you the Totem Rituals Guidebook
 
 ### System Commands
 
 - `/reload` - Reloads all datapacks (use if the datapack isn't working)
+- `/function rituals:help` - Shows the in-game help menu
+- `/function rituals:config/reload` - Reloads configuration changes
+
+</details>
 
 ## Technical Details
 
-### For Server Administrators
+<details>
+<summary><b>🛠️ For Server Administrators (Click to Expand)</b></summary>
 
-**Performance Considerations:**
+### Performance Considerations
 - The datapack uses interaction entities for totem placement (Minecraft 1.19.4+)
 - Rituals check for activation every 20 ticks (once per second)
 - Effects apply at intervals (20-40 ticks) to maintain performance
-- Each totem uses 3 entities: 1 interaction, 1 block display, 1 item display
+- Each totem uses 3-4 entities: 1 interaction, 1-2 block displays, 1 item display
+- Item displays have smooth animations (rotation + bobbing) with 10-tick interpolation
 
-**Compatibility:**
+### Compatibility
 - Should work with most other datapacks
 - Uses custom scoreboard objectives (all prefixed with "rituals.")
-- Uses storage namespace "rituals:temp"
+- Uses storage namespace "rituals:config" and "rituals:temp"
 - Custom tags are all in the "rituals" namespace
 
-### For Datapack Developers
+</details>
 
-**Architecture:**
+<details>
+<summary><b>💻 For Datapack Developers (Click to Expand)</b></summary>
+
+### Architecture
 - **Main Loop**: `rituals:tick` runs from `minecraft:tick`
 - **Initialization**: `rituals:load` runs from `minecraft:load`
 - **Entity System**: Uses interaction entities for hitbox/data, display entities for visuals
 - **ID System**: Each totem gets a unique ID for linking its entities
 
-**Scoreboards:**
+### Scoreboards
 - `rituals.data` - Constants and global data
 - `rituals.timer` - Tick counters for cooldowns/durations
 - `rituals.distance` - Totem range values
-- `rituals.tier` - Totem tier (1-3)
-- `rituals.effect` - Active ritual effect type (1-5)
+- `rituals.tier` - Totem tier (1-6)
+- `rituals.effect` - Active ritual effect type
 - `rituals.temp` - Temporary calculations
 - `rituals.id` - Entity linking system
 
-**Tags:**
+### Entity Tags
 - `rituals.totem` - Main totem interaction entities
+- `rituals.short_totem` - Short variant totems (1 block tall)
 - `rituals.totem_visual` - Block display entities for totem visuals
 - `rituals.totem_display` - Item display entities for held items
+- `rituals.totem_barrier` - Barrier block displays for collision
 - `rituals.has_item` - Totems with items displayed
 - `rituals.active_ritual` - Totems participating in a ritual
 - `rituals.[ritual_type]_ritual` - Specific ritual type tags
 
-**File Structure:**
+### File Structure
 ```
 data/
 ├── rituals/
+│   ├── advancement/      # Achievement system
 │   ├── function/
 │   │   ├── load.mcfunction
 │   │   ├── tick.mcfunction
-│   │   ├── give/
-│   │   ├── totem/
-│   │   └── ritual/
-│   ├── recipe/
-│   ├── predicate/
-│   ├── item_modifier/
-│   └── tags/
+│   │   ├── give/        # Item give commands
+│   │   ├── totem/       # Totem placement/interaction
+│   │   ├── ritual/      # Ritual effects
+│   │   ├── config/      # Configuration system
+│   │   └── admin/       # Admin utilities
+│   ├── recipe/          # Crafting recipes
+│   ├── predicate/       # Random chance predicates
+│   ├── item_modifier/   # Item modification
+│   └── tags/            # Custom tags
 ├── minecraft/
 │   └── tags/
 │       └── function/
 └── pack.mcmeta
 ```
 
+See `SYSTEM_OVERVIEW.md` for detailed technical documentation.
+
+</details>
+
+## Configuration
+
+<details>
+<summary><b>⚙️ Configuration Options (Click to Expand)</b></summary>
+
+You can customize various datapack settings using the config storage system.
+
+### Viewing Current Config
+```
+/data get storage rituals:config
+```
+
+### Modifying Settings
+```
+/data modify storage rituals:config <key> set value <value>
+/function rituals:config/reload
+```
+
+### Available Settings
+- `min_totems_required` - Minimum number of totems needed for a ritual (default: 1)
+- `max_totem_distance` - Maximum distance between totems in blocks (default: 32)
+- `ritual_duration` - How long rituals last in ticks (default: 600 = 30 seconds)
+
+See `CONFIG_GUIDE.md` for complete configuration documentation.
+
+</details>
+
 ## Redstone Range Display
+
+<details>
+<summary><b>🔴 Redstone Range Visualization (Click to Expand)</b></summary>
 
 You can visualize a totem's effect range by powering it with redstone!
 
-**How to use:**
+### How to use:
 1. Place a **lever**, **redstone torch**, **redstone block**, or powered **redstone wire** next to or below your totem
-2. Red particles will show the exact ritual range (5×5×6 box, or 10×10×12 for Sentry totems)
+2. Red particles will show the exact ritual range (varies by tier)
 3. Turn off the redstone to hide the display
 
-**Supported redstone sources:**
+### Supported redstone sources:
 - Redstone torch (always on)
 - Redstone block (always on)
 - Lever (toggle on/off)
 - Button (temporary)
 - Powered redstone wire
 
-See `REDSTONE_RANGE_DISPLAY.md` for full details!
+See `RANGE_DIAGRAM.md` for detailed range specifications!
+
+</details>
 
 ## Troubleshooting
 
-### Common Issues
+<details>
+<summary><b>🔧 Common Issues & Solutions (Click to Expand)</b></summary>
 
-**Totems won't place:**
-- Make sure you're sneaking (holding Shift) when you right-click
+### Totems won't place:
+- Make sure you're **right-clicking** (not sneaking required!)
 - Ensure there's empty space (air block) where you're trying to place the totem
-- Check that you have the actual totem item (should have custom name and lore)
+- Check that you have the actual totem item (should have custom name and colored text)
 
-**Items won't display on totems:**
+### Items won't display on totems:
 - Make sure you're right-clicking the totem, not the ground near it
 - The totem can only hold one item at a time
 - Try removing the current item first (right-click empty-handed)
 
-**Rituals won't activate:**
+### Rituals won't activate:
 - By default, only 1 totem is needed (check config if changed)
 - Totems work individually by default (configurable to require multiple)
 - Items must be placed ON the totems (floating above them)
 - Wait 1 second after placing the last item (system checks every 20 ticks)
 
-**Datapack not working:**
+### Datapack not working:
 - Type `/reload` in chat
 - Check that the datapack is in the correct folder (world/datapacks/)
 - Ensure the folder structure is correct (pack.mcmeta should be at the root)
 - Make sure you're using Minecraft 1.21 or later
+
+### Resource Pack Issues:
+- The resource pack is **optional** but provides custom textures
+- Place it in your `resourcepacks` folder and enable it in-game
+- If textures don't appear, make sure the pack is above other resource packs in the list
+
+</details>
 
 ## Future Enhancements
 
