@@ -29,10 +29,5 @@ execute if entity @s[tag=!rituals.short_totem] run summon item_display ~ ~2.2 ~ 
 scoreboard players operation @e[type=item_display,tag=rituals.new_display,limit=1,sort=nearest] rituals.id = @s rituals.id
 tag @e[type=item_display,tag=rituals.new_display,limit=1,sort=nearest] remove rituals.new_display
 
-# Text display for name label at eye level (Y+1.5)
-summon text_display ~ ~1.5 ~ {Tags:["rituals.totem_name","rituals.new_name"],billboard:"center",text:'{"text":""}',background:0,see_through:1b,brightness:{sky:15,block:15}}
-scoreboard players operation @e[type=text_display,tag=rituals.new_name,limit=1,sort=nearest] rituals.id = @s rituals.id
-tag @e[type=text_display,tag=rituals.new_name,limit=1,sort=nearest] remove rituals.new_name
-
-# Set display name
+# Set display name (will appear when looked at)
 function rituals:totem/update_display_name

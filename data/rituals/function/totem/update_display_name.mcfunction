@@ -19,6 +19,6 @@ execute if score @s rituals.effect matches 4 run data modify storage rituals:tem
 execute if score @s rituals.effect matches 5 run data modify storage rituals:temp effect_name set value "Healing"
 execute if score @s rituals.effect matches 6 run data modify storage rituals:temp effect_name set value "Sentry"
 
-# Apply the name to the text_display entity
-execute as @e[type=text_display,tag=rituals.totem_name] if score @s rituals.id = @e[type=interaction,tag=rituals.totem,limit=1,sort=nearest] rituals.id run function rituals:totem/update_display_name_apply with storage rituals:temp
+# Apply the name to the interaction entity (only shows when looked at)
+function rituals:totem/update_display_name_apply with storage rituals:temp
 
