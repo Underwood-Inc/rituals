@@ -12,7 +12,7 @@ Players craft mystical totem bases, place them in the world, display items on th
 
 ### 1. Totem Bases (Items)
 - **Item Type**: Warped Fungus on a Stick (with `custom_model_data`)
-- **3 Tiers**: Wood (1), Iron (2), Diamond (3)
+- **6 Tiers**: Wood (1), Copper (2), Iron (3), Gold (4), Diamond (5), Netherite (6)
 - **Placement**: Sneak + Right-click on ground
 - **Visual in Hand**: Custom model (via resource pack)
 
@@ -25,12 +25,12 @@ Each placed totem consists of **3 entities**:
 All linked by unique ID stored in `rituals.id` scoreboard
 
 ### 3. Ritual System
-- **Detection**: Checks every 20 ticks for 3+ totems with same item
+- **Detection**: Checks every 20 ticks for 1+ totems with same item
 - **Range**: 32 blocks between totems (for multi-totem mode)
 - **Single-Totem Mode**: Enabled by default (configurable)
 - **Duration**: 600 ticks (30 seconds)
-- **Effect Area**: 5×5×6 block box centered on each totem
-- **Power Scaling**: Tier I (×1), Tier II (×2), Tier III (×3)
+- **Effect Area**: Tier-based ranges from 2×2×6 (Wood) to 7×7×16 (Netherite)
+- **Power Scaling**: Higher tiers have larger ranges and stronger/faster effects
 
 ### 4. Upgrade System
 - **Slates**: Crafted with paste + totem base
@@ -135,38 +135,50 @@ rituals.[type]_ritual      - Specific ritual type marker
 
 ## Visual Tiers
 
-### Wood (Tier I)
-- **Pole**: Cobblestone Wall
-- **Color**: Brown/tan
-- **Particles**: None
-- **Power**: ×1
+### Wood (Tier 1)
+- **Range**: 2×2 horizontal, 3 up/down
+- **Particles**: Minimal
+- **Power**: Basic
 
-### Iron (Tier II)
-- **Pole**: Stone Brick Wall
-- **Color**: Gray
+### Copper (Tier 2)
+- **Range**: 3×3 horizontal, 4 up/down
+- **Particles**: Copper-colored
+- **Power**: Improved
+
+### Iron (Tier 3)
+- **Range**: 4×4 horizontal, 5 up/down
 - **Particles**: Silver dust
-- **Power**: ×2
+- **Power**: Strong
 
-### Diamond (Tier III)
-- **Pole**: Blackstone Wall
-- **Color**: Dark/black
+### Gold (Tier 4)
+- **Range**: 5×5 horizontal, 6 up/down
+- **Particles**: Golden dust
+- **Power**: Very Strong
+
+### Diamond (Tier 5)
+- **Range**: 6×6 horizontal, 7 up/down
 - **Particles**: Cyan dust
-- **Power**: ×3
+- **Power**: Powerful
+
+### Netherite (Tier 6)
+- **Range**: 7×7 horizontal, 8 up/down
+- **Particles**: Purple dust
+- **Power**: Maximum
 
 ---
 
 ## Ritual Effects Detailed
 
 ### Growth (Emerald)
-- **Frequency**: Every 20 ticks
-- **Action**: Random block in 5×5×6 box
-- **Targets**: Crops, saplings
-- **Scaling**: 1/2/3 attempts per tick based on tier
+- **Frequency**: 300 to 60 ticks based on tier (15s to 3s)
+- **Action**: Random block in tier-based range, 30% chance
+- **Targets**: Crops (wheat, carrot, potato, beetroot, cocoa, berries, stems)
+- **Scaling**: Faster checks at higher tiers
 
 ### Strength (Diamond)
-- **Frequency**: Every 40 ticks
+- **Frequency**: 40 to 15 ticks based on tier (2s to 0.75s)
 - **Buffs**: Strength + Resistance
-- **Targets**: Players in 5×5×6 box
+- **Targets**: Players in tier-based range
 - **Scaling**: Level increases with tier
 
 ### Prosperity (Gold)
