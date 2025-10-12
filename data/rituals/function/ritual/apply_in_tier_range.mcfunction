@@ -22,8 +22,8 @@ scoreboard players operation #box_v rituals.temp = #current_v_range rituals.temp
 scoreboard players operation #box_v rituals.temp *= #2 rituals.data
 
 # Store in storage for macro use
-execute store result storage rituals:temp neg_h double 1 run scoreboard players get #neg_h rituals.temp
-execute store result storage rituals:temp neg_v double 1 run scoreboard players get #neg_v rituals.temp
+execute store result storage rituals:temp neg_h int 1 run scoreboard players get #neg_h rituals.temp
+execute store result storage rituals:temp neg_v int 1 run scoreboard players get #neg_v rituals.temp
 execute store result storage rituals:temp box_h int 1 run scoreboard players get #box_h rituals.temp
 execute store result storage rituals:temp box_v int 1 run scoreboard players get #box_v rituals.temp
 
