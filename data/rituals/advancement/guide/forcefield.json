@@ -1,0 +1,24 @@
+{
+  "parent": "rituals:guide/advanced_rituals",
+  "display": {
+    "icon": {
+      "id": "minecraft:end_crystal"
+    },
+    "title": {
+      "text": "Forcefield Ritual",
+      "color": "light_purple"
+    },
+    "description": {
+      "text": "Create an impenetrable barrier. Requires 8+ totems in a circle pattern. (Coming Soon)"
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

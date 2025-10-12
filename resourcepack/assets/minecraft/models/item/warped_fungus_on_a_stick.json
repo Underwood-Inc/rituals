@@ -21,6 +21,24 @@
         "custom_model_data": 100003
       },
       "model": "rituals:item/totem_diamond"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 100004
+      },
+      "model": "rituals:item/totem_wood"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 100005
+      },
+      "model": "rituals:item/totem_iron"
+    },
+    {
+      "predicate": {
+        "custom_model_data": 100006
+      },
+      "model": "rituals:item/totem_diamond"
     }
   ]
 }

@@ -10,7 +10,7 @@
       "bold": true
     },
     "description": {
-      "text": "Place 3+ totems with the SAME item nearby. Range: 5x5 horizontal, 3 up/down"
+      "text": "Place a totem and right-click it with an item. Multiple totems amplify effects!"
     },
     "frame": "goal",
     "show_toast": true,

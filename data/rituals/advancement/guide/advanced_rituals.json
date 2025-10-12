@@ -1,16 +1,16 @@
 {
-  "parent": "rituals:guide/upgrade_totem",
+  "parent": "rituals:guide/master_ritualist",
   "display": {
     "icon": {
-      "id": "minecraft:blackstone_wall"
+      "id": "minecraft:netherite_block"
     },
     "title": {
-      "text": "Master Ritualist",
+      "text": "Advanced Rituals",
       "color": "dark_purple",
       "bold": true
     },
     "description": {
-      "text": "Mastered totem rituals! Higher tiers = greater range and power. Multi-totem rituals coming soon!"
+      "text": "Multi-totem rituals with complex patterns unlock powerful effects! (Coming Soon)"
     },
     "frame": "challenge",
     "show_toast": true,
@@ -18,7 +18,7 @@
   },
   "criteria": {
     "auto": {
-      "trigger": "minecraft:tick"
+      "trigger": "minecraft:impossible"
     }
   }
 }

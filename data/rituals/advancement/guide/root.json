@@ -1,7 +1,10 @@
 {
   "display": {
     "icon": {
-      "id": "minecraft:warped_fungus_on_a_stick"
+      "id": "minecraft:warped_fungus_on_a_stick",
+      "components": {
+        "minecraft:custom_model_data": 100003
+      }
     },
     "title": {
       "text": "Totem Rituals",
@@ -9,7 +12,7 @@
       "bold": true
     },
     "description": {
-      "text": "Craft and use ritual totems to harness ancient magic"
+      "text": "Harness ancient magic with ritual totems. Single totem = basic effect, multiple totems = amplified power!"
     },
     "frame": "challenge",
     "show_toast": true,

@@ -9,7 +9,7 @@
       "color": "light_purple"
     },
     "description": {
-      "text": "Use nether stars on 3+ totems to heal players and animals constantly"
+      "text": "Right-click a totem with a nether star to heal players and animals"
     },
     "frame": "task",
     "show_toast": false,

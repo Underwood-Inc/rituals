@@ -13,6 +13,10 @@ scoreboard objectives add rituals.temp dummy
 scoreboard objectives add rituals.id dummy
 scoreboard objectives add rituals.use_count minecraft.used:minecraft.warped_fungus_on_a_stick
 
+# Menu system scoreboards
+scoreboard objectives add rituals.menu trigger
+scoreboard objectives add rituals.menu_state dummy
+
 # Load config (can be modified in-game with /data modify storage rituals:config)
 function rituals:config/load
 

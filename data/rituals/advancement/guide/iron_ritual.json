@@ -9,7 +9,7 @@
       "color": "gray"
     },
     "description": {
-      "text": "Use iron ingots on 3+ totems to damage hostile mobs in the area"
+      "text": "Right-click a totem with an iron ingot to damage hostile mobs in range"
     },
     "frame": "task",
     "show_toast": false,

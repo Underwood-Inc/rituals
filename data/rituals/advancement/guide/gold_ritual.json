@@ -9,7 +9,7 @@
       "color": "yellow"
     },
     "description": {
-      "text": "Use gold ingots on 3+ totems to attract nearby items to the center"
+      "text": "Right-click a totem with a gold ingot to attract nearby items"
     },
     "frame": "task",
     "show_toast": false,

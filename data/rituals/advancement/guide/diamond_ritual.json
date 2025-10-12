@@ -9,7 +9,7 @@
       "color": "aqua"
     },
     "description": {
-      "text": "Use diamonds on 3+ totems to grant Strength effect to nearby players"
+      "text": "Right-click a totem with a diamond to grant Strength to nearby players"
     },
     "frame": "task",
     "show_toast": false,

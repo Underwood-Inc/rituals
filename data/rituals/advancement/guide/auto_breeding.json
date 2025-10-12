@@ -1,0 +1,24 @@
+{
+  "parent": "rituals:guide/advanced_rituals",
+  "display": {
+    "icon": {
+      "id": "minecraft:wheat"
+    },
+    "title": {
+      "text": "Auto-Breeding Ritual",
+      "color": "green"
+    },
+    "description": {
+      "text": "Automatically breed nearby animals. Requires 5+ totems in a star pattern. (Coming Soon)"
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "auto": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+
