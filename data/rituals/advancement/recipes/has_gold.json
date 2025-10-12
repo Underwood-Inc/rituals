@@ -1,0 +1,23 @@
+{
+  "parent": "rituals:guide/root",
+  "criteria": {
+    "has_gold": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:gold_ingot"]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "rituals:totem_base_gold",
+      "rituals:totem_base_gold_short",
+      "rituals:upgrade_slate_gold"
+    ]
+  }
+}
+

@@ -26,6 +26,13 @@
         ]
       }
     }
+  },
+  "rewards": {
+    "recipes": [
+      "rituals:totem_base_wood",
+      "rituals:totem_base_wood_short",
+      "rituals:paste"
+    ]
   }
 }
 

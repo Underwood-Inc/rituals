@@ -1,0 +1,23 @@
+{
+  "parent": "rituals:guide/root",
+  "criteria": {
+    "has_copper": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:copper_ingot"]
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "rituals:totem_base_copper",
+      "rituals:totem_base_copper_short",
+      "rituals:upgrade_slate_copper"
+    ]
+  }
+}
+
