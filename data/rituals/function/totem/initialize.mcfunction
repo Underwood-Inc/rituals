@@ -29,5 +29,9 @@ execute if entity @s[tag=!rituals.short_totem] run summon item_display ~ ~2.2 ~ 
 scoreboard players operation @e[type=item_display,tag=rituals.new_display,limit=1,sort=nearest] rituals.id = @s rituals.id
 tag @e[type=item_display,tag=rituals.new_display,limit=1,sort=nearest] remove rituals.new_display
 
-# Set display name (will appear when looked at)
+# Link text_display label to this totem
+scoreboard players operation @e[type=text_display,tag=rituals.new_label,limit=1,sort=nearest] rituals.id = @s rituals.id
+tag @e[type=text_display,tag=rituals.new_label,limit=1,sort=nearest] remove rituals.new_label
+
+# Set display name
 function rituals:totem/update_display_name

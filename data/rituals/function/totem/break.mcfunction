@@ -30,16 +30,18 @@ execute if entity @s[tag=rituals.has_item] run function rituals:totem/drop_displ
 # Remove all associated entities with matching ID
 execute as @e[type=block_display,tag=rituals.totem_visual] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #break_id rituals.temp run kill @s
+execute as @e[type=text_display,tag=rituals.totem_label] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=block_display,tag=rituals.totem_barrier] if score @s rituals.id = #break_id rituals.temp run kill @s
 
-# Remove barrier blocks that provided collision
-setblock ~ ~ ~ air
+# Remove barrier blocks that provided collision (at ~1 and ~2, not ground level)
+setblock ~ ~1 ~ air
 # Only remove second barrier for tall totems
-execute if entity @s[tag=!rituals.short_totem] run setblock ~ ~1 ~ air
+execute if entity @s[tag=!rituals.short_totem] run setblock ~ ~2 ~ air
 
 # Also kill any entities at this exact location (failsafe)
 kill @e[type=block_display,tag=rituals.totem_visual,distance=..0.1]
 kill @e[type=item_display,tag=rituals.totem_display,distance=..0.1]
+kill @e[type=text_display,tag=rituals.totem_label,distance=..2]
 kill @e[type=block_display,tag=rituals.totem_barrier,distance=..50]
 
 # Visual and sound feedback

@@ -1,7 +1,6 @@
-# Apply the name to the interaction entity
+# Apply the name to the text_display entity
 # Parameters: $tier_name, $effect_name
-# CustomNameVisible:0b means it only shows when player looks directly at it
-# Using plain text format (no JSON) to avoid displaying raw JSON
+# Using plain text format
 
-$data merge entity @s {CustomName:'"$(tier_name) Totem - $(effect_name)"',CustomNameVisible:0b}
+$data merge entity @s {text:'"$(tier_name) Totem - $(effect_name)"'}
 

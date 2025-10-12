@@ -3,13 +3,16 @@
 scoreboard players add #global_totem_id rituals.id 1
 
 # Summon totem interaction entity (for clicking/breaking) - wide and tall to cover entire totem visual
-# Positioned at Y-1.0 so the TOP (where label shows) is at eye level Y+1.5
-summon interaction ~ ~-1.0 ~ {width:2.0f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
+summon interaction ~ ~ ~ {width:2.0f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
+
+# Summon text_display for the label at eye level, slightly forward so it renders in front
+summon text_display ~ ~1.5 ~ {Tags:["rituals.totem_label","rituals.new_label"],text:'{"text":""}',billboard:"center",background:0,see_through:0b,brightness:{sky:15,block:15},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0.6f],scale:[1f,1f,1f]}}
 
 # Add barrier for collision (invisible, unbreakable in survival)
-setblock ~ ~ ~ barrier
+# Place barriers ABOVE the ground, not replacing it
+setblock ~ ~1 ~ barrier
 # Only place second barrier for tall totems (not short variants)
-execute as @p unless score @s rituals.temp matches 1 run setblock ~ ~1 ~ barrier
+execute as @p unless score @s rituals.temp matches 1 run setblock ~ ~2 ~ barrier
 
 # Initialize
 execute as @e[type=interaction,tag=rituals.new_totem,limit=1,sort=nearest] run function rituals:totem/initialize
