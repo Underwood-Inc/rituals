@@ -32,7 +32,7 @@ execute as @e[type=block_display,tag=rituals.totem_visual] if score @s rituals.i
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=block_display,tag=rituals.totem_barrier] if score @s rituals.id = #break_id rituals.temp run kill @s
 
-# Remove fence blocks that provided collision
+# Remove end rod blocks that provided collision
 setblock ~ ~ ~ air
 setblock ~ ~1 ~ air
 

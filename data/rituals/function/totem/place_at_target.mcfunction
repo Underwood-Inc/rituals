@@ -5,9 +5,9 @@ scoreboard players add #global_totem_id rituals.id 1
 # Summon totem interaction entity
 summon interaction ~ ~ ~ {width:1.2f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
 
-# Add oak fence for collision (smaller hitbox like a post)
-setblock ~ ~ ~ oak_fence
-setblock ~ ~1 ~ oak_fence
+# Add end rod for collision (doesn't connect to other blocks, has post-like hitbox)
+setblock ~ ~ ~ end_rod[facing=up]
+setblock ~ ~1 ~ end_rod[facing=up]
 
 # Initialize
 execute as @e[type=interaction,tag=rituals.new_totem,limit=1,sort=nearest] run function rituals:totem/initialize
