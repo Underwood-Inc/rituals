@@ -2,7 +2,15 @@
 
 ![Totem Rituals Banner](images/banner.png)
 
-A Minecraft datapack that introduces mystical totems and powerful ritual magic to your world. Place totems, display items upon them, and perform rituals to gain unique effects!
+Introducing Rituals—a custom datapack + resourcepack combo that brings mystical totems and ritual magic into your world. Craft totems, display items, and trigger powerful effects through immersive rituals. Designed for builders, modpack creators, and lore lovers alike.  
+  
+🔮 **Features**  
+• Unique totem tiers with visual item displays  
+• Automatic ritual activation based on placement  
+• Custom textures, animations, and guidebook integration  
+• Fully configurable and ready for expansion  
+  
+Built with care for the Minecraft community—open source, tweakable, and ready to enchant your next adventure.
 
 ## Version Information
 
@@ -14,7 +22,7 @@ A Minecraft datapack that introduces mystical totems and powerful ritual magic t
 
 - [Installation](#installation)
 - [Getting Started](#getting-started)
-- [Fire Sacrifice System](#fire-sacrifice-system)
+- [Ritual System](#ritual-system)
 - [Totem Tiers](#totem-tiers)
 - [How to Use Totems](#how-to-use-totems)
 - [Ritual Types](#ritual-types)
@@ -71,7 +79,7 @@ This datapack adds a new item category called "Totems" which can be crafted and 
 4. Drop 4 catalyst items around the totem (N/S/E/W)
 5. Light fire at the totem base - the ritual activates!
 
-**Note**: Rituals now require a **Fire Sacrifice** to activate! See [Fire Sacrifice System](#fire-sacrifice-system) below.
+**Note**: Rituals now require a **Fire Sacrifice** to activate! See [Ritual System](#ritual-system) below.
 
 ## Ritual System
 

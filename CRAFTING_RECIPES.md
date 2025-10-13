@@ -515,7 +515,7 @@ Same as regular, but uses 1 less material (no top piece)
 - **Get all items:** `/function rituals:give/all`
 - **Help:** `/function rituals:help`
 - **Config:** `/data get storage rituals:config`
-- **Documentation:** See `CONFIG.md` for configuration options
+- **Documentation:** See `CONFIG_GUIDE.md` for configuration options
 
 ---
 

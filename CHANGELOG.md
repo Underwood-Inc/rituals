@@ -54,7 +54,7 @@
 
 ### 📖 Documentation
 
-- Added `CONFIG.md` with full configuration guide
+- Added `CONFIG_GUIDE.md` with full configuration guide
 - Added `CHANGELOG.md` (this file)
 - Updated `CRAFTING_RECIPES.md` with ritual effects
 - Updated all in-game messages with help links
