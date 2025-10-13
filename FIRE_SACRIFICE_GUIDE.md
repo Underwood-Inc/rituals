@@ -14,7 +14,7 @@ Instead of rituals starting automatically when you place items on totems, you mu
 
 ### Basic Steps
 
-1. **Place your totem** (Sneak + right-click)
+1. **Place your totem** (right-click)
 2. **Add your ritual item** to the totem (e.g., Diamond, Emerald, Arrow, etc.)
 3. **Drop 4 catalyst items** on the ground in the 4 cardinal directions around the totem (N, S, E, W)
 4. **Light a fire** at the totem's base using flint & steel or other fire source
