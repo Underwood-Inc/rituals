@@ -1,7 +1,7 @@
 # ========================================
 # Prosperity Ritual Effect
 # ========================================
-# Attracts items, grants XP and Luck effect (no entity spawning for performance)
+# Attracts items and grants Luck effect to players
 
 # Get tier-based range settings
 function rituals:ritual/get_tier_settings

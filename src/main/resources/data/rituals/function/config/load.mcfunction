@@ -102,13 +102,7 @@ data modify storage rituals:config prosperity_tier4_duration set value 16
 data modify storage rituals:config prosperity_tier5_duration set value 18
 data modify storage rituals:config prosperity_tier6_duration set value 20
 
-# XP orb values
-data modify storage rituals:config prosperity_tier1_xp set value 2
-data modify storage rituals:config prosperity_tier2_xp set value 2
-data modify storage rituals:config prosperity_tier3_xp set value 4
-data modify storage rituals:config prosperity_tier4_xp set value 4
-data modify storage rituals:config prosperity_tier5_xp set value 6
-data modify storage rituals:config prosperity_tier6_xp set value 8
+# XP values (REMOVED - now handled by XP Harvester pattern ritual)
 
 # ==================== PROTECTION RITUAL ====================
 # Frequency: How often to damage mobs and apply fire resistance (in ticks)

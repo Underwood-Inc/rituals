@@ -84,7 +84,7 @@ All 6 tiers now have consistent scaling:
 
 - **Emerald**: Growth (bonemeal crops)
 - **Diamond**: Strength (buff players)
-- **Netherite Block**: Prosperity (attract items + direct XP transfer + Luck effect, no entity spawning)
+- **Netherite Block**: Prosperity (attract items + Luck effect, no entity spawning)
 - **Iron Ingot**: Protection (damage mobs)
 - **Nether Star**: Healing (regeneration)
 - **Arrow**: Sentry (auto-attack) ⭐ NEW!

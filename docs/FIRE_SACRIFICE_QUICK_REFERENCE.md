@@ -56,7 +56,7 @@
 |-------------|-------------|--------|
 | 🌱 Growth | Emerald | Crop growth |
 | 💪 Strength | Diamond | Buffs players |
-| 💰 Prosperity | Netherite Block | Item magnet + XP |
+| 💰 Prosperity | Netherite Block | Item magnet + Luck |
 | 🛡️ Protection | Iron Ingot | Damages mobs |
 | 💖 Healing | Nether Star | Regeneration |
 | 🏹 Sentry | Arrow | Auto-turret |

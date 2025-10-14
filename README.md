@@ -256,12 +256,12 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 
 ### Prosperity Ritual
 - **Required Item**: Netherite Block
-- **Effect**: Attracts nearby items, grants XP and Luck effect to players
+- **Effect**: Attracts nearby items and grants Luck effect to players
 - **Pull Speed**: 0.3 to 1.0 blocks/tick based on tier
-- **XP Gain**: 2-8 XP points per check (direct transfer, no lag)
 - **Luck Effect**: Level 0-2 based on tier (helps with loot drops)
 - **Range**: Tier-based (see Totem Tiers)
 - **Visual**: Golden dust particles
+- **Note**: For XP generation, use the XP Harvester pattern ritual
 
 ### Protection Ritual
 - **Required Item**: Iron Ingot
@@ -368,8 +368,8 @@ mindmap
 
 ```mermaid
 pie title "Ritual Implementation Status"
-    "Implemented (7)" : 7
-    "Planned/Coming Soon (11)" : 11
+    "Implemented (9)" : 9
+    "Planned/Coming Soon (9)" : 9
 ```
 
 #### ✅ Currently Implemented Rituals
@@ -380,9 +380,11 @@ pie title "Ritual Implementation Status"
 | Protection | Iron Ingot | Wood (Tier 1) | 1+ | Damages hostile mobs periodically |
 | Sentry | Arrow | Wood (Tier 1) | 1+ | Fires homing magical projectiles at enemies |
 | Strength | Diamond | Iron (Tier 3) | 1+ | Grants Strength and Resistance to players |
-| Prosperity | Netherite Block | Gold (Tier 4) | 1+ | Attracts items, grants XP and Luck |
+| Prosperity | Netherite Block | Gold (Tier 4) | 1+ | Attracts items and grants Luck |
 | Healing | Nether Star | Diamond (Tier 5) | 1+ | Applies Regeneration to players and animals |
-| **Auto-Farming** | **Diamond Hoe** | **Wood (Tier 1)** | **4+** | **Automatically harvests and replants fully grown crops** |
+| **Auto-Farming** | **Diamond Hoe** | **Wood (Tier 1)** | **5** | **Automatically harvests and replants fully grown crops** |
+| **Auto-Breeding** | **Wheat** | **Wood (Tier 1)** | **5** | **Automatically breeds animals in range** |
+| **XP Harvester** | **Experience Bottle** | **Wood (Tier 1)** | **6** | **Generates 1-6 XP/second based on tier (requires redstone power)** |
 
 #### 🚧 Planned Rituals (Coming Soon)
 
@@ -397,14 +399,12 @@ These rituals are defined in the advancement system but not yet implemented. The
 
 | Ritual | Item | Min Totems | Pattern | Effect |
 |--------|------|------------|---------|--------|
-| **Auto-Breeding** | Wheat | 5+ | Star pattern (center + 4 cardinals) | Automatically breed animals in range |
 | **Flight Zone** | Elytra | 7+ | Tower pattern (vertical stack) | Grant levitation and slow falling to players |
 | **Weather Control** | Lightning Rod | 7+ | Storm pattern (hexagon + center) | Control weather (clear/rain/thunder) |
 | **Time Warp** | Clock | 9+ | Clock pattern (circle) | Accelerate time itself in area |
 | **Mining Haste** | Netherite Pickaxe | 5+ | Underground cross pattern | Grant Haste III to nearby players |
 | **Forcefield** | End Crystal | 8+ | Circle pattern (8 totems) | Create impenetrable barrier around area |
 | **Mob Repellent** | Zombie Head | 8+ | Barrier pattern (octagon) | Prevent hostile mob spawns in area |
-| **XP Harvester** | Experience Bottle | 5+ | Pentagon pattern | Generate and collect XP orbs over time |
 
 ---
 
@@ -417,7 +417,6 @@ The following are ideas for future rituals:
 - **Mining Haste** (Netherite Pickaxe) - Grant Haste effect
 - **Forcefield** (End Crystal) - Create barriers
 - **Mob Repellent** (Zombie Head) - Prevent mob spawns
-- **XP Harvester** (Experience Bottle) - Generate XP
 
 **🎯 NEW: Visual Pattern Guides!** Power your central totem with redstone (place redstone block/torch/lever next to it) to see colored particle markers showing exactly where each surrounding totem should be placed and what item it needs!
 

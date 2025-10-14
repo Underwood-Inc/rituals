@@ -306,11 +306,11 @@ flowchart LR
 - **Targets**: Players in tier-based range
 - **Scaling**: Level increases with tier
 
-### Prosperity (Gold)
+### Prosperity (Netherite Block)
 - **Frequency**: Every 20 ticks
-- **Action**: Pull items, spawn XP
+- **Action**: Pull items, grant Luck
 - **Targets**: Items in 5×5×6 box
-- **Scaling**: Pull speed increases with tier
+- **Scaling**: Pull speed and Luck level increase with tier
 
 ### Protection (Iron)
 - **Frequency**: Every 20 ticks
