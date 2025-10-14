@@ -9,6 +9,9 @@ execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.i
 
 # PATTERN-BASED AREA EFFECT RITUALS
 
+# Auto-Farming - Square pattern (4 corners)
+execute if data storage rituals:temp {central_item:"minecraft:diamond_hoe"} run function rituals:ritual/patterns/square/detect_auto_farming
+
 # Auto-Breeding - Star pattern (4 cardinals)
 execute if data storage rituals:temp {central_item:"minecraft:wheat"} run function rituals:ritual/patterns/star/detect_auto_breeding
 

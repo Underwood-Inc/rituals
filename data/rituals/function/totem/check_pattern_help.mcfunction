@@ -9,6 +9,9 @@ execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.i
 
 # Check each pattern ritual type and show help if not already shown
 
+# === AUTO-FARMING (Diamond Hoe) ===
+execute if data storage rituals:temp {placed_item:"minecraft:diamond_hoe"} unless entity @s[tag=rituals.pattern_help_shown] run function rituals:totem/pattern_help/auto_farming
+
 # === AUTO-BREEDING (Wheat) ===
 execute if data storage rituals:temp {placed_item:"minecraft:wheat"} unless entity @s[tag=rituals.pattern_help_shown] run function rituals:totem/pattern_help/auto_breeding
 

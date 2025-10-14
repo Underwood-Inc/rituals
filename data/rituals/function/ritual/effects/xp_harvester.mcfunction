@@ -1,7 +1,9 @@
 # ========================================
 # XP Harvester Ritual Effect
 # ========================================
-# Generates XP orbs slowly over time (1 XP per second)
+# Generates XP over time based on tier (1-6 XP per second)
+# Tier 1: 1 XP/sec | Tier 2: 2 XP/sec | Tier 3: 3 XP/sec
+# Tier 4: 4 XP/sec | Tier 5: 5 XP/sec | Tier 6: 6 XP/sec
 # REQUIRES REDSTONE POWER to operate (performance optimization)
 
 # Check if totem is powered by redstone - if not, skip entirely
@@ -20,6 +22,14 @@ scoreboard players set @s rituals.distance 0
 
 # Apply effects in tier-based range
 function rituals:ritual/apply_in_tier_range
+
+# Set XP amount based on tier (1-6 XP per second)
+execute if score @s rituals.tier matches 1 run data modify storage rituals:temp xp_amount set value 1
+execute if score @s rituals.tier matches 2 run data modify storage rituals:temp xp_amount set value 2
+execute if score @s rituals.tier matches 3 run data modify storage rituals:temp xp_amount set value 3
+execute if score @s rituals.tier matches 4 run data modify storage rituals:temp xp_amount set value 4
+execute if score @s rituals.tier matches 5 run data modify storage rituals:temp xp_amount set value 5
+execute if score @s rituals.tier matches 6 run data modify storage rituals:temp xp_amount set value 6
 
 # Apply XP harvester effects based on tier with dynamic range
 function rituals:ritual/effects/xp_harvester_apply with storage rituals:temp
