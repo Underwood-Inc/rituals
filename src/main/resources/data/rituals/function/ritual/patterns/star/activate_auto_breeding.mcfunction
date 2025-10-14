@@ -45,7 +45,27 @@ playsound minecraft:entity.sheep.ambient master @a ~ ~ ~ 1.5 1.0
 # Success message
 tellraw @a[distance=..32] [{"text":"💚 ","color":"green"},{"text":"Auto-Breeding","bold":true,"color":"yellow"},{"text":" ritual activated! Animals in range will now breed automatically!","color":"green"}]
 
-# Clean up pattern totem tags
+# CENTRAL TOTEM: Keep item, just remove help tag
+tag @s remove rituals.pattern_help_shown
+
+# SUPPLEMENTAL TOTEMS: Completely destroy with lightning
+# North
+execute positioned ~ ~ ~5 run summon lightning_bolt ~ ~ ~
+execute positioned ~ ~ ~5 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# East
+execute positioned ~5 ~ ~ run summon lightning_bolt ~ ~ ~
+execute positioned ~5 ~ ~ as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# South
+execute positioned ~ ~ ~-5 run summon lightning_bolt ~ ~ ~
+execute positioned ~ ~ ~-5 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# West
+execute positioned ~-5 ~ ~ run summon lightning_bolt ~ ~ ~
+execute positioned ~-5 ~ ~ as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# Clean up pattern totem tags (if any remain)
 tag @e[type=interaction,tag=rituals.pattern_totem] remove rituals.pattern_totem
 
 

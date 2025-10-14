@@ -85,9 +85,32 @@ After modifying, reload the configuration:
 
 ### Fire Sacrifice System
 
-#### `require_fire_sacrifice`
+#### `kiwi_mode` (User-Friendly Easy Mode) 🥝
+- **Default**: `false`
+- **Description**: **Easy mode for new players!** When enabled, rituals activate automatically when you place items on totems - no fire sacrifice needed! Perfect for learning the system or casual play.
+- **Valid Values**: `true` (easy mode) or `false` (fire sacrifice required)
+- **Example**: 
+  ```mcfunction
+  # EASY WAY - Just run this command (or click the chat link on world join!)
+  /function rituals:admin/enable_kiwi_mode
+  
+  # To disable it later
+  /function rituals:admin/disable_kiwi_mode
+  
+  # MANUAL WAY - Direct config modification (advanced)
+  /data modify storage rituals:config kiwi_mode set value true
+  /function rituals:config/reload
+  ```
+
+**Kiwi Mode is perfect for:**
+- 🆕 New players learning the ritual system
+- 🎮 Casual gameplay without resource costs
+- 🏫 Teaching servers or tutorial worlds
+- 🧪 Testing and experimenting with rituals
+
+#### `require_fire_sacrifice` (Advanced Setting)
 - **Default**: `true`
-- **Description**: If true, rituals require a fire sacrifice (catalyst items + fire) to activate. If false, rituals activate automatically when items are placed on totems (legacy mode).
+- **Description**: Technical setting that controls fire sacrifice requirement. **Note:** Kiwi Mode automatically manages this setting - use Kiwi Mode instead for easier configuration!
 - **Valid Values**: `true` or `false`
 - **Example**: 
   ```mcfunction

@@ -13,7 +13,7 @@ data remove entity @s attack
 data remove entity @s interaction
 
 # Creative mode can always instantly break
-execute as @p[distance=..6,gamemode=creative] run function rituals:totem/break
+execute if entity @p[distance=..6,gamemode=creative] run function rituals:totem/break
 
 # Tier 1 (Wood) - Requires any axe
 execute if entity @s[tag=!rituals.broken] if score @s rituals.tier matches 1 as @p[distance=..6,gamemode=!creative,predicate=rituals:holding_axe] at @s run function rituals:totem/mine_hit

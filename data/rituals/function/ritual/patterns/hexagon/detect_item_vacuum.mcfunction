@@ -11,6 +11,13 @@
 #   SW (-5, -3): Chest
 #   NW (-5, +3): Observer
 
+# Show helpful setup message (only once per totem)
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"🔹 ","color":"aqua"},{"text":"Item Vacuum Pattern Setup:","bold":true,"color":"cyan"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  Place 6 totems in hexagon around center:","color":"gray"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • N/NE/SE/S/SW/NW: ","color":"gray"},{"text":"Any ritual items","color":"cyan","bold":true},{"text":" (🔵 Cyan particles)","color":"cyan"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  Enchants the hopper with vacuum power!","color":"aqua","italic":true}]
+tag @s add rituals.pattern_help_shown
+
 # Reset pattern validation
 scoreboard players set #pattern_valid rituals.temp 0
 scoreboard players set #totems_found rituals.temp 0
@@ -51,6 +58,12 @@ scoreboard players operation #totems_found rituals.temp += #found_nw rituals.tem
 execute if score #totems_found rituals.temp matches 6 run function rituals:ritual/patterns/hexagon/activate_item_vacuum
 
 # If pattern incomplete, show debug message
-execute unless score #totems_found rituals.temp matches 6 run tellraw @a[distance=..10] {"text":"❌ Item Vacuum pattern incomplete! Found ","color":"red","extra":[{"score":{"name":"#totems_found","objective":"rituals.temp"}},{"text":"/6 totems with correct items."}]}
+# Pattern validation particles (visual indicators at missing hexagon positions)
+execute unless score #totems_found rituals.temp matches 6 unless score #found_n rituals.temp matches 1 positioned ~ ~ ~5 run particle minecraft:dust{color:[0.0,0.8,1.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 6 unless score #found_ne rituals.temp matches 1 positioned ~4 ~ ~3 run particle minecraft:dust{color:[0.0,0.8,1.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 6 unless score #found_se rituals.temp matches 1 positioned ~4 ~ ~-3 run particle minecraft:dust{color:[0.0,0.8,1.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 6 unless score #found_s rituals.temp matches 1 positioned ~ ~ ~-5 run particle minecraft:dust{color:[0.0,0.8,1.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 6 unless score #found_sw rituals.temp matches 1 positioned ~-4 ~ ~-3 run particle minecraft:dust{color:[0.0,0.8,1.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 6 unless score #found_nw rituals.temp matches 1 positioned ~-4 ~ ~3 run particle minecraft:dust{color:[0.0,0.8,1.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
 
 

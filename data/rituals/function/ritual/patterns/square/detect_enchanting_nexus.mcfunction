@@ -9,6 +9,13 @@
 #   SW (-4, -4): Amethyst Shard
 #   NW (-4, +4): Experience Bottle
 
+# Show helpful setup message (only once per totem)
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"📚 ","color":"dark_purple"},{"text":"Enchanting Nexus Pattern Setup:","bold":true,"color":"light_purple"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  Place totems at 4 corners (4 blocks diagonally):","color":"gray"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • NE/NW/SE/SW: ","color":"gray"},{"text":"Any ritual item","color":"light_purple","bold":true},{"text":" (🟣 Purple particles)","color":"light_purple"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  Creates a magical enchanting area!","color":"aqua","italic":true}]
+tag @s add rituals.pattern_help_shown
+
 # Reset pattern validation
 scoreboard players set #pattern_valid rituals.temp 0
 scoreboard players set #totems_found rituals.temp 0
@@ -44,6 +51,10 @@ scoreboard players operation #totems_found rituals.temp += #found_nw rituals.tem
 execute if score #totems_found rituals.temp matches 4 run function rituals:ritual/patterns/square/activate_enchanting_nexus
 
 # If pattern incomplete, show debug message (optional)
-execute unless score #totems_found rituals.temp matches 4 run tellraw @a[distance=..10] {"text":"❌ Enchanting Nexus pattern incomplete! Found ","color":"red","extra":[{"score":{"name":"#totems_found","objective":"rituals.temp"}},{"text":"/4 totems with correct items."}]}
+# Pattern validation particles (visual indicators at missing corners)
+execute unless score #totems_found rituals.temp matches 4 unless score #found_ne rituals.temp matches 1 positioned ~4 ~ ~4 run particle minecraft:dust{color:[0.5,0.0,1.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 4 unless score #found_nw rituals.temp matches 1 positioned ~-4 ~ ~4 run particle minecraft:dust{color:[0.5,0.0,1.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 4 unless score #found_se rituals.temp matches 1 positioned ~4 ~ ~-4 run particle minecraft:dust{color:[0.5,0.0,1.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 4 unless score #found_sw rituals.temp matches 1 positioned ~-4 ~ ~-4 run particle minecraft:dust{color:[0.5,0.0,1.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
 
 

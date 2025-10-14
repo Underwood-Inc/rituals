@@ -16,6 +16,9 @@ function rituals:totem/markers/spawn
 # If so, show pattern visualization instead of (or in addition to) range markers
 execute if entity @s[tag=rituals.has_item] run function rituals:totem/patterns/visualize_pattern
 
+# Show pattern help message if this is a pattern ritual item
+execute if entity @s[tag=rituals.has_item] run function rituals:totem/check_pattern_help
+
 # Sound and particle feedback
 playsound block.beacon.activate block @a ~ ~ ~ 0.3 2.0
 particle end_rod ~ ~2 ~ 0.3 0.3 0.3 0.05 20

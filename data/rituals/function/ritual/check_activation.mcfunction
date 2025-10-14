@@ -11,6 +11,9 @@ scoreboard players reset @s rituals.timer
 # Skip if already performing a ritual
 execute if entity @s[tag=rituals.active_ritual] run return 0
 
+# Skip if this is a pattern totem (part of another ritual)
+execute if entity @s[tag=rituals.pattern_totem] run return 0
+
 # Count nearby totems with items within range (including self = +1)
 scoreboard players set #totem_count rituals.temp 1
 execute store result score #nearby_totems rituals.temp if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=0.1..32]

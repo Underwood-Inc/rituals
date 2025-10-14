@@ -26,3 +26,6 @@ execute as @e[type=marker,tag=rituals.sentry_projectile] at @s run function ritu
 # Handle menu triggers
 function rituals:menu/handler
 
+# Show kiwi mode indicator
+execute if score #kiwi_mode rituals.data matches 1 run title @a actionbar [{"text":"🥝 ","color":"green"},{"text":"Kiwi Mode Active","color":"yellow"}]
+

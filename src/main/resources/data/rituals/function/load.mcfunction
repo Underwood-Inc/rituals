@@ -29,6 +29,10 @@ execute store result score #sentry_max_distance rituals.data run data get storag
 execute store result score #sentry_range_mult rituals.data run data get storage rituals:config sentry_range_multiplier
 
 # Store fire sacrifice mode flag (1 = enabled, 0 = disabled)
+# Check kiwi_mode first - if enabled, it overrides require_fire_sacrifice
+execute store result score #kiwi_mode rituals.data if data storage rituals:config {kiwi_mode:true}
+execute if score #kiwi_mode rituals.data matches 1 run data modify storage rituals:config require_fire_sacrifice set value false
+execute if score #kiwi_mode rituals.data matches 0 unless data storage rituals:config {require_fire_sacrifice:false} run data modify storage rituals:config require_fire_sacrifice set value true
 execute store result score #fire_sacrifice_mode rituals.data if data storage rituals:config {require_fire_sacrifice:true}
 
 # Load tier-specific configs
@@ -67,7 +71,12 @@ scoreboard players set #100 rituals.data 100
 # Initialize global ID counter
 execute unless score #global_totem_id rituals.id matches 1.. run scoreboard players set #global_totem_id rituals.id 1
 
-tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Datapack loaded!","color":"white","bold":false}]
-tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Press ","color":"gray","bold":false},{"text":"L","color":"aqua","bold":true},{"text":" to open Advancement Guide!","color":"gray","bold":false}]
-tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Or use: ","color":"gray","bold":false},{"text":"/function rituals:help","color":"green","clickEvent":{"action":"suggest_command","value":"/function rituals:help"},"hoverEvent":{"action":"show_text","value":"Click for help"}},{"text":" for help","color":"gray"}]
+tellraw @a [{"text":"====================","color":"gold"}]
+tellraw @a [{"text":"🔮 ","color":"gold"},{"text":"TOTEM RITUALS","color":"yellow","bold":true},{"text":" 🔮","color":"gold"}]
+tellraw @a [{"text":"====================","color":"gold"}]
+tellraw @a [{"text":"Press ","color":"gray"},{"text":"L","color":"aqua","bold":true},{"text":" to open Advancement Guide","color":"gray"}]
+tellraw @a [{"text":"[Click for Help]","color":"green","click_event":{"action":"run_command","command":"/function rituals:help"}}]
+tellraw @a [{"text":"[Enable Easy Mode]","color":"green","click_event":{"action":"run_command","command":"/function rituals:admin/enable_kiwi_mode"}},{"text":" (Kiwi Mode)","color":"gray"}]
+tellraw @a [{"text":"[Modrinth]","color":"blue","click_event":{"action":"open_url","url":"https://modrinth.com/datapack/totem-rituals/versions"}},{"text":" | ","color":"dark_gray"},{"text":"[Report Issues]","color":"red","click_event":{"action":"open_url","url":"https://modrinth.com/datapack/totem-rituals"}}]
+tellraw @a [{"text":"====================","color":"gold"}]
 

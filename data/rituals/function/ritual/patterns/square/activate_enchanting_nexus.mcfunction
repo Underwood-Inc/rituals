@@ -45,7 +45,27 @@ tellraw @a[distance=..32] [{"text":"✨ ","color":"light_purple"},{"text":"Encha
 # This marks it as enhanced for future placement
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = @e[type=interaction,tag=rituals.totem,limit=1,sort=nearest] rituals.id run data modify entity @s item.components."minecraft:custom_data".enchanting_nexus set value 1b
 
-# Clean up pattern totem tags
+# CENTRAL TOTEM: Keep item, just remove help tag
+tag @s remove rituals.pattern_help_shown
+
+# SUPPLEMENTAL TOTEMS: Completely destroy with lightning
+# NE Corner
+execute positioned ~4 ~ ~4 run summon lightning_bolt ~ ~ ~
+execute positioned ~4 ~ ~4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# SE Corner
+execute positioned ~4 ~ ~-4 run summon lightning_bolt ~ ~ ~
+execute positioned ~4 ~ ~-4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# SW Corner
+execute positioned ~-4 ~ ~-4 run summon lightning_bolt ~ ~ ~
+execute positioned ~-4 ~ ~-4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# NW Corner
+execute positioned ~-4 ~ ~4 run summon lightning_bolt ~ ~ ~
+execute positioned ~-4 ~ ~4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# Clean up pattern totem tags (if any remain)
 tag @e[type=interaction,tag=rituals.pattern_totem] remove rituals.pattern_totem
 
 

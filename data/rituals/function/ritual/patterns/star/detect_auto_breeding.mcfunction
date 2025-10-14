@@ -9,6 +9,15 @@
 #   South (0, -5): Potato
 #   West (-5, 0): Beetroot Seeds
 
+# Show helpful setup message (only once per totem)
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"🌾 ","color":"gold"},{"text":"Auto-Breeding Pattern Setup:","bold":true,"color":"yellow"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  Place totems 5 blocks away in cardinal directions:","color":"gray"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • North: ","color":"gray"},{"text":"Seeds","color":"green","bold":true},{"text":" (🟢 Green particles)","color":"green"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • East: ","color":"gray"},{"text":"Carrot","color":"#FF8C00","bold":true},{"text":" (🟠 Orange particles)","color":"#FF8C00"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • South: ","color":"gray"},{"text":"Potato","color":"#CD853F","bold":true},{"text":" (🟤 Brown particles)","color":"#CD853F"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • West: ","color":"gray"},{"text":"Beetroot Seeds","color":"red","bold":true},{"text":" (🔴 Red particles)","color":"red"}]
+tag @s add rituals.pattern_help_shown
+
 # Reset pattern validation
 scoreboard players set #pattern_valid rituals.temp 0
 scoreboard players set #totems_found rituals.temp 0
@@ -38,7 +47,11 @@ scoreboard players operation #totems_found rituals.temp += #found_w rituals.temp
 # If all 4 cardinals found with correct items, pattern is valid
 execute if score #totems_found rituals.temp matches 4 run function rituals:ritual/patterns/star/activate_auto_breeding
 
-# If pattern incomplete, show debug message
-execute unless score #totems_found rituals.temp matches 4 run tellraw @a[distance=..10] {"text":"❌ Auto-Breeding pattern incomplete! Found ","color":"red","extra":[{"score":{"name":"#totems_found","objective":"rituals.temp"}},{"text":"/4 totems with correct items."}]}
+# Pattern validation particles (only show if pattern incomplete)
+# Show visual indicators at expected totem positions
+execute unless score #totems_found rituals.temp matches 4 unless score #found_n rituals.temp matches 1 positioned ~ ~ ~5 run particle minecraft:dust{color:[0.0,1.0,0.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 4 unless score #found_e rituals.temp matches 1 positioned ~5 ~ ~ run particle minecraft:dust{color:[1.0,0.5,0.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 4 unless score #found_s rituals.temp matches 1 positioned ~ ~ ~-5 run particle minecraft:dust{color:[0.8,0.6,0.4],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
+execute unless score #totems_found rituals.temp matches 4 unless score #found_w rituals.temp matches 1 positioned ~-5 ~ ~ run particle minecraft:dust{color:[0.8,0.0,0.0],scale:1.5} ~ ~1.5 ~ 0.3 0.5 0.3 0 3 force
 
 

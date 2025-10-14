@@ -113,14 +113,27 @@ This datapack adds a new item category called "Totems" which can be crafted and 
 **📖 See [`docs/FIRE_SACRIFICE_GUIDE.md`](docs/FIRE_SACRIFICE_GUIDE.md) for complete instructions!**
 
 <details>
-<summary><b>⚙️ Prefer Auto-Activation? (Click to Expand)</b></summary>
+<summary><b>🥝 Want Easy Mode? Enable Kiwi Mode! (Click to Expand)</b></summary>
 
-Server admins can disable fire sacrifice and restore the old automatic activation:
+**Kiwi Mode** is a user-friendly setting that disables fire sacrifice for automatic ritual activation - perfect for new players, teaching servers, or casual play!
 
+**In-Game (Super Easy!):**
+Just click the link when you join the world, or run:
 ```mcfunction
-/data modify storage rituals:config require_fire_sacrifice set value false
+/function rituals:admin/enable_kiwi_mode
+```
+
+**Manual Config (Advanced):**
+```mcfunction
+/data modify storage rituals:config kiwi_mode set value true
 /function rituals:config/reload
 ```
+
+**Kiwi Mode is perfect for:**
+- 🆕 New players learning the ritual system
+- 🎮 Casual gameplay without resource costs
+- 🏫 Teaching servers or tutorial worlds
+- 🧪 Testing and experimenting with rituals
 
 </details>
 

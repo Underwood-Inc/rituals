@@ -12,6 +12,11 @@ data modify storage rituals:config ritual_check_range set value 32
 # If false, rituals activate automatically when totems have items (legacy mode)
 data modify storage rituals:config require_fire_sacrifice set value true
 
+# Kiwi Mode: User-friendly setting for easy auto-activation (opposite of fire sacrifice)
+# If true, rituals activate automatically (no fire required) - great for new players!
+# If false, fire sacrifice is required (default, more challenging)
+data modify storage rituals:config kiwi_mode set value false
+
 # ==================== TIER-BASED RANGE SETTINGS ====================
 # Horizontal radius in blocks from totem
 data modify storage rituals:config tier1_horizontal_range set value 2
@@ -163,5 +168,14 @@ data modify storage rituals:config sentry_tier6_damage set value 12.0
 data modify storage rituals:config sentry_target_range set value 30
 data modify storage rituals:config sentry_max_distance set value 50
 
-tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Config loaded! Use ","color":"yellow"},{"text":"/function rituals:help","color":"green","clickEvent":{"action":"suggest_command","value":"/function rituals:help"},"hoverEvent":{"action":"show_text","value":"Click for help"}},{"text":" for help","color":"yellow"}]
+# ==================== AUTO-BREEDING RITUAL ====================
+# Frequency: How often to attempt breeding (in ticks, 3 minutes = 3600 ticks)
+data modify storage rituals:config breeding_tier1_frequency set value 3600
+data modify storage rituals:config breeding_tier2_frequency set value 3000
+data modify storage rituals:config breeding_tier3_frequency set value 2400
+data modify storage rituals:config breeding_tier4_frequency set value 1800
+data modify storage rituals:config breeding_tier5_frequency set value 1200
+data modify storage rituals:config breeding_tier6_frequency set value 600
+
+tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Config loaded! Use ","color":"yellow"},{"text":"/function rituals:help","color":"green","click_event":{"action":"suggest_command","command":"/function rituals:help"},"hover_event":{"action":"show_text","value":[{"text":"Click for help"}]}},{"text":" for help","color":"yellow"}]
 

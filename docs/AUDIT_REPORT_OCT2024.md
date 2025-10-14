@@ -8,9 +8,39 @@ Comprehensive audit conducted per user request revealed several issues that have
 
 ## Issues Found & Fixed
 
-### ❌ Issue 1: Missing "Kiwi Mode" Feature
-**Status**: NOT FOUND (Never implemented)  
-**Action**: Confirmed absence - not mentioned in any prior conversations
+### ✅ Issue 1: Missing "Kiwi Mode" Feature
+**Status**: FIXED  
+**Action**: Implemented Kiwi Mode as user-friendly easy mode setting
+
+**What is Kiwi Mode?**
+- User-friendly config option for automatic ritual activation
+- When enabled: Rituals activate automatically when items are placed (no fire sacrifice)
+- When disabled: Fire sacrifice is required (default challenging mode)
+- Perfect for new players, teaching servers, and testing
+
+**Implementation Details:**
+- Config setting: `kiwi_mode` (default: `false`)
+- Automatically manages `require_fire_sacrifice` setting
+- Added to both config files and documentation
+- Simple toggle: `/data modify storage rituals:config kiwi_mode set value true`
+
+**Files Modified:**
+- `config/load.mcfunction` - Added kiwi_mode config option
+- `load.mcfunction` - Added kiwi_mode processing logic + beautiful welcome message with clickable links
+- `CONFIG_GUIDE.md` - Documented kiwi_mode with examples
+- `README.md` - Added Kiwi Mode quick toggle section
+- `FIRE_SACRIFICE_GUIDE.md` - Added easy Kiwi Mode instructions
+
+**Files Created:**
+- `admin/enable_kiwi_mode.mcfunction` - One-click enable with confirmation
+- `admin/disable_kiwi_mode.mcfunction` - One-click disable with confirmation
+
+**User Experience:**
+- ✅ Clickable chat link on world join: **[Enable Easy Mode]**
+- ✅ Clickable Modrinth page link: **[Modrinth Page]** (https://modrinth.com/datapack/totem-rituals/versions)
+- ✅ One command to toggle: `/function rituals:admin/enable_kiwi_mode`
+- ✅ Sound effects and visual feedback on toggle
+- ✅ Toggle links within confirmation messages
 
 ### ✅ Issue 2: False Documentation - Sneak + Right Click
 **Status**: FIXED  
@@ -199,10 +229,10 @@ Before deployment, test:
 
 ## Summary Statistics
 
-- **Files Modified**: 10
+- **Files Modified**: 14
 - **Files Created**: 6
 - **Files Deleted**: 1
-- **Issues Fixed**: 8
+- **Issues Fixed**: 8 (all resolved!)
 - **Documentation Pages Enhanced**: 4
 - **New Features**: Progressive mining system
 - **Mermaid Chart Types Used**: 8+

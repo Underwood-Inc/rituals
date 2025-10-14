@@ -51,7 +51,35 @@ tellraw @a[distance=..32] [{"text":"🔥 ","color":"gold"},{"text":"Auto-Smeltin
 # Store enhanced state on the blast furnace item
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = @e[type=interaction,tag=rituals.totem,limit=1,sort=nearest] rituals.id run data modify entity @s item.components."minecraft:custom_data".auto_smelting set value 1b
 
-# Clean up pattern totem tags
+# CENTRAL TOTEM: Keep item, just remove help tag
+tag @s remove rituals.pattern_help_shown
+
+# SUPPLEMENTAL TOTEMS: Completely destroy with lightning
+# North
+execute positioned ~ ~ ~6 run summon lightning_bolt ~ ~ ~
+execute positioned ~ ~ ~6 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# NE
+execute positioned ~5 ~ ~3 run summon lightning_bolt ~ ~ ~
+execute positioned ~5 ~ ~3 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# SE
+execute positioned ~5 ~ ~-3 run summon lightning_bolt ~ ~ ~
+execute positioned ~5 ~ ~-3 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# South
+execute positioned ~ ~ ~-6 run summon lightning_bolt ~ ~ ~
+execute positioned ~ ~ ~-6 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# SW
+execute positioned ~-5 ~ ~-3 run summon lightning_bolt ~ ~ ~
+execute positioned ~-5 ~ ~-3 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# NW
+execute positioned ~-5 ~ ~3 run summon lightning_bolt ~ ~ ~
+execute positioned ~-5 ~ ~3 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+
+# Clean up pattern totem tags (if any remain)
 tag @e[type=interaction,tag=rituals.pattern_totem] remove rituals.pattern_totem
 
 
