@@ -79,7 +79,7 @@ All linked by unique ID stored in `rituals.id` scoreboard
 - **Detection**: Checks every 20 ticks for 1+ totems with same item
 - **Range**: 32 blocks between totems (for multi-totem mode)
 - **Single-Totem Mode**: Enabled by default (configurable)
-- **Duration**: 600 ticks (30 seconds)
+- **Duration**: Permanent until item removed
 - **Effect Area**: Tier-based ranges from 2×2×6 (Wood) to 7×7×16 (Netherite)
 - **Power Scaling**: Higher tiers have larger ranges and stronger/faster effects
 
@@ -198,8 +198,8 @@ sequenceDiagram
         update_active->>update_active: Increment timer
         update_active->>effects/ritual: Apply ritual effects
         effects/ritual->>Particles: Spawn visual feedback
-        update_active->>update_active: Check if 600 ticks elapsed
-        alt Timer >= 600 ticks
+        update_active->>update_active: Apply ritual effects
+        alt Ritual Active
             update_active->>complete: End ritual
             complete->>complete: Cleanup tags & scores
         end

@@ -119,7 +119,7 @@ Potential additions to the fire sacrifice system:
 - Different offering patterns (pentagram, circle, cross)
 - Rare/expensive catalysts for ritual boosts
 - Soul fire vs regular fire provides different effects
-- Offering quality affects ritual duration/power
+- Offering quality affects ritual power
 - Multiple catalyst types for advanced rituals
 
 ### 📖 Migration Guide

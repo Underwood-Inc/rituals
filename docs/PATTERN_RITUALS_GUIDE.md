@@ -32,29 +32,6 @@ This makes setup MUCH easier - you don't need to memorize coordinates!
 
 ## 📐 Pattern Types
 
-### 🟦 Square Pattern (4 Corners)
-
-**Rituals Using This Pattern:**
-- Enchanting Nexus
-
-**Total Totems:** 5 (1 center + 4 corners)  
-**Distance:** 4 blocks diagonal from center  
-**Difficulty:** ⭐ Easy
-
-**How to Set Up:**
-1. Place central totem, add **Enchanting Table**
-2. Power with redstone to see corner markers
-3. Place 4 totems at corner positions (purple/blue/brown/green particles)
-4. Add items to corners:
-   - NE (blue): Lapis Lazuli Block
-   - SE (brown): Bookshelf
-   - SW (purple): Amethyst Shard
-   - NW (green): Experience Bottle
-5. Fire sacrifice at center
-6. Enchanting Table becomes permanently enhanced!
-
----
-
 ### ⭐ Star Pattern (4 Cardinals)
 
 **Rituals Using This Pattern:**
@@ -81,46 +58,6 @@ This makes setup MUCH easier - you don't need to memorize coordinates!
 **Effect Range:** Based on central totem tier (Wood = 8 blocks, Netherite = 32 blocks)  
 **Frequency:** Every 3 minutes (180 seconds / 3600 ticks) by default  
 **Animals Affected:** Cows, Sheep, Pigs, Chickens, Rabbits, Horses, Wolves, Cats
-
----
-
-### ⬢ Hexagon Pattern (6 Around)
-
-**Rituals Using This Pattern:**
-- Item Vacuum (Hopper)
-- Auto-Smelting (Blast Furnace)
-
-**Total Totems:** 7 (1 center + 6 hexagon points)  
-**Distance:** 6 blocks radius from center  
-**Difficulty:** ⭐⭐ Medium
-
-#### Item Vacuum Ritual
-
-**Central Item:** Hopper
-
-**Surrounding Items:**
-- North (0, +6): Ender Pearl (cyan particles)
-- NE (+5, +3): Iron Ingot (gray particles)
-- SE (+5, -3): Redstone Dust (red particles)
-- South (0, -6): Dropper (gray particles)
-- SW (-5, -3): Chest (brown particles)
-- NW (-5, +3): Observer (dark gray particles)
-
-**Result:** Hopper gains extended range for pulling items
-
-#### Auto-Smelting Ritual
-
-**Central Item:** Blast Furnace
-
-**Surrounding Items:**
-- North (0, +6): Blaze Rod (yellow particles)
-- NE (+5, +3): Coal Block (black particles)
-- SE (+5, -3): Lava Bucket (orange particles)
-- South (0, -6): Fire Charge (orange-brown particles)
-- SW (-5, -3): Magma Block (dark red particles)
-- NW (-5, +3): Soul Campfire (cyan-blue particles)
-
-**Result:** Blast Furnace smelts automatically without fuel!
 
 ---
 
@@ -153,7 +90,7 @@ Colored particle markers will appear showing where surrounding totems should go!
 | "Pattern incomplete! Found X/Y totems" | Missing totems or wrong positions | Use redstone to see where totems should be |
 | "Pattern incomplete! Found X/Y totems with correct items" | Totems placed but wrong items | Check each totem has the correct item for its position |
 | No message, ritual doesn't activate | Fire sacrifice requirements not met | Drop catalyst items and light fire at central totem |
-| No pattern particles showing | Central totem doesn't have pattern ritual item OR not powered | Verify item is Enchanting Table/Wheat/Hopper/Blast Furnace AND redstone is active |
+| No pattern particles showing | Central totem doesn't have pattern ritual item OR not powered | Verify item is Wheat AND redstone is active |
 
 ### Particle Visualization Behavior Matrix
 
@@ -166,7 +103,7 @@ Colored particle markers will appear showing where surrounding totems should go!
 | Has item | Regular ritual item | OFF | ❌ None |
 | Has item | Regular ritual item | ON | ❌ None (tier range box only) |
 
-**Pattern Ritual Items:** Enchanting Table, Wheat, Hopper, Blast Furnace  
+**Pattern Ritual Items:** Wheat  
 **Regular Ritual Items:** Emerald, Diamond, Nether Star, Iron Ingot, Netherite Block, Arrow, Diamond Hoe
 
 ---
@@ -176,7 +113,7 @@ Colored particle markers will appear showing where surrounding totems should go!
 ### Using Redstone Visualization
 
 **Best Practice:** 
-1. Place central totem with **pattern ritual item** first (Enchanting Table, Wheat, Hopper, or Blast Furnace)
+1. Place central totem with **Wheat**
 2. Place redstone block next to it
 3. Particles show exact spots for surrounding totems
 4. Place totems one by one, checking particle positions
@@ -188,10 +125,7 @@ Colored particle markers will appear showing where surrounding totems should go!
 
 The system **reads the item on the central totem every tick** (20 times per second) to determine which pattern to show:
 
-- **Enchanting Table** → Square pattern particles (4 corners)
-- **Wheat** → Star pattern particles (4 cardinals)
-- **Hopper** → Hexagon pattern particles (6 around, purple theme)
-- **Blast Furnace** → Hexagon pattern particles (6 around, fire theme)
+- **Wheat** → Star pattern particles (4 cardinals, colored by item type)
 - **Any other item** → No pattern particles (shows tier range only)
 
 **Important Notes:**
@@ -225,10 +159,9 @@ This lets you preview different ritual patterns without rebuilding!
 | Regular Rituals | Pattern Rituals |
 |----------------|-----------------|
 | 1+ totems with SAME item | Multiple totems with DIFFERENT items |
-| Any distance within 32 blocks | Exact positions required |
-| Area effect rituals | Crafting/enhancement rituals or area effects |
-| Time-limited (30 seconds) | Permanent enhancements OR time-limited effects |
-| Examples: Growth, Strength, Healing | Examples: Enchanting Nexus, Item Vacuum, Auto-Breeding |
+| Flexible totem placement | EXACT positions required |
+| Permanent until deactivated | Permanent until item removed |
+| Examples: Growth, Strength, Healing | Example: Auto-Breeding |
 
 ---
 
@@ -236,10 +169,7 @@ This lets you preview different ritual patterns without rebuilding!
 
 | Ritual | Pattern | Totems | Setup Time | Difficulty | Effect Type |
 |--------|---------|--------|------------|------------|-------------|
-| Enchanting Nexus | Square | 5 | 5 min | Easy | Permanent Crafting |
-| Auto-Breeding | Star | 5 | 5 min | Easy | Area Effect (30s) |
-| Item Vacuum | Hexagon | 7 | 10 min | Medium | Permanent Crafting |
-| Auto-Smelting | Hexagon | 7 | 10 min | Medium | Permanent Crafting |
+| Auto-Breeding | Star | 5 | 5 min | Easy | Permanent Area Effect |
 
 ---
 
@@ -247,31 +177,11 @@ This lets you preview different ritual patterns without rebuilding!
 
 When using redstone visualization, particles show different colors for different required items:
 
-### Enchanting Nexus (Square)
-- **Blue** = Lapis Lazuli Block
-- **Brown** = Bookshelf
-- **Purple** = Amethyst Shard
-- **Green** = Experience Bottle
-
 ### Auto-Breeding (Star)
 - **Yellow** = Seeds
 - **Orange** = Carrot
 - **Tan** = Potato
 - **Red** = Beetroot Seeds
-
-### Item Vacuum (Hexagon)
-- **Cyan** = Ender Pearl
-- **Gray** = Iron Ingot
-- **Red** = Redstone Dust
-- **Dark Gray** = Dropper/Observer
-- **Brown** = Chest
-
-### Auto-Smelting (Hexagon)
-- **Yellow** = Blaze Rod
-- **Black** = Coal Block
-- **Orange** = Lava Bucket / Fire Charge
-- **Dark Red** = Magma Block
-- **Light Blue** = Soul Campfire
 
 ---
 

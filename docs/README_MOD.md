@@ -69,8 +69,7 @@ All settings can be modified in-game:
 /data modify storage rituals:config require_fire_sacrifice set value false
 /function rituals:config/reload
 
-# Change ritual duration (default 600 ticks = 30 seconds)
-/data modify storage rituals:config ritual_duration set value 1200
+# Rituals are permanent until deactivated (no duration config needed)
 /function rituals:config/reload
 ```
 

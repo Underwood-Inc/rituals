@@ -94,17 +94,6 @@ execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.i
 
 ### 4. Ritual Types Implemented
 
-#### 🟦 Enchanting Nexus (Square Pattern)
-- **Central Item**: Enchanting Table
-- **Pattern**: 4 corners at 4 blocks diagonal
-- **Surrounding Items**:
-  - NE: Lapis Lazuli Block
-  - SE: Bookshelf
-  - SW: Amethyst Shard
-  - NW: Experience Bottle
-- **Effect**: Permanently enhances enchanting table (crafting ritual)
-- **Effect Type ID**: 10
-
 #### ⭐ Auto-Breeding (Star Pattern)
 - **Central Item**: Wheat
 - **Pattern**: 4 cardinals at 5 blocks distance
@@ -113,34 +102,8 @@ execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.i
   - East: Carrot
   - South: Potato
   - West: Beetroot Seeds
-- **Effect**: Automatically breeds animals in range (area effect ritual, 30s duration)
+- **Effect**: Automatically breeds animals in range (permanent area effect ritual)
 - **Effect Type ID**: 11
-
-#### ⬢ Item Vacuum (Hexagon Pattern)
-- **Central Item**: Hopper
-- **Pattern**: 6 hexagon points at 6 blocks radius
-- **Surrounding Items**:
-  - North: Ender Pearl
-  - NE: Iron Ingot
-  - SE: Redstone Dust
-  - South: Dropper
-  - SW: Chest
-  - NW: Observer
-- **Effect**: Permanently enhances hopper with extended range (crafting ritual)
-- **Effect Type ID**: 12
-
-#### ⬢ Auto-Smelting (Hexagon Pattern)
-- **Central Item**: Blast Furnace
-- **Pattern**: 6 hexagon points at 6 blocks radius
-- **Surrounding Items**:
-  - North: Blaze Rod
-  - NE: Coal Block
-  - SE: Lava Bucket
-  - South: Fire Charge
-  - SW: Magma Block
-  - NW: Soul Campfire
-- **Effect**: Permanently enhances blast furnace to smelt without fuel (crafting ritual)
-- **Effect Type ID**: 13
 
 ### 5. Documentation
 
@@ -216,7 +179,7 @@ graph TB
     
     N --> P{Ritual Type?}
     P -->|Crafting| Q[Enhance Item Permanently]
-    P -->|Area Effect| R[Apply Effect for 30s]
+    P -->|Area Effect| R[Apply Effect Continuously]
     
     style N fill:#27ae60
     style O fill:#e74c3c
@@ -239,7 +202,7 @@ graph TB
 ### Entity Tags
 
 **Pattern Ritual Tags:**
-- `rituals.pattern_totem` - Temporary tag during validation
+- `rituals.pattern_totem` - Tag used during pattern validation
 - `rituals.pattern_ritual` - Marks active pattern ritual
 - `rituals.enchanting_nexus` - Specific ritual type tag
 - `rituals.auto_breeding` - Specific ritual type tag

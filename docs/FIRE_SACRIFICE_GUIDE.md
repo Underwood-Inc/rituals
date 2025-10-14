@@ -27,7 +27,7 @@ flowchart TD
     Count --> Valid{Correct amount<br/>and type?}
     Valid -->|No| Fail[Ritual Fails<br/>Missing offerings]
     Valid -->|Yes| Consume[Consume Offerings<br/>Items destroyed]
-    Consume --> Activate[🔥 Ritual Activated! 🔥<br/>30 seconds duration]
+    Consume --> Activate[🔥 Ritual Activated! 🔥<br/>Permanent effect]
     
     style Start fill:#3498db,stroke:#2980b9,color:#fff
     style Activate fill:#27ae60,stroke:#229954,color:#fff
@@ -152,7 +152,7 @@ When fire is detected and all 4 offerings are present:
 **Confirmation:**
 - Chat message: *"Fire sacrifice accepted! (consumed 4x [item])"*
 - Ritual-specific activation message
-- Ritual timer begins (default: 30 seconds)
+- Ritual activates permanently
 
 ---
 
@@ -197,7 +197,7 @@ To re-enable fire sacrifice mode:
 - The high cost is offset by:
   - Larger effect ranges
   - More powerful effects
-  - Better frequency/duration scaling
+  - Better frequency scaling
 - Consider the 4× catalyst cost when choosing where to place these
 
 ### Automation Ideas

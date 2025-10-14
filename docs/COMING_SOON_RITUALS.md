@@ -168,7 +168,7 @@ pie title Weather Control Options
 - Clear: Prevents rain in area
 - Rain: Forces rain in area
 - Thunder: Summons thunder storms
-- Lightning: Strikes nearest hostile mob every 30 seconds
+- Lightning: Strikes nearest hostile mob periodically
 - Affects only ritual zone, not entire world
 
 ---

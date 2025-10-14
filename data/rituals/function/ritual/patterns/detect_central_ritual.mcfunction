@@ -7,18 +7,7 @@
 # Get the item displayed on this totem
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = @e[type=interaction,tag=rituals.totem,limit=1,sort=nearest] rituals.id run data modify storage rituals:temp central_item set from entity @s item.id
 
-# CRAFTING/ENCHANTMENT RITUALS (require specific patterns)
-
-# Enchanting Nexus - Square pattern (4 corners)
-execute if data storage rituals:temp {central_item:"minecraft:enchanting_table"} run function rituals:ritual/patterns/square/detect_enchanting_nexus
-
-# Item Vacuum - Hexagon pattern (6 around)
-execute if data storage rituals:temp {central_item:"minecraft:hopper"} run function rituals:ritual/patterns/hexagon/detect_item_vacuum
-
-# Auto-Smelting - Hexagon pattern (6 around)
-execute if data storage rituals:temp {central_item:"minecraft:blast_furnace"} run function rituals:ritual/patterns/hexagon/detect_auto_smelting
-
-# STANDARD AREA EFFECT RITUALS (require specific patterns + items)
+# PATTERN-BASED AREA EFFECT RITUALS
 
 # Auto-Breeding - Star pattern (4 cardinals)
 execute if data storage rituals:temp {central_item:"minecraft:wheat"} run function rituals:ritual/patterns/star/detect_auto_breeding

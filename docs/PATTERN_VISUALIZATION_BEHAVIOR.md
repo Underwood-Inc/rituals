@@ -238,12 +238,12 @@ Result: ✅ PASS
 - ✅ System re-reads item.id next tick
 - ✅ Pattern automatically switches
 - ✅ No errors or glitches
-- ✅ No "stuck" particles (particles are temporary)
+- ✅ No "stuck" particles (particles refresh correctly)
 
 **What happens if totem is broken while powered?**
 - ✅ Totem entity removed → selector no longer matches
 - ✅ Visualization stops automatically
-- ✅ Particles fade naturally (duration-based)
+- ✅ Particles fade naturally
 
 **What happens if item display entity is deleted?**
 - ✅ Item lookup fails silently

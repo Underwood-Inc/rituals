@@ -27,7 +27,7 @@
 - **Help**: `/function rituals:help`
 
 ##### Configurable Settings:
-- Ritual duration
+- Ritual activation
 - Minimum totems required
 - Ritual range
 - Effect ranges (horizontal and vertical)

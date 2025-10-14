@@ -108,7 +108,7 @@ Buffs players
 Netherite Block
 Prosperty: Items+XP
 
-All last 30 seconds
+Permanent until deactivated
 ```
 
 ### Page 8: Area Effect Rituals (Part 2)
@@ -156,23 +156,7 @@ Pattern Guide System
 6. Fire sacrifice!
 ```
 
-### Page 11: Enchanting Nexus Pattern
-```
-Enchanting Nexus
-Square Pattern
-
-Central: Enchanting Table
-
-Corners (4 blocks):
-NE: Lapis Block
-SE: Bookshelf
-SW: Amethyst Shard
-NW: XP Bottle
-
-Enhances table permanently!
-```
-
-### Page 12: Auto-Breeding Pattern
+### Page 11: Auto-Breeding Pattern
 ```
 Auto-Breeding
 Star Pattern
@@ -185,46 +169,10 @@ E: Carrot
 S: Potato
 W: Beetroot Seeds
 
-Auto-breeds animals in range (30s)
+Auto-breeds animals in range (permanent)
 ```
 
-### Page 13: Item Vacuum Pattern
-```
-Item Vacuum
-Hexagon Pattern
-
-Central: Hopper
-
-Hexagon (6 blocks):
-N: Ender Pearl
-NE: Iron Ingot
-SE: Redstone
-S: Dropper
-SW: Chest
-NW: Observer
-
-Hopper pulls from wider area!
-```
-
-### Page 14: Auto-Smelting Pattern
-```
-Auto-Smelting
-Hexagon Pattern
-
-Central: Blast Furnace
-
-Hexagon (6 blocks):
-N: Blaze Rod
-NE: Coal Block
-SE: Lava Bucket
-S: Fire Charge
-SW: Magma Block
-NW: Soul Campfire
-
-Smelts without fuel!
-```
-
-### Page 15: Pattern Tips
+### Page 12: Pattern Tips
 ```
 Pattern Tips
 
@@ -334,7 +282,6 @@ Customize settings:
 Key settings:
 require_fire_sacrifice
 min_totems_required
-ritual_duration
 max_totem_distance
 ```
 
@@ -380,7 +327,7 @@ The guidebook uses color-coded pages for visual organization:
 - Fire sacrifice system and catalyst costs
 - All 6 totem tiers with ranges
 - 7 area effect rituals (Growth, Strength, Prosperity, Protection, Healing, Sentry, Auto-Farming)
-- 4 pattern-based rituals (Enchanting Nexus, Auto-Breeding, Item Vacuum, Auto-Smelting)
+- 1 pattern-based ritual (Auto-Breeding)
 - Redstone pattern visualization system
 - Basic crafting recipes
 - Range display system
