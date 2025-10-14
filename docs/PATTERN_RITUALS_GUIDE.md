@@ -59,6 +59,8 @@ This makes setup MUCH easier - you don't need to memorize coordinates!
 **Frequency:** Every 3 minutes (180 seconds / 3600 ticks) by default  
 **Animals Affected:** Cows, Sheep, Pigs, Chickens, Rabbits, Horses, Wolves, Cats
 
+![Auto-Breeding Ritual Setup](../images/breeding%20ritual.webp)
+
 ---
 
 ## 🔍 Troubleshooting
@@ -141,7 +143,7 @@ You can swap items on the central totem while redstone is powered to see differe
 ```
 Wheat on totem + Redstone → Star pattern (green/yellow particles)
   ↓ (swap item)
-Hopper on totem + Redstone → Hexagon pattern (purple particles)
+Wheat on totem + Redstone → Star pattern (colored particles)
   ↓ (swap item)  
 Emerald on totem + Redstone → No pattern (only tier range)
 ```

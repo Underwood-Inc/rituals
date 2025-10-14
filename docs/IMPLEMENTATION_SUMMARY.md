@@ -13,9 +13,7 @@ This document summarizes the implementation of the **multi-totem pattern ritual 
 - **Purpose**: Defines and detects geometric patterns for multi-totem rituals
 
 **Pattern Types Implemented:**
-- ✅ **Square Pattern** (4 corners) - Enchanting Nexus
 - ✅ **Star Pattern** (4 cardinals) - Auto-Breeding
-- ✅ **Hexagon Pattern** (6 around) - Item Vacuum, Auto-Smelting
 
 **Pattern Types Ready for Implementation:**
 - ⏳ Pentagon (5 around) - XP Harvester
@@ -33,7 +31,7 @@ Each pattern ritual has:
 
 **Example Flow:**
 ```
-Central Totem (Enchanting Table)
+Central Totem (Wheat)
   → Detect Square Pattern
     → Check NE corner (+4, +4): Lapis Block? ✓
     → Check SE corner (+4, -4): Bookshelf? ✓
@@ -47,7 +45,7 @@ Central Totem (Enchanting Table)
 **Feature**: When a totem with a pattern-ritual item is powered with redstone, colored particle markers appear showing exactly where surrounding totems should be placed.
 
 **How It Works:**
-1. Player places central totem with pattern item (e.g., Hopper)
+1. Player places central totem with pattern item (e.g., Wheat)
 2. Player powers totem with redstone (block/torch/lever/button)
 3. System detects item type and loads corresponding visualization
 4. Particles spawn at each required totem position
@@ -194,10 +192,7 @@ graph TB
 - `#found_n`, `#found_ne`, etc. - Individual position validation flags
 
 **Ritual Effects:**
-- Effect type 10: Enchanting Nexus
 - Effect type 11: Auto-Breeding
-- Effect type 12: Item Vacuum
-- Effect type 13: Auto-Smelting
 
 ### Entity Tags
 

@@ -111,18 +111,18 @@ Comprehensive audit conducted per user request revealed several issues that have
 **Action**: Created comprehensive `COMING_SOON_RITUALS.md` with 11 planned advanced rituals:
 1. ~~Auto-Farming Ritual~~ (already implemented with Diamond Hoe!)
 2. Auto-Breeding Ritual (animals)
-3. Auto-Smelting Ritual (instant smelting)
+3. (Removed - not possible with datapacks)
 4. Flight Zone Ritual (creative flight)
 5. Weather Control Ritual (local weather)
 6. Time Warp Ritual (time acceleration)
 7. Mining Haste Ritual (extreme haste + auto-pickup)
-8. **Item Vacuum Ritual** (hopper enchantment - as requested)
+8. (Removed - not possible with datapacks)
 9. Forcefield Ritual (mob barrier)
 10. XP Harvester Ritual (XP banking)
-11. Enchanting Nexus Ritual (custom enchants)
+11. (Removed - not possible with datapacks)
 12. Mob Repellent Ritual (spawn prevention)
 
-**Special Note**: Item Vacuum Ritual now properly documented as a custom enchantment/crafting ritual that permanently enhances a hopper when placed on a 6+ totem hex pattern.
+**Note**: Several "crafting ritual" concepts were removed as they're impossible to implement with datapacks alone - they would require Fabric/Forge mods.
 
 ---
 

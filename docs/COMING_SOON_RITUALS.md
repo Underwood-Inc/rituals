@@ -84,35 +84,6 @@ flowchart TD
 
 ---
 
-### 🔥 Auto-Smelting Ritual
-**Pattern**: 6+ totems in hexagon around furnace area  
-**Catalyst**: Blast Furnace  
-**Effect**: Items dropped in zone are automatically smelted
-
-```mermaid
-stateDiagram-v2
-    [*] --> Detecting
-    Detecting --> Identified: Item Dropped
-    Identified --> Smelting: Has Recipe
-    Identified --> Rejected: No Recipe
-    Smelting --> Complete: Time Elapsed
-    Complete --> Detecting
-    Rejected --> Detecting
-    
-    note right of Smelting
-        Speed based on<br/>totem tier
-    end note
-```
-
-**Mechanics**:
-- Detects items dropped within ritual zone
-- Instantly converts smeltable items (no fuel required)
-- Smelting speed scales with totem tier
-- Works with vanilla and modded smelting recipes
-- Higher tiers can smelt multiple items simultaneously
-
----
-
 ### 🕊️ Flight Zone Ritual
 **Pattern**: 7+ totems in tower pattern (vertical stack)  
 **Catalyst**: Elytra  
@@ -232,42 +203,6 @@ sequenceDiagram
 
 ---
 
-### 🧲 Item Vacuum Ritual  
-**Pattern**: 6+ totems in hex pattern with central hopper  
-**Catalyst**: Hopper placed on center totem  
-**Effect**: Converts hopper into powerful item magnet
-
-```mermaid
-flowchart LR
-    subgraph Ritual Zone
-    I1[Item] --> V[Vacuum<br/>Hopper]
-    I2[Item] --> V
-    I3[Item] --> V
-    I4[Item] --> V
-    end
-    
-    V --> C1[Connected<br/>Chest]
-    V --> C2[Connected<br/>Storage]
-    
-    style V fill:#FF5722,stroke:#BF360C,stroke-width:4px
-    style I1 fill:#FFC107
-    style I2 fill:#FFC107
-    style I3 fill:#FFC107
-    style I4 fill:#FFC107
-```
-
-**Mechanics**:
-- **Special Ritual Type**: Enchants a hopper permanently
-- Right-click center totem with hopper to enchant it
-- Enchanted hopper has 20-block item vacuum radius
-- Pulls ALL dropped items in radius instantly
-- Works even when hopper is full (excess items orbit hopper)
-- Enchantment persists if hopper is moved
-- Totem tier affects vacuum range (20-50 blocks)
-- Can be combined with sorting systems
-
----
-
 ### 🛡️ Forcefield Ritual
 **Pattern**: 8+ totems in circle pattern  
 **Catalyst**: End Crystal  
@@ -327,37 +262,6 @@ sankey-beta
 
 ---
 
-### 📚 Enchanting Nexus Ritual
-**Pattern**: 4+ totems around enchanting table  
-**Catalyst**: Enchanting Table  
-**Effect**: Enhances enchanting table with custom options
-
-```mermaid
-mindmap
-  root((Enchanting<br/>Nexus))
-    Guaranteed Enchants
-      Choose Specific
-      Max Level Always
-      No RNG
-    Cost Reduction
-      50 Percent Less XP
-      Fewer Lapis
-      Reroll Option
-    Custom Enchants
-      Combined Effects
-      Unique Powers
-      Ritual Only
-```
-
-**Mechanics**:
-- Enchanting table shows specific enchantments (no random options)
-- Can select exact enchantment desired
-- Always provides maximum level available
-- XP cost reduced by 50%
-- Can combine incompatible enchantments (e.g., Silk Touch + Fortune)
-- Higher totem tiers unlock more powerful custom enchantments
-
----
 
 ### 🧟 Mob Repellent Ritual
 **Pattern**: 8+ totems in barrier pattern (octagon)  

@@ -213,8 +213,8 @@ data modify storage rituals:patterns auto_breeding set value {\
   ]\
 }
 
-# Enchanting Nexus (Square Pattern)
-data modify storage rituals:patterns enchanting_nexus set value {...}
+# Auto-Breeding (Star Pattern)
+data modify storage rituals:patterns auto_breeding set value {...}
 
 # ... (similar for all patterns)
 ```

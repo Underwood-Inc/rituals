@@ -90,6 +90,8 @@ Legend:
 4. Fire sacrifice at center
 5. Animals within range will auto-breed when fed matching food
 
+![Auto-Breeding Ritual Pattern](../images/breeding%20ritual.webp)
+
 ---
 
 ## 🛡️ Octagon Pattern (8 Around Center) - NOT IMPLEMENTED
@@ -273,11 +275,7 @@ Expert: Nonagon (9)   ██████████
 
 | Ritual | Central Item | Pattern | Total Totems | Radius | Difficulty |
 |--------|-------------|---------|--------------|--------|------------|
-| Enchanting Nexus | Enchanting Table | Square | 5 | 4 blocks | ⭐ Easy |
 | Auto-Breeding | Wheat | Star | 5 | 5 blocks | ⭐ Easy |
-| XP Harvester | Experience Bottle | Pentagon | 6 | 6 blocks | ⭐⭐ Medium |
-| Item Vacuum | Hopper | Hexagon | 7 | 6 blocks | ⭐⭐ Medium |
-| Auto-Smelting | Blast Furnace | Hexagon | 7 | 6 blocks | ⭐⭐ Medium |
 | Flight Zone | Elytra | Septagon | 8 | 7 blocks | ⭐⭐⭐ Hard |
 | Weather Control | Lightning Rod | Septagon | 8 | 7 blocks | ⭐⭐⭐ Hard |
 | Forcefield | End Crystal | Octagon | 9 | 7 blocks | ⭐⭐⭐ Hard |

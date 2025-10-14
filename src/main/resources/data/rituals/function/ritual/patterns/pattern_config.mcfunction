@@ -4,12 +4,12 @@
 # Defines geometric patterns and item requirements for multi-totem rituals
 #
 # Pattern Types:
-# 1. Square (4 totems) - Enchanting Nexus
-# 2. Pentagon (5 totems) - XP Harvester, Auto-Breeding
-# 3. Hexagon (6 totems) - Item Vacuum, Auto-Smelting
-# 4. Septagon (7 totems) - Flight Zone, Weather Control
-# 5. Octagon (8 totems) - Forcefield, Mob Repellent
-# 6. Nonagon (9 totems) - Time Warp
+# 1. Star (4 totems) - Auto-Breeding
+# 2. Pentagon (5 totems) - NOT IMPLEMENTED YET
+# 3. Hexagon (6 totems) - NOT IMPLEMENTED YET
+# 4. Septagon (7 totems) - NOT IMPLEMENTED YET
+# 5. Octagon (8 totems) - NOT IMPLEMENTED YET
+# 6. Nonagon (9 totems) - NOT IMPLEMENTED YET
 #
 # Each pattern requires:
 # - 1 central totem with specific item (determines ritual type)

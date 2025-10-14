@@ -21,7 +21,7 @@ For pattern particles to appear, **ALL** of the following conditions must be tru
 ### Required Conditions
 1. ✅ Totem must be **powered with redstone** (`rituals.redstone_powered` tag present)
 2. ✅ Totem must have **an item displayed** (`rituals.has_item` tag present)
-3. ✅ Item must be a **pattern ritual item** (Enchanting Table, Wheat, Hopper, or Blast Furnace)
+3. ✅ Item must be a **pattern ritual item** (Wheat)
 
 ### Code Reference
 
@@ -48,10 +48,7 @@ This selector requires **BOTH tags** to be present. If either is missing, the fu
 ### Pattern Ritual Items
 
 Items that trigger pattern particle visualization:
-- `minecraft:enchanting_table` → Square pattern (4 corners)
 - `minecraft:wheat` → Star pattern (4 cardinals)
-- `minecraft:hopper` → Hexagon pattern (6 around, purple/portal theme)
-- `minecraft:blast_furnace` → Hexagon pattern (6 around, fire theme)
 
 ### Regular Ritual Items
 
@@ -98,13 +95,13 @@ Tick 0: Player places Wheat on totem
   → Calls: visualize_star
   → Shows: Green/yellow star pattern particles
 
-Tick 1: Player swaps Wheat for Hopper (using right-click)
-  → swap_item.mcfunction executes
-  → Item display entity updated to minecraft:hopper
+Tick 1: Player adds Wheat to totem (using right-click)
+  → transfer_item_to_totem.mcfunction executes
+  → Item display entity updated to minecraft:wheat
 
 Tick 2: visualize_pattern runs again
-  → Reads: minecraft:hopper (NEW)
-  → Calls: visualize_hexagon_vacuum
+  → Reads: minecraft:wheat
+  → Calls: visualize_star
   → Shows: Purple hexagon pattern particles
 
 Result: Pattern changes within 0.1 seconds (2 ticks)
@@ -121,10 +118,7 @@ Each pattern has its own visualization file that spawns particles:
 ```
 totem/patterns/
 ├── visualize_pattern.mcfunction (router - checks item type)
-├── visualize_square.mcfunction (Enchanting Nexus)
-├── visualize_star.mcfunction (Auto-Breeding)
-├── visualize_hexagon_vacuum.mcfunction (Item Vacuum)
-└── visualize_hexagon_smelting.mcfunction (Auto-Smelting)
+└── visualize_star.mcfunction (Auto-Breeding)
 ```
 
 ### Routing Logic
@@ -135,10 +129,7 @@ totem/patterns/
 # Item ID is already stored in rituals:temp pattern_item
 
 # Check against each known pattern
-execute if data storage rituals:temp {pattern_item:"minecraft:enchanting_table"} run function rituals:totem/patterns/visualize_square
 execute if data storage rituals:temp {pattern_item:"minecraft:wheat"} run function rituals:totem/patterns/visualize_star
-execute if data storage rituals:temp {pattern_item:"minecraft:hopper"} run function rituals:totem/patterns/visualize_hexagon_vacuum
-execute if data storage rituals:temp {pattern_item:"minecraft:blast_furnace"} run function rituals:totem/patterns/visualize_hexagon_smelting
 
 # If none match, function ends without spawning pattern particles
 # (tier range particles still show from normal redstone visualization)
@@ -158,7 +149,7 @@ Each pattern visualization spawns:
 
 ### Scenario 1: Pattern Item Without Redstone
 ```
-Setup: Place totem, add Enchanting Table
+Setup: Place totem, add Wheat
 Action: No redstone placed
 Expected: ❌ No particles
 Actual: ❌ No particles (requires rituals.redstone_powered tag)
@@ -194,8 +185,8 @@ Result: ✅ PASS
 
 ### Scenario 5: Dynamic Item Swap
 ```
-Setup: Place totem, add Hopper, power with redstone
-Action: Swap Hopper → Wheat while powered
+Setup: Place totem, add Wheat, power with redstone
+Action: Particles show star pattern
 Expected: ✅ Particles change from hexagon → star within 1 tick
 Actual: ✅ Pattern updates next tick (item.id re-read)
 Result: ✅ PASS
@@ -203,7 +194,7 @@ Result: ✅ PASS
 
 ### Scenario 6: Item Removal While Powered
 ```
-Setup: Place totem, add Blast Furnace, power with redstone
+Setup: Place totem, add Wheat, power with redstone
 Action: Right-click to remove item
 Expected: ❌ Particles stop (rituals.has_item tag removed)
 Actual: ❌ visualize_pattern no longer called
@@ -256,7 +247,7 @@ Result: ✅ PASS
 
 ### To Enable Pattern Visualization:
 1. Place totem
-2. Add pattern ritual item (Enchanting Table/Wheat/Hopper/Blast Furnace)
+2. Add pattern ritual item (Wheat)
 3. Power with redstone
 
 ### To Disable Pattern Visualization:
@@ -270,10 +261,7 @@ Result: ✅ PASS
 3. Pattern updates next tick (0.05 seconds)
 
 ### Supported Pattern Items:
-- `minecraft:enchanting_table` (Square)
 - `minecraft:wheat` (Star)
-- `minecraft:hopper` (Hexagon - Vacuum)
-- `minecraft:blast_furnace` (Hexagon - Smelting)
 
 ### Non-Pattern Items:
 - All other items show tier range only, no pattern particles
@@ -296,10 +284,7 @@ execute if data storage rituals:temp {pattern_item:"minecraft:YOUR_ITEM"} run fu
 ### Modifying Existing Patterns
 
 Edit the pattern-specific visualization file:
-- `visualize_square.mcfunction` - Enchanting Nexus
 - `visualize_star.mcfunction` - Auto-Breeding
-- `visualize_hexagon_vacuum.mcfunction` - Item Vacuum
-- `visualize_hexagon_smelting.mcfunction` - Auto-Smelting
 
 **Do NOT modify:**
 - `visualize_pattern.mcfunction` (router logic is correct)

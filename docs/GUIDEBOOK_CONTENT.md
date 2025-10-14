@@ -314,8 +314,7 @@ The guidebook uses color-coded pages for visual organization:
 | Aqua | Totem Tiers (continued) | 6 |
 | Green | Area Effects (Growth, Breeding) | 7, 12 |
 | Blue | Area Effects (Protection), Config | 8, 22 |
-| Dark Aqua | Item Vacuum | 13 |
-| Red | Auto-Smelting, Range Display | 14, 19 |
+| Red | Range Display | 19 |
 | Yellow | Pattern Tips | 15 |
 | Dark Gray / Gray | Crafting Recipes | 16, 17 |
 

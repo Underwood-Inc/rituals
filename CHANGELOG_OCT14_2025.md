@@ -275,17 +275,13 @@ Massive overhaul addressing audit findings, critical bugs, and user experience i
 ### Major Documentation Changes
 
 #### New Documentation Created:
-1. **`docs/COMING_SOON_RITUALS.md`** - Comprehensive guide to 12 planned advanced rituals
-   - Auto-Breeding Ritual (animals)
-   - Auto-Smelting Ritual (instant smelting)
+1. **`docs/COMING_SOON_RITUALS.md`** - Comprehensive guide to planned advanced rituals
    - Flight Zone Ritual (creative flight)
    - Weather Control Ritual (local weather)
    - Time Warp Ritual (time acceleration)
    - Mining Haste Ritual (extreme haste)
-   - **Item Vacuum Ritual** (hopper enchantment as requested)
    - Forcefield Ritual (mob barrier)
    - XP Harvester Ritual (XP banking)
-   - Enchanting Nexus Ritual (custom enchants)
    - Mob Repellent Ritual (spawn prevention)
    - Features 8 different Mermaid chart types
 

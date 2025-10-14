@@ -397,7 +397,7 @@ These rituals are defined in the advancement system but not yet implemented. The
 
 | Ritual | Item | Min Totems | Pattern | Effect |
 |--------|------|------------|---------|--------|
-| **Auto-Breeding** | Wheat | 5+ | Star pattern (center + 4 corners) | Automatically breed animals with matching food |
+| **Auto-Breeding** | Wheat | 5+ | Star pattern (center + 4 cardinals) | Automatically breed animals in range |
 | **Flight Zone** | Elytra | 7+ | Tower pattern (vertical stack) | Grant levitation and slow falling to players |
 | **Weather Control** | Lightning Rod | 7+ | Storm pattern (hexagon + center) | Control weather (clear/rain/thunder) |
 | **Time Warp** | Clock | 9+ | Clock pattern (circle) | Accelerate time itself in area |
@@ -408,23 +408,16 @@ These rituals are defined in the advancement system but not yet implemented. The
 
 ---
 
-### Crafting/Enchantment Rituals
+### ⚠️ Planned Rituals (Not Yet Implemented)
 
-These special rituals permanently modify or create items by placing them on a central totem surrounded by a pattern of additional totems:
-
-| Ritual | Central Item | Min Totems | Pattern | Result |
-|--------|--------------|------------|---------|--------|
-| **Item Vacuum** | Hopper | 6+ | Hexagon around center | Hopper pulls items from wider area |
-| **Auto-Smelting** | Blast Furnace | 6+ | Hexagon around center | Furnace automatically smelts without fuel |
-| **Enchanting Nexus** | Enchanting Table | 4+ | Square corners | Table grants higher level enchantments |
-
-**How Crafting Rituals Work:**
-1. Place central totem with special item (hopper, furnace, enchanting table, etc.)
-2. **Power with redstone** to see particle markers showing where surrounding totems should go
-3. Place 4-8 totems in specified pattern at exact positions (follow particle guides)
-4. Add required items to each surrounding totem (particle colors indicate which item)
-5. Perform fire sacrifice on central totem
-6. Item is enhanced/enchanted permanently
+The following are ideas for future rituals:
+- **Flight Zone** (Elytra) - Grant levitation/slow falling
+- **Weather Control** (Lightning Rod) - Control weather
+- **Time Warp** (Clock) - Accelerate time
+- **Mining Haste** (Netherite Pickaxe) - Grant Haste effect
+- **Forcefield** (End Crystal) - Create barriers
+- **Mob Repellent** (Zombie Head) - Prevent mob spawns
+- **XP Harvester** (Experience Bottle) - Generate XP
 
 **🎯 NEW: Visual Pattern Guides!** Power your central totem with redstone (place redstone block/torch/lever next to it) to see colored particle markers showing exactly where each surrounding totem should be placed and what item it needs!
 
