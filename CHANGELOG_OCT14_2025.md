@@ -1,8 +1,107 @@
-# Comprehensive Changelog - October 14, 2024
+# Comprehensive Changelog - October 14, 2025
 
 ## 📋 Overview
 
 Massive overhaul addressing audit findings, critical bugs, and user experience improvements. **Total files modified: 100+** across datapack functions, documentation, and configuration.
+
+---
+
+## 🔥 Latest Updates - October 14, 2025
+
+### Recipe Progression System (NEW!)
+**Status**: ✅ Implemented
+
+**What It Does**:
+- Enforces totem tier progression - you CANNOT craft higher tier totems without unlocking recipes first
+- Wood → Copper → Iron → Gold → Diamond → Netherite progression chain
+- If you try to craft a locked recipe, the totem is immediately confiscated and materials returned
+- Clear error messages tell you which totem you need to craft first
+
+**How It Works**:
+1. Craft Wood Totem → Unlocks Copper Totem recipe
+2. Craft Copper Totem → Unlocks Iron Totem recipe
+3. Craft Iron Totem → Unlocks Gold Totem recipe
+4. Craft Gold Totem → Unlocks Diamond Totem recipe
+5. Craft Diamond Totem → Unlocks Netherite Totem recipe
+
+**Files Created**:
+- `src/main/resources/data/rituals/function/player/check_illegal_totem.mcfunction` - Main validation check
+- `src/main/resources/data/rituals/function/player/confiscate_copper_totem.mcfunction`
+- `src/main/resources/data/rituals/function/player/confiscate_iron_totem.mcfunction`
+- `src/main/resources/data/rituals/function/player/confiscate_gold_totem.mcfunction`
+- `src/main/resources/data/rituals/function/player/confiscate_diamond_totem.mcfunction`
+- `src/main/resources/data/rituals/function/player/confiscate_netherite_totem.mcfunction`
+
+**Files Modified**:
+- `src/main/resources/data/rituals/function/tick.mcfunction` - Added recipe validation check every tick
+
+### Advancement Background Fixed
+**Status**: ✅ Fixed
+
+**What Was Broken**:
+- Advancement screen showed pink checkerboard (missing texture error)
+- Root advancement was missing the `background` property
+
+**How It Was Fixed**:
+- Added `"background": "minecraft:textures/block/crying_obsidian.png"` to root advancement
+- Uses vanilla crying obsidian texture (fits the mystical ritual theme)
+
+**Files Modified**:
+- `src/main/resources/data/rituals/advancement/guide/root.json`
+
+---
+
+## 🔥 Latest Updates - Pattern Ritual Fire Sacrifice System
+
+### Pattern Ritual Fire Sacrifice Integration
+**Status**: ✅ Fixed and Working
+
+**What Was Broken**:
+- Pattern rituals were activating without fire sacrifice when fire sacrifice mode was enabled
+- Fire sacrifice system was extinguishing fire BEFORE pattern detection ran
+- Supplemental totems were dropping items instead of being completely sacrificed
+- No immediate breeding effect at ritual activation
+
+**How It Was Fixed**:
+1. **Fire Check Flow Corrected**:
+   - Fire sacrifice system checks for fire + offerings → consumes both → calls `detect_type`
+   - `detect_type` calls pattern detection AFTER fire is verified
+   - Pattern detection no longer redundantly checks for fire
+   - Simplified activation logic in all pattern `detect_*.mcfunction` files
+
+2. **Complete Supplemental Totem Sacrifice**:
+   - Modified `break_sacrifice.mcfunction` to remove ALL drop logic
+   - Supplemental totems and their items are now completely consumed (no drops)
+   - Only visual/audio feedback (particles, sounds, messages)
+   - Central totem remains with ritual item marked as active
+
+3. **Immediate Breeding at Activation**:
+   - Added tier-based immediate breeding attempt on auto-breeding ritual activation
+   - Uses macro function with dynamic range based on totem tier
+   - Guarantees at least one breeding pair for common animals (cows, sheep, pigs, chickens, rabbits)
+   - Shows heart particles for visual feedback
+
+**Files Modified**:
+- `src/main/resources/data/rituals/function/ritual/patterns/star/detect_auto_breeding.mcfunction`
+- `src/main/resources/data/rituals/function/ritual/patterns/square/detect_enchanting_nexus.mcfunction`
+- `src/main/resources/data/rituals/function/ritual/patterns/hexagon/detect_item_vacuum.mcfunction`
+- `src/main/resources/data/rituals/function/ritual/patterns/hexagon/detect_auto_smelting.mcfunction`
+- `src/main/resources/data/rituals/function/ritual/patterns/pentagon/detect_xp_harvester.mcfunction`
+- `src/main/resources/data/rituals/function/totem/break_sacrifice.mcfunction`
+- `src/main/resources/data/rituals/function/ritual/patterns/star/activate_auto_breeding.mcfunction`
+
+**Files Created**:
+- `src/main/resources/data/rituals/function/ritual/patterns/star/immediate_breed.mcfunction` - Macro function for tier-based immediate breeding
+
+**Files Deleted**:
+- `src/main/resources/data/rituals/function/ritual/patterns/lib/check_fire_sacrifice.mcfunction` - No longer needed (fire verified by sacrifice system)
+
+**Result**:
+- ✅ Pattern rituals properly require fire sacrifice (iron ingots + fire) unless Kiwi Mode is enabled
+- ✅ Supplemental totems completely destroyed (no item drops)
+- ✅ Central totem remains with ritual item
+- ✅ Immediate breeding effect at activation
+- ✅ Tier-based ranges respected for all pattern ritual effects
 
 ---
 

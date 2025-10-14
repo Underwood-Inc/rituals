@@ -12,8 +12,12 @@ This guide explains how to use the **multi-totem pattern ritual system** in the 
 2. **Power with Redstone** - Place redstone next to the central totem to see **particle markers** showing where other totems should go
 3. **Place Surrounding Totems** - Follow the particle guides to place totems at exact positions
 4. **Add Required Items** - Each surrounding totem needs a specific item (shown in particle colors)
-5. **Perform Fire Sacrifice** - Light fire at the central totem base with catalyst items
-6. **Ritual Activates!** - If pattern is complete and correct, ritual triggers
+5. **Perform Fire Sacrifice** - Place 4 iron ingots (or higher tier) around the central totem and light fire (unless Kiwi Mode is enabled)
+6. **Ritual Activates!** - If pattern is complete and correct:
+   - Central totem remains with its item (permanently active)
+   - **All surrounding totems are SACRIFICED** (completely destroyed with no drops!)
+   - Ritual effect begins immediately (e.g., auto-breeding breeds at least one pair instantly)
+   - Ritual runs permanently until the central totem is broken or item removed
 
 ### Visual Pattern Guides
 
@@ -62,15 +66,21 @@ This makes setup MUCH easier - you don't need to memorize coordinates!
 
 **How to Set Up:**
 1. Place central totem, add **Wheat**
-2. Power with redstone to see cardinal markers
-3. Place 4 totems at N/E/S/W positions (colored particles show locations)
+2. Power with redstone to see cardinal markers (green, orange, brown, red particles)
+3. Place 4 totems at N/E/S/W positions (5 blocks away from center)
 4. Add items to cardinals:
-   - North (yellow): Seeds
-   - East (orange): Carrot
-   - South (tan): Potato
-   - West (red): Beetroot Seeds
-5. Fire sacrifice at center
-6. Animals in range will auto-breed!
+   - North (green particles): Seeds
+   - East (orange particles): Carrot
+   - South (brown particles): Potato
+   - West (red particles): Beetroot Seeds
+5. Fire sacrifice at center (4 iron ingots + fire)
+6. Ritual activates! The 4 surrounding totems are **sacrificed** (destroyed)
+7. Central totem remains - animals will auto-breed every 3 minutes (default)
+8. Immediate effect: At least one breeding pair of each animal type breeds instantly on activation!
+
+**Effect Range:** Based on central totem tier (Wood = 8 blocks, Netherite = 32 blocks)  
+**Frequency:** Every 3 minutes (180 seconds / 3600 ticks) by default  
+**Animals Affected:** Cows, Sheep, Pigs, Chickens, Rabbits, Horses, Wolves, Cats
 
 ---
 

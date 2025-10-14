@@ -11,6 +11,7 @@
     "description": {
       "text": "Harness ancient magic with ritual totems. Single totem = basic effect, multiple totems = amplified power!"
     },
+    "background": "minecraft:textures/block/stone.png",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": false
