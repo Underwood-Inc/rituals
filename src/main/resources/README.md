@@ -33,5 +33,13 @@ The resource pack will work immediately, even without custom texture files!
 
 ---
 
-**For full installation instructions, see INSTALLATION_FULL.md in the main folder**
+## 🔗 Navigation
+
+- **[← Back to Main README](../README.md)** - Complete project documentation
+- **[📚 Full Documentation](../docs/README.md)** - All guides and references
+- **[📦 Installation Guide](../docs/INSTALLATION.md)** - Datapack + resourcepack setup
+
+---
+
+*Totem Rituals Resource Pack - Provides custom item models and textures*
 

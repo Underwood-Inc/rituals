@@ -10,6 +10,9 @@ scoreboard players remove @a[scores={rituals.temp=1..}] rituals.temp 1
 execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_totem:1}}}}] at @s run function rituals:totem/check_place
 execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_totem:1b}}}}] at @s run function rituals:totem/check_place
 
+# Check for illegally crafted totems (recipe progression enforcement)
+execute as @a run function rituals:player/check_illegal_totem
+
 # Update all active totems
 execute as @e[type=interaction,tag=rituals.totem] at @s run function rituals:totem/update
 
@@ -25,4 +28,7 @@ execute as @e[type=marker,tag=rituals.sentry_projectile] at @s run function ritu
 
 # Handle menu triggers
 function rituals:menu/handler
+
+# Show kiwi mode indicator
+execute if score #kiwi_mode rituals.data matches 1 run title @a actionbar [{"text":"🥝 ","color":"green"},{"text":"Kiwi Mode Active","color":"yellow"}]
 

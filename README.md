@@ -23,13 +23,16 @@ Built with care for the Minecraft community—open source, tweakable, and ready 
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Ritual System](#ritual-system)
+- [Ritual Progression System](#ritual-progression-system)
 - [Totem Tiers](#totem-tiers)
 - [How to Use Totems](#how-to-use-totems)
 - [Ritual Types](#ritual-types)
+- [Coming Soon Rituals](docs/COMING_SOON_RITUALS.md) ✨
 - [Crafting Recipes](#crafting-recipes)
 - [Commands](#commands)
 - [Configuration](#configuration)
 - [Technical Details](#technical-details)
+- [Full Documentation](docs/README.md) 📚
 
 ## Installation
 
@@ -74,7 +77,7 @@ This datapack adds a new item category called "Totems" which can be crafted and 
 
 **Basic Workflow:**
 1. Craft totems (see [Crafting Recipes](#crafting-recipes))
-2. Sneak (Shift) and right-click to place a totem
+2. Right-click on the ground to place a totem
 3. Right-click a placed totem with an item to display it
 4. Drop 4 catalyst items around the totem (N/S/E/W)
 5. Light fire at the totem base - the ritual activates!
@@ -107,17 +110,30 @@ This datapack adds a new item category called "Totems" which can be crafted and 
 - Prevents "set and forget" infinite rituals
 - You control when rituals activate
 
-**📖 See `FIRE_SACRIFICE_GUIDE.md` for complete instructions!**
+**📖 See [`docs/FIRE_SACRIFICE_GUIDE.md`](docs/FIRE_SACRIFICE_GUIDE.md) for complete instructions!**
 
 <details>
-<summary><b>⚙️ Prefer Auto-Activation? (Click to Expand)</b></summary>
+<summary><b>🥝 Want Easy Mode? Enable Kiwi Mode! (Click to Expand)</b></summary>
 
-Server admins can disable fire sacrifice and restore the old automatic activation:
+**Kiwi Mode** is a user-friendly setting that disables fire sacrifice for automatic ritual activation - perfect for new players, teaching servers, or casual play!
 
+**In-Game (Super Easy!):**
+Just click the link when you join the world, or run:
 ```mcfunction
-/data modify storage rituals:config require_fire_sacrifice set value false
+/function rituals:admin/enable_kiwi_mode
+```
+
+**Manual Config (Advanced):**
+```mcfunction
+/data modify storage rituals:config kiwi_mode set value true
 /function rituals:config/reload
 ```
+
+**Kiwi Mode is perfect for:**
+- 🆕 New players learning the ritual system
+- 🎮 Casual gameplay without resource costs
+- 🏫 Teaching servers or tutorial worlds
+- 🧪 Testing and experimenting with rituals
 
 </details>
 
@@ -178,7 +194,7 @@ There are six tiers of totems, each with increasing effect power. All totems use
 
 *Visual comparison of effect ranges for all totem tiers*
 
-See `RANGE_DIAGRAM.md` for detailed range specifications.
+See [`docs/RANGE_DIAGRAM.md`](docs/RANGE_DIAGRAM.md) for detailed range specifications.
 
 </details>
 
@@ -188,7 +204,7 @@ See `RANGE_DIAGRAM.md` for detailed range specifications.
 
 1. Hold a totem item in your hand
 2. Look at the ground where you want to place it
-3. Sneak (hold Shift) and right-click
+3. Right-click on the ground
 4. The totem will appear as a vertical pole
 
 ### Adding Items to Totems
@@ -240,12 +256,12 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 
 ### Prosperity Ritual
 - **Required Item**: Netherite Block
-- **Effect**: Attracts nearby items, grants XP and Luck effect to players
+- **Effect**: Attracts nearby items and grants Luck effect to players
 - **Pull Speed**: 0.3 to 1.0 blocks/tick based on tier
-- **XP Gain**: 2-8 XP points per check (direct transfer, no lag)
 - **Luck Effect**: Level 0-2 based on tier (helps with loot drops)
 - **Range**: Tier-based (see Totem Tiers)
 - **Visual**: Golden dust particles
+- **Note**: For XP generation, use the XP Harvester pattern ritual
 
 ### Protection Ritual
 - **Required Item**: Iron Ingot
@@ -284,6 +300,163 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 **💡 Tip**: Each ritual activation consumes the catalyst items, so higher-tier totems cost more to run but provide much better effects!
 
 </details>
+
+## Ritual Progression System
+
+### Advancement Tree Overview
+
+Your journey with Totem Rituals follows a structured progression system. You must craft each totem tier to unlock the next tier's recipes and access more powerful rituals.
+
+```mermaid
+timeline
+    title Totem Tier Progression Journey
+    section Early Game
+        Gather Materials : Collect sticks and oak planks
+        Wood Totem (Tier 1) : Unlock basic rituals : 2×2 range
+    section Mid Game
+        Copper Totem (Tier 2) : Improved stats : 3×3 range
+        Iron Totem (Tier 3) : Unlock Strength ritual : 4×4 range
+    section Late Game
+        Gold Totem (Tier 4) : Unlock Prosperity ritual : 5×5 range
+        Diamond Totem (Tier 5) : Unlock Healing ritual : 6×6 range
+    section End Game
+        Netherite Totem (Tier 6) : Maximum power : 7×7 range
+        Master Ritualist : Complete all tiers
+```
+
+### Ritual Unlock Progression
+
+Different rituals become available as you progress through totem tiers. Higher tiers don't just provide more power and range—they also unlock new ritual types!
+
+```mermaid
+mindmap
+  root((Totem Rituals))
+    Wood Tier 1
+      Growth Ritual
+        Emerald
+        Bonemeal crops
+      Protection Ritual
+        Iron Ingot
+        Damage mobs
+      Sentry Ritual
+        Arrow
+        Homing projectiles
+    Copper Tier 2
+      All Wood rituals
+      Improved Stats
+        Faster effects
+        Larger range
+    Iron Tier 3
+      Strength Ritual
+        Diamond
+        Buff players
+    Gold Tier 4
+      Prosperity Ritual
+        Netherite Block
+        XP and items
+    Diamond Tier 5
+      Healing Ritual
+        Nether Star
+        Regeneration
+    Netherite Tier 6
+      Maximum Power
+        All rituals
+        Best stats
+```
+
+### Implemented vs Planned Rituals
+
+```mermaid
+pie title "Ritual Implementation Status"
+    "Implemented (9)" : 9
+    "Planned/Coming Soon (9)" : 9
+```
+
+#### ✅ Currently Implemented Rituals
+
+| Ritual | Item | Minimum Tier | Min Totems | Effect |
+|--------|------|--------------|------------|--------|
+| Growth | Emerald | Wood (Tier 1) | 1+ | Accelerates crop and plant growth with bonemeal effect |
+| Protection | Iron Ingot | Wood (Tier 1) | 1+ | Damages hostile mobs periodically |
+| Sentry | Arrow | Wood (Tier 1) | 1+ | Fires homing magical projectiles at enemies |
+| Strength | Diamond | Iron (Tier 3) | 1+ | Grants Strength and Resistance to players |
+| Prosperity | Netherite Block | Gold (Tier 4) | 1+ | Attracts items and grants Luck |
+| Healing | Nether Star | Diamond (Tier 5) | 1+ | Applies Regeneration to players and animals |
+| **Auto-Farming** | **Diamond Hoe** | **Wood (Tier 1)** | **5** | **Automatically harvests and replants fully grown crops** |
+| **Auto-Breeding** | **Wheat** | **Wood (Tier 1)** | **5** | **Automatically breeds animals in range** |
+| **XP Harvester** | **Experience Bottle** | **Wood (Tier 1)** | **6** | **Generates 1-6 XP/second based on tier (requires redstone power)** |
+
+#### 🚧 Planned Rituals (Coming Soon)
+
+These rituals are defined in the advancement system but not yet implemented. They come in two types:
+
+**Standard Rituals** - Place ritual item on totem, trigger with fire sacrifice
+**Crafting Rituals** - Place special item on central totem with specific totem pattern
+
+---
+
+### Standard Area Effect Rituals
+
+| Ritual | Item | Min Totems | Pattern | Effect |
+|--------|------|------------|---------|--------|
+| **Flight Zone** | Elytra | 7+ | Tower pattern (vertical stack) | Grant levitation and slow falling to players |
+| **Weather Control** | Lightning Rod | 7+ | Storm pattern (hexagon + center) | Control weather (clear/rain/thunder) |
+| **Time Warp** | Clock | 9+ | Clock pattern (circle) | Accelerate time itself in area |
+| **Mining Haste** | Netherite Pickaxe | 5+ | Underground cross pattern | Grant Haste III to nearby players |
+| **Forcefield** | End Crystal | 8+ | Circle pattern (8 totems) | Create impenetrable barrier around area |
+| **Mob Repellent** | Zombie Head | 8+ | Barrier pattern (octagon) | Prevent hostile mob spawns in area |
+
+---
+
+### ⚠️ Planned Rituals (Not Yet Implemented)
+
+The following are ideas for future rituals:
+- **Flight Zone** (Elytra) - Grant levitation/slow falling
+- **Weather Control** (Lightning Rod) - Control weather
+- **Time Warp** (Clock) - Accelerate time
+- **Mining Haste** (Netherite Pickaxe) - Grant Haste effect
+- **Forcefield** (End Crystal) - Create barriers
+- **Mob Repellent** (Zombie Head) - Prevent mob spawns
+
+**🎯 NEW: Visual Pattern Guides!** Power your central totem with redstone (place redstone block/torch/lever next to it) to see colored particle markers showing exactly where each surrounding totem should be placed and what item it needs!
+
+**📖 See [`docs/PATTERN_RITUALS_GUIDE.md`](docs/PATTERN_RITUALS_GUIDE.md) for complete pattern ritual guide!**  
+**📐 See [`docs/MULTI_TOTEM_PATTERNS.md`](docs/MULTI_TOTEM_PATTERNS.md) for detailed ASCII diagrams!**
+
+### Recipe Unlock Flow
+
+```mermaid
+stateDiagram-v2
+    [*] --> GatherMaterials: Game Start
+    GatherMaterials --> WoodTier: Craft Wood Totem
+    WoodTier --> CopperTier: Unlock Copper Recipe
+    CopperTier --> IronTier: Unlock Iron Recipe
+    IronTier --> GoldTier: Unlock Gold Recipe
+    GoldTier --> DiamondTier: Unlock Diamond Recipe
+    DiamondTier --> NetheriteTier: Unlock Netherite Recipe
+    NetheriteTier --> [*]: Master Ritualist
+    
+    note right of WoodTier
+        Basic rituals unlocked
+        2×2 range
+    end note
+    
+    note right of IronTier
+        Strength ritual unlocked
+        4×4 range
+    end note
+    
+    note right of DiamondTier
+        Healing ritual unlocked
+        6×6 range
+    end note
+```
+
+**Key Points:**
+- You cannot skip tiers - each totem tier must be crafted in sequence
+- Basic rituals (Growth, Protection, Sentry) are available from the start with any totem tier
+- Advanced rituals require higher tier totems to unlock
+- Higher tier totems provide the same rituals but with better stats (range, power, frequency)
 
 ## Crafting Recipes
 
@@ -458,7 +631,7 @@ data/
 └── pack.mcmeta
 ```
 
-See `SYSTEM_OVERVIEW.md` for detailed technical documentation.
+See [`docs/SYSTEM_OVERVIEW.md`](docs/SYSTEM_OVERVIEW.md) for detailed technical documentation.
 
 </details>
 
@@ -485,7 +658,7 @@ You can customize various datapack settings using the config storage system.
 - `max_totem_distance` - Maximum distance between totems in blocks (default: 32)
 - `ritual_duration` - How long rituals last in ticks (default: 600 = 30 seconds)
 
-See `CONFIG_GUIDE.md` for complete configuration documentation.
+See [`docs/CONFIG_GUIDE.md`](docs/CONFIG_GUIDE.md) for complete configuration documentation.
 
 </details>
 
@@ -518,7 +691,7 @@ See `RANGE_DIAGRAM.md` for detailed range specifications!
 <summary><b>🔧 Common Issues & Solutions (Click to Expand)</b></summary>
 
 ### Totems won't place:
-- Make sure you're **right-clicking** (not sneaking required!)
+- Make sure you're **right-clicking** with the totem item
 - Ensure there's empty space (air block) where you're trying to place the totem
 - Check that you have the actual totem item (should have custom name and colored text)
 
@@ -548,12 +721,13 @@ See `RANGE_DIAGRAM.md` for detailed range specifications!
 
 ## Related Documentation
 
-- 🔥 **`FIRE_SACRIFICE_GUIDE.md`** - Complete fire sacrifice tutorial
-- 📐 **`RANGE_DIAGRAM.md`** - Detailed range specifications
-- 🔧 **`CONFIG_GUIDE.md`** - All configuration options
-- 📦 **`INSTALLATION.md`** - Detailed installation guide
-- 🛠️ **`SYSTEM_OVERVIEW.md`** - Technical architecture
-- 📝 **`CRAFTING_RECIPES.md`** - All crafting recipes
+- 🔥 **[`docs/FIRE_SACRIFICE_GUIDE.md`](docs/FIRE_SACRIFICE_GUIDE.md)** - Complete fire sacrifice tutorial
+- 📐 **[`docs/RANGE_DIAGRAM.md`](docs/RANGE_DIAGRAM.md)** - Detailed range specifications
+- 🔧 **[`docs/CONFIG_GUIDE.md`](docs/CONFIG_GUIDE.md)** - All configuration options
+- 📦 **[`docs/INSTALLATION.md`](docs/INSTALLATION.md)** - Detailed installation guide
+- 🛠️ **[`docs/SYSTEM_OVERVIEW.md`](docs/SYSTEM_OVERVIEW.md)** - Technical architecture
+- 📝 **[`docs/CRAFTING_RECIPES.md`](docs/CRAFTING_RECIPES.md)** - All crafting recipes
+- 📖 **[`docs/README.md`](docs/README.md)** - Documentation index
 
 ## Future Enhancements
 
@@ -576,7 +750,30 @@ This datapack is provided as-is for use in Minecraft worlds. Feel free to modify
 
 ---
 
-**Enjoy your mystical journey with Totem Rituals!**
+## 🔗 Quick Navigation
+
+### Documentation Hub
+- **[📚 Full Documentation](docs/README.md)** - Complete documentation index with all guides
+
+### Essential Guides
+- **[📦 Installation](docs/INSTALLATION.md)** - Setup instructions for datapack and resourcepack
+- **[🔥 Fire Sacrifice System](docs/FIRE_SACRIFICE_GUIDE.md)** - How to activate rituals
+- **[⚙️ Configuration](docs/CONFIG_GUIDE.md)** - Customize ranges, costs, and more
+- **[🎨 Crafting Recipes](docs/CRAFTING_RECIPES.md)** - All totem crafting recipes with images
+
+### Advanced Topics
+- **[🔮 Pattern Rituals](docs/PATTERN_RITUALS_GUIDE.md)** - Multi-totem pattern system
+- **[✨ Coming Soon](docs/COMING_SOON_RITUALS.md)** - Future features and planned rituals
+- **[🛠️ System Overview](docs/SYSTEM_OVERVIEW.md)** - Technical architecture details
+- **[📖 In-Game Guidebook](docs/GUIDEBOOK_CONTENT.md)** - Complete guidebook reference
+
+### Resources
+- **[🎨 Resource Pack](resourcepack/README.md)** - Custom textures and models
+- **[📝 Changelog](docs/CHANGELOG.md)** - Version history and updates
+- **[🏗️ Build Guide](docs/BUILD_GUIDE.md)** - Compile the Fabric mod version
+
+---
+
+**Enjoy your mystical journey with Totem Rituals!** 🔮
 
 For issues, questions, or suggestions, please contact the datapack maintainer.
-

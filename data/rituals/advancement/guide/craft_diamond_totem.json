@@ -1,0 +1,44 @@
+{
+  "parent": "rituals:guide/craft_gold_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:diamond"
+    },
+    "title": {
+      "text": "Diamond Totem",
+      "color": "aqua"
+    },
+    "description": {
+      "text": "Near-legendary power! Craft a diamond totem for the most potent rituals."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "has_diamond_totem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:warped_fungus_on_a_stick"],
+            "components": {
+              "minecraft:custom_data": {
+                "rituals_totem": 1,
+                "tier": 5
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "rituals:totem_base_netherite",
+      "rituals:totem_base_netherite_short",
+      "rituals:upgrade_slate_netherite"
+    ]
+  }
+}
+

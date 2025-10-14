@@ -19,5 +19,6 @@ scoreboard players reset @e[type=interaction,tag=rituals.totem] rituals.effect
 kill @e[type=area_effect_cloud,tag=rituals.range_marker]
 execute as @e[type=interaction,tag=rituals.totem] run tag @s remove rituals.barrier_shown
 
-tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"All rituals have been reset.","color":"yellow","bold":false}]
+tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"✓ All rituals have been reset.","color":"yellow","bold":false}]
+tellraw @a [{"text":"  Totems are still placed. Run ","color":"gray"},{"text":"/function rituals:admin/list_totems","color":"aqua","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:admin/list_totems"},"hover_event":{"action":"show_text","value":[{"text":"Click to list all totems","color":"green"}]}},{"text":" to see them.","color":"gray"}]
 

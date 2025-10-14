@@ -2,30 +2,22 @@
   "parent": "rituals:guide/craft_totem",
   "display": {
     "icon": {
-      "id": "minecraft:netherite_ingot"
+      "id": "minecraft:arrow"
     },
     "title": {
-      "text": "Netherite Totem",
-      "color": "dark_purple"
+      "text": "Sentry Ritual",
+      "color": "red"
     },
     "description": {
-      "text": "The ultimate tier! Craft with 5 netherite ingots. Max ritual power and range."
+      "text": "Right-click a totem with an arrow to fire magical projectiles at enemies. Available with any totem tier!"
     },
-    "frame": "goal",
-    "show_toast": false,
+    "frame": "task",
+    "show_toast": true,
     "announce_to_chat": false
   },
   "criteria": {
-    "has_netherite": {
-      "trigger": "minecraft:inventory_changed",
-      "conditions": {
-        "items": [
-          {
-            "items": ["minecraft:netherite_ingot"]
-          }
-        ]
-      }
+    "auto": {
+      "trigger": "minecraft:tick"
     }
   }
 }
-

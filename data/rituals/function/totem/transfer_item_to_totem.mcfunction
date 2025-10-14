@@ -26,3 +26,6 @@ particle dust{color:[1.0,0.8,0.2],scale:1.0} ~ ~2.2 ~ 0.2 0.2 0.2 0 10
 playsound entity.item.pickup block @a ~ ~ ~ 1.0 1.2
 
 tellraw @p[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Item placed on totem!","color":"green","bold":false}]
+
+# Check if this is a pattern ritual item and show setup help immediately
+function rituals:totem/check_pattern_help
