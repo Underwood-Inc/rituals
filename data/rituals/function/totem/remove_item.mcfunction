@@ -6,11 +6,8 @@
 # Store this totem's ID
 scoreboard players operation #remove_id rituals.temp = @s rituals.id
 
-# Get the item from the display
-execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #remove_id rituals.temp run data modify storage rituals:temp item set from entity @s item
-
-# Drop the item
-function rituals:totem/drop_displayed_item
+# Drop the displayed item (clean, no ritual tags)
+function rituals:totem/drop_displayed_item_clean
 
 # Clear the display
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #remove_id rituals.temp run data remove entity @s item

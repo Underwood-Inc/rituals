@@ -24,8 +24,8 @@ execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 
 execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 5 run function rituals:totem/drop/tier5
 execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 6 run function rituals:totem/drop/tier6
 
-# Drop any item that was displayed
-execute if entity @s[tag=rituals.has_item] run function rituals:totem/drop_displayed_item
+# Drop any item that was displayed (strip ritual tags first)
+execute if entity @s[tag=rituals.has_item] run function rituals:totem/drop_displayed_item_clean
 
 # Remove all associated entities with matching ID
 execute as @e[type=block_display,tag=rituals.totem_visual] if score @s rituals.id = #break_id rituals.temp run kill @s

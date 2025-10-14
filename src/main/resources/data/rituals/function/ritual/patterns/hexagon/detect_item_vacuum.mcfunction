@@ -11,6 +11,14 @@
 #   SW (-5, -3): Chest
 #   NW (-5, +3): Observer
 
+# Skip detection if this ritual is already active
+execute if entity @s[tag=rituals.active_ritual] run return 0
+
+# Skip detection if the item already has ritual_active tag (bypass prevention)
+scoreboard players operation #check_id rituals.temp = @s rituals.id
+execute store result score #has_ritual_tag rituals.temp run execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #check_id rituals.temp if data entity @s item.components."minecraft:custom_data".ritual_active
+execute if score #has_ritual_tag rituals.temp matches 1.. run return 0
+
 # Show helpful setup message (only once per totem)
 execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"🔹 ","color":"aqua"},{"text":"Item Vacuum Pattern Setup:","bold":true,"color":"cyan"}]
 execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  Place 6 totems in hexagon around center:","color":"gray"}]

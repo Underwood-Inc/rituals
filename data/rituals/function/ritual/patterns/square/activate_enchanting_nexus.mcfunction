@@ -7,27 +7,15 @@
 # Mark pattern as valid
 scoreboard players set #pattern_valid rituals.temp 1
 
-# Tag all participating totems as part of pattern ritual
+# Tag ONLY the central totem (supplemental totems will be destroyed)
 tag @s add rituals.pattern_ritual
 tag @s add rituals.enchanting_nexus
-execute positioned ~4 ~ ~4 as @e[type=interaction,tag=rituals.totem,tag=rituals.pattern_totem,distance=..1.5] run tag @s add rituals.enchanting_nexus
-execute positioned ~4 ~ ~-4 as @e[type=interaction,tag=rituals.totem,tag=rituals.pattern_totem,distance=..1.5] run tag @s add rituals.enchanting_nexus
-execute positioned ~-4 ~ ~-4 as @e[type=interaction,tag=rituals.totem,tag=rituals.pattern_totem,distance=..1.5] run tag @s add rituals.enchanting_nexus
-execute positioned ~-4 ~ ~4 as @e[type=interaction,tag=rituals.totem,tag=rituals.pattern_totem,distance=..1.5] run tag @s add rituals.enchanting_nexus
 
 # Set ritual effect type (10 = enchanting nexus)
 scoreboard players set @s rituals.effect 10
-execute positioned ~4 ~ ~4 as @e[type=interaction,tag=rituals.enchanting_nexus,distance=..1.5] run scoreboard players set @s rituals.effect 10
-execute positioned ~4 ~ ~-4 as @e[type=interaction,tag=rituals.enchanting_nexus,distance=..1.5] run scoreboard players set @s rituals.effect 10
-execute positioned ~-4 ~ ~-4 as @e[type=interaction,tag=rituals.enchanting_nexus,distance=..1.5] run scoreboard players set @s rituals.effect 10
-execute positioned ~-4 ~ ~4 as @e[type=interaction,tag=rituals.enchanting_nexus,distance=..1.5] run scoreboard players set @s rituals.effect 10
 
 # Start ritual timer (reset to 0)
 scoreboard players set @s rituals.timer 0
-execute positioned ~4 ~ ~4 as @e[type=interaction,tag=rituals.enchanting_nexus,distance=..1.5] run scoreboard players set @s rituals.timer 0
-execute positioned ~4 ~ ~-4 as @e[type=interaction,tag=rituals.enchanting_nexus,distance=..1.5] run scoreboard players set @s rituals.timer 0
-execute positioned ~-4 ~ ~-4 as @e[type=interaction,tag=rituals.enchanting_nexus,distance=..1.5] run scoreboard players set @s rituals.timer 0
-execute positioned ~-4 ~ ~4 as @e[type=interaction,tag=rituals.enchanting_nexus,distance=..1.5] run scoreboard players set @s rituals.timer 0
 
 # Visual and audio feedback - dramatic effect!
 particle minecraft:enchant ~ ~2 ~ 5 2 5 1 500 force
@@ -45,27 +33,36 @@ tellraw @a[distance=..32] [{"text":"✨ ","color":"light_purple"},{"text":"Encha
 # This marks it as enhanced for future placement
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = @e[type=interaction,tag=rituals.totem,limit=1,sort=nearest] rituals.id run data modify entity @s item.components."minecraft:custom_data".enchanting_nexus set value 1b
 
-# CENTRAL TOTEM: Keep item, just remove help tag
+# CENTRAL TOTEM: Keep item, remove help tag, and mark as ritual-active
 tag @s remove rituals.pattern_help_shown
+scoreboard players operation #central_id rituals.temp = @s rituals.id
+execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #central_id rituals.temp run data modify entity @s item.components."minecraft:custom_data".ritual_active set value 1b
 
-# SUPPLEMENTAL TOTEMS: Completely destroy with lightning
+# SUPPLEMENTAL TOTEMS: Completely destroy (sacrifice) with dramatic effects
 # NE Corner
-execute positioned ~4 ~ ~4 run summon lightning_bolt ~ ~ ~
-execute positioned ~4 ~ ~4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+execute positioned ~4 ~ ~4 run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
+execute positioned ~4 ~ ~4 run particle minecraft:soul_fire_flame ~ ~1 ~ 0.3 0.5 0.3 0.1 30 force
+execute positioned ~4 ~ ~4 run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
+execute positioned ~4 ~ ~4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break_sacrifice
 
 # SE Corner
-execute positioned ~4 ~ ~-4 run summon lightning_bolt ~ ~ ~
-execute positioned ~4 ~ ~-4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+execute positioned ~4 ~ ~-4 run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
+execute positioned ~4 ~ ~-4 run particle minecraft:soul_fire_flame ~ ~1 ~ 0.3 0.5 0.3 0.1 30 force
+execute positioned ~4 ~ ~-4 run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
+execute positioned ~4 ~ ~-4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break_sacrifice
 
 # SW Corner
-execute positioned ~-4 ~ ~-4 run summon lightning_bolt ~ ~ ~
-execute positioned ~-4 ~ ~-4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+execute positioned ~-4 ~ ~-4 run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
+execute positioned ~-4 ~ ~-4 run particle minecraft:soul_fire_flame ~ ~1 ~ 0.3 0.5 0.3 0.1 30 force
+execute positioned ~-4 ~ ~-4 run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
+execute positioned ~-4 ~ ~-4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break_sacrifice
 
 # NW Corner
-execute positioned ~-4 ~ ~4 run summon lightning_bolt ~ ~ ~
-execute positioned ~-4 ~ ~4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break
+execute positioned ~-4 ~ ~4 run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
+execute positioned ~-4 ~ ~4 run particle minecraft:soul_fire_flame ~ ~1 ~ 0.3 0.5 0.3 0.1 30 force
+execute positioned ~-4 ~ ~4 run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
+execute positioned ~-4 ~ ~4 as @e[type=interaction,tag=rituals.pattern_totem,distance=..1.5] run function rituals:totem/break_sacrifice
 
 # Clean up pattern totem tags (if any remain)
 tag @e[type=interaction,tag=rituals.pattern_totem] remove rituals.pattern_totem
-
 
