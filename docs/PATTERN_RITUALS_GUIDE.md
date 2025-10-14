@@ -311,3 +311,16 @@ To add a new pattern ritual:
 
 Remember: When in doubt, use redstone visualization to guide your totem placement!
 
+---
+
+## 🔗 Navigation
+
+- **[← Back to Documentation Index](README.md)** - All guides and references
+- **[← Back to Main README](../README.md)** - Project overview
+- **[📚 Multi-Totem Patterns](MULTI_TOTEM_PATTERNS.md)** - Detailed pattern diagrams with coordinates
+- **[🔍 Pattern Visualization](PATTERN_VISUALIZATION_BEHAVIOR.md)** - Redstone visualization system
+- **[🛠️ Implementation Summary](IMPLEMENTATION_SUMMARY.md)** - Technical implementation details
+- **[✨ Coming Soon Rituals](COMING_SOON_RITUALS.md)** - Future pattern rituals
+
+---
+

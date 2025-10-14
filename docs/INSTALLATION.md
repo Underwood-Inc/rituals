@@ -161,5 +161,14 @@ For more information on using the datapack after installation, see:
 
 ---
 
+## 🔗 Navigation
+
+- **[← Back to Documentation Index](README.md)** - All guides and references
+- **[← Back to Main README](../README.md)** - Project overview
+- **[🔥 Next: Fire Sacrifice Guide](FIRE_SACRIFICE_GUIDE.md)** - Learn how to activate rituals
+- **[⚙️ Configuration Guide](CONFIG_GUIDE.md)** - Customize your experience
+
+---
+
 Happy crafting and may your rituals be powerful! 🔮
 

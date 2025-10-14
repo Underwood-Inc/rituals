@@ -232,5 +232,15 @@ The `config/load.mcfunction` will reset all values to their defaults.
 
 ---
 
+## 🔗 Navigation
+
+- **[← Back to Documentation Index](README.md)** - All guides and references
+- **[← Back to Main README](../README.md)** - Project overview
+- **[🔥 Fire Sacrifice Guide](FIRE_SACRIFICE_GUIDE.md)** - Core ritual mechanics
+- **[📏 Range Diagram](RANGE_DIAGRAM.md)** - Visual range specifications
+- **[🛠️ System Overview](SYSTEM_OVERVIEW.md)** - Technical architecture
+
+---
+
 Now go forth and customize your rituals, you magnificent bastard! ᕙ(⇀‸↼‶)ᕗ
 

@@ -258,6 +258,15 @@ The fire sacrifice system adds:
 
 ---
 
-**May your offerings burn bright and your rituals be ever powerful!** 🔥✨
+## 🔗 Navigation
 
+- **[← Back to Documentation Index](README.md)** - All guides and references
+- **[← Back to Main README](../README.md)** - Project overview
+- **[📦 Installation Guide](INSTALLATION.md)** - Setup instructions
+- **[⚡ Quick Reference Card](FIRE_SACRIFICE_QUICK_REFERENCE.md)** - Printable reference
+- **[⚙️ Configuration Guide](CONFIG_GUIDE.md)** - Disable fire sacrifice or adjust settings
+
+---
+
+**May your offerings burn bright and your rituals be ever powerful!** 🔥✨
 

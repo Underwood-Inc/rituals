@@ -19,6 +19,7 @@ Welcome to the comprehensive documentation for the Totem Rituals datapack! This 
 - **[MULTI_TOTEM_PATTERNS.md](MULTI_TOTEM_PATTERNS.md)** - Detailed ASCII diagrams with exact coordinates and item requirements
 - **[PATTERN_VISUALIZATION_BEHAVIOR.md](PATTERN_VISUALIZATION_BEHAVIOR.md)** - Technical reference for redstone pattern visualization
 - **[IMPLEMENTATION_SUMMARY.md](IMPLEMENTATION_SUMMARY.md)** - Developer documentation for pattern ritual system
+- **[COMING_SOON_RITUALS.md](COMING_SOON_RITUALS.md)** - ✨ Planned advanced rituals with custom enchantment mechanics
 
 ### Crafting & Building
 - **[CRAFTING_RECIPES.md](CRAFTING_RECIPES.md)** - All totem crafting recipes with images
@@ -40,6 +41,7 @@ Start here:
 2. [Fire Sacrifice Guide](FIRE_SACRIFICE_GUIDE.md)
 3. [Pattern Rituals Guide](PATTERN_RITUALS_GUIDE.md) ⭐ NEW!
 4. [Crafting Recipes](CRAFTING_RECIPES.md)
+5. [Coming Soon Rituals](COMING_SOON_RITUALS.md) ✨ PREVIEW!
 
 ### Server Admins
 Check out:
@@ -66,5 +68,15 @@ Explore:
 
 ---
 
-**Main Project README**: See [../README.md](../README.md) in the root directory for project overview
+## 🔗 Navigation
+
+- **[← Back to Main README](../README.md)** - Project overview and getting started
+- **[📦 Installation Guide](INSTALLATION.md)** - Setup instructions
+- **[🔥 Fire Sacrifice Guide](FIRE_SACRIFICE_GUIDE.md)** - Core ritual mechanic
+- **[⚙️ Configuration Guide](CONFIG_GUIDE.md)** - Customize your experience
+- **[✨ Coming Soon Rituals](COMING_SOON_RITUALS.md)** - Future features preview
+
+---
+
+*Part of the Totem Rituals documentation system*
 

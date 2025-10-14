@@ -209,6 +209,27 @@ sequenceDiagram
 ### Totem Upgrade Process
 
 ```mermaid
+stateDiagram-v2
+    [*] --> Tier1Wood
+    Tier1Wood --> Tier2Copper: Copper Slate
+    Tier2Copper --> Tier3Iron: Iron Slate
+    Tier3Iron --> Tier4Gold: Gold Slate
+    Tier4Gold --> Tier5Diamond: Diamond Slate
+    Tier5Diamond --> Tier6Netherite: Netherite Slate
+    Tier6Netherite --> [*]: Max Tier
+    
+    note right of Tier1Wood
+        2 block radius<br/>Basic effects
+    end note
+    
+    note right of Tier6Netherite
+        7 block radius<br/>Maximum power
+    end note
+```
+
+
+
+```mermaid
 flowchart LR
     A[Player Right-clicks<br/>with Upgrade Slate] --> B[check_held_item.mcfunction]
     B --> C[upgrade.mcfunction]
@@ -345,6 +366,17 @@ The system is designed to be easily expandable:
 3. **Range Upgrades**: Modify box size in effect functions
 4. **New Items**: Add recipes with custom_data tags
 5. **Multi-Item Rituals**: Check multiple item types
+
+---
+
+## 🔗 Navigation
+
+- **[← Back to Documentation Index](README.md)** - All guides and references
+- **[← Back to Main README](../README.md)** - Project overview
+- **[⚙️ Configuration Guide](CONFIG_GUIDE.md)** - Customize settings
+- **[🔮 Pattern Rituals Guide](PATTERN_RITUALS_GUIDE.md)** - Multi-totem patterns
+- **[📚 Implementation Summary](IMPLEMENTATION_SUMMARY.md)** - Pattern system technical details
+- **[🏗️ Build Guide](BUILD_GUIDE.md)** - Compile the Fabric mod
 
 ---
 

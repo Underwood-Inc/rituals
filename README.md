@@ -27,10 +27,12 @@ Built with care for the Minecraft community—open source, tweakable, and ready 
 - [Totem Tiers](#totem-tiers)
 - [How to Use Totems](#how-to-use-totems)
 - [Ritual Types](#ritual-types)
+- [Coming Soon Rituals](docs/COMING_SOON_RITUALS.md) ✨
 - [Crafting Recipes](#crafting-recipes)
 - [Commands](#commands)
 - [Configuration](#configuration)
 - [Technical Details](#technical-details)
+- [Full Documentation](docs/README.md) 📚
 
 ## Installation
 
@@ -684,7 +686,7 @@ See `RANGE_DIAGRAM.md` for detailed range specifications!
 <summary><b>🔧 Common Issues & Solutions (Click to Expand)</b></summary>
 
 ### Totems won't place:
-- Make sure you're **right-clicking** (not sneaking required!)
+- Make sure you're **right-clicking** with the totem item
 - Ensure there's empty space (air block) where you're trying to place the totem
 - Check that you have the actual totem item (should have custom name and colored text)
 
@@ -743,6 +745,30 @@ This datapack is provided as-is for use in Minecraft worlds. Feel free to modify
 
 ---
 
-**Enjoy your mystical journey with Totem Rituals!**
+## 🔗 Quick Navigation
+
+### Documentation Hub
+- **[📚 Full Documentation](docs/README.md)** - Complete documentation index with all guides
+
+### Essential Guides
+- **[📦 Installation](docs/INSTALLATION.md)** - Setup instructions for datapack and resourcepack
+- **[🔥 Fire Sacrifice System](docs/FIRE_SACRIFICE_GUIDE.md)** - How to activate rituals
+- **[⚙️ Configuration](docs/CONFIG_GUIDE.md)** - Customize ranges, costs, and more
+- **[🎨 Crafting Recipes](docs/CRAFTING_RECIPES.md)** - All totem crafting recipes with images
+
+### Advanced Topics
+- **[🔮 Pattern Rituals](docs/PATTERN_RITUALS_GUIDE.md)** - Multi-totem pattern system
+- **[✨ Coming Soon](docs/COMING_SOON_RITUALS.md)** - Future features and planned rituals
+- **[🛠️ System Overview](docs/SYSTEM_OVERVIEW.md)** - Technical architecture details
+- **[📖 In-Game Guidebook](docs/GUIDEBOOK_CONTENT.md)** - Complete guidebook reference
+
+### Resources
+- **[🎨 Resource Pack](resourcepack/README.md)** - Custom textures and models
+- **[📝 Changelog](docs/CHANGELOG.md)** - Version history and updates
+- **[🏗️ Build Guide](docs/BUILD_GUIDE.md)** - Compile the Fabric mod version
+
+---
+
+**Enjoy your mystical journey with Totem Rituals!** 🔮
 
 For issues, questions, or suggestions, please contact the datapack maintainer.

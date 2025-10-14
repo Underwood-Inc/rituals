@@ -4,9 +4,9 @@ scoreboard players add #global_totem_id rituals.id 1
 
 # Summon totem interaction entity (for clicking/breaking)
 # Short totems = 1.5 blocks tall (like fences), tall totems = 2.5 blocks
-# Width set to 1.0f for easier interaction while still allowing redstone adjacency
-execute unless score @p rituals.temp matches 1 run summon interaction ~ ~ ~ {width:1.0f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
-execute if score @p rituals.temp matches 1 run summon interaction ~ ~ ~ {width:1.0f,height:1.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
+# Width set to 1.2f for easier interaction (larger hitbox for breaking)
+execute unless score @p rituals.temp matches 1 run summon interaction ~ ~ ~ {width:1.2f,height:2.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
+execute if score @p rituals.temp matches 1 run summon interaction ~ ~ ~ {width:1.2f,height:1.5f,Tags:["rituals.totem","rituals.new_totem"],response:1b}
 
 # Add barrier for collision (invisible, unbreakable in survival)
 # Short totems: ONE barrier at ~ (1 block tall: Y=0 to Y=1)
