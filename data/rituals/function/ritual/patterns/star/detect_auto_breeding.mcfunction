@@ -53,6 +53,8 @@ scoreboard players operation #totems_found rituals.temp += #found_s rituals.temp
 scoreboard players operation #totems_found rituals.temp += #found_w rituals.temp
 
 # If all 4 cardinals found with correct items, pattern is valid
+# Fire is already verified by the fire sacrifice system before this is called
+# Just activate directly!
 execute if score #totems_found rituals.temp matches 4 run function rituals:ritual/patterns/star/activate_auto_breeding
 
 # Pattern validation particles (only show if pattern incomplete)

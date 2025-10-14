@@ -12,8 +12,8 @@ execute if data entity @s interaction run function rituals:totem/handle_interact
 # Check for redstone power and visualize range/pattern (using particles)
 function rituals:totem/check_redstone
 
-# If redstone powered, continuously show pattern visualization
-execute if entity @s[tag=rituals.redstone_powered,tag=rituals.has_item] run function rituals:totem/patterns/visualize_pattern
+# If redstone powered, continuously show pattern visualization (but not for active rituals)
+execute if entity @s[tag=rituals.redstone_powered,tag=rituals.has_item,tag=!rituals.active_ritual] run function rituals:totem/patterns/visualize_pattern
 
 # Animate item display (rotation and bobbing) if item is present
 execute if entity @s[tag=rituals.has_item] run function rituals:totem/animate_item_display

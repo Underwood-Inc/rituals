@@ -56,6 +56,7 @@ scoreboard players operation #totems_found rituals.temp += #found_sw rituals.tem
 scoreboard players operation #totems_found rituals.temp += #found_nw rituals.temp
 
 # If all 4 corners found with correct items, pattern is valid
+# Fire is already verified by the fire sacrifice system before this is called
 execute if score #totems_found rituals.temp matches 4 run function rituals:ritual/patterns/square/activate_enchanting_nexus
 
 # If pattern incomplete, show debug message (optional)

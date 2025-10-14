@@ -63,6 +63,7 @@ scoreboard players operation #totems_found rituals.temp += #found_sw rituals.tem
 scoreboard players operation #totems_found rituals.temp += #found_nw rituals.temp
 
 # If all 6 hexagon points found with correct items, pattern is valid
+# Fire is already verified by the fire sacrifice system before this is called
 execute if score #totems_found rituals.temp matches 6 run function rituals:ritual/patterns/hexagon/activate_item_vacuum
 
 # If pattern incomplete, show debug message

@@ -10,22 +10,8 @@ tag @s add rituals.broken
 # Store this totem's ID for matching
 scoreboard players operation #break_id rituals.temp = @s rituals.id
 
-# Drop the totem base item (but NOT the ritual item - it's sacrificed)
-execute if entity @s[tag=rituals.short_totem] if score @s rituals.tier matches 1 run function rituals:totem/drop/tier1_short
-execute if entity @s[tag=rituals.short_totem] if score @s rituals.tier matches 2 run function rituals:totem/drop/tier2_short
-execute if entity @s[tag=rituals.short_totem] if score @s rituals.tier matches 3 run function rituals:totem/drop/tier3_short
-execute if entity @s[tag=rituals.short_totem] if score @s rituals.tier matches 4 run function rituals:totem/drop/tier4_short
-execute if entity @s[tag=rituals.short_totem] if score @s rituals.tier matches 5 run function rituals:totem/drop/tier5_short
-execute if entity @s[tag=rituals.short_totem] if score @s rituals.tier matches 6 run function rituals:totem/drop/tier6_short
-execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 1 run function rituals:totem/drop/tier1
-execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 2 run function rituals:totem/drop/tier2
-execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 3 run function rituals:totem/drop/tier3
-execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 4 run function rituals:totem/drop/tier4
-execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 5 run function rituals:totem/drop/tier5
-execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 6 run function rituals:totem/drop/tier6
-
-# DO NOT drop the ritual item - it's consumed as part of the sacrifice!
-# Just kill the item display entity
+# SACRIFICE = NO DROPS AT ALL! Everything is consumed!
+# Kill the item display entity (ritual item)
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #break_id rituals.temp run kill @s
 
 # Remove all associated entities with matching ID

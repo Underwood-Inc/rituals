@@ -59,6 +59,7 @@ scoreboard players operation #totems_found rituals.temp += #found_4 rituals.temp
 scoreboard players operation #totems_found rituals.temp += #found_5 rituals.temp
 
 # If all 5 positions found with items, pattern is valid
+# Fire is already verified by the fire sacrifice system before this is called
 execute if score #totems_found rituals.temp matches 5 run function rituals:ritual/patterns/pentagon/activate_xp_harvester
 
 # Pattern validation particles (only show if pattern incomplete)

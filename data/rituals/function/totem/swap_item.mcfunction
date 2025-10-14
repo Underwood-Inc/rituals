@@ -9,8 +9,8 @@ scoreboard players operation #swap_id rituals.temp = @s rituals.id
 # Get the OLD item from the display
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #swap_id rituals.temp run data modify storage rituals:temp old_item set from entity @s item
 
-# Drop the OLD item at totem location
-function rituals:totem/drop_displayed_item
+# Drop the OLD item at totem location (clean, no ritual tags)
+function rituals:totem/drop_displayed_item_clean
 
 # Get the NEW item from player
 data modify storage rituals:temp item set from entity @p[distance=..5] SelectedItem
@@ -25,13 +25,23 @@ execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.i
 tag @s add rituals.has_item
 
 # Clear old ritual tags so the new ritual can be detected
+execute if entity @s[tag=rituals.active_ritual] run tellraw @p[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Ritual deactivated - item swapped!","color":"red","bold":false}]
 tag @s remove rituals.active_ritual
+tag @s remove rituals.pattern_ritual
 tag @s remove rituals.growth_ritual
 tag @s remove rituals.strength_ritual
 tag @s remove rituals.prosperity_ritual
 tag @s remove rituals.protection_ritual
 tag @s remove rituals.healing_ritual
 tag @s remove rituals.sentry_ritual
+tag @s remove rituals.auto_breeding
+tag @s remove rituals.enchanting_nexus
+tag @s remove rituals.item_vacuum
+tag @s remove rituals.auto_smelting
+tag @s remove rituals.xp_harvester
+scoreboard players set @s rituals.effect 0
+scoreboard players set @s rituals.timer 0
+scoreboard players set @s rituals.data 0
 
 # Remove one item from player's hand (NOT in creative)
 execute as @p[distance=..5,gamemode=!creative] run item modify entity @s weapon.mainhand rituals:decrement
