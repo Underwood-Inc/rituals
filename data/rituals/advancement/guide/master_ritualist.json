@@ -1,5 +1,5 @@
 {
-  "parent": "rituals:guide/upgrade_totem",
+  "parent": "rituals:guide/craft_netherite_totem",
   "display": {
     "icon": {
       "id": "minecraft:blackstone_wall"
@@ -10,7 +10,7 @@
       "bold": true
     },
     "description": {
-      "text": "Mastered totem rituals! Higher tiers = greater range and power. Multi-totem rituals coming soon!"
+      "text": "You've mastered all totem tiers! Maximum ritual power and range achieved. The ultimate ritualist!"
     },
     "frame": "challenge",
     "show_toast": true,
@@ -22,4 +22,3 @@
     }
   }
 }
-

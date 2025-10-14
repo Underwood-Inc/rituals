@@ -1,0 +1,44 @@
+{
+  "parent": "rituals:guide/craft_iron_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:gold_ingot"
+    },
+    "title": {
+      "text": "Gold Totem",
+      "color": "yellow"
+    },
+    "description": {
+      "text": "Gleaming with power! Craft a gold totem to unlock prosperity rituals."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "has_gold_totem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:warped_fungus_on_a_stick"],
+            "components": {
+              "minecraft:custom_data": {
+                "rituals_totem": 1,
+                "tier": 4
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "rituals:totem_base_diamond",
+      "rituals:totem_base_diamond_short",
+      "rituals:upgrade_slate_diamond"
+    ]
+  }
+}
+

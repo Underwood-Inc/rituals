@@ -1,18 +1,18 @@
 {
-  "parent": "rituals:guide/first_ritual",
+  "parent": "rituals:guide/craft_gold_totem",
   "display": {
     "icon": {
       "id": "minecraft:netherite_block"
     },
     "title": {
       "text": "Prosperity Ritual",
-      "color": "dark_purple"
+      "color": "gold"
     },
     "description": {
-      "text": "Right-click a totem with a netherite block to attract items, gain XP and Luck"
+      "text": "Right-click a totem with a netherite block to attract items, gain XP and Luck. Requires gold totem or higher!"
     },
-    "frame": "task",
-    "show_toast": false,
+    "frame": "goal",
+    "show_toast": true,
     "announce_to_chat": false
   },
   "criteria": {
@@ -21,4 +21,3 @@
     }
   }
 }
-

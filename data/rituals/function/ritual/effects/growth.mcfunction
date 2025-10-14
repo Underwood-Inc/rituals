@@ -9,6 +9,9 @@ function rituals:ritual/get_tier_settings
 # Get growth-specific frequency
 function rituals:ritual/get_growth_settings
 
+# Store current tier for use in growth chance calculation
+scoreboard players operation #current_tier rituals.temp = @s rituals.tier
+
 # Check timing using separate effect counter (don't touch main timer!)
 scoreboard players add @s rituals.data 1
 execute unless score @s rituals.data >= #current_freq rituals.temp run return 0

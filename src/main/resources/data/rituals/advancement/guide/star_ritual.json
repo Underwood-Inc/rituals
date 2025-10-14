@@ -1,5 +1,5 @@
 {
-  "parent": "rituals:guide/first_ritual",
+  "parent": "rituals:guide/craft_diamond_totem",
   "display": {
     "icon": {
       "id": "minecraft:nether_star"
@@ -9,11 +9,11 @@
       "color": "light_purple"
     },
     "description": {
-      "text": "Right-click a totem with a nether star to heal players and animals"
+      "text": "Right-click a totem with a nether star to heal players and animals. Requires diamond totem or higher!"
     },
-    "frame": "task",
-    "show_toast": false,
-    "announce_to_chat": false
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true
   },
   "criteria": {
     "auto": {
@@ -21,4 +21,3 @@
     }
   }
 }
-

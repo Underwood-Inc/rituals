@@ -2,10 +2,10 @@
 # Break/remove a totem
 # ========================================
 # Runs as and at the totem being broken
+# Note: Tool validation is handled by check_tool_and_break.mcfunction
 
-# Consume interaction data first
-data remove entity @s attack
-data remove entity @s interaction
+# Mark as broken to prevent double-breaking
+tag @s add rituals.broken
 
 # Store this totem's ID for matching
 scoreboard players operation #break_id rituals.temp = @s rituals.id

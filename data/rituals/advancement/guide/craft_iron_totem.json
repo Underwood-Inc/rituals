@@ -1,0 +1,44 @@
+{
+  "parent": "rituals:guide/craft_copper_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:iron_ingot"
+    },
+    "title": {
+      "text": "Iron Totem",
+      "color": "gray"
+    },
+    "description": {
+      "text": "Stronger materials, stronger rituals! Craft an iron totem for enhanced effects."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "has_iron_totem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:warped_fungus_on_a_stick"],
+            "components": {
+              "minecraft:custom_data": {
+                "rituals_totem": 1,
+                "tier": 3
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "rituals:totem_base_gold",
+      "rituals:totem_base_gold_short",
+      "rituals:upgrade_slate_gold"
+    ]
+  }
+}
+

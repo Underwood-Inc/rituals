@@ -32,6 +32,19 @@ execute if data storage rituals:temp {check_item:"minecraft:nether_star"} run fu
 # Effect: Creates a magical projectile-firing sentry totem
 execute if data storage rituals:temp {check_item:"minecraft:arrow"} run function rituals:ritual/types/check_sentry
 
+# === AUTO-FARMING RITUAL === (Diamond Hoes)
+# Effect: Automatically harvest and replant crops in area
+execute if data storage rituals:temp {check_item:"minecraft:diamond_hoe"} run function rituals:ritual/types/check_farming
+
+# ========================================
+# PATTERN-BASED RITUALS
+# ========================================
+# These rituals require specific multi-totem patterns with specific items at each position
+# Check if this totem has an item that triggers a pattern ritual
+
+# Pattern rituals (check for valid patterns and activate if complete)
+function rituals:ritual/patterns/detect_central_ritual
+
 # Clear temp storage
 data remove storage rituals:temp check_item
 

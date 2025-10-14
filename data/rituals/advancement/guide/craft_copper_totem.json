@@ -1,0 +1,44 @@
+{
+  "parent": "rituals:guide/craft_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:copper_ingot"
+    },
+    "title": {
+      "text": "Copper Totem",
+      "color": "gold"
+    },
+    "description": {
+      "text": "Upgrade your rituals! Craft a copper totem for improved range and power."
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "has_copper_totem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:warped_fungus_on_a_stick"],
+            "components": {
+              "minecraft:custom_data": {
+                "rituals_totem": 1,
+                "tier": 2
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "recipes": [
+      "rituals:totem_base_iron",
+      "rituals:totem_base_iron_short",
+      "rituals:upgrade_slate_iron"
+    ]
+  }
+}
+

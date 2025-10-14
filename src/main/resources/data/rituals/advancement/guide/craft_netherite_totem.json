@@ -1,0 +1,38 @@
+{
+  "parent": "rituals:guide/craft_diamond_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:netherite_ingot"
+    },
+    "title": {
+      "text": "Netherite Totem",
+      "color": "dark_purple",
+      "bold": true
+    },
+    "description": {
+      "text": "Ultimate power achieved! The netherite totem provides maximum ritual range and effects."
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true
+  },
+  "criteria": {
+    "has_netherite_totem": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:warped_fungus_on_a_stick"],
+            "components": {
+              "minecraft:custom_data": {
+                "rituals_totem": 1,
+                "tier": 6
+              }
+            }
+          }
+        ]
+      }
+    }
+  }
+}
+

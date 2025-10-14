@@ -19,6 +19,7 @@ execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect match
 execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect matches 4 run function rituals:ritual/effects/protection
 execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect matches 5 run function rituals:ritual/effects/healing
 execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect matches 6 run function rituals:ritual/effects/sentry
+execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect matches 7 run function rituals:ritual/effects/farming
 
 # Ambient particles for active rituals
 execute if score @s rituals.timer matches 0..9 run function rituals:ritual/ambient_particles

@@ -1,5 +1,5 @@
 {
-  "parent": "rituals:guide/first_ritual",
+  "parent": "rituals:guide/craft_iron_totem",
   "display": {
     "icon": {
       "id": "minecraft:diamond"
@@ -9,10 +9,10 @@
       "color": "aqua"
     },
     "description": {
-      "text": "Right-click a totem with a diamond to grant Strength to nearby players"
+      "text": "Right-click a totem with a diamond to grant Strength to nearby players. Requires iron totem or higher!"
     },
     "frame": "task",
-    "show_toast": false,
+    "show_toast": true,
     "announce_to_chat": false
   },
   "criteria": {
@@ -21,4 +21,3 @@
     }
   }
 }
-
