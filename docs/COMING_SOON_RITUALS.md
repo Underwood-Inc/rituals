@@ -317,7 +317,7 @@ flowchart TD
 1. **Correct Pattern**: Totems must be placed in exact geometric pattern
 2. **Minimum Tier**: Most require Diamond or Netherite totems
 3. **Catalyst Placement**: Central catalyst must be specific item
-4. **Fire Sacrifice**: Use flint & steel on catalyst to activate
+4. **Fire Sacrifice**: Use flint & steel near catalyst to activate
 5. **Catalyst Consumption**: Catalyst is consumed permanently
 
 ---

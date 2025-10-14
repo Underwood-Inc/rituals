@@ -21,6 +21,7 @@ execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect match
 execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect matches 6 run function rituals:ritual/effects/sentry
 execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect matches 7 run function rituals:ritual/effects/farming
 execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect matches 11 run function rituals:ritual/effects/auto_breeding
+execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect matches 14 run function rituals:ritual/effects/xp_harvester
 
 # Ambient particles for active rituals
 execute if score @s rituals.timer matches 0..9 run function rituals:ritual/ambient_particles

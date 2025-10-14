@@ -22,7 +22,8 @@ playsound minecraft:block.enchantment_table.use master @a ~ ~ ~ 1.5 1.2
 playsound minecraft:entity.experience_orb.pickup master @a ~ ~ ~ 2.0 0.5
 
 # UNIQUE: Success message
-tellraw @a[distance=..32] [{"text":"✨ ","color":"light_purple"},{"text":"XP Harvester","bold":true,"color":"aqua"},{"text":" ritual activated! Experience will be generated automatically!","color":"light_purple"}]
+tellraw @a[distance=..32] [{"text":"✨ ","color":"light_purple"},{"text":"XP Harvester","bold":true,"color":"aqua"},{"text":" ritual activated!","color":"light_purple"}]
+tellraw @a[distance=..32] [{"text":"⚡ ","color":"yellow"},{"text":"Power the central totem with redstone to generate 1 XP/second!","color":"gold"}]
 
 # Destroy supplemental totems (sacrifice)
 execute positioned ~ ~ ~5 run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
