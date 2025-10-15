@@ -39,7 +39,7 @@ execute if block ~ ~ ~-1 minecraft:fire run setblock ~ ~ ~-1 minecraft:air
 execute if block ~ ~ ~-1 minecraft:soul_fire run setblock ~ ~ ~-1 minecraft:air
 
 # Success message
-tellraw @a[distance=..16] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Fire sacrifice accepted! ","color":"red"},{"text":"(consumed 4x Coal)","color":"gray","italic":true}]
+tellraw @a[distance=..16] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Fire sacrifice accepted! ","color":"red"},{"text":"(consumed 4x Coal)","color":"gray","italic":true}]
 
 # Activate the ritual
 function rituals:ritual/detect_type

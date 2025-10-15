@@ -19,11 +19,11 @@ tag @s remove rituals.has_item
 tag @s remove rituals.pattern_totem
 
 # If this was an active ritual, deactivate it
-execute if entity @s[tag=rituals.active_ritual] run tellraw @p[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Ritual deactivated - item removed!","color":"red","bold":false}]
+execute if entity @s[tag=rituals.active_ritual] run tellraw @p[distance=..5] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Ritual deactivated - item removed!","color":"red","bold":false}]
 execute if entity @s[tag=rituals.active_ritual] run function rituals:ritual/deactivate
 
 # Visual and audio feedback
 particle dust{color:[0.8,0.8,0.8],scale:1.0} ~ ~2.2 ~ 0.2 0.2 0.2 0 10
 playsound entity.item.pickup block @a ~ ~ ~ 1.0 0.8
 
-tellraw @p[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Item removed from totem!","color":"yellow","bold":false}]
+tellraw @p[distance=..5] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Item removed from totem!","color":"yellow","bold":false}]

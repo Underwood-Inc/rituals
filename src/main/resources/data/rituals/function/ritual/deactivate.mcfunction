@@ -22,7 +22,7 @@ execute as @e[type=interaction,tag=rituals.totem,distance=..32] run scoreboard p
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run scoreboard players reset @s rituals.effect
 
 # Feedback
-tellraw @a[distance=..32] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Ritual interrupted!","color":"red","bold":false}]
+tellraw @a[distance=..32] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Ritual interrupted!","color":"red","bold":false}]
 playsound entity.wither.hurt block @a ~ ~ ~ 0.5 2.0
 particle smoke ~ ~1 ~ 2 1 2 0.05 30
 

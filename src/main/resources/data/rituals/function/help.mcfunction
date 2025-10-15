@@ -1,9 +1,9 @@
 # ========================================
-# Totem Rituals - Help Command
+# Rituals - Help Command
 # ========================================
 # Shows all available commands
 
-tellraw @s [{"text":"\n=== Totem Rituals Commands ===","color":"gold","bold":true}]
+tellraw @s [{"text":"\n=== Rituals Commands ===","color":"gold","bold":true}]
 tellraw @s [{"text":"","color":"yellow"}]
 tellraw @s [{"text":"  /function rituals:help","color":"aqua","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:help"},"hover_event":{"action":"show_text","value":[{"text":"Click to run this command","color":"green"}]}},{"text":" - Show this help menu","color":"white"}]
 tellraw @s [{"text":"  /function rituals:guidebook","color":"aqua","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:give/guidebook"},"hover_event":{"action":"show_text","value":[{"text":"Click to get the guidebook","color":"green"}]}},{"text":" - Get the guidebook","color":"white"}]

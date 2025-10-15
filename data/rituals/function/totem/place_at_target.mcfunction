@@ -24,7 +24,7 @@ execute as @p if entity @s[gamemode=!creative] run item modify entity @s weapon.
 playsound block.stone.place block @a ~ ~ ~ 1.0 0.8
 particle happy_villager ~ ~1 ~ 0.3 0.5 0.3 0 10
 
-tellraw @p [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Totem placed!","color":"green"}]
+tellraw @p [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Totem placed!","color":"green"}]
 advancement grant @p only rituals:guide/place_totem
 
 # Reset distance

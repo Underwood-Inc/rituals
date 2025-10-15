@@ -26,5 +26,5 @@ recipe give @s rituals:upgrade_slate_gold
 recipe give @s rituals:upgrade_slate_diamond
 recipe give @s rituals:upgrade_slate_netherite
 
-tellraw @s [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"All recipes unlocked!","color":"green","bold":false}]
+tellraw @s [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"All recipes unlocked!","color":"green","bold":false}]
 

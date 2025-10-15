@@ -1,5 +1,5 @@
 # ========================================
-# Uninstall Totem Rituals Datapack
+# Uninstall Rituals Datapack
 # ========================================
 # WARNING: This will remove all totems and reset all scores
 # Run this before removing the datapack files
@@ -25,6 +25,6 @@ data remove storage rituals:temp check_item
 data remove storage rituals:temp drop_item
 
 # Confirmation message
-tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Datapack uninstalled. All totems removed and data cleared.","color":"red","bold":false}]
-tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"You can now safely remove the datapack files.","color":"yellow","bold":false}]
+tellraw @a [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Datapack uninstalled. All totems removed and data cleared.","color":"red","bold":false}]
+tellraw @a [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"You can now safely remove the datapack files.","color":"yellow","bold":false}]
 

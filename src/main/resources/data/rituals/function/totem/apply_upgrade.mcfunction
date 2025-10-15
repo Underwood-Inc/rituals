@@ -22,7 +22,7 @@ execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 
 # Visual and audio feedback
 particle end_rod ~ ~1 ~ 0.5 1 0.5 0.1 30
 playsound block.enchantment_table.use block @a ~ ~ ~ 1.5 1.5
-tellraw @p[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Totem upgraded to Tier ","color":"green"},{"score":{"name":"@s","objective":"rituals.tier"},"color":"aqua"},{"text":"!","color":"green"}]
+tellraw @p[distance=..5] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Totem upgraded to Tier ","color":"green"},{"score":{"name":"@s","objective":"rituals.tier"},"color":"aqua"},{"text":"!","color":"green"}]
 
 # Grant advancement
 advancement grant @p[distance=..5] only rituals:guide/upgrade_totem

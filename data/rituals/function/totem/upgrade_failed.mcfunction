@@ -3,8 +3,8 @@
 # ========================================
 
 # Feedback for different failure reasons
-execute if score #tier_diff rituals.temp matches ..0 run tellraw @p[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"This totem is already at or above that tier!","color":"red"}]
-execute if score #tier_diff rituals.temp matches 2.. run tellraw @p[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Cannot skip tiers! Upgrade one tier at a time.","color":"red"}]
+execute if score #tier_diff rituals.temp matches ..0 run tellraw @p[distance=..5] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"This totem is already at or above that tier!","color":"red"}]
+execute if score #tier_diff rituals.temp matches 2.. run tellraw @p[distance=..5] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Cannot skip tiers! Upgrade one tier at a time.","color":"red"}]
 
 # Error sound
 playsound entity.villager.no block @p[distance=..5] ~ ~ ~ 1.0 1.0

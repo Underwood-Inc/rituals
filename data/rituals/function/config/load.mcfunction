@@ -171,5 +171,5 @@ data modify storage rituals:config breeding_tier4_frequency set value 1800
 data modify storage rituals:config breeding_tier5_frequency set value 1200
 data modify storage rituals:config breeding_tier6_frequency set value 600
 
-tellraw @a [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Config loaded! Use ","color":"yellow"},{"text":"/function rituals:help","color":"green","click_event":{"action":"suggest_command","command":"/function rituals:help"},"hover_event":{"action":"show_text","value":[{"text":"Click for help"}]}},{"text":" for help","color":"yellow"}]
+tellraw @a [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Config loaded! Use ","color":"yellow"},{"text":"/function rituals:help","color":"green","click_event":{"action":"suggest_command","command":"/function rituals:help"},"hover_event":{"action":"show_text","value":[{"text":"Click for help"}]}},{"text":" for help","color":"yellow"}]
 

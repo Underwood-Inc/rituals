@@ -22,7 +22,7 @@ execute if score @s rituals.menu matches 4 run function rituals:guidebook
 execute if score @s rituals.menu matches 4 run playsound minecraft:entity.experience_orb.pickup master @s ~ ~ ~ 1 1.2
 execute if score @s rituals.menu matches 4 run tellraw @s [{"text":""}]
 execute if score @s rituals.menu matches 4 run tellraw @s [{"text":"========================================","color":"gold","bold":true}]
-execute if score @s rituals.menu matches 4 run tellraw @s [{"text":"✓ Received: ","color":"green","bold":true},{"text":"Totem Rituals Guidebook","color":"light_purple"}]
+execute if score @s rituals.menu matches 4 run tellraw @s [{"text":"✓ Received: ","color":"green","bold":true},{"text":"Rituals Guidebook","color":"light_purple"}]
 execute if score @s rituals.menu matches 4 run tellraw @s [{"text":"========================================","color":"gold","bold":true}]
 execute if score @s rituals.menu matches 4 run function rituals:menu/main
 

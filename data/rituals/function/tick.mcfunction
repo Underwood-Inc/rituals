@@ -1,5 +1,5 @@
 # ========================================
-# Totem Rituals Datapack - Tick Function
+# Rituals Datapack - Tick Function
 # ========================================
 # This function runs every game tick (20 times per second)
 

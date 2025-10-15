@@ -9,7 +9,7 @@ execute as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=.
 execute as @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual,distance=..32] run scoreboard players set @s rituals.effect 3
 
 # Visual feedback
-tellraw @a[distance=..32] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Prosperity Ritual Activated!","color":"yellow","bold":true}]
+tellraw @a[distance=..32] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Prosperity Ritual Activated!","color":"yellow","bold":true}]
 playsound block.enchantment_table.use block @a ~ ~ ~ 1.5 1.0
 particle dust{color:[1.0,0.8,0.0],scale:1.5} ~ ~2 ~ 5 2 5 0.1 100
 

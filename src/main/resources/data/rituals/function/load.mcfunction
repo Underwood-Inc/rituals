@@ -1,5 +1,5 @@
 # ========================================
-# Totem Rituals Datapack - Load Function
+# Rituals Datapack - Load Function
 # ========================================
 # This function runs once when the datapack is loaded
 

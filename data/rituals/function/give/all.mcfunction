@@ -9,4 +9,4 @@ function rituals:give/totems_short
 function rituals:give/paste
 function rituals:give/upgrade_slates
 function rituals:give/guidebook
-tellraw @s [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Gave all items + Guidebook!","color":"green","bold":false}]
+tellraw @s [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Gave all items + Guidebook!","color":"green","bold":false}]

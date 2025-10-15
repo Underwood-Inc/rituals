@@ -47,7 +47,7 @@ kill @e[type=item_display,tag=rituals.totem_display,distance=..0.1]
 particle block{block_state:"minecraft:cobblestone"} ~ ~1 ~ 0.3 0.5 0.3 0 20
 playsound block.stone.break block @a ~ ~ ~ 1.0 0.8
 
-tellraw @p[distance=..3] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Totem removed!","color":"yellow","bold":false}]
+tellraw @p[distance=..3] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Totem removed!","color":"yellow","bold":false}]
 
 # Kill self last
 kill @s

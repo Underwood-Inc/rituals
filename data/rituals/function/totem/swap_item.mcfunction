@@ -25,7 +25,7 @@ execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.i
 tag @s add rituals.has_item
 
 # Clear old ritual tags so the new ritual can be detected
-execute if entity @s[tag=rituals.active_ritual] run tellraw @p[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Ritual deactivated - item swapped!","color":"red","bold":false}]
+execute if entity @s[tag=rituals.active_ritual] run tellraw @p[distance=..5] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Ritual deactivated - item swapped!","color":"red","bold":false}]
 tag @s remove rituals.active_ritual
 tag @s remove rituals.pattern_ritual
 tag @s remove rituals.growth_ritual
@@ -48,5 +48,5 @@ particle dust{color:[1.0,0.5,1.0],scale:1.0} ~ ~2.2 ~ 0.2 0.2 0.2 0 15
 playsound entity.item.pickup block @a ~ ~ ~ 1.0 1.0
 playsound block.enchantment_table.use block @a ~ ~ ~ 0.5 1.5
 
-tellraw @p[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Item swapped! Ritual changed.","color":"light_purple","bold":false}]
+tellraw @p[distance=..5] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Item swapped! Ritual changed.","color":"light_purple","bold":false}]
 

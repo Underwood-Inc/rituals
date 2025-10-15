@@ -33,7 +33,7 @@ execute store result score #tier4_v_range rituals.data run data get storage ritu
 execute store result score #tier5_v_range rituals.data run data get storage rituals:config tier5_vertical_range
 execute store result score #tier6_v_range rituals.data run data get storage rituals:config tier6_vertical_range
 
-tellraw @s [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"✓ Config reloaded!","color":"green"}]
+tellraw @s [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"✓ Config reloaded!","color":"green"}]
 tellraw @s [{"text":"  → ","color":"gray"},{"text":"View config guide","color":"aqua","underlined":true,"click_event":{"action":"open_url","url":"https://github.com/yourrepo/rituals/blob/main/docs/CONFIG_GUIDE.md"},"hover_event":{"action":"show_text","value":[{"text":"Open documentation","color":"yellow"}]}}]
 tellraw @s [{"text":"  → ","color":"gray"},{"text":"Toggle Kiwi Mode","color":"green","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:admin/enable_kiwi_mode"},"hover_event":{"action":"show_text","value":[{"text":"Quick toggle easy mode","color":"yellow"}]}}]
 

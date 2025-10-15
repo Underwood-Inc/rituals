@@ -18,7 +18,7 @@ execute as @e[type=interaction,tag=rituals.totem,distance=..32] run scoreboard p
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run scoreboard players reset @s rituals.effect
 
 # Success feedback
-tellraw @a[distance=..32] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Ritual completed successfully!","color":"green","bold":true}]
+tellraw @a[distance=..32] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Ritual completed successfully!","color":"green","bold":true}]
 playsound ui.toast.challenge_complete block @a ~ ~ ~ 1.0 1.2
 particle end_rod ~ ~1 ~ 3 2 3 0.1 50
 particle firework ~ ~1 ~ 1 1 1 0.2 30

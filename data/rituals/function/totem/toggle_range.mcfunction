@@ -4,6 +4,6 @@
 execute if entity @s[tag=rituals.show_range] run tag @s remove rituals.show_range
 execute if entity @s[tag=!rituals.show_range] run tag @s add rituals.show_range
 
-execute if entity @s[tag=rituals.show_range] run tellraw @a[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Range display enabled","color":"green"}]
-execute if entity @s[tag=!rituals.show_range] run tellraw @a[distance=..5] [{"text":"[Totem Rituals] ","color":"gold","bold":true},{"text":"Range display disabled","color":"gray"}]
+execute if entity @s[tag=rituals.show_range] run tellraw @a[distance=..5] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Range display enabled","color":"green"}]
+execute if entity @s[tag=!rituals.show_range] run tellraw @a[distance=..5] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Range display disabled","color":"gray"}]
 
