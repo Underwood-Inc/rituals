@@ -3,6 +3,11 @@
 # ========================================
 # Automatically harvests and replants fully grown crops
 
+# Ambient particles (show every tick)
+particle minecraft:wheat_seeds ~ ~2.5 ~ 0.5 0.5 0.5 0 3
+particle happy_villager ~2 ~1 ~2 0.2 0.5 0.2 0 2
+particle happy_villager ~-2 ~1 ~-2 0.2 0.5 0.2 0 2
+
 # Get tier-based range settings
 function rituals:ritual/get_tier_settings
 
@@ -13,8 +18,11 @@ scoreboard players set #current_freq rituals.temp 100
 scoreboard players operation #current_tier rituals.temp = @s rituals.tier
 
 # Check timing using separate effect counter
+# Initialize to frequency-1 so first add+check triggers immediately
+execute unless score @s rituals.data matches -2147483648.. run scoreboard players operation @s rituals.data = #current_freq rituals.temp
+execute unless score @s rituals.data matches -2147483648.. run scoreboard players remove @s rituals.data 1
 scoreboard players add @s rituals.data 1
-execute unless score @s rituals.data >= #current_freq rituals.temp run return 0
+execute if score @s rituals.data < #current_freq rituals.temp run return 0
 scoreboard players set @s rituals.data 0
 
 # Calculate negative offsets for positioned command
@@ -37,9 +45,4 @@ execute store result storage rituals:temp box_v int 1 run scoreboard players get
 
 # Scan area for fully grown crops
 function rituals:ritual/effects/farming_scan_box with storage rituals:temp
-
-# Ambient particles
-particle happy_villager ~2 ~1 ~2 0.2 0.5 0.2 0 2
-particle happy_villager ~-2 ~1 ~-2 0.2 0.5 0.2 0 2
-particle minecraft:wheat_seeds ~ ~1 ~ 1 0.5 1 0 3
 

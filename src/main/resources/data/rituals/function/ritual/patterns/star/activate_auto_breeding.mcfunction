@@ -15,6 +15,9 @@ tag @s remove rituals.pattern_help_shown
 # CRITICAL: Ensure totem has a tier (fallback to tier 1 if missing)
 execute unless score @s rituals.tier matches 1.. run scoreboard players set @s rituals.tier 1
 
+# CRITICAL: Ensure totem has has_item tag (pattern rituals keep central item)
+tag @s add rituals.has_item
+
 # UNIQUE: Visual and audio feedback
 particle minecraft:heart ~ ~2 ~ 5 2 5 0.5 200 force
 particle minecraft:happy_villager ~ ~2 ~ 5 2 5 0.3 150 force

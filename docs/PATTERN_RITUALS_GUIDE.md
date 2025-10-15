@@ -32,6 +32,48 @@ This makes setup MUCH easier - you don't need to memorize coordinates!
 
 ## 📐 Pattern Types
 
+### 🔲 Square Pattern (4 Diagonal Corners)
+
+**Rituals Using This Pattern:**
+- Auto-Farming
+
+**Total Totems:** 5 (1 center + 4 corners)  
+**Distance:** 5 blocks diagonally in NE/SE/SW/NW directions  
+**Difficulty:** ⭐ Easy
+
+**How to Set Up:**
+1. Place central totem, add **Diamond Hoe**
+2. Power with redstone to see corner markers (yellow, orange, gray, red particles)
+3. Place 4 totems at diagonal corners (5 blocks diagonally from center)
+4. Add items to corners:
+   - NE (+5,+5) (yellow particles): Wheat
+   - SE (+5,-5) (orange particles): Carrot
+   - SW (-5,-5) (gray particles): Potato
+   - NW (-5,+5) (red particles): Beetroot
+5. Fire sacrifice at center (4 coal/iron/etc. + fire at ±2 diagonal positions)
+6. Ritual activates! The 4 surrounding totems are **sacrificed** (destroyed)
+7. Central totem remains - crops will auto-harvest every 5 seconds
+
+**Effect Range:** Based on central totem tier (Wood = 2 blocks, Netherite = 7 blocks)  
+**Frequency:** Every 5 seconds (100 ticks) by default  
+**Supported Crops:**
+- Wheat (age 7)
+- Carrots (age 7)
+- Potatoes (age 7)
+- Beetroots (age 3)
+- Nether Wart (age 3)
+- Pumpkins (from stems age 7)
+- Melons (from stems age 7)
+- Sweet Berries (age 3)
+- Cocoa Beans (age 2)
+
+**How It Works:** Scans the area around the totem and when it finds fully grown crops, it:
+1. Drops the crop loot (using proper loot tables for seeds/drops)
+2. Immediately replants the crop at age 0
+3. Plays subtle particles and sounds
+
+---
+
 ### ⭐ Star Pattern (4 Cardinals)
 
 **Rituals Using This Pattern:**
@@ -105,8 +147,8 @@ Colored particle markers will appear showing where surrounding totems should go!
 | Has item | Regular ritual item | OFF | ❌ None |
 | Has item | Regular ritual item | ON | ❌ None (tier range box only) |
 
-**Pattern Ritual Items:** Wheat  
-**Regular Ritual Items:** Emerald, Diamond, Nether Star, Iron Ingot, Netherite Block, Arrow, Diamond Hoe
+**Pattern Ritual Items:** Diamond Hoe (Auto-Farming), Wheat (Auto-Breeding)  
+**Regular Ritual Items:** Emerald, Diamond, Nether Star, Iron Ingot, Netherite Block, Arrow
 
 ---
 
@@ -141,11 +183,11 @@ The system **reads the item on the central totem every tick** (20 times per seco
 You can swap items on the central totem while redstone is powered to see different patterns:
 
 ```
-Wheat on totem + Redstone → Star pattern (green/yellow particles)
+Diamond Hoe on totem + Redstone → Square pattern (yellow/orange/gray/red particles at corners)
   ↓ (swap item)
-Wheat on totem + Redstone → Star pattern (colored particles)
+Wheat on totem + Redstone → Star pattern (yellow/orange/tan/red particles at cardinals)
   ↓ (swap item)  
-Emerald on totem + Redstone → No pattern (only tier range)
+Emerald on totem + Redstone → No pattern (only tier range box)
 ```
 
 This lets you preview different ritual patterns without rebuilding!
@@ -163,7 +205,7 @@ This lets you preview different ritual patterns without rebuilding!
 | 1+ totems with SAME item | Multiple totems with DIFFERENT items |
 | Flexible totem placement | EXACT positions required |
 | Permanent until deactivated | Permanent until item removed |
-| Examples: Growth, Strength, Healing | Example: Auto-Breeding |
+| Examples: Growth, Strength, Healing | Examples: Auto-Farming, Auto-Breeding |
 
 ---
 
@@ -171,6 +213,7 @@ This lets you preview different ritual patterns without rebuilding!
 
 | Ritual | Pattern | Totems | Setup Time | Difficulty | Effect Type |
 |--------|---------|--------|------------|------------|-------------|
+| Auto-Farming | Square | 5 | 5 min | Easy | Permanent Area Effect |
 | Auto-Breeding | Star | 5 | 5 min | Easy | Permanent Area Effect |
 
 ---
@@ -179,11 +222,17 @@ This lets you preview different ritual patterns without rebuilding!
 
 When using redstone visualization, particles show different colors for different required items:
 
+### Auto-Farming (Square)
+- **Yellow** = Wheat (NE corner)
+- **Orange** = Carrot (SE corner)
+- **Gray/Tan** = Potato (SW corner)
+- **Red** = Beetroot (NW corner)
+
 ### Auto-Breeding (Star)
-- **Yellow** = Seeds
-- **Orange** = Carrot
-- **Tan** = Potato
-- **Red** = Beetroot Seeds
+- **Yellow/Green** = Seeds (North)
+- **Orange** = Carrot (East)
+- **Tan** = Potato (South)
+- **Red** = Beetroot Seeds (West)
 
 ---
 

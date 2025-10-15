@@ -13,8 +13,18 @@ function rituals:ritual/get_breeding_settings
 # Initialize to -1 on first run to trigger immediate breeding on activation
 execute unless score @s rituals.data matches -2147483648.. run scoreboard players set @s rituals.data -1
 scoreboard players add @s rituals.data 1
+
+# DEBUG: Show timer and frequency every 5 seconds (100 ticks)
+execute if score @s rituals.data matches 0 run tellraw @a[distance=..10] [{"text":"[DEBUG] Timer: ","color":"gray"},{"score":{"name":"@s","objective":"rituals.data"},"color":"yellow"},{"text":" / ","color":"gray"},{"score":{"name":"#current_freq","objective":"rituals.temp"},"color":"yellow"},{"text":" | Range: ","color":"gray"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"aqua"}]
+scoreboard players operation #timer_mod rituals.temp = @s rituals.data
+scoreboard players operation #timer_mod rituals.temp %= #100 rituals.data
+execute if score #timer_mod rituals.temp matches 0 run tellraw @a[distance=..10] [{"text":"[DEBUG] Timer: ","color":"gray"},{"score":{"name":"@s","objective":"rituals.data"},"color":"yellow"},{"text":" / ","color":"gray"},{"score":{"name":"#current_freq","objective":"rituals.temp"},"color":"yellow"},{"text":" | Range: ","color":"gray"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"aqua"}]
+
 execute unless score @s rituals.data >= #current_freq rituals.temp run return 0
 scoreboard players set @s rituals.data 0
+
+# DEBUG: Breeding attempt happening
+tellraw @a[distance=..10] [{"text":"[DEBUG] Breeding attempt now!","color":"green","bold":true}]
 
 # Breed animals in tier-based range
 # Find pairs of same-type animals and breed them
@@ -23,11 +33,18 @@ scoreboard players set @s rituals.data 0
 # Store horizontal range for distance selector
 execute store result storage rituals:temp h_range int 1 run scoreboard players get #current_h_range rituals.temp
 
-# Breed using macro function to handle dynamic distance
-function rituals:ritual/effects/auto_breeding_apply with storage rituals:temp
+# DEBUG: Show what's being stored
+tellraw @a[distance=..10] [{"text":"[DEBUG] Calling breeding with range: ","color":"red"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"yellow"}]
+
+# DIRECT APPROACH: Just call it based on tier instead of macro bullshit
+execute if score @s rituals.tier matches 1 run function rituals:ritual/effects/auto_breeding_tier1
+execute if score @s rituals.tier matches 2 run function rituals:ritual/effects/auto_breeding_tier2
+execute if score @s rituals.tier matches 3 run function rituals:ritual/effects/auto_breeding_tier3
+execute if score @s rituals.tier matches 4 run function rituals:ritual/effects/auto_breeding_tier4
+execute if score @s rituals.tier matches 5 run function rituals:ritual/effects/auto_breeding_tier5
+execute if score @s rituals.tier matches 6 run function rituals:ritual/effects/auto_breeding_tier6
 
 # Ambient particles
 particle minecraft:heart ~ ~2 ~ 5 1 5 0.1 5 force
 particle minecraft:composter ~ ~1.5 ~ 3 0.5 3 0.05 2 force
-
 

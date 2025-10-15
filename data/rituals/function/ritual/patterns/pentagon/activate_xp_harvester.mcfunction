@@ -12,6 +12,9 @@ scoreboard players set @s rituals.effect 14
 scoreboard players set @s rituals.timer 0
 tag @s remove rituals.pattern_help_shown
 
+# Set tier if not already set (default to 1)
+execute unless score @s rituals.tier matches 1.. run scoreboard players set @s rituals.tier 1
+
 # UNIQUE: Visual and audio feedback
 particle minecraft:enchant ~ ~2 ~ 5 2 5 1 500 force
 particle minecraft:dragon_breath ~ ~2 ~ 3 1 3 0.2 300 force

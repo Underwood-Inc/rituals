@@ -2,11 +2,11 @@
 # Activate Growth Ritual
 # ========================================
 
-# Mark all participating totems
-execute as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..32] at @s run function rituals:ritual/types/mark_if_emerald
+# Mark THIS totem only (not nearby totems)
+function rituals:ritual/types/mark_if_emerald
 
-# Set effect type on all marked totems
-execute as @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual,distance=..32] run scoreboard players set @s rituals.effect 1
+# Set effect type on THIS totem
+scoreboard players set @s rituals.effect 1
 
 # Visual feedback
 tellraw @a[distance=..32] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Growth Ritual Activated!","color":"green","bold":true}]

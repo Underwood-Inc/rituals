@@ -70,7 +70,17 @@ These require specific geometric patterns with multiple totems. Fire sacrifice a
   NW (-5,+5): Beetroot
   ```
 - **Required Items**: Wheat, Carrot, Potato, Beetroot (consumed on activation)
-- **Effect**: Automatically harvests and replants fully grown crops
+- **Effect**: Automatically harvests and replants fully grown crops every 5 seconds
+- **Supported Crops**:
+  - Wheat (age 7)
+  - Carrots (age 7)
+  - Potatoes (age 7)
+  - Beetroots (age 3)
+  - Nether Wart (age 3)
+  - Pumpkins (from stems age 7)
+  - Melons (from stems age 7)
+  - Sweet Berries (age 3)
+  - Cocoa Beans (age 2)
 - **Range**: Tier-based from center
 - **Min Totems**: 5 (1 center + 4 corners)
 - **Note**: ⚠️ Wheat is also the central item for Auto-Breeding, but the system correctly tags it as supplementary when placed at corner positions near a diamond hoe

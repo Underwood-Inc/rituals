@@ -2,11 +2,11 @@
 # Activate Strength Ritual
 # ========================================
 
-# Mark all participating totems
-execute as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..32] at @s run function rituals:ritual/types/mark_if_diamond
+# Mark THIS totem only (not nearby totems)
+function rituals:ritual/types/mark_if_diamond
 
-# Set effect type on all marked totems
-execute as @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual,distance=..32] run scoreboard players set @s rituals.effect 2
+# Set effect type on THIS totem
+scoreboard players set @s rituals.effect 2
 
 # Visual feedback
 tellraw @a[distance=..32] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Strength Ritual Activated!","color":"aqua","bold":true}]
