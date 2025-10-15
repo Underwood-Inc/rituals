@@ -27,6 +27,8 @@ execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 
 # Drop any item that was displayed (strip ritual tags first)
 execute if entity @s[tag=rituals.has_item] run function rituals:totem/drop_displayed_item_clean
 
+# Remove any beacons spawned by this totem
+
 # Remove all associated entities with matching ID
 execute as @e[type=block_display,tag=rituals.totem_visual] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #break_id rituals.temp run kill @s

@@ -12,6 +12,9 @@ scoreboard players set @s rituals.effect 11
 scoreboard players set @s rituals.timer 0
 tag @s remove rituals.pattern_help_shown
 
+# CRITICAL: Ensure totem has a tier (fallback to tier 1 if missing)
+execute unless score @s rituals.tier matches 1.. run scoreboard players set @s rituals.tier 1
+
 # UNIQUE: Visual and audio feedback
 particle minecraft:heart ~ ~2 ~ 5 2 5 0.5 200 force
 particle minecraft:happy_villager ~ ~2 ~ 5 2 5 0.3 150 force

@@ -4,17 +4,23 @@
 # Kills items at DIAGONAL corners and activates ritual
 # Parameters: item (e.g., "minecraft:coal"), name (e.g., "Coal")
 
-# Kill offering items at all 4 diagonal corners
-$execute positioned ~5 ~ ~5 as @e[type=item,nbt={Item:{id:"$(item)"}},distance=..1.5] run kill @s
-$execute positioned ~5 ~ ~-5 as @e[type=item,nbt={Item:{id:"$(item)"}},distance=..1.5] run kill @s
-$execute positioned ~-5 ~ ~-5 as @e[type=item,nbt={Item:{id:"$(item)"}},distance=..1.5] run kill @s
-$execute positioned ~-5 ~ ~5 as @e[type=item,nbt={Item:{id:"$(item)"}},distance=..1.5] run kill @s
+# Check pattern FIRST before consuming
+function rituals:ritual/detect_type
+
+# If ritual didn't activate, return without consuming
+execute unless entity @s[tag=rituals.active_ritual] run return 0
+
+# Pattern was valid! Kill offering items at all 4 diagonal corners (±2 positions)
+$execute positioned ~2 ~ ~2 as @e[type=item,nbt={Item:{id:"$(item)"}},distance=..1.5] run kill @s
+$execute positioned ~2 ~ ~-2 as @e[type=item,nbt={Item:{id:"$(item)"}},distance=..1.5] run kill @s
+$execute positioned ~-2 ~ ~-2 as @e[type=item,nbt={Item:{id:"$(item)"}},distance=..1.5] run kill @s
+$execute positioned ~-2 ~ ~2 as @e[type=item,nbt={Item:{id:"$(item)"}},distance=..1.5] run kill @s
 
 # Particle effects at each corner
-execute positioned ~5 ~ ~5 run particle soul_fire_flame ~ ~ ~ 0.1 0.5 0.1 0.02 20
-execute positioned ~5 ~ ~-5 run particle soul_fire_flame ~ ~ ~ 0.1 0.5 0.1 0.02 20
-execute positioned ~-5 ~ ~-5 run particle soul_fire_flame ~ ~ ~ 0.1 0.5 0.1 0.02 20
-execute positioned ~-5 ~ ~5 run particle soul_fire_flame ~ ~ ~ 0.1 0.5 0.1 0.02 20
+execute positioned ~2 ~ ~2 run particle soul_fire_flame ~ ~ ~ 0.1 0.5 0.1 0.02 20
+execute positioned ~2 ~ ~-2 run particle soul_fire_flame ~ ~ ~ 0.1 0.5 0.1 0.02 20
+execute positioned ~-2 ~ ~-2 run particle soul_fire_flame ~ ~ ~ 0.1 0.5 0.1 0.02 20
+execute positioned ~-2 ~ ~2 run particle soul_fire_flame ~ ~ ~ 0.1 0.5 0.1 0.02 20
 
 # Center effects
 playsound minecraft:block.portal.trigger block @a ~ ~ ~ 0.5 1.8
@@ -32,10 +38,4 @@ execute if block ~ ~-1 ~ minecraft:soul_fire run setblock ~ ~-1 ~ minecraft:air
 
 # Success message
 $tellraw @a[distance=..16] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Fire sacrifice accepted! ","color":"red"},{"text":"(consumed 4x $(name) at corners)","color":"gray","italic":true}]
-
-# Remove all detection beams
-function rituals:visual/remove_all_beams
-
-# Activate ritual
-function rituals:ritual/detect_type
 

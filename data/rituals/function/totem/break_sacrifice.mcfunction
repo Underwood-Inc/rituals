@@ -14,6 +14,8 @@ scoreboard players operation #break_id rituals.temp = @s rituals.id
 # Kill the item display entity (ritual item)
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #break_id rituals.temp run kill @s
 
+# Remove any beacons spawned by this totem
+
 # Remove all associated entities with matching ID
 execute as @e[type=block_display,tag=rituals.totem_visual] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=block_display,tag=rituals.totem_barrier] if score @s rituals.id = #break_id rituals.temp run kill @s

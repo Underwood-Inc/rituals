@@ -1,7 +1,15 @@
 # ========================================
 # Consume Coal Offerings
 # ========================================
+# IMPORTANT: Check ritual type FIRST, consume items AFTER validation
 
+# Check what type of ritual this is and if pattern is valid
+function rituals:ritual/detect_type
+
+# If ritual didn't activate (pattern invalid or not a pattern ritual), return without consuming
+execute unless entity @s[tag=rituals.active_ritual] run return 0
+
+# Pattern was valid! Now consume the coal
 # Dramatic pre-consumption effects
 playsound minecraft:block.portal.trigger block @a ~ ~ ~ 0.5 1.8
 playsound minecraft:entity.blaze.shoot block @a ~ ~ ~ 0.8 0.8
@@ -40,10 +48,4 @@ execute if block ~ ~ ~-1 minecraft:soul_fire run setblock ~ ~ ~-1 minecraft:air
 
 # Success message
 tellraw @a[distance=..16] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Fire sacrifice accepted! ","color":"red"},{"text":"(consumed 4x Coal)","color":"gray","italic":true}]
-
-# Remove all detection beams
-function rituals:visual/remove_all_beams
-
-# Activate the ritual
-function rituals:ritual/detect_type
 
