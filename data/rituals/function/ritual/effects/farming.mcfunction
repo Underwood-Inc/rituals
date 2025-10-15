@@ -4,7 +4,7 @@
 # Automatically harvests and replants fully grown crops
 
 # Ambient particles (show every tick)
-particle minecraft:wheat_seeds ~ ~2.5 ~ 0.5 0.5 0.5 0 3
+particle minecraft:composter ~ ~2.5 ~ 0.5 0.5 0.5 0 3
 particle happy_villager ~2 ~1 ~2 0.2 0.5 0.2 0 2
 particle happy_villager ~-2 ~1 ~-2 0.2 0.5 0.2 0 2
 
