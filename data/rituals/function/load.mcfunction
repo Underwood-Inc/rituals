@@ -73,9 +73,9 @@ scoreboard players set #100 rituals.data 100
 execute unless score #global_totem_id rituals.id matches 1.. run scoreboard players set #global_totem_id rituals.id 1
 
 tellraw @a [{"text":""}]
-tellraw @a [{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"}]
-tellraw @a [{"text":"           🔮 ","color":"light_purple"},{"text":"Rituals","color":"white"},{"text":" - Fire Sacrifice Edition","color":"gray"}]
-tellraw @a [{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"}]
+tellraw @a [{"text":"╔════════════════════════════════════════════════════════════╗","color":"dark_purple"}]
+tellraw @a [{"text":"║","color":"dark_purple"},{"text":"           🔮 ","color":"light_purple"},{"text":"Rituals","color":"white"},{"text":" - Fire Sacrifice Edition","color":"gray"},{"text":"           ║","color":"dark_purple"}]
+tellraw @a [{"text":"╠════════════════════════════════════════════════════════════╣","color":"dark_purple"}]
 tellraw @a [{"text":""}]
 tellraw @a [{"text":"  Press ","color":"gray"},{"text":"L","color":"aqua"},{"text":" to open the Advancement Guide","color":"gray"}]
 tellraw @a [{"text":"  Type ","color":"gray"},{"text":"/function rituals:help","color":"green","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:help"},"hover_event":{"action":"show_text","value":"Click to run"}},{"text":" for commands","color":"gray"}]
@@ -84,8 +84,9 @@ tellraw @a [{"text":"  Quick Start:","color":"yellow"}]
 tellraw @a [{"text":"   • ","color":"dark_gray"},{"text":"Enable Kiwi (Easy) Mode","color":"green","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:admin/enable_kiwi_mode"},"hover_event":{"action":"show_text","value":"Disables fire sacrifice requirement"}},{"text":" (Kiwi Mode)","color":"gray"}]
 tellraw @a [{"text":""}]
 tellraw @a [{"text":"  Links:","color":"yellow"}]
+tellraw @a [{"text":"   ","color":"dark_gray"},{"text":"💬 ","color":"white"},{"text":"JOIN OUR ","color":"light_purple","bold":true},{"text":"DISCORD","color":"aqua","bold":true,"underlined":true,"click_event":{"action":"open_url","url":"https://discord.gg/mpThbx67J7"},"hover_event":{"action":"show_text","value":"✨ Click to join our community Discord server! ✨"}},{"text":" SERVER","color":"light_purple","bold":true},{"text":" ✨","color":"yellow"}]
 tellraw @a [{"text":"   • ","color":"dark_gray"},{"text":"Modrinth","color":"blue","underlined":true,"click_event":{"action":"open_url","url":"https://modrinth.com/datapack/totem-rituals"},"hover_event":{"action":"show_text","value":"View on Modrinth"}},{"text":" | ","color":"dark_gray"},{"text":"GitHub","color":"aqua","underlined":true,"click_event":{"action":"open_url","url":"https://github.com/Underwood-Inc/rituals"},"hover_event":{"action":"show_text","value":"View source code"}}]
 tellraw @a [{"text":"   • ","color":"dark_gray"},{"text":"Galaxy","color":"light_purple","underlined":true,"click_event":{"action":"open_url","url":"https://galaxy.idling.app/"},"hover_event":{"action":"show_text","value":"Visit Galaxy"}},{"text":" | ","color":"dark_gray"},{"text":"Twitch","color":"dark_purple","underlined":true,"click_event":{"action":"open_url","url":"https://www.twitch.tv/strixun"},"hover_event":{"action":"show_text","value":"Watch on Twitch"}},{"text":" | ","color":"dark_gray"},{"text":"Website","color":"green","underlined":true,"click_event":{"action":"open_url","url":"https://idling.app/"},"hover_event":{"action":"show_text","value":"Visit idling.app"}}]
 tellraw @a [{"text":""}]
-tellraw @a [{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"}]
+tellraw @a [{"text":"╚════════════════════════════════════════════════════════════╝","color":"dark_purple"}]
 
