@@ -1,4 +1,4 @@
-# Coming Soon: Advanced Multi-Totem Rituals
+# Coming Soon: Advanced Multi-Rituals
 
 This document outlines the planned advanced ritual system that will be added in future updates. These rituals will require specific multi-totem patterns and specialized catalysts to create powerful custom enchantment and crafting effects.
 
@@ -6,7 +6,7 @@ This document outlines the planned advanced ritual system that will be added in 
 
 ## Overview
 
-Advanced rituals represent the pinnacle of totem magic, requiring careful planning and significant resource investment. Unlike standard single-totem rituals, these require specific geometric patterns and act more like custom enchantments or crafting stations.
+Advanced rituals represent the pinnacle of totem magic, requiring careful planning and significant resource investment. Unlike standard single-Rituals, these require specific geometric patterns and act more like custom enchantments or crafting stations.
 
 > **✅ Already Implemented**: Auto-Farming (Diamond Hoe, 4+ totems, fire sacrifice)  
 > See main README for usage instructions!

@@ -1,23 +1,28 @@
 # ========================================
-# Spawn Detection Beam (MACRO)
+# Spawn Detection Beacon Beam (MACRO)
 # ========================================
 # Parameters:
 #   x, y, z: Position offsets from current location
-#   r, g, b: RGB color values (0.0 to 1.0)
-#   alpha: Transparency (0.0 to 1.0, lower = more transparent)
+#   color: Beacon color (white/orange/magenta/light_blue/yellow/lime/pink/gray/light_gray/cyan/purple/blue/brown/green/red/black)
 #
-# Creates a vertical beam of particles to indicate valid item detection
+# Places a beacon block to create a visible beam, and a marker to track it
 
-# Spawn vertical beam particles (8 blocks tall, semi-transparent)
-$execute positioned ~$(x) ~$(y) ~$(z) run particle dust{color:[$(r),$(g),$(b)],scale:0.8} ~ ~0.5 ~ 0.15 0.3 0.15 0 3 force
-$execute positioned ~$(x) ~$(y) ~$(z) run particle dust{color:[$(r),$(g),$(b)],scale:0.8} ~ ~1.5 ~ 0.15 0.3 0.15 0 3 force
-$execute positioned ~$(x) ~$(y) ~$(z) run particle dust{color:[$(r),$(g),$(b)],scale:0.8} ~ ~2.5 ~ 0.15 0.3 0.15 0 3 force
-$execute positioned ~$(x) ~$(y) ~$(z) run particle dust{color:[$(r),$(g),$(b)],scale:0.8} ~ ~3.5 ~ 0.15 0.3 0.15 0 3 force
-$execute positioned ~$(x) ~$(y) ~$(z) run particle dust{color:[$(r),$(g),$(b)],scale:0.8} ~ ~4.5 ~ 0.15 0.3 0.15 0 3 force
-$execute positioned ~$(x) ~$(y) ~$(z) run particle dust{color:[$(r),$(g),$(b)],scale:0.8} ~ ~5.5 ~ 0.15 0.3 0.15 0 3 force
-$execute positioned ~$(x) ~$(y) ~$(z) run particle dust{color:[$(r),$(g),$(b)],scale:0.8} ~ ~6.5 ~ 0.15 0.3 0.15 0 3 force
-$execute positioned ~$(x) ~$(y) ~$(z) run particle dust{color:[$(r),$(g),$(b)],scale:0.8} ~ ~7.5 ~ 0.15 0.3 0.15 0 3 force
+# DEBUG: Announce beacon spawn
+$tellraw @a[distance=..10] [{"text":"[DEBUG] Spawning $(color) beacon at offset $(x),$(z)","color":"yellow"}]
 
-# Add some end_rod particles for extra effect (very sparse for translucency)
-$execute positioned ~$(x) ~$(y) ~$(z) run particle end_rod ~ ~1 ~ 0.1 2 0.1 0.01 2 force
+# Place beacon structure (non-interactable)
+# Base: Iron block 2 blocks down
+$execute positioned ~$(x) ~-2 ~$(z) unless block ~ ~ ~ minecraft:iron_block run setblock ~ ~ ~ minecraft:iron_block replace
+
+# Beacon: 1 block down from items
+$execute positioned ~$(x) ~-1 ~$(z) unless block ~ ~ ~ minecraft:beacon run setblock ~ ~ ~ minecraft:beacon replace
+
+# Colored glass at item level to tint beam (only if air)
+$execute positioned ~$(x) ~ ~$(z) if block ~ ~ ~ minecraft:air run setblock ~ ~ ~ minecraft:$(color)_stained_glass replace
+
+# Barrier above glass to prevent interaction (invisible, unbreakable)
+$execute positioned ~$(x) ~1 ~$(z) if block ~ ~ ~ minecraft:air run setblock ~ ~ ~ minecraft:barrier replace
+
+# Summon marker for cleanup tracking
+$execute positioned ~$(x) ~-1 ~$(z) unless entity @e[type=marker,tag=rituals.beam_marker,distance=..0.5] run summon marker ~ ~ ~ {Tags:["rituals.beam_marker","rituals.new_beam"]}
 

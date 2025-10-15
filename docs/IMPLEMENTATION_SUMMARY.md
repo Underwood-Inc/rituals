@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document summarizes the implementation of the **multi-totem pattern ritual system** added to the Totem Rituals datapack. This system allows for complex rituals that require multiple totems arranged in specific geometric patterns, with each totem displaying specific required items.
+This document summarizes the implementation of the **multi-totem pattern ritual system** added to the Rituals datapack. This system allows for complex rituals that require multiple totems arranged in specific geometric patterns, with each totem displaying specific required items.
 
 ---
 
@@ -10,7 +10,7 @@ This document summarizes the implementation of the **multi-totem pattern ritual 
 
 ### 1. Pattern Configuration System
 - **Location**: `data/rituals/function/ritual/patterns/`
-- **Purpose**: Defines and detects geometric patterns for multi-totem rituals
+- **Purpose**: Defines and detects geometric patterns for multi-Rituals
 
 **Pattern Types Implemented:**
 - ✅ **Star Pattern** (4 cardinals) - Auto-Breeding

@@ -33,6 +33,9 @@ execute if block ~ ~-1 ~ minecraft:soul_fire run setblock ~ ~-1 ~ minecraft:air
 # Success message
 $tellraw @a[distance=..16] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Fire sacrifice accepted! ","color":"red"},{"text":"(consumed 4x $(name) at corners)","color":"gray","italic":true}]
 
+# Remove all detection beams
+function rituals:visual/remove_all_beams
+
 # Activate ritual
 function rituals:ritual/detect_type
 

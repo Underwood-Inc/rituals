@@ -1,4 +1,4 @@
-# Totem Rituals - Crafting Recipes
+# Ritualsfting Recipes
 
 Complete visual guide for all craftable items.
 

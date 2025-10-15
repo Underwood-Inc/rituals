@@ -17,8 +17,8 @@
     "announce_to_chat": false
   },
   "criteria": {
-    "auto_grant": {
-      "trigger": "minecraft:tick"
+    "ritual_start": {
+      "trigger": "minecraft:impossible"
     }
   }
 }

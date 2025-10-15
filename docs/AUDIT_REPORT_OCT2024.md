@@ -37,7 +37,7 @@ Comprehensive audit conducted per user request revealed several issues that have
 
 **User Experience:**
 - ✅ Clickable chat link on world join: **[Enable Easy Mode]**
-- ✅ Clickable Modrinth page link: **[Modrinth Page]** (https://modrinth.com/datapack/totem-rituals/versions)
+- ✅ Clickable Modrinth page link: **[Modrinth Page]** (https://modrinth.com/datapack/rituals/versions)
 - ✅ One command to toggle: `/function rituals:admin/enable_kiwi_mode`
 - ✅ Sound effects and visual feedback on toggle
 - ✅ Toggle links within confirmation messages

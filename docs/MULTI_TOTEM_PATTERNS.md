@@ -1,6 +1,6 @@
 # Multi-Totem Ritual Patterns
 
-This document defines the **exact placement patterns** and **item requirements** for multi-totem rituals. Each pattern requires a **central totem** with a specific item that determines the ritual type, plus **surrounding totems** at specific positions, each with their own required items.
+This document defines the **exact placement patterns** and **item requirements** for multi-Rituals. Each pattern requires a **central totem** with a specific item that determines the ritual type, plus **surrounding totems** at specific positions, each with their own required items.
 
 ---
 

@@ -4,7 +4,7 @@
 
 ### ✨ New Features
 
-#### 🎯 Single-Totem Rituals
+#### 🎯 Single-Rituals
 - Totems now work individually! No need for multiple totems
 - Configurable via `/data modify storage rituals:config min_totems_required set value <number>`
 - Default is set to 1 for single-totem mode

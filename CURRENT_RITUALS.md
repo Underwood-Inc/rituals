@@ -2,7 +2,7 @@
 
 ## ✅ CURRENTLY IMPLEMENTED RITUALS (9 Total)
 
-### Standard Single-Totem Rituals (6)
+### Standard Single-Rituals
 These work with 1+ totems displaying the same item. Fire sacrifice required to activate.
 
 #### 1. Growth Ritual 🌱
@@ -165,7 +165,7 @@ These are defined in the system but not yet coded:
 ## Summary
 
 **Total Implemented**: 9 rituals
-- 6 standard single-totem rituals
+- 6 standard single-Rituals
 - 3 advanced multi-totem pattern rituals
 
 **Status**: Fully functional with tier scaling, pattern detection, visual guides, and balanced XP harvester rates!

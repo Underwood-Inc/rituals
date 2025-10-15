@@ -1,8 +1,8 @@
-# Totem Rituals - Fabric Mod
+# Rituals - Fabric Mod
 
 **Fire Sacrifice Edition - Auto-Installing Mod Version**
 
-This is the **Fabric mod** version of Totem Rituals. It automatically installs the datapack and resourcepack when you add the mod to your mods folder - no manual installation required!
+This is the **Fabric mod** version of Rituals. It automatically installs the datapack and resourcepack when you add the mod to your mods folder - no manual installation required!
 
 ---
 
@@ -20,7 +20,7 @@ This is the **Fabric mod** version of Totem Rituals. It automatically installs t
    - Run the installer and select Minecraft 1.21
 
 2. **Install the Mod**
-   - Download `totem-rituals-2.0.0.jar` from releases
+   - Download `rituals-2.0.0.jar` from releases
    - Place it in your `.minecraft/mods/` folder
    - Launch Minecraft with Fabric profile
 
@@ -107,7 +107,7 @@ See `CONFIG_GUIDE.md` for all options.
 
 ## Support
 
-- **Issues**: https://github.com/yourname/totem-rituals/issues
+- **Issues**: https://github.com/yourname/rituals/issues
 - **Wiki**: See included markdown guides
 - **Discord**: [Your Discord link]
 
@@ -125,6 +125,6 @@ MIT License - See LICENSE file
 
 ---
 
-**Enjoy your mystical journey with Totem Rituals!** 🔥✨
+**Enjoy your mystical journey with Rituals!** 🔥✨
 
 

@@ -165,7 +165,7 @@ How often effects apply (in ticks, 20 ticks = 1 second):
 |---------|---------|-------------|
 | ~~`ritual_duration`~~ | N/A | **REMOVED:** All rituals are permanent |
 | `min_totems_required` | 1 | Minimum totems needed to activate a ritual |
-| `ritual_range` | 32 | Maximum distance between totems for multi-totem rituals |
+| `ritual_range` | 32 | Maximum distance between totems for multi-Rituals |
 
 ### Sentry Totem Settings
 

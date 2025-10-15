@@ -1,6 +1,6 @@
-# Totem Rituals Datapack
+# Rituals Datapack
 
-![Totem Rituals Banner](images/banner.png)
+![Rituals Banner](images/banner.png)
 
 Introducing Rituals—a custom datapack + resourcepack combo that brings mystical totems and ritual magic into your world. Craft totems, display items, and trigger powerful effects through immersive rituals. Designed for builders, modpack creators, and lore lovers alike.  
   
@@ -60,7 +60,7 @@ This guide assumes you have no prior experience with Minecraft datapacks. A data
 
 ### 4. Enable the Datapack
 - Launch Minecraft and open your world
-- You should see a message in chat: "[Totem Rituals] Datapack loaded successfully!"
+- You should see a message in chat: "[Rituals] Datapack loaded successfully!"
 - If you don't see the message, type `/reload` in the chat and press Enter
 
 ### 5. Get Started
@@ -291,7 +291,7 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 ### Ritual Requirements
 
 - **Minimum Totems**: 1 totem by default (configurable to require more)
-- **Maximum Distance**: 32 blocks between totems (for multi-totem rituals)
+- **Maximum Distance**: 32 blocks between totems (for multi-Rituals)
 - **Single-Totem Mode**: Enabled by default! Each totem works independently
 - **Duration**: 30 seconds (600 ticks)
 - **Activation Cost**: Requires fire sacrifice (4× catalyst items based on tier)
@@ -305,7 +305,7 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 
 ### Advancement Tree Overview
 
-Your journey with Totem Rituals follows a structured progression system. You must craft each totem tier to unlock the next tier's recipes and access more powerful rituals.
+Your journey with Rituals follows a structured progression system. You must craft each totem tier to unlock the next tier's recipes and access more powerful rituals.
 
 ```mermaid
 timeline
@@ -330,7 +330,7 @@ Different rituals become available as you progress through totem tiers. Higher t
 
 ```mermaid
 mindmap
-  root((Totem Rituals))
+  root((Rituals))
     Wood Tier 1
       Growth Ritual
         Emerald
@@ -550,7 +550,7 @@ These commands give you totem items. They can only be used by players with opera
 - `/function rituals:give/totem_advanced_short` - Gives you a Diamond Totem (short)
 - `/function rituals:give/totem_master` - Gives you a Netherite Totem (tall)
 - `/function rituals:give/totem_master_short` - Gives you a Netherite Totem (short)
-- `/function rituals:give/guidebook` - Gives you the Totem Rituals Guidebook
+- `/function rituals:give/guidebook` - Gives you the Rituals Guidebook
 
 ### System Commands
 
@@ -774,6 +774,6 @@ This datapack is provided as-is for use in Minecraft worlds. Feel free to modify
 
 ---
 
-**Enjoy your mystical journey with Totem Rituals!** 🔮
+**Enjoy your mystical journey with Rituals!** 🔮
 
 For issues, questions, or suggestions, please contact the datapack maintainer.

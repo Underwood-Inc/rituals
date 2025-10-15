@@ -4,7 +4,7 @@
 
 <img width="1920" height="1057" alt="2025-10-12_16 44 12" src="https://github.com/user-attachments/assets/b12c18a5-eb2c-49c1-888c-958fb3c8fa6d" />
 
-As of the latest version, **Totem Rituals now require a Fire Sacrifice** to activate! This replaces the automatic activation system and makes rituals more immersive, costly, and rewarding.
+As of the latest version, **Ritualsequire a Fire Sacrifice** to activate! This replaces the automatic activation system and makes rituals more immersive, costly, and rewarding.
 
 Instead of rituals starting automatically when you place items on totems, you must now perform a sacred fire sacrifice by offering catalyst items to the flames.
 

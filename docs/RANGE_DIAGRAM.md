@@ -1,6 +1,6 @@
 # Ritual Range Diagram
 
-This document explains the exact range mechanics for Totem Rituals.
+This document explains the exact range mechanics for Rituals
 
 ## Range Specifications
 

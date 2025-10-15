@@ -1,4 +1,4 @@
-# Totem Rituals - System Overview
+# Ritualstem Overview
 
 Complete technical overview of how everything works! 🧙‍♂️
 

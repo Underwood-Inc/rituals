@@ -35,7 +35,7 @@ Light fire on or near the center totem (use flint & steel).
 
 If fire sacrifice works, you'll see:
 ```
-[Totem Rituals] Fire sacrifice accepted! (consumed 4x Coal)
+[Rituals] Fire sacrifice accepted! (consumed 4x Coal)
 ```
 
 Then IMMEDIATELY you should see:

@@ -1,6 +1,6 @@
 # Pattern-Based Rituals - Complete Guide
 
-This guide explains how to use the **multi-totem pattern ritual system** in the Totem Rituals datapack. These advanced rituals require multiple totems arranged in specific geometric patterns, with each totem displaying a specific required item.
+This guide explains how to use the **multi-totem pattern ritual system** in the Ritualsack. These advanced rituals require multiple totems arranged in specific geometric patterns, with each totem displaying a specific required item.
 
 ---
 

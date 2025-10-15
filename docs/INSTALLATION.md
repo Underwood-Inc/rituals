@@ -1,6 +1,6 @@
-# Installation Guide - Totem Rituals Datapack
+# Installation Guide - Ritualsack
 
-This guide will walk you through installing the Totem Rituals datapack step by step, assuming you have no prior experience with Minecraft datapacks.
+This guide will walk you through installing the Ritualsack step by step, assuming you have no prior experience with Minecraft datapacks.
 
 ## What is a Datapack?
 
@@ -48,7 +48,7 @@ The location depends on your operating system:
 2. Find and open the folder with the name of your chosen world
 3. Look for a folder called `datapacks`
    - If it doesn't exist, create it (right-click → New Folder → name it "datapacks")
-4. Copy or move the Totem Rituals datapack into this `datapacks` folder
+4. Copy or move the Ritualsack into this `datapacks` folder
    - You can place either the ZIP file or the unzipped folder
 
 ### Step 5: Load the Datapack
@@ -57,8 +57,8 @@ The location depends on your operating system:
 2. Open the world you installed the datapack to
 3. Look at the chat - you should see: 
    ```
-   [Totem Rituals] Datapack loaded successfully!
-   [Totem Rituals] Use /function rituals:give/all to get totem items
+   [Ritualspack loaded successfully!
+   [Rituals/function rituals:give/all to get totem items
    ```
 4. If you don't see this message:
    - Open chat (press `T`)
@@ -129,7 +129,7 @@ To remove the datapack:
 
 1. Close Minecraft completely
 2. Go back to your world's `datapacks` folder (see Step 3)
-3. Delete the Totem Rituals folder or ZIP file
+3. Delete the Ritualsr or ZIP file
 4. Launch Minecraft and open the world
 
 **Note**: Any placed totems will disappear when you remove the datapack.

@@ -25,6 +25,7 @@ playsound block.stone.place block @a ~ ~ ~ 1.0 0.8
 particle happy_villager ~ ~1 ~ 0.3 0.5 0.3 0 10
 
 tellraw @p [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Totem placed!","color":"green"}]
+advancement grant @p only rituals:guide/root
 advancement grant @p only rituals:guide/place_totem
 
 # Reset distance

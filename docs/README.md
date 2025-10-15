@@ -1,6 +1,6 @@
-# Totem Rituals Documentation Index
+# Ritualsentation Index
 
-Welcome to the comprehensive documentation for the Totem Rituals datapack! This directory contains all the detailed guides and technical information you need.
+Welcome to the comprehensive documentation for the Ritualsack! This directory contains all the detailed guides and technical information you need.
 
 ## 📚 Documentation Structure
 
@@ -78,5 +78,5 @@ Explore:
 
 ---
 
-*Part of the Totem Rituals documentation system*
+*Part of the Ritualsentation system*
 

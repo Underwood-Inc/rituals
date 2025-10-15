@@ -1,4 +1,4 @@
-# Build Guide - Totem Rituals
+# Build Guide - Rituals
 
 This project supports **dual distribution**: both as a **Fabric mod** AND as a **standalone datapack/resourcepack**.
 
@@ -7,7 +7,7 @@ This project supports **dual distribution**: both as a **Fabric mod** AND as a *
 ## Project Structure
 
 ```
-totem-rituals/
+rituals/
 ├── data/                          ← Datapack files (source of truth)
 │   └── rituals/
 ├── resourcepack/                  ← Resource pack files (source of truth)
@@ -41,9 +41,9 @@ totem-rituals/
 ```
 
 This creates:
-- **Mod**: `build/libs/totem-rituals-2.0.0.jar` (Fabric mod)
-- **Datapack**: `build/datapacks/totem-rituals-datapack-2.0.0.zip`
-- **Resourcepack**: `build/resourcepacks/totem-rituals-resourcepack-2.0.0.zip`
+- **Mod**: `build/libs/rituals-2.0.0.jar` (Fabric mod)
+- **Datapack**: `build/datapacks/rituals-datapack-2.0.0.zip`
+- **Resourcepack**: `build/resourcepacks/rituals-resourcepack-2.0.0.zip`
 
 ### Build Specific Distributions
 
@@ -86,19 +86,19 @@ This creates:
 ## Distribution
 
 ### For Mod Users
-Give them: `build/libs/totem-rituals-2.0.0.jar`
+Give them: `build/libs/rituals-2.0.0.jar`
 - Requires Fabric Loader
 - Auto-installs datapack and resourcepack
 - Works for any world
 
 ### For Datapack-Only Users
-Give them: `build/datapacks/totem-rituals-datapack-2.0.0.zip`
+Give them: `build/datapacks/rituals-datapack-2.0.0.zip`
 - No mods required
 - Manual installation to world/datapacks folder
 - Requires separate resourcepack
 
 ### For Resourcepack
-Give them: `build/resourcepacks/totem-rituals-resourcepack-2.0.0.zip`
+Give them: `build/resourcepacks/rituals-resourcepack-2.0.0.zip`
 - Manual installation to resourcepacks folder
 
 ---
@@ -150,13 +150,13 @@ For GitHub Actions:
 - name: Upload mod artifact
   uses: actions/upload-artifact@v3
   with:
-    name: totem-rituals-mod
+    name: rituals-mod
     path: build/libs/*.jar
     
 - name: Upload datapack artifact
   uses: actions/upload-artifact@v3
   with:
-    name: totem-rituals-datapack
+    name: rituals-datapack
     path: build/datapacks/*.zip
 ```
 

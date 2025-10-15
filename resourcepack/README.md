@@ -1,6 +1,6 @@
-# Totem Rituals - Resource Pack
+# Ritualsource Pack
 
-This resource pack provides custom visuals for the Totem Rituals datapack.
+This resource pack provides custom visuals for the Ritualsack.
 
 ## What It Includes
 
@@ -20,7 +20,7 @@ Placeholder textures are included. To add your own custom artwork:
 
 1. Copy this folder to `.minecraft/resourcepacks/`
 2. In Minecraft, go to Options → Resource Packs
-3. Move "Totem Rituals Resource Pack" to Selected
+3. Move "Ritualsrce Pack" to Selected
 4. Click Done
 
 The resource pack will work immediately, even without custom texture files!
@@ -29,7 +29,7 @@ The resource pack will work immediately, even without custom texture files!
 
 - **Minecraft Version**: 1.21+
 - **Pack Format**: 34
-- **Works with**: Totem Rituals Datapack v1.0.0+
+- **Works with**: Ritualsack v1.0.0+
 
 ---
 
@@ -41,5 +41,5 @@ The resource pack will work immediately, even without custom texture files!
 
 ---
 
-*Totem Rituals Resource Pack - Provides custom item models and textures*
+*Ritualsrce Pack - Provides custom item models and textures*
 

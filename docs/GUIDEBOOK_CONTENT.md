@@ -6,7 +6,7 @@ This document contains the complete content of the in-game guidebook for referen
 
 ## 📖 Book Metadata
 
-- **Title**: Totem Rituals Guide
+- **Title**: Rituals
 - **Author**: Ancient Ritualist
 - **Generation**: 0 (original)
 - **Total Pages**: 23
@@ -17,7 +17,7 @@ This document contains the complete content of the in-game guidebook for referen
 
 ### Page 1: Title Page
 ```
-Totem Rituals
+Rituals
 
 Welcome Ritualist!
 
