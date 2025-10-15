@@ -9,6 +9,13 @@ execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remov
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.prosperity_ritual
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.protection_ritual
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.healing_ritual
+execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.auto_farming
+execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.auto_breeding
+execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.xp_harvester
+execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.sentry_ritual
+
+# Remove pattern totem tags (allows supplementary positions to be used again)
+execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.pattern_totem
 
 # Reset timers and effect type
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run scoreboard players reset @s rituals.timer

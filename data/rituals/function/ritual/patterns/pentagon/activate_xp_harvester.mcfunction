@@ -55,5 +55,5 @@ execute positioned ~-5 ~ ~2 as @e[type=interaction,tag=rituals.totem,distance=..
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = @e[type=interaction,tag=rituals.totem,limit=1,sort=nearest] rituals.id run data modify entity @s item.components."minecraft:custom_data".ritual_active set value 1b
 # Keep has_item tag - the item is still there!
 
-# Clean up pattern totem tags (if any remain)
-tag @e[type=interaction,tag=rituals.pattern_totem] remove rituals.pattern_totem
+# DO NOT remove pattern_totem tags - they persist to prevent supplementary totems from triggering other rituals
+# Tags are only removed when the ritual is deactivated or the totem is broken

@@ -8,6 +8,7 @@
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = @e[type=interaction,tag=rituals.totem,limit=1,sort=nearest] rituals.id run data modify storage rituals:temp central_item set from entity @s item.id
 
 # PATTERN-BASED AREA EFFECT RITUALS
+# Just check the patterns and activate if valid - that's it!
 
 # Auto-Farming - Square pattern (4 corners)
 execute if data storage rituals:temp {central_item:"minecraft:diamond_hoe"} run function rituals:ritual/patterns/square/detect_auto_farming

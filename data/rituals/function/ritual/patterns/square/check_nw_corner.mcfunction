@@ -3,6 +3,5 @@ execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.i
 
 # Validate item is Beetroot
 execute if data storage rituals:temp {check_square_item:"minecraft:beetroot"} run scoreboard players add #totems_found rituals.temp 1
-execute if data storage rituals:temp {check_square_item:"minecraft:beetroot"} run tag @s add rituals.pattern_totem
 
 

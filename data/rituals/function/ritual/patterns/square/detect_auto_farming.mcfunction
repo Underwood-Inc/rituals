@@ -1,27 +1,57 @@
 # ========================================
-# Detect Auto-Farming Ritual Pattern
+# Detect Auto-Farming Ritual Pattern (REWRITTEN)
 # ========================================
-# Square pattern: 1 central totem + 4 corner totems
+# Square pattern: 1 central totem (diamond hoe) + 4 corner totems (crops)
 # Central: Diamond Hoe
-# Corners: Specific farming-related items
+# NE Corner (+5, 0, +5): Wheat
+# SE Corner (+5, 0, -5): Carrot
+# SW Corner (-5, 0, -5): Potato
+# NW Corner (-5, 0, +5): Beetroot
 
-# Initialize counters
-scoreboard players set #totems_found rituals.temp 0
+# Initialize: Assume all corners are valid, then check each
+scoreboard players set #pattern_valid rituals.temp 1
+scoreboard players set #corner_count rituals.temp 0
 
-# Check each corner position (5 blocks away diagonally)
-# NE Corner (+X, +Z)
-execute positioned ~5 ~ ~5 as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run function rituals:ritual/patterns/square/check_ne_corner
+# ========================================
+# Check NE Corner (+5, 0, +5) - MUST be Wheat
+# ========================================
+scoreboard players set #corner_ne rituals.temp 0
+execute positioned ~5 ~ ~5 if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run scoreboard players set #corner_ne rituals.temp 1
+execute if score #corner_ne rituals.temp matches 1 positioned ~5 ~ ~5 unless entity @e[type=item_display,tag=rituals.totem_display,distance=..2,nbt={item:{id:"minecraft:wheat"}}] run scoreboard players set #corner_ne rituals.temp 0
+execute if score #corner_ne rituals.temp matches 1 run scoreboard players add #corner_count rituals.temp 1
 
-# SE Corner (+X, -Z)
-execute positioned ~5 ~ ~-5 as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run function rituals:ritual/patterns/square/check_se_corner
+# ========================================
+# Check SE Corner (+5, 0, -5) - MUST be Carrot
+# ========================================
+scoreboard players set #corner_se rituals.temp 0
+execute positioned ~5 ~ ~-5 if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run scoreboard players set #corner_se rituals.temp 1
+execute if score #corner_se rituals.temp matches 1 positioned ~5 ~ ~-5 unless entity @e[type=item_display,tag=rituals.totem_display,distance=..2,nbt={item:{id:"minecraft:carrot"}}] run scoreboard players set #corner_se rituals.temp 0
+execute if score #corner_se rituals.temp matches 1 run scoreboard players add #corner_count rituals.temp 1
 
-# SW Corner (-X, -Z)
-execute positioned ~-5 ~ ~-5 as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run function rituals:ritual/patterns/square/check_sw_corner
+# ========================================
+# Check SW Corner (-5, 0, -5) - MUST be Potato
+# ========================================
+scoreboard players set #corner_sw rituals.temp 0
+execute positioned ~-5 ~ ~-5 if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run scoreboard players set #corner_sw rituals.temp 1
+execute if score #corner_sw rituals.temp matches 1 positioned ~-5 ~ ~-5 unless entity @e[type=item_display,tag=rituals.totem_display,distance=..2,nbt={item:{id:"minecraft:potato"}}] run scoreboard players set #corner_sw rituals.temp 0
+execute if score #corner_sw rituals.temp matches 1 run scoreboard players add #corner_count rituals.temp 1
 
-# NW Corner (-X, +Z)
-execute positioned ~-5 ~ ~5 as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run function rituals:ritual/patterns/square/check_nw_corner
+# ========================================
+# Check NW Corner (-5, 0, +5) - MUST be Beetroot
+# ========================================
+scoreboard players set #corner_nw rituals.temp 0
+execute positioned ~-5 ~ ~5 if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run scoreboard players set #corner_nw rituals.temp 1
+execute if score #corner_nw rituals.temp matches 1 positioned ~-5 ~ ~5 unless entity @e[type=item_display,tag=rituals.totem_display,distance=..2,nbt={item:{id:"minecraft:beetroot"}}] run scoreboard players set #corner_nw rituals.temp 0
+execute if score #corner_nw rituals.temp matches 1 run scoreboard players add #corner_count rituals.temp 1
 
-# If all 4 corners found, activate the ritual
-execute if score #totems_found rituals.temp matches 4 run function rituals:ritual/patterns/square/activate_auto_farming
+# ========================================
+# Validation: Need ALL 4 corners with correct items
+# ========================================
+execute unless score #corner_count rituals.temp matches 4 run scoreboard players set #pattern_valid rituals.temp 0
+
+# ========================================
+# Activate if pattern is complete
+# ========================================
+execute if score #pattern_valid rituals.temp matches 1 run function rituals:ritual/patterns/square/activate_auto_farming
 
 
