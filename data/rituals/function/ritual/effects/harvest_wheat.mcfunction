@@ -6,6 +6,6 @@ loot spawn ~ ~ ~ loot rituals:blocks/wheat
 setblock ~ ~ ~ wheat[age=0] replace
 
 # Visual feedback
-particle minecraft:wheat_seeds ~ ~0.5 ~ 0.2 0.2 0.2 0 5
+particle minecraft:item{item:"minecraft:wheat"} ~ ~0.5 ~ 0.2 0.2 0.2 0 5
 playsound block.crop.break block @a[distance=..16] ~ ~ ~ 0.3 1.0
 
