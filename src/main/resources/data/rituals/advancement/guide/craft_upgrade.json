@@ -9,7 +9,7 @@
       "color": "yellow"
     },
     "description": {
-      "text": "Combine totem base + 4 paste (shapeless) to create upgrade slate"
+      "text": "Combine totem + 4 paste to create upgrade slate. Right-click placed totem to upgrade tier!"
     },
     "frame": "task",
     "show_toast": false,
@@ -33,4 +33,3 @@
     }
   }
 }
-

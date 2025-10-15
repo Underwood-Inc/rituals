@@ -1,16 +1,16 @@
 {
-  "parent": "rituals:guide/craft_netherite_totem",
+  "parent": "rituals:guide/master_ritualist",
   "display": {
     "icon": {
-      "id": "minecraft:blackstone_wall"
+      "id": "minecraft:diamond_hoe"
     },
     "title": {
-      "text": "Master Ritualist",
+      "text": "Pattern Rituals Unlocked",
       "color": "dark_purple",
       "bold": true
     },
     "description": {
-      "text": "You've mastered all totem tiers! Maximum ritual power and range achieved. The ultimate ritualist!"
+      "text": "Auto-Harvest (Diamond Hoe+Square 4 totems), Auto-Breeding (Wheat+Star 4 totems), XP Harvester (XP Bottle+Pentagon 5 totems). Place redstone near center for guide!"
     },
     "frame": "challenge",
     "show_toast": true,
@@ -35,3 +35,4 @@
     }
   }
 }
+

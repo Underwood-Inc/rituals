@@ -1,23 +1,22 @@
 {
-  "parent": "rituals:guide/craft_netherite_totem",
+  "parent": "rituals:guide/craft_iron_totem",
   "display": {
     "icon": {
-      "id": "minecraft:blackstone_wall"
+      "id": "minecraft:diamond"
     },
     "title": {
-      "text": "Master Ritualist",
-      "color": "dark_purple",
-      "bold": true
+      "text": "Strength Ritual Unlocked",
+      "color": "aqua"
     },
     "description": {
-      "text": "You've mastered all totem tiers! Maximum ritual power and range achieved. The ultimate ritualist!"
+      "text": "Right-click totem with Diamond to grant Strength + Resistance to nearby players. Requires Iron totem or higher!"
     },
-    "frame": "challenge",
+    "frame": "task",
     "show_toast": true,
-    "announce_to_chat": true
+    "announce_to_chat": false
   },
   "criteria": {
-    "has_netherite": {
+    "has_iron_totem": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -26,7 +25,7 @@
             "components": {
               "minecraft:custom_data": {
                 "rituals_totem": 1,
-                "totem_tier": 6
+                "totem_tier": 3
               }
             }
           }
@@ -35,3 +34,4 @@
     }
   }
 }
+

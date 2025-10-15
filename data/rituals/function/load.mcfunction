@@ -12,6 +12,7 @@ scoreboard objectives add rituals.effect dummy
 scoreboard objectives add rituals.temp dummy
 scoreboard objectives add rituals.id dummy
 scoreboard objectives add rituals.use_count minecraft.used:minecraft.warped_fungus_on_a_stick
+scoreboard objectives add rituals.hammer_use minecraft.used:minecraft.carrot_on_a_stick
 
 # Menu system scoreboards
 scoreboard objectives add rituals.menu trigger

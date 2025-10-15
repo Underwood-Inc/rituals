@@ -1,9 +1,9 @@
 # Tier 1 breeding (3 block range - added 1 block padding)
-tellraw @a[distance=..10] [{"text":"[DEBUG] Tier 1 breeding - range 3","color":"aqua"}]
+# Debug output is handled by parent function
 
 # Cows - ONLY breed if there are at least 2 eligible animals
 execute store result score #cow_count rituals.temp if entity @e[type=cow,distance=..3,nbt={Age:0,InLove:0}]
-tellraw @a[distance=..10] [{"text":"[DEBUG] Found ","color":"gray"},{"score":{"name":"#cow_count","objective":"rituals.temp"},"color":"yellow"},{"text":" eligible cows","color":"gray"}]
+# Debug output removed - controlled by parent
 execute if score #cow_count rituals.temp matches 2.. as @e[type=cow,distance=..3,limit=2,sort=nearest,nbt={Age:0,InLove:0}] run data merge entity @s {InLove:600}
 
 # Sheep

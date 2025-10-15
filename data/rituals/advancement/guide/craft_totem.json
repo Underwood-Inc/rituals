@@ -1,11 +1,11 @@
 {
-  "parent": "rituals:guide/get_materials",
+  "parent": "rituals:guide/root",
   "display": {
     "icon": {
       "id": "minecraft:warped_fungus_on_a_stick"
     },
     "title": {
-      "text": "Craft a Wood Totem",
+      "text": "Craft Your First Totem",
       "color": "green"
     },
     "description": {
@@ -17,19 +17,9 @@
   },
   "criteria": {
     "has_totem": {
-      "trigger": "minecraft:inventory_changed",
+      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "items": [
-          {
-            "items": ["minecraft:warped_fungus_on_a_stick"],
-            "components": {
-              "minecraft:custom_data": {
-                "rituals_totem": 1,
-                "tier": 1
-              }
-            }
-          }
-        ]
+        "recipe": "rituals:totem_base_wood"
       }
     }
   },

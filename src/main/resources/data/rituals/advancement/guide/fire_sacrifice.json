@@ -1,0 +1,32 @@
+{
+  "parent": "rituals:guide/basic_rituals",
+  "display": {
+    "icon": {
+      "id": "minecraft:flint_and_steel"
+    },
+    "title": {
+      "text": "Fire Sacrifice",
+      "color": "red",
+      "bold": true
+    },
+    "description": {
+      "text": "To activate: 1) Display item on totem, 2) Drop 4 catalysts around (N/S/E/W), 3) Light fire at base! Offerings consumed."
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false
+  },
+  "criteria": {
+    "has_flint": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:flint_and_steel"]
+          }
+        ]
+      }
+    }
+  }
+}
+

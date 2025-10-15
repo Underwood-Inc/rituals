@@ -9,16 +9,39 @@
       "bold": true
     },
     "description": {
-      "text": "Harness ancient magic with ritual totems. Single totem = basic effect, multiple totems = amplified power!"
+      "text": "Harness ancient magic with ritual totems! Gather sticks and oak planks to begin your journey."
     },
-    "background": "minecraft:textures/block/stone.png",
+    "background": "minecraft:textures/blocks/deepslate_block.png",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": false
   },
   "criteria": {
-    "ritual_start": {
-      "trigger": "minecraft:impossible"
+    "has_stick": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:stick"]
+          }
+        ]
+      }
+    },
+    "has_planks": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:oak_planks"]
+          }
+        ]
+      }
     }
-  }
+  },
+  "requirements": [
+    [
+      "has_stick",
+      "has_planks"
+    ]
+  ]
 }

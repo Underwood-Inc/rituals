@@ -1,7 +1,7 @@
 # ========================================
-# Interactive Menu System
+# Get All Ritual Items
 # ========================================
-# Opens the main menu
+# Gives all ritual items to the player
 
-function rituals:menu/main
+function rituals:give/all
 

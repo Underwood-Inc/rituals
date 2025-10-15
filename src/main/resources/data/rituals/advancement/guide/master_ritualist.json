@@ -17,8 +17,21 @@
     "announce_to_chat": true
   },
   "criteria": {
-    "auto": {
-      "trigger": "minecraft:tick"
+    "has_netherite": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": ["minecraft:warped_fungus_on_a_stick"],
+            "components": {
+              "minecraft:custom_data": {
+                "rituals_totem": 1,
+                "totem_tier": 6
+              }
+            }
+          }
+        ]
+      }
     }
   }
 }

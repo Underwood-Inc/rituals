@@ -1,23 +1,22 @@
 {
-  "parent": "rituals:guide/craft_netherite_totem",
+  "parent": "rituals:guide/craft_gold_totem",
   "display": {
     "icon": {
-      "id": "minecraft:blackstone_wall"
+      "id": "minecraft:netherite_block"
     },
     "title": {
-      "text": "Master Ritualist",
-      "color": "dark_purple",
-      "bold": true
+      "text": "Prosperity Ritual Unlocked",
+      "color": "gold"
     },
     "description": {
-      "text": "You've mastered all totem tiers! Maximum ritual power and range achieved. The ultimate ritualist!"
+      "text": "Right-click totem with Netherite Block to attract items and gain Luck. Requires Gold totem or higher!"
     },
-    "frame": "challenge",
+    "frame": "goal",
     "show_toast": true,
-    "announce_to_chat": true
+    "announce_to_chat": false
   },
   "criteria": {
-    "has_netherite": {
+    "has_gold_totem": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -26,7 +25,7 @@
             "components": {
               "minecraft:custom_data": {
                 "rituals_totem": 1,
-                "totem_tier": 6
+                "totem_tier": 4
               }
             }
           }
@@ -35,3 +34,4 @@
     }
   }
 }
+

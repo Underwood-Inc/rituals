@@ -3,6 +3,9 @@
 # ========================================
 # Runs as and at totems with active rituals
 
+# Skip if paused
+execute if entity @s[tag=rituals.paused] run return 0
+
 # Increment timer
 scoreboard players add @s rituals.timer 1
 

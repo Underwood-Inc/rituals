@@ -1,23 +1,23 @@
 {
-  "parent": "rituals:guide/craft_netherite_totem",
+  "parent": "rituals:guide/craft_totem",
   "display": {
     "icon": {
-      "id": "minecraft:blackstone_wall"
+      "id": "minecraft:emerald"
     },
     "title": {
-      "text": "Master Ritualist",
-      "color": "dark_purple",
+      "text": "Basic Rituals Unlocked",
+      "color": "green",
       "bold": true
     },
     "description": {
-      "text": "You've mastered all totem tiers! Maximum ritual power and range achieved. The ultimate ritualist!"
+      "text": "Growth (Emerald) - Bonemeals crops | Protection (Iron Ingot) - Damages mobs | Healing (Nether Star) - Regeneration | Sentry (Arrow) - Auto-defense"
     },
-    "frame": "challenge",
+    "frame": "task",
     "show_toast": true,
-    "announce_to_chat": true
+    "announce_to_chat": false
   },
   "criteria": {
-    "has_netherite": {
+    "has_totem": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
@@ -25,8 +25,7 @@
             "items": ["minecraft:warped_fungus_on_a_stick"],
             "components": {
               "minecraft:custom_data": {
-                "rituals_totem": 1,
-                "totem_tier": 6
+                "rituals_totem": 1
               }
             }
           }
@@ -35,3 +34,4 @@
     }
   }
 }
+

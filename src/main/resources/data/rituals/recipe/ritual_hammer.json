@@ -1,0 +1,33 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "III",
+    "ISI",
+    " S "
+  ],
+  "key": {
+    "I": "minecraft:iron_ingot",
+    "S": "minecraft:stick"
+  },
+  "result": {
+    "id": "minecraft:carrot_on_a_stick",
+    "count": 1,
+    "components": {
+      "minecraft:custom_name": {
+        "text": "Ritual Hammer",
+        "color": "#FF8C00",
+        "italic": false,
+        "bold": true
+      },
+      "minecraft:lore": [
+        "Right-click: Toggle ritual",
+        "Shift+Right-click: Debug"
+      ],
+      "minecraft:custom_model_data": 100030,
+      "minecraft:custom_data": {
+        "rituals_hammer": 1
+      }
+    }
+  }
+}
+
