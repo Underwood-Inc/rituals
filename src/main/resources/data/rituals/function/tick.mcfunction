@@ -26,8 +26,8 @@ execute as @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual] at @
 # Update sentry projectiles
 execute as @e[type=marker,tag=rituals.sentry_projectile] at @s run function rituals:ritual/effects/sentry_projectile_motion
 
-# Check for ritual hammer usage
-execute as @a[scores={rituals.hammer_use=1..}] at @s run function rituals:hammer/check_use
+# Check for ritual hammer usage (DISABLED)
+# execute as @a[scores={rituals.hammer_use=1..}] at @s run function rituals:hammer/check_use
 
 # Handle menu triggers
 function rituals:menu/handler

@@ -8,7 +8,18 @@
     "minecraft:short_grass"
   ],
   "result": {
-    "item": "minecraft:clay_ball",
-    "count": 4
+    "id": "minecraft:clay_ball",
+    "count": 4,
+    "components": {
+      "minecraft:custom_name": {
+        "text": "Ritual Paste",
+        "color": "white",
+        "italic": false
+      },
+      "minecraft:custom_data": {
+        "rituals_paste": 1,
+        "custom_model_data": 100011
+      }
+    }
   }
 }

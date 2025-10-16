@@ -2,6 +2,10 @@
 # Check what item player is holding (runs as player)
 # ========================================
 
+# Check if holding ritual hammer - if so, skip totem interaction entirely
+execute store result score #is_hammer rituals.temp run data get entity @s SelectedItem.components."minecraft:custom_data".rituals_hammer
+execute if score #is_hammer rituals.temp matches 1.. run return fail
+
 # Check if holding upgrade slate
 execute store result score #is_upgrade rituals.temp run data get entity @s SelectedItem.components."minecraft:custom_data".rituals_upgrade
 

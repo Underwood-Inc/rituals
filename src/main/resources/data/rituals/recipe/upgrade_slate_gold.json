@@ -8,32 +8,15 @@
     "P P"
   ],
   "key": {
-    "P": {
-      "item": "minecraft:clay_ball",
-      "components": {
-        "minecraft:custom_data": {
-          "rituals_paste": 1
-        }
-      }
-    },
-    "T": {
-      "item": "minecraft:warped_fungus_on_a_stick",
-      "components": {
-        "minecraft:custom_data": {
-          "rituals_totem": 1,
-          "totem_tier": 4
-        }
-      }
-    }
+    "P": "minecraft:clay_ball",
+    "T": "minecraft:warped_fungus_on_a_stick"
   },
   "result": {
-    "id": "minecraft:paper",
+    "id": "minecraft:knowledge_book",
     "count": 1,
     "components": {
-      "minecraft:custom_name": {"text":"Gold Upgrade Slate","color":"gold","italic":false},
       "minecraft:custom_data": {
-        "rituals_upgrade": 1,
-        "upgrade_tier": 4
+        "rituals_craft": "upgrade_gold"
       }
     }
   }

@@ -1,0 +1,14 @@
+{
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:recipe_crafted",
+      "conditions": {
+        "recipe_id": "rituals:upgrade_slate_gold"
+      }
+    }
+  },
+  "rewards": {
+    "function": "rituals:crafting/validate_upgrade_gold"
+  }
+}
+

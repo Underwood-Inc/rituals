@@ -20,12 +20,12 @@
         "bold": true
       },
       "minecraft:lore": [
-        "Right-click: Toggle ritual",
-        "Shift+Right-click: Debug"
+        {"text": "Right-click: Toggle ritual", "color": "gray", "italic": false},
+        {"text": "Shift+Right-click: Debug", "color": "gray", "italic": false}
       ],
-      "minecraft:custom_model_data": 100030,
       "minecraft:custom_data": {
-        "rituals_hammer": 1
+        "rituals_hammer": 1,
+        "custom_model_data": 100030
       }
     }
   }

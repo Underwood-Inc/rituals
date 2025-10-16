@@ -17,18 +17,9 @@
   },
   "criteria": {
     "has_hammer": {
-      "trigger": "minecraft:inventory_changed",
+      "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "items": [
-          {
-            "items": ["minecraft:carrot_on_a_stick"],
-            "components": {
-              "minecraft:custom_data": {
-                "rituals_hammer": {}
-              }
-            }
-          }
-        ]
+        "recipe": "rituals:ritual_hammer"
       }
     }
   },
