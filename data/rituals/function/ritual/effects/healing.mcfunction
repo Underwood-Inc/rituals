@@ -13,12 +13,15 @@ function rituals:ritual/get_healing_settings
 scoreboard players add @s rituals.distance 1
 
 # DEBUG: Show timer and frequency every 5 seconds (100 ticks) - only if debug enabled
-execute if entity @s[tag=rituals.debug] run scoreboard players operation #timer_mod rituals.temp = @s rituals.distance
-execute if entity @s[tag=rituals.debug] run scoreboard players operation #timer_mod rituals.temp %= #100 rituals.data
-execute if entity @s[tag=rituals.debug] if score #timer_mod rituals.temp matches 0 run tellraw @a[distance=..10] [{"text":"[DEBUG HEALING] Timer: ","color":"gray"},{"score":{"name":"@s","objective":"rituals.distance"},"color":"yellow"},{"text":" / ","color":"gray"},{"score":{"name":"#current_freq","objective":"rituals.temp"},"color":"yellow"},{"text":" | Range: ","color":"gray"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"light_purple"},{"text":"x","color":"gray"},{"score":{"name":"#current_v_range","objective":"rituals.temp"},"color":"light_purple"}]
+execute if score #rituals_debug_mode rituals.data matches 1 run scoreboard players operation #rituals_timer_mod rituals.temp = @s rituals.distance
+execute if score #rituals_debug_mode rituals.data matches 1 run scoreboard players operation #rituals_timer_mod rituals.temp %= #100 rituals.data
+execute if score #rituals_debug_mode rituals.data matches 1 if score #rituals_timer_mod rituals.temp matches 0 run tellraw @a[distance=..10] [{"text":"[DEBUG HEALING] Timer: ","color":"gray"},{"score":{"name":"@s","objective":"rituals.distance"},"color":"yellow"},{"text":" / ","color":"gray"},{"score":{"name":"#current_freq","objective":"rituals.temp"},"color":"yellow"},{"text":" | Range: ","color":"gray"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"light_purple"},{"text":"x","color":"gray"},{"score":{"name":"#current_v_range","objective":"rituals.temp"},"color":"light_purple"}]
 
 execute unless score @s rituals.distance >= #current_freq rituals.temp run return 0
 scoreboard players set @s rituals.distance 0
+
+# DEBUG: Healing attempt happening - only if debug enabled
+execute if score #rituals_debug_mode rituals.data matches 1 run tellraw @a[distance=..10] [{"text":"[DEBUG HEALING] Healing attempt now!","color":"green","bold":true}]
 
 # Apply effects in tier-based range
 function rituals:ritual/apply_in_tier_range

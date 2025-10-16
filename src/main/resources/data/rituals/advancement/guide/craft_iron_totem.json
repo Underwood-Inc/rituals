@@ -36,7 +36,7 @@
   "rewards": {
     "recipes": [
       "rituals:totem_base_gold",
-      "rituals:totem_base_gold_short",
+      "rituals:totem_base_gold_short"
     ]
   }
 }

@@ -1,0 +1,41 @@
+{
+  "parent": "rituals:guide/master_ritualist",
+  "display": {
+    "icon": {
+      "id": "minecraft:diamond_hoe"
+    },
+    "title": {
+      "text": "§k§l§5Pattern Rituals Preview§r",
+      "obfuscated": true,
+      "bold": true,
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "§7Next Achievement: ",
+      "extra": [
+        {
+          "text": "§k§l§5Pattern Rituals Unlocked§r",
+          "obfuscated": true,
+          "bold": true,
+          "color": "dark_purple",
+          "hover_event": {
+            "action": "show_text",
+            "value": {
+              "text": "Unlock Pattern Rituals!\n\nRequirements:\n• Master Ritualist Achievement\n• Netherite Totem\n• Advanced Knowledge\n\nUnlocks:\n• Auto-Harvest (Diamond Hoe + Square)\n• Auto-Breeding (Wheat + Star)\n• XP Harvester (XP Bottle + Pentagon)",
+              "color": "light_purple"
+            }
+          }
+        }
+      ]
+    },
+    "frame": "challenge",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

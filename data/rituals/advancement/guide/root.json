@@ -39,9 +39,7 @@
     }
   },
   "requirements": [
-    [
-      "has_stick",
-      "has_planks"
-    ]
+    ["has_stick"],
+    ["has_planks"]
   ]
 }

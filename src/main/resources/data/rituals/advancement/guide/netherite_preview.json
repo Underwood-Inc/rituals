@@ -1,0 +1,41 @@
+{
+  "parent": "rituals:guide/craft_diamond_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:netherite_ingot"
+    },
+    "title": {
+      "text": "§k§l§5Netherite Totem Mastery§r",
+      "obfuscated": true,
+      "bold": true,
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "§7Next Tier: ",
+      "extra": [
+        {
+          "text": "§k§l§5Netherite Totem Crafting§r",
+          "obfuscated": true,
+          "bold": true,
+          "color": "dark_purple",
+          "hover_event": {
+            "action": "show_text",
+            "value": {
+              "text": "Craft a Netherite Totem Base to unlock netherite-tier rituals!\n\nRequirements:\n• 3 Netherite Ingots\n• 2 Oak Planks\n• Crafting Table\n\nUnlocks:\n• Ultimate Power\n• Master Ritualist Achievement",
+              "color": "light_purple"
+            }
+          }
+        }
+      ]
+    },
+    "frame": "challenge",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "parent": "rituals:guide/craft_iron_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:gold_ingot"
+    },
+    "title": {
+      "text": "§k§l§6Gold Totem Mastery§r",
+      "obfuscated": true,
+      "bold": true,
+      "color": "gold"
+    },
+    "description": {
+      "text": "§7Next Tier: ",
+      "extra": [
+        {
+          "text": "§k§l§6Gold Totem Crafting§r",
+          "obfuscated": true,
+          "bold": true,
+          "color": "gold",
+          "hover_event": {
+            "action": "show_text",
+            "value": {
+              "text": "Craft a Gold Totem Base to unlock gold-tier rituals!\n\nRequirements:\n• 3 Gold Ingots\n• 2 Oak Planks\n• Crafting Table\n\nUnlocks:\n• Prosperity Ritual\n• Enhanced Range",
+              "color": "yellow"
+            }
+          }
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

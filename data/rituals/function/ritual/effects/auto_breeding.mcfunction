@@ -15,16 +15,15 @@ execute unless score @s rituals.data matches -2147483648.. run scoreboard player
 scoreboard players add @s rituals.data 1
 
 # DEBUG: Show timer and frequency every 5 seconds (100 ticks) - only if debug enabled
-execute if entity @s[tag=rituals.debug] if score @s rituals.data matches 0 run tellraw @a[distance=..10] [{"text":"[DEBUG] Timer: ","color":"gray"},{"score":{"name":"@s","objective":"rituals.data"},"color":"yellow"},{"text":" / ","color":"gray"},{"score":{"name":"#current_freq","objective":"rituals.temp"},"color":"yellow"},{"text":" | Range: ","color":"gray"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"aqua"}]
-execute if entity @s[tag=rituals.debug] run scoreboard players operation #timer_mod rituals.temp = @s rituals.data
-execute if entity @s[tag=rituals.debug] run scoreboard players operation #timer_mod rituals.temp %= #100 rituals.data
-execute if entity @s[tag=rituals.debug] if score #timer_mod rituals.temp matches 0 run tellraw @a[distance=..10] [{"text":"[DEBUG] Timer: ","color":"gray"},{"score":{"name":"@s","objective":"rituals.data"},"color":"yellow"},{"text":" / ","color":"gray"},{"score":{"name":"#current_freq","objective":"rituals.temp"},"color":"yellow"},{"text":" | Range: ","color":"gray"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"aqua"}]
+execute if score #rituals_debug_mode rituals.data matches 1 run scoreboard players operation #rituals_timer_mod rituals.temp = @s rituals.data
+execute if score #rituals_debug_mode rituals.data matches 1 run scoreboard players operation #rituals_timer_mod rituals.temp %= #100 rituals.data
+execute if score #rituals_debug_mode rituals.data matches 1 if score #rituals_timer_mod rituals.temp matches 0 run tellraw @a[distance=..10] [{"text":"[DEBUG BREEDING] Timer: ","color":"gray"},{"score":{"name":"@s","objective":"rituals.data"},"color":"yellow"},{"text":" / ","color":"gray"},{"score":{"name":"#current_freq","objective":"rituals.temp"},"color":"yellow"},{"text":" | Range: ","color":"gray"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"aqua"},{"text":"x","color":"gray"},{"score":{"name":"#current_v_range","objective":"rituals.temp"},"color":"aqua"}]
 
 execute unless score @s rituals.data >= #current_freq rituals.temp run return 0
 scoreboard players set @s rituals.data 0
 
 # DEBUG: Breeding attempt happening - only if debug enabled
-execute if entity @s[tag=rituals.debug] run tellraw @a[distance=..10] [{"text":"[DEBUG] Breeding attempt now!","color":"green","bold":true}]
+execute if score #rituals_debug_mode rituals.data matches 1 run tellraw @a[distance=..10] [{"text":"[DEBUG BREEDING] Breeding attempt now!","color":"green","bold":true}]
 
 # Breed animals in tier-based range
 # Find pairs of same-type animals and breed them
@@ -34,7 +33,7 @@ execute if entity @s[tag=rituals.debug] run tellraw @a[distance=..10] [{"text":"
 execute store result storage rituals:temp h_range int 1 run scoreboard players get #current_h_range rituals.temp
 
 # DEBUG: Show what's being stored - only if debug enabled
-execute if entity @s[tag=rituals.debug] run tellraw @a[distance=..10] [{"text":"[DEBUG] Calling breeding with range: ","color":"red"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"yellow"}]
+execute if score #rituals_debug_mode rituals.data matches 1 run tellraw @a[distance=..10] [{"text":"[DEBUG BREEDING] Calling tier-specific breeding","color":"red","bold":true}]
 
 # DIRECT APPROACH: Just call it based on tier instead of macro bullshit
 execute if score @s rituals.tier matches 1 run function rituals:ritual/effects/auto_breeding_tier1

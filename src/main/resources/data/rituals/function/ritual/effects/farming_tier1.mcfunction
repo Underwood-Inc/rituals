@@ -1,5 +1,5 @@
 # Tier 1 farming - scan 5x7x5 box (h_range=2, v_range=3)
-tellraw @a[distance=..10] [{"text":"[DEBUG FARM] Scanning tier 1 area (5x7x5)","color":"aqua"}]
+execute if score #rituals_debug_mode rituals.data matches 1 run tellraw @a[distance=..10] [{"text":"[DEBUG FARM] Scanning tier 1 area (5x7x5)","color":"aqua"}]
 
 # Set up counters for recursive scanning
 scoreboard players set #scan_x rituals.temp 0

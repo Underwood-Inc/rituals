@@ -1,0 +1,41 @@
+{
+  "parent": "rituals:guide/copper_preview",
+  "display": {
+    "icon": {
+      "id": "minecraft:iron_ingot"
+    },
+    "title": {
+      "text": "§k§l§fIron Totem Mastery§r",
+      "obfuscated": true,
+      "bold": true,
+      "color": "white"
+    },
+    "description": {
+      "text": "§7Next Tier: ",
+      "extra": [
+        {
+          "text": "§k§l§fIron Totem Crafting§r",
+          "obfuscated": true,
+          "bold": true,
+          "color": "white",
+          "hover_event": {
+            "action": "show_text",
+            "value": {
+              "text": "Craft an Iron Totem Base to unlock iron-tier rituals!\n\nRequirements:\n• 3 Iron Ingots\n• 2 Oak Planks\n• Crafting Table\n\nUnlocks:\n• Growth Ritual\n• Strength Ritual",
+              "color": "aqua"
+            }
+          }
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

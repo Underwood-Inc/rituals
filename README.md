@@ -16,7 +16,7 @@ Built with care for the Minecraft community—open source, tweakable, and ready 
 
 - **Minecraft Version**: 1.21+ (Pack Format 48)
 - **Datapack Version**: 1.0.0
-- **Author**: Created with care for the Minecraft community
+- **Author**: Created with care for the Minecraft community by [strixun](https://www.twitch.tv/strixun)
 
 ## Table of Contents
 

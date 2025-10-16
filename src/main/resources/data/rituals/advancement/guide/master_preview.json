@@ -1,0 +1,41 @@
+{
+  "parent": "rituals:guide/craft_netherite_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:blackstone_wall"
+    },
+    "title": {
+      "text": "§k§l§5Master Ritualist Preview§r",
+      "obfuscated": true,
+      "bold": true,
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "§7Next Achievement: ",
+      "extra": [
+        {
+          "text": "§k§l§5Master Ritualist§r",
+          "obfuscated": true,
+          "bold": true,
+          "color": "dark_purple",
+          "hover_event": {
+            "action": "show_text",
+            "value": {
+              "text": "Achieve Master Ritualist status!\n\nRequirements:\n• Craft a Netherite Totem\n• Unlock all totem tiers\n• Master the ancient arts\n\nUnlocks:\n• Pattern Rituals\n• Ultimate Achievement",
+              "color": "light_purple"
+            }
+          }
+        }
+      ]
+    },
+    "frame": "challenge",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

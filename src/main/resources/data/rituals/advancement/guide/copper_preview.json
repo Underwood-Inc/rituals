@@ -1,0 +1,41 @@
+{
+  "parent": "rituals:guide/craft_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:copper_ingot"
+    },
+    "title": {
+      "text": "§k§l§6Copper Totem Mastery§r",
+      "obfuscated": true,
+      "bold": true,
+      "color": "gold"
+    },
+    "description": {
+      "text": "§7Next Tier: ",
+      "extra": [
+        {
+          "text": "§k§l§6Copper Totem Crafting§r",
+          "obfuscated": true,
+          "bold": true,
+          "color": "gold",
+          "hover_event": {
+            "action": "show_text",
+            "value": {
+              "text": "Craft a Copper Totem Base to unlock copper-tier rituals!\n\nRequirements:\n• 3 Copper Ingots\n• 2 Oak Planks\n• Crafting Table",
+              "color": "yellow"
+            }
+          }
+        }
+      ]
+    },
+    "frame": "task",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

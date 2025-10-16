@@ -220,7 +220,7 @@ Massive overhaul addressing audit findings, critical bugs, and user experience i
 
 **Root Cause**: Incorrect JSON syntax for Minecraft text components
 - Used `value` parameter for both commands and URLs
-- Used camelCase `clickEvent` instead of snake_case `click_event`
+- Used camelCase `click_event` instead of snake_case `click_event`
 - Incorrect hover event format
 
 **Solution**: Updated all tellraw commands to use correct Minecraft JSON format:
@@ -405,8 +405,8 @@ tellraw @a [{"text":"[Hover Me]","color":"green","click_event":{"action":"run_co
 ```
 
 **Key Syntax Rules**:
-- ✅ Use `click_event` (snake_case, NOT camelCase `clickEvent`)
-- ✅ Use `hover_event` (snake_case, NOT camelCase `hoverEvent`)
+- ✅ Use `click_event` (snake_case, NOT camelCase `click_event`)
+- ✅ Use `hover_event` (snake_case, NOT camelCase `hover_event`)
 - ✅ `run_command` and `suggest_command` use `"command":"..."`
 - ✅ `open_url` uses `"url":"..."` (NOT `"value"`)
 - ✅ `hover_event` value must be an array: `"value":[{"text":"..."}]`

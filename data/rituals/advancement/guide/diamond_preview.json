@@ -1,0 +1,41 @@
+{
+  "parent": "rituals:guide/craft_gold_totem",
+  "display": {
+    "icon": {
+      "id": "minecraft:diamond"
+    },
+    "title": {
+      "text": "§k§l§bDiamond Totem Mastery§r",
+      "obfuscated": true,
+      "bold": true,
+      "color": "aqua"
+    },
+    "description": {
+      "text": "§7Next Tier: ",
+      "extra": [
+        {
+          "text": "§k§l§bDiamond Totem Crafting§r",
+          "obfuscated": true,
+          "bold": true,
+          "color": "aqua",
+          "hover_event": {
+            "action": "show_text",
+            "value": {
+              "text": "Craft a Diamond Totem Base to unlock diamond-tier rituals!\n\nRequirements:\n• 3 Diamonds\n• 2 Oak Planks\n• Crafting Table\n\nUnlocks:\n• Maximum Range\n• All Ritual Types",
+              "color": "aqua"
+            }
+          }
+        }
+      ]
+    },
+    "frame": "goal",
+    "show_toast": false,
+    "announce_to_chat": false,
+    "hidden": false
+  },
+  "criteria": {
+    "impossible": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}

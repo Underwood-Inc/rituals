@@ -36,7 +36,7 @@ execute if score #kiwi_mode rituals.data matches 0 unless data storage rituals:c
 execute store result score #fire_sacrifice_mode rituals.data if data storage rituals:config {require_fire_sacrifice:true}
 
 # Store debug mode flag (1 = enabled, 0 = disabled)
-execute store result score #debug_mode rituals.data if data storage rituals:config {debug_mode:true}
+execute store result score #rituals_debug_mode rituals.data if data storage rituals:config {debug_mode:true}
 
 # Load tier-specific configs
 execute store result score #tier1_h_range rituals.data run data get storage rituals:config tier1_horizontal_range
@@ -84,7 +84,9 @@ tellraw @a [{"text":"│","color":"dark_purple"},{"text":"  Type ","color":"gray
 tellraw @a [{"text":"│","color":"dark_purple"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"  Quick Start:","color":"yellow"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"   • ","color":"dark_gray"},{"text":"Enable Kiwi (Easy) Mode","color":"green","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:admin/enable_kiwi_mode"},"hover_event":{"action":"show_text","value":"Disables fire sacrifice requirement"}},{"text":" (Kiwi Mode)","color":"gray"}]
-tellraw @a [{"text":"│","color":"dark_purple"},{"text":"   • ","color":"dark_gray"},{"text":"Toggle Debug Mode","color":"aqua","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:admin/toggle_debug"},"hover_event":{"action":"show_text","value":"Toggle debug messages and extra info"}},{"text":" (Debug)","color":"gray"}]
+# Debug Mode button - show appropriate state
+execute if score #rituals_debug_mode rituals.data matches 1 run tellraw @a [{"text":"│","color":"dark_purple"},{"text":"   • ","color":"dark_gray"},{"text":"Disable Debug Mode","color":"red","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:admin/disable_debug_mode"},"hover_event":{"action":"show_text","value":"Disable debug messages and extra info"}},{"text":" (Debug)","color":"gray"}]
+execute unless score #rituals_debug_mode rituals.data matches 1 run tellraw @a [{"text":"│","color":"dark_purple"},{"text":"   • ","color":"dark_gray"},{"text":"Enable Debug Mode","color":"aqua","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:admin/enable_debug_mode"},"hover_event":{"action":"show_text","value":"Enable debug messages and extra info"}},{"text":" (Debug)","color":"gray"}]
 tellraw @a [{"text":"│","color":"dark_purple"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"  Links:","color":"yellow"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"   ","color":"dark_gray"},{"text":"💬 ","color":"white"},{"text":"JOIN OUR ","color":"light_purple","bold":true},{"text":"DISCORD","color":"aqua","bold":true,"underlined":true,"click_event":{"action":"open_url","url":"https://discord.gg/mpThbx67J7"},"hover_event":{"action":"show_text","value":"✨ Click to join our community Discord server! ✨"}},{"text":" SERVER","color":"light_purple","bold":true},{"text":" ✨","color":"yellow"}]

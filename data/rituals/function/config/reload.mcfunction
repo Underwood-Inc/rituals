@@ -11,6 +11,9 @@ execute store result score #sentry_target_range rituals.data run data get storag
 execute store result score #sentry_max_distance rituals.data run data get storage rituals:config sentry_max_distance
 execute store result score #sentry_range_mult rituals.data run data get storage rituals:config sentry_range_multiplier
 
+# Apply debug mode flag (1 = enabled, 0 = disabled)
+execute store result score #rituals_debug_mode rituals.data if data storage rituals:config {debug_mode:true}
+
 # Apply fire sacrifice mode flag (1 = enabled, 0 = disabled)
 # Check kiwi_mode first - if enabled, it overrides require_fire_sacrifice
 execute store result score #kiwi_mode rituals.data if data storage rituals:config {kiwi_mode:true}

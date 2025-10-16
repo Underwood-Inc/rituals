@@ -16,12 +16,15 @@ scoreboard players operation #current_tier rituals.temp = @s rituals.tier
 scoreboard players add @s rituals.data 1
 
 # DEBUG: Show timer and frequency every 5 seconds (100 ticks) - only if debug enabled
-execute if entity @s[tag=rituals.debug] run scoreboard players operation #timer_mod rituals.temp = @s rituals.data
-execute if entity @s[tag=rituals.debug] run scoreboard players operation #timer_mod rituals.temp %= #100 rituals.data
-execute if entity @s[tag=rituals.debug] if score #timer_mod rituals.temp matches 0 run tellraw @a[distance=..10] [{"text":"[DEBUG GROWTH] Timer: ","color":"gray"},{"score":{"name":"@s","objective":"rituals.data"},"color":"yellow"},{"text":" / ","color":"gray"},{"score":{"name":"#current_freq","objective":"rituals.temp"},"color":"yellow"},{"text":" | Range: ","color":"gray"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"green"},{"text":"x","color":"gray"},{"score":{"name":"#current_v_range","objective":"rituals.temp"},"color":"green"}]
+execute if score #rituals_debug_mode rituals.data matches 1 run scoreboard players operation #rituals_timer_mod rituals.temp = @s rituals.data
+execute if score #rituals_debug_mode rituals.data matches 1 run scoreboard players operation #rituals_timer_mod rituals.temp %= #100 rituals.data
+execute if score #rituals_debug_mode rituals.data matches 1 if score #rituals_timer_mod rituals.temp matches 0 run tellraw @a[distance=..10] [{"text":"[DEBUG GROWTH] Timer: ","color":"gray"},{"score":{"name":"@s","objective":"rituals.data"},"color":"yellow"},{"text":" / ","color":"gray"},{"score":{"name":"#current_freq","objective":"rituals.temp"},"color":"yellow"},{"text":" | Range: ","color":"gray"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"green"},{"text":"x","color":"gray"},{"score":{"name":"#current_v_range","objective":"rituals.temp"},"color":"green"}]
 
 execute unless score @s rituals.data >= #current_freq rituals.temp run return 0
 scoreboard players set @s rituals.data 0
+
+# DEBUG: Growth attempt happening - only if debug enabled
+execute if score #rituals_debug_mode rituals.data matches 1 run tellraw @a[distance=..10] [{"text":"[DEBUG GROWTH] Growth attempt now!","color":"green","bold":true}]
 
 # Apply bonemeal to ALL crops in box range (dx/dy/dz)
 # Calculate negative offsets for positioned command
@@ -41,6 +44,9 @@ execute store result storage rituals:temp neg_h int 1 run scoreboard players get
 execute store result storage rituals:temp neg_v int 1 run scoreboard players get #neg_v rituals.temp
 execute store result storage rituals:temp box_h int 1 run scoreboard players get #box_h rituals.temp
 execute store result storage rituals:temp box_v int 1 run scoreboard players get #box_v rituals.temp
+
+# DEBUG: Calling tier-specific growth - only if debug enabled
+execute if score #rituals_debug_mode rituals.data matches 1 run tellraw @a[distance=..10] [{"text":"[DEBUG GROWTH] Calling tier-specific growth","color":"red","bold":true}]
 
 # Scan area with macro (or direct positioned check)
 function rituals:ritual/effects/growth_scan_box with storage rituals:temp
