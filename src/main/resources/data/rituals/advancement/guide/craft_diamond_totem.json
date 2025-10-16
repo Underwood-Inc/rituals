@@ -25,7 +25,7 @@
             "components": {
               "minecraft:custom_data": {
                 "rituals_totem": 1,
-                "tier": 5
+                "totem_tier": 5
               }
             }
           }

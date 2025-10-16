@@ -5,12 +5,12 @@
       "id": "minecraft:netherite_ingot"
     },
     "title": {
-      "text": "Netherite Totem",
+      "text": "Netherite Totem Mastery",
       "color": "dark_purple",
       "bold": true
     },
     "description": {
-      "text": "Ultimate power achieved! The netherite totem provides maximum ritual range and effects."
+      "text": "Ultimate power achieved! Craft a netherite totem to become the master ritualist."
     },
     "frame": "challenge",
     "show_toast": true,
@@ -26,7 +26,7 @@
             "components": {
               "minecraft:custom_data": {
                 "rituals_totem": 1,
-                "tier": 6
+                "totem_tier": 6
               }
             }
           }
@@ -35,4 +35,3 @@
     }
   }
 }
-

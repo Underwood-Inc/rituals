@@ -17,9 +17,19 @@
   },
   "criteria": {
     "has_totem": {
-      "trigger": "minecraft:recipe_unlocked",
+      "trigger": "minecraft:inventory_changed",
       "conditions": {
-        "recipe": "rituals:totem_base_wood"
+        "items": [
+          {
+            "items": ["minecraft:warped_fungus_on_a_stick"],
+            "components": {
+              "minecraft:custom_data": {
+                "rituals_totem": 1,
+                "totem_tier": 1
+              }
+            }
+          }
+        ]
       }
     }
   },
