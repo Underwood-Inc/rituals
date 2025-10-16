@@ -83,11 +83,6 @@ All linked by unique ID stored in `rituals.id` scoreboard
 - **Effect Area**: Tier-based ranges from 2×2×6 (Wood) to 7×7×16 (Netherite)
 - **Power Scaling**: Higher tiers have larger ranges and stronger/faster effects
 
-### 4. Upgrade System
-- **Slates**: Crafted with paste + totem base
-- **Usage**: Right-click placed totem with slate
-- **Validation**: Checks tier difference = exactly +1
-- **Visual Update**: Replaces block_display with new tier
 
 ---
 
@@ -118,9 +113,6 @@ rituals.[type]_ritual      - Specific ritual type marker
 {
   "rituals_totem": 1,        // Marks totem base items
   "totem_tier": 1-3,         // Tier level
-  "rituals_paste": 1,        // Marks paste items
-  "rituals_upgrade": 1,      // Marks upgrade slates
-  "upgrade_to_tier": 2-3     // Target tier for upgrade
 }
 ```
 
@@ -152,9 +144,7 @@ sequenceDiagram
 flowchart TD
     A[Player Right-clicks Totem with Item] --> B[handle_interaction.mcfunction]
     B --> C[check_held_item.mcfunction]
-    C --> D{Is it an upgrade slate?}
-    D -->|Yes| E[Handle Upgrade Path]
-    D -->|No| F[transfer_item_to_totem.mcfunction]
+    C --> F[transfer_item_to_totem.mcfunction]
     F --> G[Item moves to display entity]
     G --> H[Tag totem with 'rituals.has_item']
     H --> I[Item floats above totem]
@@ -206,45 +196,6 @@ sequenceDiagram
     end
 ```
 
-### Totem Upgrade Process
-
-```mermaid
-stateDiagram-v2
-    [*] --> Tier1Wood
-    Tier1Wood --> Tier2Copper: Copper Slate
-    Tier2Copper --> Tier3Iron: Iron Slate
-    Tier3Iron --> Tier4Gold: Gold Slate
-    Tier4Gold --> Tier5Diamond: Diamond Slate
-    Tier5Diamond --> Tier6Netherite: Netherite Slate
-    Tier6Netherite --> [*]: Max Tier
-    
-    note right of Tier1Wood
-        2 block radius<br/>Basic effects
-    end note
-    
-    note right of Tier6Netherite
-        7 block radius<br/>Maximum power
-    end note
-```
-
-
-
-```mermaid
-flowchart LR
-    A[Player Right-clicks<br/>with Upgrade Slate] --> B[check_held_item.mcfunction]
-    B --> C[upgrade.mcfunction]
-    C --> D{Valid tier<br/>progression?}
-    D -->|No +1 exactly| E[upgrade_failed.mcfunction]
-    E --> F[Error message]
-    D -->|Yes +1 tier| G[apply_upgrade.mcfunction]
-    G --> H[Update tier scoreboard]
-    H --> I[Replace block display]
-    I --> J[Success feedback]
-    
-    style A fill:#3498db,stroke:#2980b9,color:#fff
-    style F fill:#e74c3c,stroke:#c0392b,color:#fff
-    style J fill:#27ae60,stroke:#229954,color:#fff
-```
 
 ---
 

@@ -17,8 +17,6 @@ tellraw @s [{"text":"        TOTEM RITUALS MENU","color":"dark_purple","bold":tr
 tellraw @s [{"text":"========================================","color":"gold","bold":true}]
 tellraw @s [{"text":""}]
 tellraw @s [{"text":"  [Totem Bases]","color":"green","underlined":true,"click_event":{"action":"run_command","command":"/trigger rituals.menu set 1"},"hover_event":{"action":"show_text","value":[{"text":"Click to browse totem bases","color":"green"}]}}]
-tellraw @s [{"text":"  [Ritual Paste]","color":"yellow","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:give/paste"},"hover_event":{"action":"show_text","value":[{"text":"Click to get ritual paste","color":"yellow"}]}}]
-tellraw @s [{"text":"  [Upgrade Slates]","color":"aqua","underlined":true,"click_event":{"action":"run_command","command":"/trigger rituals.menu set 3"},"hover_event":{"action":"show_text","value":[{"text":"Click to browse upgrade slates","color":"aqua"}]}}]
 tellraw @s [{"text":"  [Guidebook]","color":"light_purple","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:give/guidebook"},"hover_event":{"action":"show_text","value":[{"text":"Click to get the guidebook","color":"light_purple"}]}}]
 tellraw @s [{"text":"  [Give Me Everything!]","color":"red","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:give/all"},"hover_event":{"action":"show_text","value":[{"text":"Click to get all items","color":"red"}]}}]
 tellraw @s [{"text":""}]

@@ -37,7 +37,6 @@
     "recipes": [
       "rituals:totem_base_netherite",
       "rituals:totem_base_netherite_short",
-      "rituals:upgrade_slate_netherite"
     ]
   }
 }

@@ -337,7 +337,6 @@ The guidebook uses color-coded pages for visual organization:
 - ASCII pattern diagrams (see MULTI_TOTEM_PATTERNS.md)
 - Complete ritual specifications (see PATTERN_RITUALS_GUIDE.md)
 - Upgrade system details (mentioned but not detailed)
-- Ritual paste crafting (removed to save space)
 - Multi-totem mode configuration (mentioned briefly)
 
 ### ❌ Not Covered (Too Advanced/Detailed)
@@ -391,8 +390,6 @@ Remember: `\n` = newline, `\"` = escaped quote
 - 6 totem tiers
 - 6 area effect rituals
 - All crafting recipes in detail
-- Ritual paste crafting
-- Upgrade slate info
 - Multi-totem mode config
 
 ---

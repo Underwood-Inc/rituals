@@ -268,162 +268,6 @@ Where: `I` = Netherite Ingot, `B` = Netherite Block
 
 ---
 
-## 🌾 Ritual Paste
-
-**Materials:**
-- 3 Wheat
-- 1 Water Bucket
-- 1 Short Grass
-
-**Pattern:** Shapeless (any arrangement)
-
-**Example Layout:**
-```
-┌───┬───┬───┐
-│ W │ W │ W │
-├───┼───┼───┤
-│ B │ G │   │
-├───┼───┼───┤
-│   │   │   │
-└───┴───┴───┘
-```
-Where: `W` = Wheat, `B` = Water Bucket, `G` = Short Grass
-
-**Result:** 4x Clump of Paste
-
-**Note:** Empty bucket is returned after crafting
-
----
-
-## 🟫 Copper Upgrade Slate
-
-**Materials:**
-- 1 Copper Totem Base
-- 4 Clumps of Paste
-
-**Pattern:** Shapeless (any arrangement)
-
-**Example Layout:**
-```
-┌───┬───┬───┐
-│ P │ P │   │
-├───┼───┼───┤
-│ P │ T │ P │
-├───┼───┼───┤
-│   │   │   │
-└───┴───┴───┘
-```
-Where: `P` = Clump of Paste, `T` = Copper Totem Base
-
-**Result:** 1x Copper Upgrade Slate
-
-**Use:** Right-click on a placed Wooden Totem to upgrade it to Copper Tier
-
----
-
-## ⚪ Iron Upgrade Slate
-
-**Materials:**
-- 1 Iron Totem Base
-- 4 Clumps of Paste
-
-**Pattern:** Shapeless (any arrangement)
-
-**Example Layout:**
-```
-┌───┬───┬───┐
-│ P │ P │   │
-├───┼───┼───┤
-│ P │ T │ P │
-├───┼───┼───┤
-│   │   │   │
-└───┴───┴───┘
-```
-Where: `P` = Clump of Paste, `T` = Iron Totem Base
-
-**Result:** 1x Iron Upgrade Slate
-
-**Use:** Right-click on a placed Copper Totem to upgrade it to Iron Tier
-
----
-
-## 🟡 Gold Upgrade Slate
-
-**Materials:**
-- 1 Gold Totem Base
-- 4 Clumps of Paste
-
-**Pattern:** Shapeless (any arrangement)
-
-**Example Layout:**
-```
-┌───┬───┬───┐
-│ P │ P │   │
-├───┼───┼───┤
-│ P │ T │ P │
-├───┼───┼───┤
-│   │   │   │
-└───┴───┴───┘
-```
-Where: `P` = Clump of Paste, `T` = Gold Totem Base
-
-**Result:** 1x Gold Upgrade Slate
-
-**Use:** Right-click on a placed Iron Totem to upgrade it to Gold Tier
-
----
-
-## 💎 Diamond Upgrade Slate
-
-**Materials:**
-- 1 Diamond Totem Base
-- 4 Clumps of Paste
-
-**Pattern:** Shapeless (any arrangement)
-
-**Example Layout:**
-```
-┌───┬───┬───┐
-│ P │ P │   │
-├───┼───┼───┤
-│ P │ T │ P │
-├───┼───┼───┤
-│   │   │   │
-└───┴───┴───┘
-```
-Where: `P` = Clump of Paste, `T` = Diamond Totem Base
-
-**Result:** 1x Diamond Upgrade Slate
-
-**Use:** Right-click on a placed Gold Totem to upgrade it to Diamond Tier
-
----
-
-## 🔴 Netherite Upgrade Slate
-
-**Materials:**
-- 1 Netherite Totem Base
-- 4 Clumps of Paste
-
-**Pattern:** Shapeless (any arrangement)
-
-**Example Layout:**
-```
-┌───┬───┬───┐
-│ P │ P │   │
-├───┼───┼───┤
-│ P │ T │ P │
-├───┼───┼───┤
-│   │   │   │
-└───┴───┴───┘
-```
-Where: `P` = Clump of Paste, `T` = Netherite Totem Base
-
-**Result:** 1x Netherite Upgrade Slate
-
-**Use:** Right-click on a placed Diamond Totem to upgrade it to Netherite Tier
-
----
 
 ## 📊 Tier Progression
 
@@ -481,11 +325,6 @@ TALL:            SHORT:
 
 ## 💡 Quick Reference
 
-### Upgrade Path
-```
-Wood → Copper → Iron → Gold → Diamond → Netherite
-T1      T2       T3     T4      T5         T6
-```
 
 ### Materials Per Tier
 - **Wood:** Sticks + Oak Planks
@@ -504,9 +343,6 @@ Same as regular, but uses 1 less material (no top piece)
 - **Single Totem Mode:** Rituals work with just one totem! (default)
 - **Recipe Book:** All recipes appear in the crafting table recipe book
 - **Auto-Unlock:** Recipes unlock when you obtain the required materials
-- **Tier Upgrades:** Must upgrade in order (can't skip tiers)
-- **Shapeless Recipes:** Paste and upgrade slates can be arranged any way
-- **Bucket Return:** Water bucket is returned when crafting paste
 
 ---
 
@@ -524,7 +360,7 @@ Same as regular, but uses 1 less material (no top piece)
 1. **Starting Out:** Craft a Wooden Totem and place it
 2. **Add Effect:** Right-click with an item (emerald, diamond, etc.)
 3. **Watch Magic:** Ritual activates automatically!
-4. **Upgrade:** Craft upgrade slates to increase power
+4. **Upgrade:** Craft higher tier totem bases to increase power
 5. **Range Check:** Power with redstone to see effect range
 6. **Sentry Defense:** Place arrow on totem for auto-defense (2x range!)
 

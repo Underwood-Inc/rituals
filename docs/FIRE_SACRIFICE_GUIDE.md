@@ -242,7 +242,7 @@ Yes! These work:
 
 The fire sacrifice system adds:
 - **🎭 Immersion**: Performing rituals feels more mystical and intentional
-- **💰 Resource Sink**: Balanced cost-vs-benefit encourages totem upgrades
+- **💰 Resource Sink**: Balanced cost-vs-benefit encourages higher tier totem crafting
 - **⚖️ Game Balance**: Prevents "set and forget" infinite rituals
 - **🎯 Player Agency**: You choose when rituals activate, not automatic
 - **📈 Progression**: Higher tiers become more valuable as you automate resource production

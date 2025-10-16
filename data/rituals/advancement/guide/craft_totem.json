@@ -27,7 +27,6 @@
     "recipes": [
       "rituals:totem_base_copper",
       "rituals:totem_base_copper_short",
-      "rituals:upgrade_slate_copper"
     ]
   }
 }

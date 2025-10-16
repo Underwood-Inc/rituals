@@ -23,27 +23,6 @@ totem_diamond.png
 - Style: Mystical, powerful
 - Feel: End-game, maximum power
 
-== PASTE ==
-
-paste.png
-- Color: Tan/beige (like wheat paste)
-- Texture: Slightly lumpy, sticky appearance
-- Style: Organic, crafting material
-- Could show: Bowl or clump of paste
-
-== UPGRADE SLATES ==
-
-upgrade_slate_iron.png
-- Base: Stone tablet/slate
-- Details: Iron-colored runes and symbols
-- Style: Flat tablet with engravings
-- Could show: Upward arrow or tier symbol
-
-upgrade_slate_diamond.png
-- Base: Stone tablet/slate
-- Details: Cyan/diamond-colored glowing runes
-- Style: More ornate than iron version
-- Could show: Upward arrow or tier III symbol
 
 ===================================
 
