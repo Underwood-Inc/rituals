@@ -6,7 +6,7 @@
 # Create trigger scoreboard for player input
 scoreboard objectives add rituals.menu trigger
 
-# Create state tracker (0=main, 1=totems, 2=upgrades, etc.)
+# Create state tracker (0=main, 1=totems, etc.)
 scoreboard objectives add rituals.menu_state dummy
 
 # Enable trigger for player

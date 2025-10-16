@@ -9,6 +9,4 @@ execute if score @s rituals.menu_state matches 0 run function rituals:menu/handl
 # Totem Bases Menu (state 1)
 execute if score @s rituals.menu_state matches 1 run function rituals:menu/handle_totems
 
-# Upgrade Slates Menu (state 3)
-execute if score @s rituals.menu_state matches 3 run function rituals:menu/handle_upgrades
 
