@@ -11,7 +11,7 @@
     "description": {
       "text": "Harness ancient magic with ritual totems! Gather sticks and oak planks to begin your journey."
     },
-    "background": "block/crying_obsidian",
+    "background": "block/purple_concrete_powder",
     "frame": "challenge",
     "show_toast": true,
     "announce_to_chat": false

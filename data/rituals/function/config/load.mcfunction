@@ -171,5 +171,9 @@ data modify storage rituals:config breeding_tier4_frequency set value 1800
 data modify storage rituals:config breeding_tier5_frequency set value 1200
 data modify storage rituals:config breeding_tier6_frequency set value 600
 
+# Debug Mode: If true, shows debug messages and extra information
+# If false, runs silently (default for normal gameplay)
+data modify storage rituals:config debug_mode set value false
+
 # Config loaded silently - fancy message shown in load.mcfunction
 

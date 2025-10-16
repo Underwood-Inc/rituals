@@ -14,6 +14,12 @@ scoreboard players operation #current_tier rituals.temp = @s rituals.tier
 
 # Check timing using separate effect counter (don't touch main timer!)
 scoreboard players add @s rituals.data 1
+
+# DEBUG: Show timer and frequency every 5 seconds (100 ticks) - only if debug enabled
+execute if entity @s[tag=rituals.debug] run scoreboard players operation #timer_mod rituals.temp = @s rituals.data
+execute if entity @s[tag=rituals.debug] run scoreboard players operation #timer_mod rituals.temp %= #100 rituals.data
+execute if entity @s[tag=rituals.debug] if score #timer_mod rituals.temp matches 0 run tellraw @a[distance=..10] [{"text":"[DEBUG GROWTH] Timer: ","color":"gray"},{"score":{"name":"@s","objective":"rituals.data"},"color":"yellow"},{"text":" / ","color":"gray"},{"score":{"name":"#current_freq","objective":"rituals.temp"},"color":"yellow"},{"text":" | Range: ","color":"gray"},{"score":{"name":"#current_h_range","objective":"rituals.temp"},"color":"green"},{"text":"x","color":"gray"},{"score":{"name":"#current_v_range","objective":"rituals.temp"},"color":"green"}]
+
 execute unless score @s rituals.data >= #current_freq rituals.temp run return 0
 scoreboard players set @s rituals.data 0
 

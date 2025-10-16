@@ -14,14 +14,8 @@ execute if score @s rituals.menu matches 2 run tellraw @s [{"text":"✓ Received
 execute if score @s rituals.menu matches 2 run tellraw @s [{"text":"========================================","color":"gold","bold":true}]
 execute if score @s rituals.menu matches 2 run function rituals:menu/main
 
-# 3. Give Me Everything
-execute if score @s rituals.menu matches 3 run function rituals:give/all
-execute if score @s rituals.menu matches 3 run playsound minecraft:entity.player.levelup master @s ~ ~ ~ 1 1.5
-execute if score @s rituals.menu matches 3 run tellraw @s [{"text":""}]
-execute if score @s rituals.menu matches 3 run tellraw @s [{"text":"========================================","color":"gold","bold":true}]
-execute if score @s rituals.menu matches 3 run tellraw @s [{"text":"✓ Received: ","color":"green","bold":true},{"text":"ALL RITUAL ITEMS!","color":"red","bold":true}]
-execute if score @s rituals.menu matches 3 run tellraw @s [{"text":"========================================","color":"gold","bold":true}]
-execute if score @s rituals.menu matches 3 run function rituals:menu/main
+# 3. Admin Tools
+execute if score @s rituals.menu matches 3 run function rituals:help
 
 # Reset trigger
 scoreboard players set @s rituals.menu 0
