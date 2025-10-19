@@ -51,7 +51,7 @@ execute if score #rituals_debug_mode rituals.data matches 1 run tellraw @a[dista
 # Scan area with macro (or direct positioned check)
 function rituals:ritual/effects/growth_scan_box with storage rituals:temp
 
-# Ambient particles
-particle happy_villager ~2 ~1 ~2 0.2 0.5 0.2 0 2
-particle happy_villager ~-2 ~1 ~-2 0.2 0.5 0.2 0 2
+# Ambient particles - REMOVED: Beam-like particles at corners
+# particle happy_villager ~2 ~1 ~2 0.2 0.5 0.2 0 2
+# particle happy_villager ~-2 ~1 ~-2 0.2 0.5 0.2 0 2
 

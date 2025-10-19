@@ -3,10 +3,8 @@
 # ========================================
 # Automatically harvests and replants fully grown crops
 
-# Ambient particles (show every tick)
+# Ambient particles (show every 10 ticks to reduce spam)
 particle minecraft:composter ~ ~2.5 ~ 0.5 0.5 0.5 0 3
-particle happy_villager ~2 ~1 ~2 0.2 0.5 0.2 0 2
-particle happy_villager ~-2 ~1 ~-2 0.2 0.5 0.2 0 2
 
 # Get tier-based range settings
 function rituals:ritual/get_tier_settings

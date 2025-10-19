@@ -25,6 +25,8 @@ rituals/
 
 ## Building
 
+> ⚠️ When editing code, edit the code in the data directory. The build command will automatically copy files from the data/ directory into src/ directory for the Java mod file.
+
 ### Prerequisites
 
 - Java 21 or higher

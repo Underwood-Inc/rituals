@@ -771,6 +771,7 @@ This datapack is provided as-is for use in Minecraft worlds. Feel free to modify
 - **[🎨 Resource Pack](resourcepack/README.md)** - Custom textures and models
 - **[📝 Changelog](docs/CHANGELOG.md)** - Version history and updates
 - **[🏗️ Build Guide](docs/BUILD_GUIDE.md)** - Compile the Fabric mod version
+- **[🌱 Growth Ritual Guide](docs/GROWTH_RITUAL_GUIDE.md)** - How to add new crops/plants
 
 ---
 

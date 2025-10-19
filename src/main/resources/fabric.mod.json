@@ -5,14 +5,14 @@
   "name": "Rituals",
   "description": "Mystical totems and powerful ritual magic. Place totems, perform fire sacrifices, and activate powerful rituals with dramatic effects!",
   "authors": [
-    "Rituals Team"
+    "strixun"
   ],
   "contact": {
-    "homepage": "https://github.com/yourname/rituals",
-    "issues": "https://github.com/yourname/rituals/issues"
+    "homepage": "https://github.com/Underwood-Inc/rituals",
+    "issues": "https://github.com/Underwood-Inc/rituals/issues"
   },
   "license": "MIT",
-  "icon": "assets/rituals/icon.png",
+  "icon": "assets/rituals/pack.png",
   "environment": "*",
   "entrypoints": {
     "main": [
