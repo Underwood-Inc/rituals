@@ -1,6 +1,6 @@
 # Build Guide - Rituals
 
-This project supports **dual distribution**: both as a **Fabric mod** AND as a **standalone datapack/resourcepack**.
+This project supports **dual distribution**: both as a **Fabric mod** AND as a **standalone datapack**.
 
 ---
 
@@ -10,16 +10,14 @@ This project supports **dual distribution**: both as a **Fabric mod** AND as a *
 rituals/
 ├── data/                          ← Datapack files (source of truth)
 │   └── rituals/
-├── resourcepack/                  ← Resource pack files (source of truth)
-│   └── assets/
 ├── src/main/
 │   ├── java/                      ← Mod code (minimal wrapper)
-│   └── resources/                 ← Auto-synced from data/ and resourcepack/
+│   └── resources/                 ← Auto-synced from data/
 ├── build.gradle                   ← Build configuration
 └── gradle.properties              ← Version info
 ```
 
-**Important**: Always edit files in `data/` and `resourcepack/` folders, NOT in `src/main/resources/`. The build system automatically syncs them.
+**Important**: Always edit files in `data/` folder, NOT in `src/main/resources/`. The build system automatically syncs them.
 
 ---
 
@@ -45,7 +43,6 @@ rituals/
 This creates:
 - **Mod**: `build/libs/rituals-2.0.0.jar` (Fabric mod)
 - **Datapack**: `build/datapacks/rituals-datapack-2.0.0.zip`
-- **Resourcepack**: `build/resourcepacks/rituals-resourcepack-2.0.0.zip`
 
 ### Build Specific Distributions
 
@@ -56,8 +53,6 @@ This creates:
 # Just the datapack
 .\gradlew packageDatapack
 
-# Just the resourcepack
-.\gradlew packageResourcepack
 ```
 
 ---
@@ -66,7 +61,7 @@ This creates:
 
 ### For Datapack/Function Development
 
-1. Edit files in `data/rituals/function/` and `resourcepack/`
+1. Edit files in `data/rituals/function/`
 2. Test in vanilla Minecraft (load datapack manually)
 3. When ready to build mod, run `.\gradlew build`
 
@@ -90,18 +85,14 @@ This creates:
 ### For Mod Users
 Give them: `build/libs/rituals-2.0.0.jar`
 - Requires Fabric Loader
-- Auto-installs datapack and resourcepack
+- Auto-installs datapack
 - Works for any world
 
 ### For Datapack-Only Users
 Give them: `build/datapacks/rituals-datapack-2.0.0.zip`
 - No mods required
 - Manual installation to world/datapacks folder
-- Requires separate resourcepack
-
-### For Resourcepack
-Give them: `build/resourcepacks/rituals-resourcepack-2.0.0.zip`
-- Manual installation to resourcepacks folder
+- Uses vanilla totem of undying texture
 
 ---
 

@@ -62,10 +62,10 @@ graph TB
 ## System Components
 
 ### 1. Totem Bases (Items)
-- **Item Type**: Warped Fungus on a Stick (with `custom_model_data`)
+- **Item Type**: Warped Fungus on a Stick (renders as totem of undying)
 - **6 Tiers**: Wood (1), Copper (2), Iron (3), Gold (4), Diamond (5), Netherite (6)
 - **Placement**: Right-click on ground
-- **Visual in Hand**: Custom model (via resource pack)
+- **Visual in Hand**: Renders as totem of undying (vanilla texture)
 
 ### 2. Placed Totems (Entities)
 Each placed totem consists of **3 entities**:
@@ -295,15 +295,9 @@ data/rituals/
 └── tags/              (Entity/item groups)
 ```
 
-### Resource Pack
+### Visual Assets
 ```
-resourcepack/
-├── pack.mcmeta
-└── assets/
-    ├── minecraft/models/item/    (Vanilla overrides)
-    └── rituals/
-        ├── models/item/           (Custom models)
-        └── textures/item/         (Custom textures)
+No custom resource pack needed - uses vanilla totem of undying texture
 ```
 
 ---

@@ -2,7 +2,7 @@
 
 **Fire Sacrifice Edition - Auto-Installing Mod Version**
 
-This is the **Fabric mod** version of Rituals. It automatically installs the datapack and resourcepack when you add the mod to your mods folder - no manual installation required!
+This is the **Fabric mod** version of Rituals. It automatically installs the datapack when you add the mod to your mods folder - no manual installation required!
 
 ---
 
@@ -25,7 +25,7 @@ This is the **Fabric mod** version of Rituals. It automatically installs the dat
    - Launch Minecraft with Fabric profile
 
 3. **Done!**
-   - The datapack and resourcepack are automatically loaded
+   - The datapack is automatically loaded
    - Works for any world (new or existing)
    - No additional configuration needed
 
@@ -82,7 +82,7 @@ See `CONFIG_GUIDE.md` for all options.
 | Feature | Mod | Datapack |
 |---------|-----|----------|
 | Installation | Drop in mods folder | Manual copy to world folder |
-| Resource Pack | Auto-installed | Manual installation |
+| Visual Style | Auto-applied | Uses vanilla totem texture |
 | Multiplayer | Works on servers | Requires server setup |
 | Updates | Replace jar file | Re-copy files |
 | Requirements | Fabric Loader | None (vanilla) |

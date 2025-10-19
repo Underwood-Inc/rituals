@@ -5,7 +5,7 @@ Welcome to the comprehensive documentation for the Ritualsack! This directory co
 ## 📚 Documentation Structure
 
 ### Getting Started
-- **[INSTALLATION.md](INSTALLATION.md)** - Complete installation instructions for the datapack and resource pack
+- **[INSTALLATION.md](INSTALLATION.md)** - Complete installation instructions for the datapack
 - **[FIRE_SACRIFICE_GUIDE.md](FIRE_SACRIFICE_GUIDE.md)** - Comprehensive guide to the fire sacrifice ritual activation system
 - **[FIRE_SACRIFICE_QUICK_REFERENCE.md](FIRE_SACRIFICE_QUICK_REFERENCE.md)** - Quick reference card for fire sacrifice mechanics
 
