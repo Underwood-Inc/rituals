@@ -1,7 +1,4 @@
 {
-  "parent": "minecraft:item/handheld",
-  "textures": {
-    "layer0": "rituals:item/totem_diamond"
-  }
+  "parent": "minecraft:item/totem_of_undying"
 }
 

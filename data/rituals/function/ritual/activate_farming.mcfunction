@@ -13,7 +13,7 @@ tellraw @a[distance=..32] [{"text":"[Rituals] ","color":"gold","bold":true},{"te
 playsound block.crop.break block @a ~ ~ ~ 1.5 0.8
 playsound block.composter.fill_success block @a ~ ~ ~ 1.5 1.2
 particle happy_villager ~ ~2 ~ 5 2 5 0.1 100
-particle minecraft:wheat_seeds ~ ~2 ~ 5 2 5 0.1 50
+particle minecraft:item minecraft:wheat_seeds ~ ~2 ~ 5 2 5 0.1 50
 
 # Grant advancement to nearby players
 advancement grant @a[distance=..32] only rituals:guide/first_ritual

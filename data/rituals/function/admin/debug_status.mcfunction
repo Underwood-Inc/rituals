@@ -20,7 +20,7 @@ execute if score #kiwi_mode rituals.data matches 0 run tellraw @s [{"text":"🥝
 
 # Fire Sacrifice Status
 execute store result score #fire_sacrifice_mode rituals.data if data storage rituals:config {require_fire_sacrifice:true}
-execute if score #fire_sacrifice_mode rituals.data matches 1 run tellraw @s [{"text":"🔥 Fire Sacrifice: ","color":"orange"},{"text":"REQUIRED","color":"orange","bold":true}]
+execute if score #fire_sacrifice_mode rituals.data matches 1 run tellraw @s [{"text":"🔥 Fire Sacrifice: ","color":"gold"},{"text":"REQUIRED","color":"red","bold":true}]
 execute if score #fire_sacrifice_mode rituals.data matches 0 run tellraw @s [{"text":"🔥 Fire Sacrifice: ","color":"gray"},{"text":"NOT REQUIRED","color":"green","bold":true}]
 
 tellraw @s [{"text":"","color":"white"}]
