@@ -25,16 +25,18 @@ Built with care for the Minecraft community—open source, tweakable, and ready 
 - [Installation](#installation)
 - [Getting Started](#getting-started)
 - [Ritual System](#ritual-system)
-- [Ritual Progression System](#ritual-progression-system)
 - [Totem Tiers](#totem-tiers)
 - [How to Use Totems](#how-to-use-totems)
 - [Ritual Types](#ritual-types)
-- [Coming Soon Rituals](docs/COMING_SOON_RITUALS.md) ✨
 - [Crafting Recipes](#crafting-recipes)
 - [Commands](#commands)
 - [Configuration](#configuration)
-- [Technical Details](#technical-details)
-- [Full Documentation](docs/README.md) 📚
+
+### 📚 Additional Documentation
+- [Full User Guides](docs/README.md) - Detailed guides for all rituals
+- [Pattern Rituals Guide](docs/PATTERN_RITUALS_GUIDE.md) - Multi-totem patterns
+- [Coming Soon Rituals](docs/COMING_SOON_RITUALS.md) - Future features
+- [Developer Docs](DEVELOPMENT.md) - Technical documentation for contributors
 
 ## Installation
 
@@ -77,14 +79,14 @@ This guide assumes you have no prior experience with Minecraft datapacks. A data
 
 This datapack adds a new item category called "Totems" which can be crafted and placed in your world. When you place totems with specific items displayed on them, you can activate powerful rituals. Single-totem mode is enabled by default!
 
-**Basic Workflow:**
-1. Craft totems (see [Crafting Recipes](#crafting-recipes))
-2. Right-click on the ground to place a totem
-3. Right-click a placed totem with an item to display it
-4. Drop 4 catalyst items around the totem (N/S/E/W)
-5. Light fire at the totem base - the ritual activates!
+**3 Steps to Your First Ritual:**
+1. **Craft** a Wood Totem (sticks + planks) → Right-click ground to place
+2. **Add Item** → Right-click totem with Emerald (for Growth ritual)
+3. **Fire Sacrifice** → Drop 4 Coal around totem, light fire!
 
-**Note**: Rituals now require a **Fire Sacrifice** to activate! See [Ritual System](#ritual-system) below.
+That's it! Your ritual activates and crops nearby start growing faster. 🌱
+
+**📖 See [Ritual System](#ritual-system) below for details on fire sacrifices!**
 
 ## Ritual System
 
@@ -97,20 +99,20 @@ This datapack adds a new item category called "Totems" which can be crafted and 
 3. **Light a fire** at the totem's base using flint & steel
 4. **The offerings are consumed** and your ritual begins!
 
-### Catalyst Costs by Tier
+### 🔥 Catalyst Costs
 
-- 🪵 **Wood**: 4× Coal
-- 🟠 **Copper**: 4× Copper Ingot  
-- ⚙️ **Iron**: 4× Iron Ingot
-- 🟡 **Gold**: 4× Gold Ingot
-- 💎 **Diamond**: 4× Diamond
-- 🟣 **Netherite**: 4× Netherite Ingot
+Each totem tier requires different sacrifice materials:
 
-**Why this system?**
-- Makes rituals feel more magical and intentional
-- Balanced resource cost encourages totem upgrades
-- Prevents "set and forget" infinite rituals
-- You control when rituals activate
+| Tier | Material Needed |
+|------|----------------|
+| 🪵 Wood | 4× Coal |
+| 🟠 Copper | 4× Copper Ingot |
+| ⚙️ Iron | 4× Iron Ingot |
+| 🟡 Gold | 4× Gold Ingot |
+| 💎 Diamond | 4× Diamond |
+| 🟣 Netherite | 4× Netherite Ingot |
+
+Drop the items around the totem, then light fire to activate!
 
 **📖 See [`docs/FIRE_SACRIFICE_GUIDE.md`](docs/FIRE_SACRIFICE_GUIDE.md) for complete instructions!**
 
@@ -425,40 +427,33 @@ The following are ideas for future rituals:
 **📖 See [`docs/PATTERN_RITUALS_GUIDE.md`](docs/PATTERN_RITUALS_GUIDE.md) for complete pattern ritual guide!**  
 **📐 See [`docs/MULTI_TOTEM_PATTERNS.md`](docs/MULTI_TOTEM_PATTERNS.md) for detailed ASCII diagrams!**
 
-### Recipe Unlock Flow
+### 🎯 Recipe Progression
+
+**Start with Wood, unlock as you go!**
 
 ```mermaid
 stateDiagram-v2
-    [*] --> GatherMaterials: Game Start
-    GatherMaterials --> WoodTier: Craft Wood Totem
-    WoodTier --> CopperTier: Unlock Copper Recipe
-    CopperTier --> IronTier: Unlock Iron Recipe
-    IronTier --> GoldTier: Unlock Gold Recipe
-    GoldTier --> DiamondTier: Unlock Diamond Recipe
-    DiamondTier --> NetheriteTier: Unlock Netherite Recipe
-    NetheriteTier --> [*]: Master Ritualist
-    
-    note right of WoodTier
-        Basic rituals unlocked
-        2×2 range
-    end note
-    
-    note right of IronTier
-        Strength ritual unlocked
-        4×4 range
-    end note
-    
-    note right of DiamondTier
-        Healing ritual unlocked
-        6×6 range
-    end note
+    [*] --> Wood: Craft Anytime
+    Wood --> Copper: Recipe Unlocked!
+    Copper --> Iron: Recipe Unlocked!
+    Iron --> Gold: Recipe Unlocked!
+    Gold --> Diamond: Recipe Unlocked!
+    Diamond --> Netherite: Recipe Unlocked!
+    Netherite --> [*]: Master Ritualist
 ```
 
-**Key Points:**
-- You cannot skip tiers - each totem tier must be crafted in sequence
-- Basic rituals (Growth, Protection, Sentry) are available from the start with any totem tier
-- Advanced rituals require higher tier totems to unlock
-- Higher tier totems provide the same rituals but with better stats (range, power, frequency)
+**How It Works:**
+1. 🪵 **Wood Totem** - Craft immediately (sticks + planks)
+2. 🟠 **Copper Recipe** appears in your recipe book after crafting Wood
+3. ⚙️ **Iron Recipe** appears after crafting Copper  
+4. 🟡 **Gold Recipe** appears after crafting Iron
+5. 💎 **Diamond Recipe** appears after crafting Gold
+6. 🔴 **Netherite Recipe** appears after crafting Diamond
+
+**Important:**
+- Higher tier recipes stay **hidden** until you unlock them
+- Can't skip tiers - must craft each one in order
+- All rituals work with any tier, but higher tiers = better range & power
 
 ## Crafting Recipes
 

@@ -1,6 +1,21 @@
-# Ritualsfting Recipes
+# Crafting Recipes
 
-Complete visual guide for all craftable items.
+Complete visual guide for all craftable totems.
+
+## 🎯 Recipe Progression
+
+**You must craft totems in order to unlock higher tiers!**
+
+| Tier | Material | Unlock Method |
+|------|----------|---------------|
+| 1️⃣ Wood | Sticks + Planks | ✅ **Available from start** |
+| 2️⃣ Copper | Ingots + Blocks | Craft Wood Totem first |
+| 3️⃣ Iron | Ingots + Blocks | Craft Copper Totem first |
+| 4️⃣ Gold | Ingots + Blocks | Craft Iron Totem first |
+| 5️⃣ Diamond | Diamonds + Blocks | Craft Gold Totem first |
+| 6️⃣ Netherite | Ingots + Blocks | Craft Diamond Totem first |
+
+Higher tier recipes will be **hidden** from your recipe book until unlocked!
 
 ---
 
@@ -341,8 +356,8 @@ Same as regular, but uses 1 less material (no top piece)
 ## 📝 Notes
 
 - **Single Totem Mode:** Rituals work with just one totem! (default)
-- **Recipe Book:** All recipes appear in the crafting table recipe book
-- **Auto-Unlock:** Recipes unlock when you obtain the required materials
+- **Recipe Book:** Only unlocked recipes appear in the crafting table recipe book
+- **Progressive Unlock:** Each totem tier unlocks the next tier's recipe automatically
 
 ---
 
