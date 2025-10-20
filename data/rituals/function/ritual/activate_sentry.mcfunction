@@ -16,7 +16,7 @@ particle flame ~ ~2 ~ 0.5 1 0.5 0.1 50
 particle enchant ~ ~2 ~ 1 1 1 0.3 100
 
 # Grant advancement
-advancement grant @a[distance=..32] only rituals:guide/first_ritual
+advancement grant @a[distance=..5] only rituals:guide/fire_sacrifice
 
 scoreboard players set @s rituals.timer 0
 

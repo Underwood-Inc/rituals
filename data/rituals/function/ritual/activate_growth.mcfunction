@@ -14,7 +14,7 @@ playsound block.enchantment_table.use block @a ~ ~ ~ 1.5 1.2
 particle happy_villager ~ ~2 ~ 5 2 5 0.1 100
 
 # Grant advancement to nearby players
-advancement grant @a[distance=..32] only rituals:guide/first_ritual
+advancement grant @a[distance=..5] only rituals:guide/fire_sacrifice
 
 # Initialize ritual timer
 scoreboard players set @s rituals.timer 0

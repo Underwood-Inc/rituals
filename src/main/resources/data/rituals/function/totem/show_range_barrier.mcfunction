@@ -3,14 +3,13 @@
 # ========================================
 # Runs as and at the totem
 
-# Get tier-based range settings
-function rituals:ritual/get_tier_settings
-
 # Store totem ID for linking displays
 scoreboard players operation #barrier_id rituals.temp = @s rituals.id
 
 # Calculate range values for display positioning
-function rituals:ritual/apply_in_tier_range
+# Use sentry-specific range if this is a sentry ritual (effect 6)
+execute if score @s rituals.effect matches 6 run function rituals:ritual/apply_in_tier_range_sentry
+execute unless score @s rituals.effect matches 6 run function rituals:ritual/apply_in_tier_range
 
 # Spawn barrier displays (6 faces of the box)
 function rituals:totem/spawn_barrier_faces with storage rituals:temp
