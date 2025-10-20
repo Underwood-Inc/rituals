@@ -256,7 +256,7 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 
 ### Prosperity Ritual
 - **Required Item**: Netherite Block
-- **Effect**: Attracts nearby items and grants Luck effect to players
+- **Effect**: Attracts nearby items to the totem and grants Luck effect to players
 - **Pull Speed**: 0.3 to 1.0 blocks/tick based on tier
 - **Luck Effect**: Level 0-2 based on tier (helps with loot drops)
 - **Range**: Tier-based (see Totem Tiers)
