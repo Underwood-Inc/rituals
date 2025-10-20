@@ -1,8 +1,10 @@
-# Rituals Datapack
+![https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-10](https://img.shields.io/badge/MC-1.21.10-db1f29?style=for-the-badge&logo=bitrise)![https://fabricmc.net/](https://img.shields.io/badge/Fabric-0.17.3-1f6feb?style=for-the-badge&logo=bitrise) 
+
+# Rituals Datapack/Mod
 
 ![Rituals Banner](images/banner.png)
 
-Introducing Rituals—a custom datapack + resourcepack combo that brings mystical totems and ritual magic into your world. Craft totems, display items, and trigger powerful effects through immersive rituals. Designed for builders, modpack creators, and lore lovers alike.  
+Introducing Rituals—a datapack that brings mystical totems and ritual magic into your world. Craft totems, display items, and trigger powerful effects through immersive rituals. Designed for builders, modpack creators, and lore lovers alike.  
   
 🔮 **Features**  
 • Unique totem tiers with visual item displays  
