@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:guide/fire_sacrifice",
+  "display": {
+    "icon": {
+      "id": "minecraft:golden_carrot"
+    },
+    "title": {
+      "text": "Breeding Virtuoso",
+      "color": "yellow",
+      "bold": true
+    },
+    "description": {
+      "text": "Perform the Auto-Breeding Ritual 100 times"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

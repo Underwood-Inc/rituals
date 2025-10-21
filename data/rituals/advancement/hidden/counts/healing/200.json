@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:guide/fire_sacrifice",
+  "display": {
+    "icon": {
+      "id": "minecraft:enchanted_golden_apple"
+    },
+    "title": {
+      "text": "Healing Legend",
+      "color": "gold",
+      "bold": true
+    },
+    "description": {
+      "text": "Perform the Healing Ritual 200 times"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

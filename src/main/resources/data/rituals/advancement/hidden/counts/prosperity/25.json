@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:guide/fire_sacrifice",
+  "display": {
+    "icon": {
+      "id": "minecraft:gold_ingot"
+    },
+    "title": {
+      "text": "Prosperity Apprentice",
+      "color": "gold",
+      "bold": true
+    },
+    "description": {
+      "text": "Perform the Prosperity Ritual 25 times"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

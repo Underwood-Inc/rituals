@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:guide/fire_sacrifice",
+  "display": {
+    "icon": {
+      "id": "minecraft:glistering_melon_slice"
+    },
+    "title": {
+      "text": "Healing Adept",
+      "color": "light_purple",
+      "bold": true
+    },
+    "description": {
+      "text": "Perform the Healing Ritual 50 times"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

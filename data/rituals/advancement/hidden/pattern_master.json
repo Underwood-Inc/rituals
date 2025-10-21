@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:guide/pattern_rituals",
+  "display": {
+    "icon": {
+      "id": "minecraft:honeycomb"
+    },
+    "title": {
+      "text": "Pattern Master",
+      "color": "gold",
+      "bold": true
+    },
+    "description": {
+      "text": "Complete both Auto-Farming and Auto-Breeding pattern rituals"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

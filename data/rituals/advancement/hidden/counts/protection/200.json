@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:guide/fire_sacrifice",
+  "display": {
+    "icon": {
+      "id": "minecraft:diamond_chestplate"
+    },
+    "title": {
+      "text": "Protection Legend",
+      "color": "aqua",
+      "bold": true
+    },
+    "description": {
+      "text": "Perform the Protection Ritual 200 times"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

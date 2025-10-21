@@ -18,5 +18,8 @@ particle enchant ~ ~2 ~ 1 1 1 0.3 100
 # Grant advancement
 advancement grant @a[distance=..5] only rituals:guide/fire_sacrifice
 
+# Mark ritual as completed and update badges
+function rituals:badges/mark_ritual_complete
+
 scoreboard players set @s rituals.timer 0
 

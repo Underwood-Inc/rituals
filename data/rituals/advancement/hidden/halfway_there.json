@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:hidden/first_ritual",
+  "display": {
+    "icon": {
+      "id": "minecraft:iron_ingot"
+    },
+    "title": {
+      "text": "Halfway There",
+      "color": "aqua",
+      "bold": true
+    },
+    "description": {
+      "text": "Complete 4 different ritual types"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

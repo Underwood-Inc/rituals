@@ -30,6 +30,9 @@ playsound minecraft:entity.sheep.ambient master @a ~ ~ ~ 1.5 1.0
 # UNIQUE: Success message
 tellraw @a[distance=..32] [{"text":"💚 ","color":"green"},{"text":"Auto-Breeding","bold":true,"color":"yellow"},{"text":" ritual activated! Animals in range will now breed automatically!","color":"green"}]
 
+# Mark ritual as completed and update badges
+function rituals:badges/mark_ritual_complete
+
 # IMMEDIATE breeding attempt at activation (100% chance for at least one pair)
 # Get tier settings for range
 function rituals:ritual/get_tier_settings

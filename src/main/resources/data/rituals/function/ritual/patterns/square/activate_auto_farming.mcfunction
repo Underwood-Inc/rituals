@@ -30,6 +30,9 @@ playsound minecraft:entity.villager.work_farmer master @a ~ ~ ~ 2.0 1.0
 # UNIQUE: Success message
 tellraw @a[distance=..32] [{"text":"🌾 ","color":"yellow"},{"text":"Auto-Farming","bold":true,"color":"green"},{"text":" ritual activated! Crops in range will be auto-harvested!","color":"green"}]
 
+# Mark ritual as completed and update badges
+function rituals:badges/mark_ritual_complete
+
 # Destroy supplemental totems (sacrifice) at diagonal corners
 execute positioned ~5 ~ ~5 run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
 execute positioned ~5 ~ ~5 run particle minecraft:soul_fire_flame ~ ~1 ~ 0.3 0.5 0.3 0.1 30 force

@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:hidden/activations/novice_ritualist",
+  "display": {
+    "icon": {
+      "id": "minecraft:enchanted_book"
+    },
+    "title": {
+      "text": "Adept Ritualist",
+      "color": "blue",
+      "bold": true
+    },
+    "description": {
+      "text": "Activate any ritual 25 times total"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

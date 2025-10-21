@@ -16,6 +16,9 @@ particle happy_villager ~ ~2 ~ 5 2 5 0.1 100
 # Grant advancement to nearby players
 advancement grant @a[distance=..5] only rituals:guide/fire_sacrifice
 
+# Mark ritual as completed and update badges
+function rituals:badges/mark_ritual_complete
+
 # Initialize ritual timer
 scoreboard players set @s rituals.timer 0
 

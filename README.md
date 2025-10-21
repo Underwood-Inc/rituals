@@ -9,6 +9,7 @@ Introducing Rituals—a datapack that brings mystical totems and ritual magic in
 🔮 **Features**  
 • Unique totem tiers with visual item displays  
 • Automatic ritual activation based on placement  
+• **Progress tracking** - View your ritual mastery with simple command  
 • Custom textures, animations, and guidebook integration  
 • Fully configurable and ready for expansion  
   
@@ -35,6 +36,7 @@ Built with care for the Minecraft community—open source, tweakable, and ready 
 ### 📚 Additional Documentation
 - [Full User Guides](docs/README.md) - Detailed guides for all rituals
 - [Pattern Rituals Guide](docs/PATTERN_RITUALS_GUIDE.md) - Multi-totem patterns
+- [Badge System Guide](docs/BADGE_SYSTEM_GUIDE.md) - Player progression display
 - [Coming Soon Rituals](docs/COMING_SOON_RITUALS.md) - Future features
 - [Developer Docs](DEVELOPMENT.md) - Technical documentation for contributors
 
@@ -226,9 +228,32 @@ See [`docs/RANGE_DIAGRAM.md`](docs/RANGE_DIAGRAM.md) for detailed range specific
 
 ### Breaking Totems
 
-1. Punch (left-click or attack) the totem
-2. The totem and any displayed item will drop
-3. All visual effects will be removed
+**Important:** Totems require specific tools and multiple hits to break, similar to mining blocks!
+
+**🪓 Wood Totems (Tier 1):**
+1. Use **any axe** (wooden, stone, iron, golden, diamond, or netherite)
+2. Hit the totem **3 times** with the axe
+3. Visual particles and sounds show your progress
+4. The totem and any displayed item will drop when broken
+
+**⛏️ Metal Totems (Tiers 2-6):**
+1. Use **any pickaxe** (wooden, stone, iron, golden, diamond, or netherite)
+2. Hit the totem multiple times based on tier:
+   - **Copper (Tier 2)**: 5 hits
+   - **Iron (Tier 3)**: 8 hits
+   - **Gold (Tier 4)**: 10 hits
+   - **Diamond (Tier 5)**: 15 hits
+   - **Netherite (Tier 6)**: 20 hits
+3. Particles increase as you get closer to breaking (wood → stone → crying obsidian)
+4. The totem and any displayed item will drop when broken
+
+**Important Notes:**
+- **Tool quality doesn't matter** - a wooden pickaxe can break a Netherite totem (just takes the same number of hits)!
+- **Creative mode** players can break totems instantly without tools
+- **Wrong tool?** You'll see an error message and no progress will be made
+- **Progress decays** after 2 seconds of not hitting the totem (prevents accidental breaking)
+- Tools are **not consumed** when breaking totems
+- Each hit plays sound effects and shows breaking particles
 
 ## Ritual Types
 
@@ -694,6 +719,16 @@ See `RANGE_DIAGRAM.md` for detailed range specifications!
 - Make sure you're right-clicking the totem, not the ground near it
 - The totem can only hold one item at a time
 - Try removing the current item first (right-click empty-handed)
+
+### Totems won't break:
+- **Wood totems** require an **axe** (any quality) and **3 hits**
+- **Metal totems** require a **pickaxe** (any quality) and multiple hits:
+  - Copper: 5 hits | Iron: 8 hits | Gold: 10 hits
+  - Diamond: 15 hits | Netherite: 20 hits
+- You'll see an error message if you're using the wrong tool
+- **Progress decays after 2 seconds** - hit it continuously to break it
+- Watch for particles and sounds to track your progress
+- Creative mode players can break totems instantly without tools
 
 ### Rituals won't activate:
 - By default, only 1 totem is needed (check config if changed)

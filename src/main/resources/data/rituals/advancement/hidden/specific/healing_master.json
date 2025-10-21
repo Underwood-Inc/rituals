@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:guide/basic_rituals",
+  "display": {
+    "icon": {
+      "id": "minecraft:nether_star"
+    },
+    "title": {
+      "text": "Healing Master",
+      "color": "light_purple",
+      "bold": true
+    },
+    "description": {
+      "text": "Complete the Healing ritual for the first time"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

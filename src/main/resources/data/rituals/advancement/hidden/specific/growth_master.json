@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:guide/basic_rituals",
+  "display": {
+    "icon": {
+      "id": "minecraft:emerald"
+    },
+    "title": {
+      "text": "Growth Master",
+      "color": "green",
+      "bold": true
+    },
+    "description": {
+      "text": "Complete the Growth ritual for the first time"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

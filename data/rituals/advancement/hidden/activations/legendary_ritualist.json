@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:hidden/activations/expert_ritualist",
+  "display": {
+    "icon": {
+      "id": "minecraft:written_book"
+    },
+    "title": {
+      "text": "Legendary Ritualist",
+      "color": "gold",
+      "bold": true
+    },
+    "description": {
+      "text": "Activate any ritual 100 times total"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+
