@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:hidden/activations/adept_ritualist",
+  "display": {
+    "icon": {
+      "id": "minecraft:knowledge_book"
+    },
+    "title": {
+      "text": "Expert Ritualist",
+      "color": "dark_purple",
+      "bold": true
+    },
+    "description": {
+      "text": "Activate any ritual 50 times total"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

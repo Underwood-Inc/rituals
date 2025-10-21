@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:hidden/ritual_savant",
+  "display": {
+    "icon": {
+      "id": "minecraft:nether_star"
+    },
+    "title": {
+      "text": "Ritual Expert",
+      "color": "gold",
+      "bold": true
+    },
+    "description": {
+      "text": "Complete all 8 ritual types!"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

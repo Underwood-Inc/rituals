@@ -1,0 +1,26 @@
+{
+  "parent": "rituals:guide/pattern_rituals",
+  "display": {
+    "icon": {
+      "id": "minecraft:diamond_hoe"
+    },
+    "title": {
+      "text": "Auto-Farming Master",
+      "color": "green",
+      "bold": true
+    },
+    "description": {
+      "text": "Complete the Auto-Farming pattern ritual for the first time"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "requirement": {
+      "trigger": "minecraft:impossible"
+    }
+  }
+}
+

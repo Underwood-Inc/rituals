@@ -17,6 +17,34 @@ scoreboard objectives add rituals.use_count minecraft.used:minecraft.warped_fung
 scoreboard objectives add rituals.menu trigger
 scoreboard objectives add rituals.menu_state dummy
 
+# Badge system scoreboards (text-based tracking only)
+scoreboard objectives add rituals.badge_tier dummy
+scoreboard objectives add rituals.ritual_count dummy
+scoreboard objectives add rituals.join_detect minecraft.custom:minecraft.leave_game
+
+# Ritual completion tracking (one for each ritual type)
+scoreboard objectives add rituals.growth_done dummy
+scoreboard objectives add rituals.strength_done dummy
+scoreboard objectives add rituals.prosperity_done dummy
+scoreboard objectives add rituals.protection_done dummy
+scoreboard objectives add rituals.healing_done dummy
+scoreboard objectives add rituals.sentry_done dummy
+scoreboard objectives add rituals.farming_done dummy
+scoreboard objectives add rituals.breeding_done dummy
+
+# Total activation counter (tracks ALL ritual activations, not just unique types)
+scoreboard objectives add rituals.total_activations dummy
+
+# Per-ritual activation counters (tracks how many times each specific ritual has been performed)
+scoreboard objectives add rituals.growth_count dummy
+scoreboard objectives add rituals.strength_count dummy
+scoreboard objectives add rituals.prosperity_count dummy
+scoreboard objectives add rituals.protection_count dummy
+scoreboard objectives add rituals.healing_count dummy
+scoreboard objectives add rituals.sentry_count dummy
+scoreboard objectives add rituals.farming_count dummy
+scoreboard objectives add rituals.breeding_count dummy
+
 # Load config (can be modified in-game with /data modify storage rituals:config)
 function rituals:config/load
 
@@ -74,6 +102,9 @@ scoreboard players set #100 rituals.data 100
 # Initialize global ID counter
 execute unless score #global_totem_id rituals.id matches 1.. run scoreboard players set #global_totem_id rituals.id 1
 
+# Calculate badge progress for all online players (view with /function rituals:badges/check_status)
+execute as @a run function rituals:badges/calculate_badge
+
 tellraw @a [{"text":""}]
 tellraw @a [{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"          🔮 ","color":"light_purple"},{"text":"Rituals","color":"white"},{"text":" - Fire Sacrifice Edition","color":"gray"}]
@@ -81,6 +112,7 @@ tellraw @a [{"text":"━━━━━━━━━━━━━━━━━━━�
 tellraw @a [{"text":"│","color":"dark_purple"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"  Press ","color":"gray"},{"text":"L","color":"aqua"},{"text":" to open the Advancement Guide","color":"gray"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"  Type ","color":"gray"},{"text":"/function rituals:help","color":"green","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:help"},"hover_event":{"action":"show_text","value":"Click to run"}},{"text":" for commands","color":"gray"}]
+tellraw @a [{"text":"│","color":"dark_purple"},{"text":"  ⚡ ","color":"yellow"},{"text":"[Check Badge Status]","color":"aqua","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:badges/check_status"},"hover_event":{"action":"show_text","value":"View your ritual progress"}},{"text":" - Track your ritual mastery!","color":"gray"}]
 tellraw @a [{"text":"│","color":"dark_purple"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"  Quick Start:","color":"yellow"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"   • ","color":"dark_gray"},{"text":"Enable Kiwi (Easy) Mode","color":"green","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:admin/enable_kiwi_mode"},"hover_event":{"action":"show_text","value":"Disables fire sacrifice requirement"}},{"text":" (Kiwi Mode)","color":"gray"}]
