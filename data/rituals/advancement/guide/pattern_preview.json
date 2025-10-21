@@ -21,7 +21,7 @@
           "hover_event": {
             "action": "show_text",
             "value": {
-              "text": "Unlock Pattern Rituals!\n\nRequirements:\n• Master Ritualist Achievement\n• Netherite Totem\n• Advanced Knowledge\n\nUnlocks:\n• Auto-Harvest (Diamond Hoe + Square)\n• Auto-Breeding (Wheat + Star)\n• XP Harvester (XP Bottle + Pentagon)",
+              "text": "Unlock Pattern Rituals!\n\nRequirements:\n• Master Ritualist Achievement\n• Netherite Totem\n• Advanced Knowledge\n\nUnlocks:\n• Auto-Harvest (Diamond Hoe + Square)\n• Auto-Breeding (Wheat + Star)",
               "color": "light_purple"
             }
           }

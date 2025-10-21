@@ -15,9 +15,6 @@ execute if data storage rituals:temp {placed_item:"minecraft:diamond_hoe"} unles
 # === AUTO-BREEDING (Wheat) ===
 execute if data storage rituals:temp {placed_item:"minecraft:wheat"} unless entity @s[tag=rituals.pattern_help_shown] run function rituals:totem/pattern_help/auto_breeding
 
-# === XP HARVESTER (Experience Bottle) ===
-execute if data storage rituals:temp {placed_item:"minecraft:experience_bottle"} unless entity @s[tag=rituals.pattern_help_shown] run function rituals:totem/pattern_help/xp_harvester
-
 # Clear temp storage
 data remove storage rituals:temp placed_item
 

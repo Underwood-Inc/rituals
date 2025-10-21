@@ -10,7 +10,7 @@
       "bold": true
     },
     "description": {
-      "text": "Auto-Harvest (Diamond Hoe+Square 4 totems), Auto-Breeding (Wheat+Star 4 totems), XP Harvester (XP Bottle+Pentagon 5 totems). Place redstone near center for guide!"
+      "text": "Auto-Harvest (Diamond Hoe+Square 4 totems), Auto-Breeding (Wheat+Star 4 totems). Place redstone near center for pattern guide!"
     },
     "frame": "challenge",
     "show_toast": true,

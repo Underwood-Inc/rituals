@@ -5,7 +5,7 @@
 #
 # Pattern Types:
 # 1. Star (4 totems) - Auto-Breeding
-# 2. Pentagon (5 totems) - NOT IMPLEMENTED YET
+# 2. Pentagon (5 totems) - REMOVED
 # 3. Hexagon (6 totems) - NOT IMPLEMENTED YET
 # 4. Septagon (7 totems) - NOT IMPLEMENTED YET
 # 5. Octagon (8 totems) - NOT IMPLEMENTED YET

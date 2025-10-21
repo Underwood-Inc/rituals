@@ -35,7 +35,6 @@ tag @s remove rituals.protection_ritual
 tag @s remove rituals.healing_ritual
 tag @s remove rituals.sentry_ritual
 tag @s remove rituals.auto_breeding
-tag @s remove rituals.xp_harvester
 scoreboard players set @s rituals.effect 0
 scoreboard players set @s rituals.timer 0
 scoreboard players set @s rituals.data 0

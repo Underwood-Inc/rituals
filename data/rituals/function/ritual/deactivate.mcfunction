@@ -11,7 +11,6 @@ execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remov
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.healing_ritual
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.auto_farming
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.auto_breeding
-execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.xp_harvester
 execute as @e[type=interaction,tag=rituals.totem,distance=..32] run tag @s remove rituals.sentry_ritual
 
 # Remove pattern totem tags (allows supplementary positions to be used again)
