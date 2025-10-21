@@ -4,7 +4,8 @@
 # Runs as and at a totem checking for rituals
 
 # Store displayed item for checking
-execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = @e[type=interaction,tag=rituals.totem,limit=1,sort=nearest] rituals.id run data modify storage rituals:temp check_item set from entity @s item.id
+scoreboard players operation #detect_totem_id rituals.temp = @s rituals.id
+execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #detect_totem_id rituals.temp run data modify storage rituals:temp check_item set from entity @s item.id
 
 # Check for different ritual types based on item combinations
 

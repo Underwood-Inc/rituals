@@ -60,7 +60,8 @@ execute positioned ~-5 ~ ~ run playsound minecraft:entity.wither.break_block mas
 execute positioned ~-5 ~ ~ as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1] run function rituals:totem/break_sacrifice
 
 # Mark central item with ritual_active tag (AFTER sacrificing supplementals)
-execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = @e[type=interaction,tag=rituals.totem,limit=1,sort=nearest] rituals.id run data modify entity @s item.components."minecraft:custom_data".ritual_active set value 1b
+scoreboard players operation #activate_totem_id rituals.temp = @s rituals.id
+execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #activate_totem_id rituals.temp run data modify entity @s item.components."minecraft:custom_data".ritual_active set value 1b
 # Keep has_item tag - the item is still there!
 
 # DO NOT remove pattern_totem tags - they persist to prevent supplementary totems from triggering other rituals

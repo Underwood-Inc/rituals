@@ -17,9 +17,6 @@ execute if data storage rituals:temp {pattern_item:"minecraft:diamond_hoe"} at @
 # Visualize Star Pattern - Auto-Breeding (4 cardinals)
 execute if data storage rituals:temp {pattern_item:"minecraft:wheat"} at @s run function rituals:totem/patterns/visualize_star
 
-# Visualize Pentagon Pattern - XP Harvester (5 around)
-execute if data storage rituals:temp {pattern_item:"minecraft:experience_bottle"} at @s run function rituals:totem/patterns/visualize_pentagon
-
 # Clear temp storage
 data remove storage rituals:temp pattern_item
 
