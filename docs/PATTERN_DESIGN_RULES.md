@@ -15,8 +15,7 @@ If an item is BOTH a central item AND a supplementary item, it creates ambiguity
 ### Current Central Items (DO NOT USE as Supplementary Items)
 
 - `minecraft:diamond_hoe` - Auto-Farming central item
-- `minecraft:wheat` - Auto-Breeding central item  
-- `minecraft:experience_bottle` - XP Harvester central item
+- `minecraft:wheat` - Auto-Breeding central item
 - `minecraft:emerald` - Growth Ritual (single-totem)
 - `minecraft:diamond` - Strength Ritual (single-totem)
 - `minecraft:netherite_block` - Prosperity Ritual (single-totem)

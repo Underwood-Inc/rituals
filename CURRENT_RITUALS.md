@@ -1,6 +1,6 @@
 # Current Ritual System Overview
 
-## ✅ CURRENTLY IMPLEMENTED RITUALS (9 Total)
+## ✅ CURRENTLY IMPLEMENTED RITUALS (8 Total)
 
 ### Standard Single-Rituals
 These work with 1+ totems displaying the same item. Fire sacrifice required to activate.
@@ -27,7 +27,6 @@ These work with 1+ totems displaying the same item. Fire sacrifice required to a
 - **Luck Level**: 0-2 based on tier (helps with loot drops)
 - **Range**: Tier-based
 - **Min Totems**: 1+
-- **Note**: No longer grants XP (use XP Harvester ritual instead)
 
 #### 4. Protection Ritual ⚔️
 - **Item**: `Iron Ingot`
@@ -101,31 +100,6 @@ These require specific geometric patterns with multiple totems. Fire sacrifice a
 - **Range**: Tier-based from center
 - **Min Totems**: 5 (1 center + 4 cardinals)
 
-#### 9. XP Harvester Ritual ✨
-- **Central Item**: `Experience Bottle`
-- **Pattern**: Pentagon (5 around)
-- **Layout**: 5 totems in pentagon pattern around center
-  ```
-  Positions:
-  - North: (0,5)
-  - Northeast: (5,2)
-  - Southeast: (3,-4)
-  - Southwest: (-3,-4)
-  - Northwest: (-5,2)
-  ```
-- **Required Items**: Any 5 items on surrounding totems (consumed on activation)
-- **Effect**: Generates XP directly to players in range
-- **XP Rate**: **Scales with tier!**
-  - Tier 1 (Wood): 1 XP/second
-  - Tier 2 (Copper): 2 XP/second
-  - Tier 3 (Iron): 3 XP/second
-  - Tier 4 (Gold): 4 XP/second
-  - Tier 5 (Diamond): 5 XP/second
-  - Tier 6 (Netherite): 6 XP/second
-- **Range**: Tier-based from center (larger at higher tiers)
-- **Requires**: Redstone power to operate (performance optimization)
-- **Min Totems**: 6 (1 center + 5 pentagon)
-
 ---
 
 ## 🎯 Pattern Ritual Features
@@ -174,9 +148,9 @@ These are defined in the system but not yet coded:
 
 ## Summary
 
-**Total Implemented**: 9 rituals
-- 6 standard single-Rituals
-- 3 advanced multi-totem pattern rituals
+**Total Implemented**: 8 rituals
+- 6 standard single-rituals
+- 2 advanced multi-totem pattern rituals
 
-**Status**: Fully functional with tier scaling, pattern detection, visual guides, and balanced XP harvester rates!
+**Status**: Fully functional with tier scaling, pattern detection, and visual guides!
 

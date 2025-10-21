@@ -265,7 +265,6 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 - **Luck Effect**: Level 0-2 based on tier (helps with loot drops)
 - **Range**: Tier-based (see Totem Tiers)
 - **Visual**: Golden dust particles
-- **Note**: For XP generation, use the XP Harvester pattern ritual
 
 ### Protection Ritual
 - **Required Item**: Iron Ingot
@@ -294,7 +293,7 @@ Rituals activate automatically when you have 1 or more totems displaying the sam
 
 ### Ritual Requirements
 
-- **Minimum Totems**: 1 totem by default (configurable to require more)
+- **Minimum Totems**: 1 totem by default (configurable to require more [incomplete])
 - **Maximum Distance**: 32 blocks between totems (for multi-Rituals)
 - **Single-Totem Mode**: Enabled by default! Each totem works independently
 - **Duration**: 30 seconds (600 ticks)
@@ -372,7 +371,7 @@ mindmap
 
 ```mermaid
 pie title "Ritual Implementation Status"
-    "Implemented (9)" : 9
+    "Implemented (8)" : 8
     "Planned/Coming Soon (9)" : 9
 ```
 
@@ -388,7 +387,6 @@ pie title "Ritual Implementation Status"
 | Healing | Nether Star | Diamond (Tier 5) | 1+ | Applies Regeneration to players and animals |
 | **Auto-Farming** | **Diamond Hoe** | **Wood (Tier 1)** | **5** | **Automatically harvests and replants fully grown crops** |
 | **Auto-Breeding** | **Wheat** | **Wood (Tier 1)** | **5** | **Automatically breeds animals in range** |
-| **XP Harvester** | **Experience Bottle** | **Wood (Tier 1)** | **6** | **Generates 1-6 XP/second based on tier (requires redstone power)** |
 
 #### 🚧 Planned Rituals (Coming Soon)
 

@@ -16,7 +16,6 @@ This document summarizes the implementation of the **multi-totem pattern ritual 
 - ✅ **Star Pattern** (4 cardinals) - Auto-Breeding
 
 **Pattern Types Ready for Implementation:**
-- ⏳ Pentagon (5 around) - XP Harvester
 - ⏳ Septagon (7 around) - Flight Zone, Weather Control
 - ⏳ Octagon (8 around) - Forcefield, Mob Repellent
 - ⏳ Nonagon (9 around) - Time Warp
@@ -299,7 +298,6 @@ execute if score #totems_found rituals.temp matches [N] run function rituals:rit
 - ⚠️ Very uneven terrain (>1 block height difference) may cause detection issues
 
 ### Future Improvements:
-- 🔮 Pentagon pattern (XP Harvester) - geometry defined, needs implementation
 - 🔮 Septagon pattern (Flight Zone, Weather Control) - geometry defined, needs implementation
 - 🔮 Octagon pattern (Forcefield, Mob Repellent) - geometry defined, needs implementation
 - 🔮 Nonagon pattern (Time Warp) - geometry defined, needs implementation

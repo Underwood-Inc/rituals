@@ -86,7 +86,6 @@ Massive overhaul addressing audit findings, critical bugs, and user experience i
 - `src/main/resources/data/rituals/function/ritual/patterns/square/detect_enchanting_nexus.mcfunction`
 - `src/main/resources/data/rituals/function/ritual/patterns/hexagon/detect_item_vacuum.mcfunction`
 - `src/main/resources/data/rituals/function/ritual/patterns/hexagon/detect_auto_smelting.mcfunction`
-- `src/main/resources/data/rituals/function/ritual/patterns/pentagon/detect_xp_harvester.mcfunction`
 - `src/main/resources/data/rituals/function/totem/break_sacrifice.mcfunction`
 - `src/main/resources/data/rituals/function/ritual/patterns/star/activate_auto_breeding.mcfunction`
 
@@ -281,7 +280,6 @@ Massive overhaul addressing audit findings, critical bugs, and user experience i
    - Time Warp Ritual (time acceleration)
    - Mining Haste Ritual (extreme haste)
    - Forcefield Ritual (mob barrier)
-   - XP Harvester Ritual (XP banking)
    - Mob Repellent Ritual (spawn prevention)
    - Features 8 different Mermaid chart types
 

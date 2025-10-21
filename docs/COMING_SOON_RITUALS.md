@@ -237,31 +237,6 @@ graph TB
 
 ---
 
-### 💎 XP Harvester Ritual
-**Pattern**: 5+ totems in pentagon  
-**Catalyst**: Bottle o' Enchanting  
-**Effect**: Collects and stores XP from kills in zone
-
-```mermaid
-sankey-beta
-    Mob Deaths,XP Orbs,100
-    XP Orbs,Ritual Collector,100
-    Ritual Collector,Storage Crystal,80
-    Ritual Collector,Overflow Loss,20
-    Storage Crystal,Player Withdrawal,60
-    Storage Crystal,Stored Reserve,20
-```
-
-**Mechanics**:
-- Automatically collects XP orbs in ritual zone
-- Stores XP in ethereal "XP Bank"
-- Right-click center totem to withdraw XP
-- Maximum storage based on totem tier (1000-10000 XP)
-- Can set auto-distribution to nearby players
-- Great for mob farms and grinding areas
-
----
-
 
 ### 🧟 Mob Repellent Ritual
 **Pattern**: 8+ totems in barrier pattern (octagon)  

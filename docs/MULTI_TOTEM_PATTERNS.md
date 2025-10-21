@@ -9,7 +9,6 @@ This document defines the **exact placement patterns** and **item requirements**
 | Pattern | Totems Required | Pattern Shape | Used By Rituals |
 |---------|----------------|---------------|-----------------|
 | **Star** | 1 center + 4 cardinals | Cross/Plus shape | Auto-Breeding |
-| **Pentagon** | 1 center + 5 around | 5-pointed circle | XP Harvester (Not Implemented) |
 | **Hexagon** | 1 center + 6 around | 6-pointed circle | (Not Implemented) |
 | **Septagon** | 1 center + 7 around | 7-pointed circle | (Not Implemented) |
 | **Octagon** | 1 center + 8 around | 8-pointed circle | (Not Implemented) |

@@ -118,8 +118,7 @@ Comprehensive audit conducted per user request revealed several issues that have
 7. Mining Haste Ritual (extreme haste + auto-pickup)
 8. (Removed - not possible with datapacks)
 9. Forcefield Ritual (mob barrier)
-10. XP Harvester Ritual (XP banking)
-11. (Removed - not possible with datapacks)
+10. (Removed - not possible with datapacks)
 12. Mob Repellent Ritual (spawn prevention)
 
 **Note**: Several "crafting ritual" concepts were removed as they're impossible to implement with datapacks alone - they would require Fabric/Forge mods.
