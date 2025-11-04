@@ -19,6 +19,9 @@ dependencies {
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
     mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
+    
+    // Fabric API for command registration
+    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
 }
 
 // Task to sync datapack/resourcepack to mod resources before building
@@ -26,6 +29,8 @@ task syncDatapack(type: Copy) {
     description = 'Syncs datapack and resourcepack to mod resources folder'
     from('data') {
         into 'data'
+        // Exclude load.mcfunction - mod variant has custom commands
+        exclude 'rituals/function/load.mcfunction'
     }
     from('resourcepack') {
         into '.'

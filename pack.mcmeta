@@ -4,7 +4,7 @@
     "description": "§6Rituals§r - A mystical datapack adding totems and ritual magic",
     "supported_formats": {
       "min_inclusive": 48,
-      "max_inclusive": 48,
+      "max_inclusive": 48
     }
   }
 }
