@@ -1,4 +1,8 @@
-![https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-10](https://img.shields.io/badge/MC-1.21.10-db1f29?style=for-the-badge&logo=bitrise)![https://fabricmc.net/](https://img.shields.io/badge/Fabric-0.17.3-1f6feb?style=for-the-badge&logo=bitrise) 
+![Minecraft 1.21.10](https://img.shields.io/badge/Minecraft-1.21.10-db1f29?style=for-the-badge&logo=minecraft)
+![Fabric Loader 0.15.11](https://img.shields.io/badge/Fabric%20Loader-0.15.11-dbd0b4?style=for-the-badge&logo=fabricmc)
+![Fabric API 0.100.0](https://img.shields.io/badge/Fabric%20API-0.100.0-dbd0b4?style=for-the-badge)
+![Cloth Config 20.0.148](https://img.shields.io/badge/Cloth%20Config-20.0.148-4caf50?style=for-the-badge)
+![Mod Menu 9.0.0](https://img.shields.io/badge/Mod%20Menu-9.0.0%20(optional)-ff9800?style=for-the-badge) 
 
 # Rituals Datapack/Mod
 
