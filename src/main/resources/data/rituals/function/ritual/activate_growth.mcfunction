@@ -3,7 +3,7 @@
 # ========================================
 
 # Mark THIS totem only (not nearby totems)
-function rituals:ritual/types/mark_if_emerald
+function rituals:ritual/types/mark_growth
 
 # Set effect type on THIS totem
 scoreboard players set @s rituals.effect 1
