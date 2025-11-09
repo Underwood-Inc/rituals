@@ -3,7 +3,7 @@
 # ========================================
 
 # Mark THIS totem only (not nearby totems)
-function rituals:ritual/types/mark_protection
+function rituals:ritual/types/mark_if_iron
 
 # Set effect type on THIS totem
 scoreboard players set @s rituals.effect 4

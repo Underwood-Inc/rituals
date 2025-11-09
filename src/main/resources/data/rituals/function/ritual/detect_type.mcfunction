@@ -7,38 +7,31 @@
 scoreboard players operation #detect_totem_id rituals.temp = @s rituals.id
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #detect_totem_id rituals.temp run data modify storage rituals:temp check_item set from entity @s item.id
 
-# Check for different ritual types based on registry (configurable via mod menu!)
+# Check for different ritual types based on item combinations
 
-# Check each registry entry to see if it matches check_item
-# Growth
-data modify storage rituals:temp test_item set from storage rituals:registry single_rituals[{id:"growth"}].item
-execute store success score #match rituals.temp run data modify storage rituals:temp test_item set from storage rituals:temp check_item
-execute if score #match rituals.temp matches 0 run function rituals:ritual/types/check_growth
+# === GROWTH RITUAL === (Emeralds)
+# Effect: Bonemeal effect on crops/plants
+execute if data storage rituals:temp {check_item:"minecraft:emerald"} run function rituals:ritual/types/check_growth
 
-# Strength  
-data modify storage rituals:temp test_item set from storage rituals:registry single_rituals[{id:"strength"}].item
-execute store success score #match rituals.temp run data modify storage rituals:temp test_item set from storage rituals:temp check_item
-execute if score #match rituals.temp matches 0 run function rituals:ritual/types/check_strength
+# === STRENGTH RITUAL === (Diamonds)
+# Effect: Strength and resistance to nearby players
+execute if data storage rituals:temp {check_item:"minecraft:diamond"} run function rituals:ritual/types/check_strength
 
-# Prosperity
-data modify storage rituals:temp test_item set from storage rituals:registry single_rituals[{id:"prosperity"}].item
-execute store success score #match rituals.temp run data modify storage rituals:temp test_item set from storage rituals:temp check_item
-execute if score #match rituals.temp matches 0 run function rituals:ritual/types/check_prosperity
+# === PROSPERITY RITUAL === (Netherite Blocks)
+# Effect: Attract nearby items and occasionally spawn experience orbs
+execute if data storage rituals:temp {check_item:"minecraft:netherite_block"} run function rituals:ritual/types/check_prosperity
 
-# Protection
-data modify storage rituals:temp test_item set from storage rituals:registry single_rituals[{id:"protection"}].item
-execute store success score #match rituals.temp run data modify storage rituals:temp test_item set from storage rituals:temp check_item
-execute if score #match rituals.temp matches 0 run function rituals:ritual/types/check_protection
+# === PROTECTION RITUAL === (Iron Ingots)
+# Effect: Damage nearby hostile mobs
+execute if data storage rituals:temp {check_item:"minecraft:iron_ingot"} run function rituals:ritual/types/check_protection
 
-# Healing
-data modify storage rituals:temp test_item set from storage rituals:registry single_rituals[{id:"healing"}].item
-execute store success score #match rituals.temp run data modify storage rituals:temp test_item set from storage rituals:temp check_item
-execute if score #match rituals.temp matches 0 run function rituals:ritual/types/check_healing
+# === HEALING RITUAL === (Nether Stars)
+# Effect: Heal nearby players and animals
+execute if data storage rituals:temp {check_item:"minecraft:nether_star"} run function rituals:ritual/types/check_healing
 
-# Sentry
-data modify storage rituals:temp test_item set from storage rituals:registry single_rituals[{id:"sentry"}].item
-execute store success score #match rituals.temp run data modify storage rituals:temp test_item set from storage rituals:temp check_item
-execute if score #match rituals.temp matches 0 run function rituals:ritual/types/check_sentry
+# === SENTRY RITUAL === (Arrows)
+# Effect: Creates a magical projectile-firing sentry totem
+execute if data storage rituals:temp {check_item:"minecraft:arrow"} run function rituals:ritual/types/check_sentry
 
 # === AUTO-FARMING RITUAL === (Diamond Hoe) - NOW A PATTERN RITUAL
 # Handled by pattern detection system in detect_central_ritual.mcfunction

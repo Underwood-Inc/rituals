@@ -42,11 +42,8 @@ public class RitualsMod implements ModInitializer {
         LOGGER.info("===========================================");
         LOGGER.info("Mod loaded successfully!");
         LOGGER.info("Datapack and resource pack auto-installed.");
-        
-        // Load config
-        com.rituals.config.RitualsConfig.load();
-        
         LOGGER.info("Registering commands...");
+
         registerCommands();
 
         LOGGER.info("Commands registered! Use /rituals help");
@@ -100,8 +97,17 @@ public class RitualsMod implements ModInitializer {
             giveCommand.then(CommandManager.literal("totem_iron_short").executes(ctx -> giveTotem(ctx, "iron", true)));
             ritualsCommand.then(giveCommand);
 
-            // /rituals config subcommands (ritual items, patterns, catalysts)
-            ritualsCommand.then(com.rituals.commands.ConfigCommands.registerConfigCommands());
+            // /rituals config subcommands
+            LiteralArgumentBuilder<ServerCommandSource> configCommand = CommandManager.literal("config");
+            configCommand.then(CommandManager.literal("reload").executes(ctx -> {
+                com.rituals.config.RitualsConfig.reload();
+                ctx.getSource().sendFeedback(
+                        () -> Text.literal("[Rituals] ").formatted(Formatting.GOLD).formatted(Formatting.BOLD)
+                                .append(Text.literal("✓ Config reloaded!").formatted(Formatting.GREEN)),
+                        false);
+                return Command.SINGLE_SUCCESS;
+            }));
+            ritualsCommand.then(configCommand);
 
             // /rituals badges subcommands
             LiteralArgumentBuilder<ServerCommandSource> badgesCommand = CommandManager.literal("badges");

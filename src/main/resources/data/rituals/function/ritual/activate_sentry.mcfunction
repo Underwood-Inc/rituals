@@ -3,7 +3,7 @@
 # ========================================
 
 # Mark THIS totem only (not nearby totems)
-function rituals:ritual/types/mark_sentry
+function rituals:ritual/types/mark_if_arrow
 
 # Set effect type on THIS totem
 scoreboard players set @s rituals.effect 6
