@@ -10,6 +10,7 @@ import net.minecraft.scoreboard.Scoreboard;
 import net.minecraft.scoreboard.ScoreboardObjective;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.sound.SoundCategory;
 import net.minecraft.sound.SoundEvents;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -23,9 +24,6 @@ public class AdminCommands {
     
     public static int enableKiwiMode(CommandContext<ServerCommandSource> ctx) {
         ServerCommandSource source = ctx.getSource();
-        
-        // Update Java config
-        RitualsConfig.setKiwiMode(true);
         
         // Modify datapack storage - EXACTLY like /data modify storage rituals:config kiwi_mode set value true
         NbtCompound config = source.getServer().getDataCommandStorage().get(net.minecraft.util.Identifier.of("rituals", "config"));
@@ -64,9 +62,6 @@ public class AdminCommands {
     public static int disableKiwiMode(CommandContext<ServerCommandSource> ctx) {
         ServerCommandSource source = ctx.getSource();
         
-        // Update Java config
-        RitualsConfig.setKiwiMode(false);
-        
         // Modify datapack storage - EXACTLY like /data modify storage rituals:config kiwi_mode set value false
         NbtCompound config = source.getServer().getDataCommandStorage().get(net.minecraft.util.Identifier.of("rituals", "config"));
         if (config == null) {
@@ -100,9 +95,6 @@ public class AdminCommands {
     public static int enableDebugMode(CommandContext<ServerCommandSource> ctx) {
         ServerCommandSource source = ctx.getSource();
         
-        // Update Java config
-        RitualsConfig.setDebugMode(true);
-        
         // Modify datapack storage - EXACTLY like /data modify storage rituals:config debug_mode set value true
         NbtCompound config = source.getServer().getDataCommandStorage().get(net.minecraft.util.Identifier.of("rituals", "config"));
         if (config == null) {
@@ -134,9 +126,6 @@ public class AdminCommands {
     
     public static int disableDebugMode(CommandContext<ServerCommandSource> ctx) {
         ServerCommandSource source = ctx.getSource();
-        
-        // Update Java config
-        RitualsConfig.setDebugMode(false);
         
         // Modify datapack storage - EXACTLY like /data modify storage rituals:config debug_mode set value false
         NbtCompound config = source.getServer().getDataCommandStorage().get(net.minecraft.util.Identifier.of("rituals", "config"));
