@@ -1,4 +1,8 @@
-![https://www.minecraft.net/en-us/article/minecraft-java-edition-1-21-10](https://img.shields.io/badge/MC-1.21.10-db1f29?style=for-the-badge&logo=bitrise)![https://fabricmc.net/](https://img.shields.io/badge/Fabric-0.17.3-1f6feb?style=for-the-badge&logo=bitrise) 
+![Minecraft 1.21.10](https://img.shields.io/badge/Minecraft-1.21.10-db1f29?style=for-the-badge&logo=minecraft)
+![Fabric Loader 0.15.11](https://img.shields.io/badge/Fabric%20Loader-0.15.11-dbd0b4?style=for-the-badge&logo=fabricmc)
+![Fabric API 0.100.0](https://img.shields.io/badge/Fabric%20API-0.100.0-dbd0b4?style=for-the-badge)
+![Cloth Config 20.0.148](https://img.shields.io/badge/Cloth%20Config-20.0.148-4caf50?style=for-the-badge)
+![Mod Menu 9.0.0](https://img.shields.io/badge/Mod%20Menu-9.0.0%20(optional)-ff9800?style=for-the-badge) 
 
 # Rituals Datapack/Mod
 
@@ -660,23 +664,141 @@ See [`docs/SYSTEM_OVERVIEW.md`](docs/SYSTEM_OVERVIEW.md) for detailed technical 
 <details>
 <summary><b>⚙️ Configuration Options (Click to Expand)</b></summary>
 
-You can customize various datapack settings using the config storage system.
+There are **two ways** to configure Rituals depending on whether you're using the **Fabric Mod** or **Standalone Datapack**:
 
-### Viewing Current Config
+---
+
+### 🎮 Mod Configuration (Fabric Mod Only)
+
+The Fabric mod version includes a configuration GUI and convenient commands!
+
+#### Method 1: Mod Menu GUI (Recommended)
+
+1. Install [Mod Menu](https://modrinth.com/mod/modmenu) (optional but recommended)
+2. In-game, press **ESC** and click **Mods**
+3. Find **Rituals** and click the **config button**
+4. Edit ritual items in the GUI
+5. Click **Save** - changes apply when you join a world!
+
+**Config File Location:** `config/rituals.json`
+
+#### Method 2: Mod Commands
+
+Use clean, easy-to-read commands:
+
+**Change Single Ritual Items:**
+```
+/rituals config ritual set_item growth minecraft:emerald_block
+/rituals config ritual set_item strength minecraft:diamond
+/rituals config ritual set_item prosperity minecraft:netherite_block
+/rituals config ritual set_item protection minecraft:iron_ingot
+/rituals config ritual set_item healing minecraft:nether_star
+/rituals config ritual set_item sentry minecraft:arrow
+```
+
+**Change Pattern Ritual Items:**
+```
+/rituals config pattern set_central auto_farming minecraft:diamond_hoe
+/rituals config pattern set_central auto_breeding minecraft:wheat
+```
+
+**Enable/Disable Rituals:**
+```
+/rituals config ritual enable growth
+/rituals config ritual disable growth
+```
+
+**List All Configured Rituals:**
+```
+/rituals config ritual list
+/rituals config pattern list
+```
+
+---
+
+### 📦 Datapack Configuration (Standalone Datapack)
+
+Without the mod, you can still change ritual items using vanilla Minecraft commands!
+
+#### Viewing Current Config
 ```
 /data get storage rituals:config
+/data get storage rituals:registry
 ```
 
-### Modifying Settings
+#### Changing Ritual Items
+
+**Single Ritual Items:**
+```mcfunction
+/data modify storage rituals:registry single_rituals[{id:"growth"}].item set value "minecraft:emerald_block"
+/data modify storage rituals:registry single_rituals[{id:"strength"}].item set value "minecraft:diamond"
+/data modify storage rituals:registry single_rituals[{id:"prosperity"}].item set value "minecraft:netherite_block"
+/data modify storage rituals:registry single_rituals[{id:"protection"}].item set value "minecraft:iron_ingot"
+/data modify storage rituals:registry single_rituals[{id:"healing"}].item set value "minecraft:nether_star"
+/data modify storage rituals:registry single_rituals[{id:"sentry"}].item set value "minecraft:arrow"
 ```
-/data modify storage rituals:config <key> set value <value>
+
+**Pattern Ritual Items:**
+```mcfunction
+/data modify storage rituals:registry pattern_rituals[{id:"auto_farming"}].central_item set value "minecraft:diamond_hoe"
+/data modify storage rituals:registry pattern_rituals[{id:"auto_breeding"}].central_item set value "minecraft:wheat"
+```
+
+**After making changes, reload the registry:**
+```
+/reload
+```
+
+---
+
+### 🎛️ General Settings (Both Mod and Datapack)
+
+These settings affect ritual behavior and work the same for both versions:
+
+```mcfunction
+# Minimum totems required for rituals
+/data modify storage rituals:config min_totems_required set value 1
+
+# Maximum distance between totems (blocks)
+/data modify storage rituals:config max_totem_distance set value 32
+
+# Ritual duration (ticks, 600 = 30 seconds)
+/data modify storage rituals:config ritual_duration set value 600
+
+# Enable Kiwi Mode (no fire sacrifice required)
+/data modify storage rituals:config kiwi_mode set value true
+
+# Enable debug mode (extra logging)
+/data modify storage rituals:config debug_mode set value true
+
+# Require fire sacrifice (if false, rituals auto-activate)
+/data modify storage rituals:config require_fire_sacrifice set value true
+```
+
+**After changing settings:**
+```
 /function rituals:config/reload
 ```
 
-### Available Settings
-- `min_totems_required` - Minimum number of totems needed for a ritual (default: 1)
-- `max_totem_distance` - Maximum distance between totems in blocks (default: 32)
-- `ritual_duration` - How long rituals last in ticks (default: 600 = 30 seconds)
+---
+
+### 💡 Configuration Tips
+
+**Mod vs Datapack:**
+- **Mod**: Changes save to `config/rituals.json` and sync to server when you join
+- **Datapack**: Changes stored in world's data storage, persist in that world only
+
+**Custom Ritual Items:**
+- You can use **any Minecraft item** for rituals!
+- Example: Make Growth ritual use Dirt instead of Emerald:
+  ```
+  /rituals config ritual set_item growth minecraft:dirt
+  ```
+  
+**Testing Changes:**
+- Changes take effect immediately after reload
+- Existing active rituals are not affected
+- New rituals use the new item configuration
 
 See [`docs/CONFIG_GUIDE.md`](docs/CONFIG_GUIDE.md) for complete configuration documentation.
 

@@ -3,7 +3,7 @@
 # ========================================
 
 # Mark THIS totem only (not nearby totems)
-function rituals:ritual/types/mark_if_gold
+function rituals:ritual/types/mark_prosperity
 
 # Set effect type on THIS totem
 scoreboard players set @s rituals.effect 3

@@ -17,6 +17,12 @@
   "entrypoints": {
     "main": [
       "com.rituals.RitualsMod"
+    ],
+    "client": [
+      "com.rituals.RitualsModClient"
+    ],
+    "modmenu": [
+      "com.rituals.config.ModMenuIntegration"
     ]
   },
   "depends": {
@@ -30,7 +36,6 @@
   },
   "custom": {
     "modmenu": {
-      "badges": ["library"],
       "links": {
         "modmenu.discord": "https://discord.gg/mpThbx67J7"
       }
