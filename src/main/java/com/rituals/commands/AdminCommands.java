@@ -164,18 +164,19 @@ public class AdminCommands {
         try {
             // Execute scoreboard update commands silently
             var cmdMgr = source.getServer().getCommandManager();
+            var dispatcher = cmdMgr.getDispatcher();
             
             // Update debug mode scoreboard from storage
-            cmdMgr.executeWithPrefix(source.withSilent(), "execute store result score #rituals_debug_mode rituals.data if data storage rituals:config {debug_mode:true}");
+            dispatcher.execute("execute store result score #rituals_debug_mode rituals.data if data storage rituals:config {debug_mode:true}", source.withSilent());
             
             // Update kiwi mode scoreboard from storage
-            cmdMgr.executeWithPrefix(source.withSilent(), "execute store result score #kiwi_mode rituals.data if data storage rituals:config {kiwi_mode:true}");
+            dispatcher.execute("execute store result score #kiwi_mode rituals.data if data storage rituals:config {kiwi_mode:true}", source.withSilent());
             
             // If kiwi mode is on, disable fire sacrifice in storage
-            cmdMgr.executeWithPrefix(source.withSilent(), "execute if score #kiwi_mode rituals.data matches 1 run data modify storage rituals:config require_fire_sacrifice set value false");
+            dispatcher.execute("execute if score #kiwi_mode rituals.data matches 1 run data modify storage rituals:config require_fire_sacrifice set value false", source.withSilent());
             
             // Update fire sacrifice mode scoreboard from storage
-            cmdMgr.executeWithPrefix(source.withSilent(), "execute store result score #fire_sacrifice_mode rituals.data if data storage rituals:config {require_fire_sacrifice:true}");
+            dispatcher.execute("execute store result score #fire_sacrifice_mode rituals.data if data storage rituals:config {require_fire_sacrifice:true}", source.withSilent());
             
             RitualsMod.LOGGER.info("Config scoreboards updated from storage");
             
@@ -372,7 +373,9 @@ public class AdminCommands {
             
             int unlocked = 0;
             for (String recipeName : recipes) {
-                var recipe = source.getServer().getRecipeManager().get(net.minecraft.util.Identifier.of("rituals", recipeName.replace("rituals:", "")));
+                var identifier = net.minecraft.util.Identifier.of("rituals", recipeName.replace("rituals:", ""));
+                var recipeKey = net.minecraft.registry.RegistryKey.of(net.minecraft.registry.RegistryKeys.RECIPE, identifier);
+                var recipe = source.getServer().getRecipeManager().get(recipeKey);
                 if (recipe.isPresent()) {
                     player.unlockRecipes(List.of(recipe.get()));
                     unlocked++;
@@ -443,6 +446,33 @@ public class AdminCommands {
             .append(Text.literal(String.valueOf(poweredCount)).formatted(Formatting.WHITE)), false);
         
         return Command.SINGLE_SUCCESS;
+    }
+    
+    public static int fixBrightness(CommandContext<ServerCommandSource> ctx) {
+        ServerCommandSource source = ctx.getSource();
+        
+        try {
+            // Get the function from the server's function loader
+            var functionManager = source.getServer().getCommandFunctionManager();
+            var identifier = net.minecraft.util.Identifier.of("rituals", "admin/fix_brightness");
+            var function = functionManager.getFunction(identifier);
+            
+            if (function.isPresent()) {
+                // Execute the function
+                functionManager.execute(function.get(), source.withSilent());
+                
+                source.sendFeedback(() -> Text.literal("[Rituals] ").formatted(Formatting.GOLD).formatted(Formatting.BOLD)
+                    .append(Text.literal("✓ Fixed brightness on all existing totems!").formatted(Formatting.GREEN)), false);
+                return Command.SINGLE_SUCCESS;
+            } else {
+                source.sendError(Text.literal("Could not find fix_brightness function!"));
+                return 0;
+            }
+        } catch (Exception e) {
+            source.sendError(Text.literal("Failed to fix brightness: " + e.getMessage()));
+            RitualsMod.LOGGER.error("Failed to fix brightness", e);
+            return 0;
+        }
     }
 }
 

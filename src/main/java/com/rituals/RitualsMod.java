@@ -144,6 +144,8 @@ public class RitualsMod implements ModInitializer {
                     CommandManager.literal("debug_recipes").executes(com.rituals.commands.AdminCommands::debugRecipes));
             adminCommand.then(CommandManager.literal("debug_barriers")
                     .executes(com.rituals.commands.AdminCommands::debugBarriers));
+            adminCommand.then(CommandManager.literal("fix_brightness")
+                    .executes(com.rituals.commands.AdminCommands::fixBrightness));
 
             ritualsCommand.then(adminCommand);
 

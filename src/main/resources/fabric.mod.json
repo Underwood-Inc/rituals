@@ -12,7 +12,7 @@
     "issues": "https://github.com/Underwood-Inc/rituals/issues"
   },
   "license": "MIT",
-  "icon": "pack.png",
+  "icon": "icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
@@ -23,17 +23,19 @@
     "fabricloader": ">=0.15.0",
     "fabric-api": "*",
     "fabric-command-api-v2": "*",
-    "minecraft": "~1.21",
+    "minecraft": ">=1.21",
     "java": ">=21"
   },
   "suggests": {
+    "modmenu": "*"
   },
   "custom": {
     "modmenu": {
-      "badges": ["library"],
       "links": {
-        "modmenu.discord": "https://discord.gg/mpThbx67J7"
-      }
+        "modmenu.discord": "https://discord.gg/mpThbx67J7",
+        "modmenu.issues": "https://github.com/Underwood-Inc/rituals/issues"
+      },
+      "update_checker": true
     }
   }
 }

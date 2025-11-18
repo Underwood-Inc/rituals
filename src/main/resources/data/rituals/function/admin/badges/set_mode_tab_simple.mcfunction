@@ -7,7 +7,7 @@ data modify storage rituals:config badge_config.display_mode set value "tab"
 data modify storage rituals:config badge_config.show_in_tab set value true
 
 # Show in tab list - just ritual count, clear objective name
-scoreboard objectives modify rituals.ritual_count displayName {"text":"⚡ Rituals","color":"gold"}
+scoreboard objectives modify rituals.ritual_count displayname {"text":"⚡ Rituals","color":"gold"}
 scoreboard objectives setdisplay list rituals.ritual_count
 
 # Reload config

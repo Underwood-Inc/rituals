@@ -24,8 +24,8 @@ execute if entity @s[tag=!rituals.short_totem] if score @s rituals.tier matches 
 
 # Item display - short at 1.5, tall at 2.5 (higher to accommodate bobbing down)
 # With Y-axis rotation and bobbing animation (interpolation: 10 ticks for smooth motion)
-execute if entity @s[tag=rituals.short_totem] run summon item_display ~ ~1.5 ~ {Tags:["rituals.totem_display","rituals.new_display"],billboard:"fixed",transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.5f,0.5f,0.5f]},brightness:{sky:15,block:15},interpolation_duration:10,start_interpolation:0}
-execute if entity @s[tag=!rituals.short_totem] run summon item_display ~ ~2.5 ~ {Tags:["rituals.totem_display","rituals.new_display"],billboard:"fixed",transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.5f,0.5f,0.5f]},brightness:{sky:15,block:15},interpolation_duration:10,start_interpolation:0}
+execute if entity @s[tag=rituals.short_totem] run summon item_display ~ ~1.5 ~ {Tags:["rituals.totem_display","rituals.new_display"],billboard:"fixed",transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.5f,0.5f,0.5f]},interpolation_duration:10,start_interpolation:0}
+execute if entity @s[tag=!rituals.short_totem] run summon item_display ~ ~2.5 ~ {Tags:["rituals.totem_display","rituals.new_display"],billboard:"fixed",transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[0f,0f,0f],scale:[0.5f,0.5f,0.5f]},interpolation_duration:10,start_interpolation:0}
 
 scoreboard players operation @e[type=item_display,tag=rituals.new_display,limit=1,sort=nearest] rituals.id = @s rituals.id
 tag @e[type=item_display,tag=rituals.new_display,limit=1,sort=nearest] remove rituals.new_display
