@@ -1,3 +1,4 @@
-# Drop Short Diamond Totem Base
-summon item ~ ~1 ~ {Item:{id:"minecraft:warped_fungus_on_a_stick",count:1,components:{"minecraft:custom_name":{text:"Short Diamond Totem",color:"aqua",italic:false},"minecraft:custom_data":{rituals_totem:1,totem_tier:5,totem_short:1}}}}
+# Drop Short Diamond Totem Materials
+summon item ~ ~1 ~ {Item:{id:"minecraft:diamond",count:2}}
+summon item ~ ~1 ~ {Item:{id:"minecraft:diamond_block",count:1}}
 

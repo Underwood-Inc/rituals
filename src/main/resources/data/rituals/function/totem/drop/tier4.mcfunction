@@ -1,2 +1,3 @@
-# Drop Gold Totem Base
-summon item ~ ~1 ~ {Item:{id:"minecraft:warped_fungus_on_a_stick",count:1,components:{"minecraft:custom_name":{text:"Gold Totem",color:"gold",italic:false},"minecraft:custom_data":{rituals_totem:1,totem_tier:4}}}}
+# Drop Gold Totem Materials
+summon item ~ ~1 ~ {Item:{id:"minecraft:gold_ingot",count:4}}
+summon item ~ ~1 ~ {Item:{id:"minecraft:gold_block",count:2}}
