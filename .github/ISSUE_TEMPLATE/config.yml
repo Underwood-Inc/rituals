@@ -1,0 +1,12 @@
+blank_issues_enabled: true
+contact_links:
+  - name: 🎮 Twitch Stream
+    url: https://www.twitch.tv/strixun
+    about: Watch live development and ask questions in real-time!
+  - name: 📚 Documentation
+    url: https://github.com/strixun/rituals/blob/main/docs/README.md
+    about: Check the full documentation before opening an issue
+  - name: 💬 General Questions
+    url: https://github.com/strixun/rituals/discussions
+    about: For questions, discussions, and community support (use Discussions instead of Issues)
+

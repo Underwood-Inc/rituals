@@ -1,0 +1,122 @@
+name: Feature Request
+description: Suggest a new feature or improvement for Rituals
+title: "[Feature]: "
+labels: ["enhancement", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Thanks for suggesting a feature!
+        We love hearing ideas from the community. Please provide as much detail as possible.
+
+  - type: dropdown
+    id: feature-type
+    attributes:
+      label: Feature Type
+      description: What kind of feature are you suggesting?
+      options:
+        - New Ritual Type
+        - New Totem Tier
+        - Ritual Modification/Balance
+        - New Pattern Ritual
+        - Quality of Life Improvement
+        - Performance Optimization
+        - Visual/Audio Enhancement
+        - Command/Configuration
+        - Documentation
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Feature Description
+      description: A clear and concise description of the feature you'd like to see
+      placeholder: "I would like to see a ritual that..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem It Solves
+      description: What problem does this feature solve? Or what experience does it enhance?
+      placeholder: "Currently, there's no way to... / It would be more fun if..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: How would you implement this feature? Be as detailed as you like!
+      placeholder: |
+        For example, if suggesting a new ritual:
+        - Ritual Name: "Ritual of Abundance"
+        - Required Item: Golden Apple
+        - Minimum Totem Tier: Gold (Tier 4)
+        - Effect: Increases drop rates for blocks broken in range
+        - Fire Sacrifice Cost: 4x Gold Ingots
+        - Duration: 30 seconds
+        - Visual: Golden sparkle particles
+    validations:
+      required: true
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternative Solutions
+      description: Have you considered any alternative approaches?
+      placeholder: "Another way to achieve this could be..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: fits-theme
+    attributes:
+      label: Fits Rituals Theme?
+      description: Does this feature align with the magical/mystical theme of Rituals?
+      options:
+        - Yes, perfectly fits
+        - Somewhat fits
+        - Not sure
+        - No, but it would be cool
+    validations:
+      required: true
+
+  - type: dropdown
+    id: balance
+    attributes:
+      label: Balance Consideration
+      description: Would this feature be balanced with existing gameplay?
+      options:
+        - Yes, balanced
+        - Might need adjustment
+        - Not sure
+        - Could be overpowered
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other context, mockups, examples from other games/mods?
+      placeholder: "Similar to how [other mod] does it... / Here's a mockup image..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues and feature requests to avoid duplicates
+          required: true
+        - label: I have checked the [Coming Soon Rituals](docs/COMING_SOON_RITUALS.md) document to see if this is already planned
+          required: true
+        - label: This feature would benefit the community, not just my specific use case
+          required: true
+

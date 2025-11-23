@@ -1,0 +1,199 @@
+name: Compatibility Issue
+description: Report a conflict with another mod or datapack
+title: "[Compatibility]: "
+labels: ["compatibility", "needs-investigation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Compatibility Issue Report
+        Help us work better with other mods and datapacks!
+
+  - type: input
+    id: conflicting-mod
+    attributes:
+      label: Conflicting Mod/Datapack Name
+      description: What mod or datapack is causing issues with Rituals?
+      placeholder: "e.g., OptiFine, Terralith, Origins"
+    validations:
+      required: true
+
+  - type: input
+    id: conflicting-version
+    attributes:
+      label: Conflicting Mod Version
+      description: What version of the conflicting mod/datapack?
+      placeholder: "e.g., 1.21.1, HD_U_I9"
+    validations:
+      required: true
+
+  - type: input
+    id: rituals-version
+    attributes:
+      label: Rituals Version
+      description: What version of Rituals are you using?
+      placeholder: "e.g., 1.3.0"
+    validations:
+      required: true
+
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Minecraft Version
+      description: What version of Minecraft?
+      placeholder: "e.g., 1.21.10"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: loader-type
+    attributes:
+      label: Mod Loader
+      description: What mod loader are you using?
+      options:
+        - Fabric
+        - Forge
+        - NeoForge
+        - Vanilla (datapack only)
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: conflict-type
+    attributes:
+      label: Conflict Type
+      description: What kind of conflict is occurring?
+      options:
+        - Game Crash
+        - Visual Glitches/Rendering Issues
+        - Feature Not Working
+        - Performance Issues
+        - Recipe Conflict
+        - Command Conflict
+        - Entity/Block Conflict
+        - Advancement Conflict
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Conflict Description
+      description: Describe the compatibility issue in detail
+      placeholder: "When both mods are installed, the totems don't render properly..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this conflict?
+      placeholder: |
+        1. Install both Rituals 1.3.0 and [Other Mod] 1.0.0
+        2. Place a Wood Totem
+        3. Observe that...
+    validations:
+      required: true
+
+  - type: textarea
+    id: crash-log
+    attributes:
+      label: Crash Report / Error Log
+      description: |
+        If the game crashes, paste the crash report here.
+        Crash reports are located in `.minecraft/crash-reports/`
+      placeholder: "Paste crash report or error log..."
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: with-both
+    attributes:
+      label: Behavior With Both Mods
+      description: What happens when both are installed?
+      placeholder: "Game crashes on startup / Totems are invisible / Commands don't work"
+    validations:
+      required: true
+
+  - type: textarea
+    id: without-other
+    attributes:
+      label: Behavior Without Other Mod
+      description: What happens when you remove the other mod (Rituals only)?
+      placeholder: "Everything works normally / Totems display correctly"
+    validations:
+      required: true
+
+  - type: textarea
+    id: without-rituals
+    attributes:
+      label: Behavior Without Rituals
+      description: What happens when you remove Rituals (other mod only)?
+      placeholder: "Game works fine / No crashes"
+    validations:
+      required: true
+
+  - type: textarea
+    id: other-mods
+    attributes:
+      label: Complete Mod List
+      description: List ALL mods/datapacks you have installed (conflicts may involve multiple mods)
+      placeholder: |
+        - Fabric API 0.136.0+1.21.10
+        - Rituals 1.3.0
+        - OptiFine HD_U_I9
+        - [Conflicting Mod] 1.0.0
+        - Mod ABC 2.1.0
+        - Datapack XYZ
+    validations:
+      required: true
+
+  - type: textarea
+    id: workaround
+    attributes:
+      label: Workaround Found?
+      description: Have you found any temporary workarounds?
+      placeholder: "If I disable [specific feature], the conflict doesn't occur..."
+    validations:
+      required: false
+
+  - type: dropdown
+    id: severity
+    attributes:
+      label: Severity
+      description: How severe is this compatibility issue?
+      options:
+        - Critical - Game unplayable/crashes
+        - High - Major features broken
+        - Medium - Some features affected
+        - Low - Minor visual/cosmetic issues
+    validations:
+      required: true
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other information, screenshots, or videos
+      placeholder: "Screenshots showing the issue, links to similar reports, etc."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have tested with ONLY Rituals and the conflicting mod (no other mods)
+          required: true
+        - label: I have verified this works correctly when each mod is loaded separately
+          required: true
+        - label: I have checked if there's already a known compatibility issue
+          required: true
+        - label: I have included the full mod list and crash logs (if applicable)
+          required: true
+

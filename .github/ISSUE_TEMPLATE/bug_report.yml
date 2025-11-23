@@ -1,0 +1,174 @@
+name: Bug Report
+description: Report a bug or issue with the Rituals datapack/mod
+title: "[Bug]: "
+labels: ["bug", "needs-triage"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Thanks for reporting a bug!
+        Please fill out this form to help us fix the issue. The more details you provide, the faster we can resolve it.
+
+  - type: dropdown
+    id: installation-type
+    attributes:
+      label: Installation Type
+      description: How are you using Rituals?
+      options:
+        - Datapack (Vanilla Minecraft)
+        - Fabric Mod
+        - Both (Datapack + Resourcepack)
+        - Not sure
+    validations:
+      required: true
+
+  - type: input
+    id: version
+    attributes:
+      label: Rituals Version
+      description: What version of Rituals are you using? (Check with `/datapack list` or mod menu)
+      placeholder: "e.g., 1.3.0"
+    validations:
+      required: true
+
+  - type: input
+    id: minecraft-version
+    attributes:
+      label: Minecraft Version
+      description: What version of Minecraft are you running?
+      placeholder: "e.g., 1.21.10"
+    validations:
+      required: true
+
+  - type: dropdown
+    id: category
+    attributes:
+      label: Bug Category
+      description: What aspect of the mod is affected?
+      options:
+        - Totem Placement/Removal
+        - Ritual Activation
+        - Fire Sacrifice System
+        - Pattern Rituals (Multi-totem)
+        - Specific Ritual Effect (Growth, Strength, etc.)
+        - Crafting Recipes
+        - Commands
+        - Performance/Lag
+        - Visual Issues (Particles, Models, Textures)
+        - Advancement/Badge System
+        - Configuration
+        - Other
+    validations:
+      required: true
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Bug Description
+      description: A clear and concise description of what the bug is
+      placeholder: "When I try to activate a Growth ritual with a Wood totem..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Steps to Reproduce
+      description: How can we reproduce this issue?
+      placeholder: |
+        1. Place a Wood Totem (Tier 1)
+        2. Add an Emerald to activate Growth ritual
+        3. Drop 4 Coal around the totem
+        4. Light fire with flint & steel
+        5. Observe that...
+    validations:
+      required: true
+
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected Behavior
+      description: What should happen?
+      placeholder: "The ritual should activate and crops should grow faster..."
+    validations:
+      required: true
+
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual Behavior
+      description: What actually happens?
+      placeholder: "Instead, nothing happens and the coal is not consumed..."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: kiwi-mode
+    attributes:
+      label: Kiwi Mode Status
+      description: Do you have Kiwi Mode enabled? (Easy mode without fire sacrifice)
+      options:
+        - Disabled (default - fire sacrifice required)
+        - Enabled (auto-activation)
+        - Not sure
+    validations:
+      required: false
+
+  - type: textarea
+    id: config
+    attributes:
+      label: Configuration
+      description: |
+        If you've changed any config settings, please share them.
+        Run: `/data get storage rituals:config` and paste the output
+      placeholder: |
+        {kiwi_mode:false, min_totems_required:1, max_totem_distance:32, ritual_duration:600}
+    validations:
+      required: false
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Error Messages / Logs
+      description: Any error messages in chat or console? Paste relevant logs here
+      placeholder: "Paste any error messages, chat output, or relevant log excerpts..."
+      render: shell
+    validations:
+      required: false
+
+  - type: textarea
+    id: other-mods
+    attributes:
+      label: Other Mods/Datapacks
+      description: List any other mods or datapacks you're using (conflicts may occur)
+      placeholder: |
+        - Fabric API 0.136.0+1.21.10
+        - OptiFabric 1.x
+        - Other datapack XYZ
+    validations:
+      required: false
+
+  - type: textarea
+    id: screenshots
+    attributes:
+      label: Screenshots / Videos
+      description: If applicable, add screenshots or videos to help explain the problem
+      placeholder: "Drag and drop images here, or paste links to screenshots/videos"
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission Checklist
+      description: Please confirm the following
+      options:
+        - label: I have searched existing issues to make sure this hasn't been reported yet
+          required: true
+        - label: I have tried running `/reload` to see if that fixes the issue
+          required: true
+        - label: I am using a compatible Minecraft version (1.21+)
+          required: true
+        - label: I have included all relevant information above
+          required: true
+

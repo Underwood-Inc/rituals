@@ -1,0 +1,139 @@
+name: Ritual Balance Issue
+description: Report a balance concern with an existing ritual or totem tier
+title: "[Balance]: "
+labels: ["balance", "needs-review"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        ## Ritual Balance Feedback
+        Help us make Rituals more balanced and enjoyable for everyone!
+
+  - type: dropdown
+    id: ritual-type
+    attributes:
+      label: Ritual Type
+      description: Which ritual has a balance issue?
+      options:
+        - Growth Ritual (Emerald)
+        - Strength Ritual (Diamond)
+        - Prosperity Ritual (Netherite Block)
+        - Protection Ritual (Iron Ingot)
+        - Healing Ritual (Nether Star)
+        - Sentry Ritual (Arrow)
+        - Auto-Farming Ritual (Diamond Hoe)
+        - Auto-Breeding Ritual (Wheat)
+        - Pattern Ritual (Multi-totem)
+        - Fire Sacrifice Cost
+        - Totem Range/Tier
+        - General Balance
+    validations:
+      required: true
+
+  - type: dropdown
+    id: issue-type
+    attributes:
+      label: Balance Issue
+      description: What's the concern?
+      options:
+        - Too Powerful/Overpowered
+        - Too Weak/Underpowered
+        - Cost too high
+        - Cost too low
+        - Range too large
+        - Range too small
+        - Duration too long
+        - Duration too short
+        - Frequency/Cooldown issue
+        - Conflicts with game progression
+        - Other
+    validations:
+      required: true
+
+  - type: dropdown
+    id: totem-tier
+    attributes:
+      label: Totem Tier
+      description: Which tier is affected? (Or select "All Tiers" if it applies broadly)
+      options:
+        - All Tiers
+        - Tier 1 - Wood
+        - Tier 2 - Copper
+        - Tier 3 - Iron
+        - Tier 4 - Gold
+        - Tier 5 - Diamond
+        - Tier 6 - Netherite
+    validations:
+      required: true
+
+  - type: textarea
+    id: current-behavior
+    attributes:
+      label: Current Behavior
+      description: Describe the current effect/cost/behavior and why it's unbalanced
+      placeholder: |
+        Currently, the Growth ritual at Tier 6 activates every 3 seconds and has a 75% success rate per crop.
+        This makes farming completely trivial because...
+    validations:
+      required: true
+
+  - type: textarea
+    id: impact
+    attributes:
+      label: Impact on Gameplay
+      description: How does this affect the player experience?
+      placeholder: |
+        - Makes early game too easy/hard
+        - Removes challenge from [activity]
+        - Makes other rituals obsolete
+        - Breaks progression
+    validations:
+      required: true
+
+  - type: textarea
+    id: suggested-change
+    attributes:
+      label: Suggested Changes
+      description: What changes would make this more balanced?
+      placeholder: |
+        Suggestion 1: Reduce frequency from 3s to 6s at Tier 6
+        Suggestion 2: Lower success rate from 75% to 50%
+        Suggestion 3: Increase fire sacrifice cost from 4 to 8 items
+    validations:
+      required: true
+
+  - type: dropdown
+    id: game-stage
+    attributes:
+      label: Game Stage
+      description: At what stage of the game is this most problematic?
+      options:
+        - Early Game
+        - Mid Game
+        - Late Game
+        - End Game
+        - All Stages
+    validations:
+      required: false
+
+  - type: textarea
+    id: additional-context
+    attributes:
+      label: Additional Context
+      description: Any other relevant information, comparisons, or data
+      placeholder: "In comparison to vanilla mechanics... / Testing data shows..."
+    validations:
+      required: false
+
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Pre-submission Checklist
+      options:
+        - label: I have tested this at the appropriate totem tier
+          required: true
+        - label: I have checked if this is already being discussed in other issues
+          required: true
+        - label: My suggestion maintains the fun and mystical theme of Rituals
+          required: true
+
