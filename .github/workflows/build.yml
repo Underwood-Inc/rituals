@@ -1,0 +1,91 @@
+name: Build Rituals
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Set up JDK 21
+      uses: actions/setup-java@v4
+      with:
+        java-version: '21'
+        distribution: 'temurin'
+        
+    - name: Grant execute permission for gradlew
+      run: chmod +x gradlew
+      
+    - name: Setup Gradle
+      uses: gradle/gradle-build-action@v3
+      
+    - name: Build with Gradle
+      run: ./gradlew build --no-daemon
+      
+    - name: Upload Fabric Mod Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: rituals-mod
+        path: build/libs/rituals-*.jar
+        if-no-files-found: error
+        
+    - name: Upload Datapack Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: rituals-datapack
+        path: build/datapacks/rituals-datapack-*.zip
+        if-no-files-found: error
+        
+    - name: Upload Resourcepack Artifact
+      uses: actions/upload-artifact@v4
+      with:
+        name: rituals-resourcepack
+        path: build/resourcepacks/rituals-resourcepack-*.zip
+        if-no-files-found: error
+        
+    - name: Build Summary
+      run: |
+        echo "## Build Artifacts" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Fabric Mod built successfully" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Datapack built successfully" >> $GITHUB_STEP_SUMMARY
+        echo "✅ Resourcepack built successfully" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "### Files Created:" >> $GITHUB_STEP_SUMMARY
+        ls -lh build/libs/*.jar >> $GITHUB_STEP_SUMMARY || echo "No mod jars found" >> $GITHUB_STEP_SUMMARY
+        ls -lh build/datapacks/*.zip >> $GITHUB_STEP_SUMMARY || echo "No datapack found" >> $GITHUB_STEP_SUMMARY
+        ls -lh build/resourcepacks/*.zip >> $GITHUB_STEP_SUMMARY || echo "No resourcepack found" >> $GITHUB_STEP_SUMMARY
+
+  validate-datapack:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      
+    - name: Validate JSON files
+      run: |
+        echo "Validating JSON files..."
+        find data -name "*.json" -type f -exec echo "Checking: {}" \; -exec python3 -m json.tool {} \; > /dev/null
+        find resourcepack -name "*.json" -type f -exec echo "Checking: {}" \; -exec python3 -m json.tool {} \; > /dev/null
+        echo "✅ All JSON files are valid"
+        
+    - name: Check pack.mcmeta
+      run: |
+        echo "Validating pack.mcmeta..."
+        python3 -m json.tool pack.mcmeta > /dev/null
+        echo "✅ pack.mcmeta is valid"
+        
+    - name: Validation Summary
+      run: |
+        echo "## Datapack Validation" >> $GITHUB_STEP_SUMMARY
+        echo "✅ All JSON files validated successfully" >> $GITHUB_STEP_SUMMARY
+        echo "✅ pack.mcmeta validated successfully" >> $GITHUB_STEP_SUMMARY
+

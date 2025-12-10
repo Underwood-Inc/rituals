@@ -2,6 +2,7 @@ package com.rituals.commands;
 
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.context.CommandContext;
+
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
 import net.minecraft.util.Formatting;
@@ -54,7 +55,10 @@ public class HelpCommand {
         source.sendFeedback(() -> Text.literal(""), false);
         
         // Admin Commands (only show if they have permission)
-        if (source.hasPermissionLevel(2)) {
+        var perms = source.getPermissions();
+        boolean isAdmin = perms instanceof net.minecraft.command.permission.LeveledPermissionPredicate lpp 
+            && lpp.getLevel().compareTo(net.minecraft.command.permission.LeveledPermissionPredicate.GAMEMASTERS.getLevel()) >= 0;
+        if (isAdmin) {
             source.sendFeedback(() -> Text.literal("  Admin Commands:").formatted(Formatting.RED).formatted(Formatting.BOLD)
                     .append(Text.literal(" (Requires OP)").formatted(Formatting.DARK_RED)), false);
             source.sendFeedback(() -> Text.literal("  * /rituals admin enable_kiwi_mode").formatted(Formatting.GREEN)

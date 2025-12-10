@@ -116,7 +116,13 @@ public class RitualsMod implements ModInitializer {
 
             // /rituals admin subcommands (OP required)
             LiteralArgumentBuilder<ServerCommandSource> adminCommand = CommandManager.literal("admin")
-                    .requires(source -> source.hasPermissionLevel(2));
+                    .requires(source -> {
+                        var perms = source.getPermissions();
+                        if (perms instanceof net.minecraft.command.permission.LeveledPermissionPredicate lpp) {
+                            return lpp.getLevel().compareTo(net.minecraft.command.permission.LeveledPermissionPredicate.GAMEMASTERS.getLevel()) >= 0;
+                        }
+                        return false;
+                    });
 
             adminCommand.then(CommandManager.literal("debug_status")
                     .executes(com.rituals.commands.AdminCommands::showDebugStatus));
