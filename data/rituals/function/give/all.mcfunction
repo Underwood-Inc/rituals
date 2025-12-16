@@ -7,4 +7,5 @@ function rituals:give/totem_master
 function rituals:give/totem_netherite
 function rituals:give/totems_short
 function rituals:give/guidebook
+function rituals:give/scrying_glass
 tellraw @s [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Gave all items + Guidebook!","color":"green","bold":false}]

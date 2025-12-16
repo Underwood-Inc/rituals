@@ -20,6 +20,15 @@
         "color": "#B87333",
         "italic": false
       },
+      "minecraft:lore": [
+        {"text": "━━━━━━━━━━━━━━━━━━━━", "color": "#B87333", "italic": false},
+        {"text": "Tier II", "color": "white", "italic": false},
+        {"text": "Conducts ritual energy.", "color": "gray", "italic": true},
+        {"text": "", "italic": false},
+        {"text": "▶ Place and sneak + right-click", "color": "yellow", "italic": false},
+        {"text": "▶ Toss items to perform rituals", "color": "yellow", "italic": false},
+        {"text": "━━━━━━━━━━━━━━━━━━━━", "color": "#B87333", "italic": false}
+      ],
       "minecraft:custom_data": {
         "rituals_totem": 1,
         "totem_tier": 2
@@ -27,4 +36,3 @@
     }
   }
 }
-

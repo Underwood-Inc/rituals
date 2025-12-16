@@ -20,6 +20,15 @@
         "color": "gold",
         "italic": false
       },
+      "minecraft:lore": [
+        {"text": "━━━━━━━━━━━━━━━━━━━━", "color": "dark_gray", "italic": false},
+        {"text": "Tier I", "color": "gray", "italic": false},
+        {"text": "A humble beginning.", "color": "gray", "italic": true},
+        {"text": "", "italic": false},
+        {"text": "▶ Place and sneak + right-click", "color": "yellow", "italic": false},
+        {"text": "▶ Toss items to perform rituals", "color": "yellow", "italic": false},
+        {"text": "━━━━━━━━━━━━━━━━━━━━", "color": "dark_gray", "italic": false}
+      ],
       "minecraft:custom_data": {
         "rituals_totem": 1,
         "totem_tier": 1

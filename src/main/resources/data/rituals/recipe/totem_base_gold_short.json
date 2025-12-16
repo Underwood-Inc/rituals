@@ -20,6 +20,15 @@
         "color": "gold",
         "italic": false
       },
+      "minecraft:lore": [
+        {"text": "━━━━━━━━━━━━━━━━━━━━", "color": "gold", "italic": false},
+        {"text": "Tier IV", "color": "yellow", "italic": false},
+        {"text": "Radiates magical potency.", "color": "gray", "italic": true},
+        {"text": "", "italic": false},
+        {"text": "▶ Place and sneak + right-click", "color": "yellow", "italic": false},
+        {"text": "▶ Toss items to perform rituals", "color": "yellow", "italic": false},
+        {"text": "━━━━━━━━━━━━━━━━━━━━", "color": "gold", "italic": false}
+      ],
       "minecraft:custom_data": {
         "rituals_totem": 1,
         "totem_tier": 4,
@@ -28,4 +37,3 @@
     }
   }
 }
-

@@ -48,6 +48,9 @@ scoreboard objectives add rituals.breeding_count dummy
 # Load config (can be modified in-game with /data modify storage rituals:config)
 function rituals:config/load
 
+# Initialize Soul Embodiment system
+function rituals:soul/init
+
 # Apply config to scoreboards
 execute store result score #ritual_duration rituals.data run data get storage rituals:config ritual_duration
 execute store result score #min_totems rituals.data run data get storage rituals:config min_totems_required

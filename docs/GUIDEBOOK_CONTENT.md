@@ -108,7 +108,7 @@ Buffs players
 Netherite Block
 Prosperty: Items+XP
 
-Permanent until deactivated
+Active while item on totem
 ```
 
 ### Page 8: Area Effect Rituals (Part 2)

@@ -17,6 +17,12 @@ execute if data storage rituals:temp {pattern_item:"minecraft:diamond_hoe"} at @
 # Visualize Star Pattern - Auto-Breeding (4 cardinals)
 execute if data storage rituals:temp {pattern_item:"minecraft:wheat"} at @s run function rituals:totem/patterns/visualize_star
 
+# Visualize Soul Star Pattern - Soul Embodiment (4 cardinals)
+# Check if item is an awakeable tool using tag
+scoreboard players set #is_soul_vis rituals.temp 0
+execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #vis_id rituals.temp if items entity @s contents #rituals:awakeable_tools run scoreboard players set #is_soul_vis rituals.temp 1
+execute if score #is_soul_vis rituals.temp matches 1 at @s run function rituals:totem/patterns/visualize_soul_star
+
 # Clear temp storage
 data remove storage rituals:temp pattern_item
 

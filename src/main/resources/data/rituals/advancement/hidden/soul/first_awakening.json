@@ -1,0 +1,41 @@
+{
+  "parent": "rituals:guide/root",
+  "display": {
+    "icon": {
+      "id": "minecraft:diamond_sword",
+      "components": {
+        "minecraft:enchantment_glint_override": true
+      }
+    },
+    "title": {
+      "text": "Soul Awakening",
+      "color": "dark_purple"
+    },
+    "description": {
+      "text": "Perform your first Soul Embodiment Ritual and awaken a living weapon",
+      "color": "gray"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": false
+  },
+  "criteria": {
+    "awakened_soul": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "minecraft:custom_data": "{soul_embodied:1b}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 100
+  }
+}
+
