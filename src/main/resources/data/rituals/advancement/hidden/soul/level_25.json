@@ -1,0 +1,38 @@
+{
+  "parent": "rituals:hidden/soul/first_ascension",
+  "display": {
+    "icon": {
+      "id": "minecraft:experience_bottle"
+    },
+    "title": {
+      "text": "Growing Bond",
+      "color": "green"
+    },
+    "description": {
+      "text": "Reach level 25 with a soul weapon",
+      "color": "gray"
+    },
+    "frame": "task",
+    "show_toast": true,
+    "announce_to_chat": false,
+    "hidden": true
+  },
+  "criteria": {
+    "level_25": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "minecraft:custom_data": "{soul_embodied:1b,soul_level:25}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 250
+  }
+}
+

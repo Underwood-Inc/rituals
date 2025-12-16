@@ -69,7 +69,7 @@ All settings can be modified in-game:
 /data modify storage rituals:config require_fire_sacrifice set value false
 /function rituals:config/reload
 
-# Rituals are permanent until deactivated (no duration config needed)
+# Rituals stay active while totem has item (remove item or break totem to stop)
 /function rituals:config/reload
 ```
 

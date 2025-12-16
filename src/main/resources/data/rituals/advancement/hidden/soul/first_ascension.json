@@ -1,0 +1,38 @@
+{
+  "parent": "rituals:hidden/soul/first_awakening",
+  "display": {
+    "icon": {
+      "id": "minecraft:nether_star"
+    },
+    "title": {
+      "text": "Breaking Limits",
+      "color": "light_purple"
+    },
+    "description": {
+      "text": "Perform an Ascension Ritual to raise your soul weapon's level cap",
+      "color": "gray"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "ascended": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "minecraft:custom_data": "{soul_embodied:1b,soul_ascension_tier:2}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 200
+  }
+}
+

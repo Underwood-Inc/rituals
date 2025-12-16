@@ -47,6 +47,10 @@ public class RitualsMod implements ModInitializer {
         registerCommands();
 
         LOGGER.info("Commands registered! Use /rituals help");
+        
+        // Initialize Soul Weapon enhancement layer
+        com.rituals.soul.SoulWeaponManager.initialize();
+        LOGGER.info("Soul Embodiment enhancements active!");
         LOGGER.info("===========================================");
     }
 
@@ -96,6 +100,15 @@ public class RitualsMod implements ModInitializer {
             giveCommand.then(CommandManager.literal("totem_iron").executes(ctx -> giveTotem(ctx, "iron", false)));
             giveCommand.then(CommandManager.literal("totem_iron_short").executes(ctx -> giveTotem(ctx, "iron", true)));
             ritualsCommand.then(giveCommand);
+
+            // /rituals soul subcommands
+            LiteralArgumentBuilder<ServerCommandSource> soulCommand = CommandManager.literal("soul");
+            soulCommand.then(CommandManager.literal("info")
+                    .executes(com.rituals.commands.SoulCommands::showInfo));
+            soulCommand.then(CommandManager.literal("rename")
+                    .then(CommandManager.argument("name", com.mojang.brigadier.arguments.StringArgumentType.greedyString())
+                            .executes(com.rituals.commands.SoulCommands::rename)));
+            ritualsCommand.then(soulCommand);
 
             // /rituals config subcommands
             LiteralArgumentBuilder<ServerCommandSource> configCommand = CommandManager.literal("config");
@@ -175,16 +188,21 @@ public class RitualsMod implements ModInitializer {
                     "Catalyst Costs\n\nBy Tier:\n\nWood: 4 Coal\nCopper: 4 Copper\nIron: 4 Iron\nGold: 4 Gold\nDiamond: 4 Diamond\nNetherite: 4 Netherite\n\n\nHigher tier = higher cost!",
                     "Totem Tiers\n\n1. Wood - Basic\n   Range: 2x2x6\n2. Copper - Improved\n   Range: 3x3x8\n3. Iron - Strong\n   Range: 4x4x10\n4. Gold - Very Strong\n   Range: 5x5x12",
                     "Tiers Continued\n\n5. Diamond - Powerful\n   Range: 6x6x14\n6. Netherite - Ultimate\n   Range: 7x7x16\n\n\nHigher tier = larger range and stronger effects!",
-                    "Area Effect Rituals\n\nEmerald - Growth\nGrows crops nearby\n\nDiamond - Strength\nBuffs players\n\nNetherite Block\nProsperity: Items+XP\n\nAll rituals are continuous until toggled off!",
+                    "Area Effect Rituals\n\nEmerald - Growth\nGrows crops nearby\n\nDiamond - Strength\nBuffs players\n\nNetherite Block\nProsperity: Items+XP\n\nRituals stay active while totem has item. Remove item to stop!",
                     "More Area Effects\n\nIron Ingot\nProtection: Damage mobs\n\nNether Star\nHealing: Regeneration\n\nArrow\nSentry: Auto-fires (2x range!)\n\nDiamond Hoe\nAuto-Farming (4+ totems)",
                     "Pattern Rituals\n\nSome rituals need multiple totems with specific items!\n\nDiamond Hoe + 4 totems\nAuto-Harvest farms\n\nWheat + 4 totems\nAuto-Breeding animals\n\nUse redstone near totems to see patterns!",
+                    // Soul Embodiment pages (NEW!)
+                    "Soul Embodiment\n\nAwaken your weapons with a LIVING SOUL!\n\nPlace any tool on central totem with:\n- N: Soul Sand\n- E: Ender Pearl\n- S: Glowstone Dust\n- W: Amethyst Shard\n\nLight fire to awaken!",
+                    "Living Weapons\n\nSoul weapons grow with you!\n\n- Gain XP by using them\n- Level up to 100\n- Each level = stronger bond\n\nMax level (15) reached?\nRepeat ritual to ASCEND!\n\n18 ascensions to max!",
+                    "Ascension Ritual\n\nWhen your soul weapon hits its level cap:\n\n1. Place it on totem\n2. Same pattern items\n3. Light fire\n4. +5 level cap!\n5. 50% chance for bonus enchant!\n\nRepeat until level 100!",
+                    "Soul Commands\n\n/rituals soul info\nShow weapon stats\n\n/rituals soul rename <name>\nRename your soul\n\nSee docs/ for:\nSOUL_EMBODIMENT_PLAYER_GUIDE.md",
                     "Crafting: Wood Totem\n\n    [S]\n [S][P][S]\n    [P]\n\nS = Stick\nP = Oak Planks\n\nResult:\n1 Wood Totem\n\nShort: Skip top row",
                     "Crafting: Higher Tiers\n\nAll follow same pattern:\n\n    [I]\n [I][B][I]\n    [B]\n\nCopper: Copper Ingot + Block\nIron: Iron Ingot + Block\nGold: Gold Ingot + Block\nDiamond: Diamond + Block\nNetherite: Netherite + Block\n\n\nCraft higher tier totems directly!",
                     "Range Display\n\nPower totem with redstone to see range!\n\nRed particles = tier range\nColored particles = pattern positions\n\nWorks with lever, torch, redstone block, button",
-                    "Helpful Commands\n\n/rituals help\nShows help menu\n\n/rituals get\nGet all items\n\n/rituals give guidebook\nGet another book",
+                    "Helpful Commands\n\n/rituals help\nShows help menu\n\n/rituals get\nGet all items\n\n/rituals give guidebook\nGet another book\n\n/rituals soul info\nSoul weapon stats",
                     "Advanced Tips\n\n- Pattern rituals need exact item per totem\n- Regular rituals work with same item on all totems\n- Fire sacrifice required by default\n- Can disable with Kiwi Mode\n- See docs/ folder for more!",
                     "Configuration\n\nCustomize settings:\n\n/data get storage rituals:config\n\nKey settings:\nrequire_fire_sacrifice\nmin_totems_required\nritual_duration\nkiwi_mode",
-                    "Happy Ritualing!\n\nMay your totems shine bright!\n\nFor detailed guides see docs/ folder:\n- PATTERN_RITUALS_GUIDE.md\n- FIRE_SACRIFICE_GUIDE.md\n- CRAFTING_RECIPES.md\n\n- Ancient Ritualist"
+                    "Happy Ritualing!\n\nMay your totems shine bright!\n\nFor detailed guides see docs/ folder:\n- PATTERN_RITUALS_GUIDE.md\n- FIRE_SACRIFICE_GUIDE.md\n- CRAFTING_RECIPES.md\n- SOUL_EMBODIMENT_PLAYER_GUIDE.md\n\n- Ancient Ritualist"
             };
 
             java.util.List<RawFilteredPair<Text>> pageComponents = new java.util.ArrayList<>();

@@ -29,3 +29,7 @@ tellraw @p[distance=..5] [{"text":"[Rituals] ","color":"gold","bold":true},{"tex
 
 # Check if this is a pattern ritual item and show setup help immediately
 function rituals:totem/check_pattern_help
+
+# === SOUL WEAPON SYNC ===
+# If this is a soul-embodied item and player has pending sync, apply XP
+execute if data storage rituals:temp item.components."minecraft:custom_data".soul_embodied as @p[distance=..5,tag=rituals.soul_pending_sync] run function rituals:soul/sync_from_totem

@@ -1,0 +1,23 @@
+# Generic soul names for unrecognized tools
+# Uses #name_roll from generate.mcfunction (already randomized)
+
+execute if score #name_roll rituals.temp matches 0 run data modify storage rituals:temp soul_name set value "Soulbound"
+execute if score #name_roll rituals.temp matches 1 run data modify storage rituals:temp soul_name set value "Spiritforged"
+execute if score #name_roll rituals.temp matches 2 run data modify storage rituals:temp soul_name set value "Essencekeeper"
+execute if score #name_roll rituals.temp matches 3 run data modify storage rituals:temp soul_name set value "Willweaver"
+execute if score #name_roll rituals.temp matches 4 run data modify storage rituals:temp soul_name set value "Ghosttouch"
+execute if score #name_roll rituals.temp matches 5 run data modify storage rituals:temp soul_name set value "Soulecho"
+execute if score #name_roll rituals.temp matches 6 run data modify storage rituals:temp soul_name set value "Spiritcall"
+execute if score #name_roll rituals.temp matches 7 run data modify storage rituals:temp soul_name set value "Ethereal"
+execute if score #name_roll rituals.temp matches 8 run data modify storage rituals:temp soul_name set value "Phantomgrip"
+execute if score #name_roll rituals.temp matches 9 run data modify storage rituals:temp soul_name set value "Aurabound"
+execute if score #name_roll rituals.temp matches 10 run data modify storage rituals:temp soul_name set value "Voidtouch"
+execute if score #name_roll rituals.temp matches 11 run data modify storage rituals:temp soul_name set value "Spiritweave"
+execute if score #name_roll rituals.temp matches 12 run data modify storage rituals:temp soul_name set value "Mindforge"
+execute if score #name_roll rituals.temp matches 13 run data modify storage rituals:temp soul_name set value "Soulwhisper"
+execute if score #name_roll rituals.temp matches 14 run data modify storage rituals:temp soul_name set value "Spiritfire"
+execute if score #name_roll rituals.temp matches 15 run data modify storage rituals:temp soul_name set value "Echofang"
+execute if score #name_roll rituals.temp matches 16 run data modify storage rituals:temp soul_name set value "Willborn"
+execute if score #name_roll rituals.temp matches 17 run data modify storage rituals:temp soul_name set value "Hauntedge"
+execute if score #name_roll rituals.temp matches 18 run data modify storage rituals:temp soul_name set value "Ghostweave"
+execute if score #name_roll rituals.temp matches 19..49 run data modify storage rituals:temp soul_name set value "Soulkeeper"

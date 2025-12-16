@@ -1,0 +1,23 @@
+# Hoe soul names
+# Uses #name_roll from generate.mcfunction (already randomized)
+
+execute if score #name_roll rituals.temp matches 0 run data modify storage rituals:temp soul_name set value "Harvestbane"
+execute if score #name_roll rituals.temp matches 1 run data modify storage rituals:temp soul_name set value "Cropkeeper"
+execute if score #name_roll rituals.temp matches 2 run data modify storage rituals:temp soul_name set value "Fieldmaster"
+execute if score #name_roll rituals.temp matches 3 run data modify storage rituals:temp soul_name set value "Soiltender"
+execute if score #name_roll rituals.temp matches 4 run data modify storage rituals:temp soul_name set value "Seedwhisper"
+execute if score #name_roll rituals.temp matches 5 run data modify storage rituals:temp soul_name set value "Farmfury"
+execute if score #name_roll rituals.temp matches 6 run data modify storage rituals:temp soul_name set value "Growthbringer"
+execute if score #name_roll rituals.temp matches 7 run data modify storage rituals:temp soul_name set value "Plow"
+execute if score #name_roll rituals.temp matches 8 run data modify storage rituals:temp soul_name set value "Tillertouch"
+execute if score #name_roll rituals.temp matches 9 run data modify storage rituals:temp soul_name set value "Yieldkeeper"
+execute if score #name_roll rituals.temp matches 10 run data modify storage rituals:temp soul_name set value "Abundancer"
+execute if score #name_roll rituals.temp matches 11 run data modify storage rituals:temp soul_name set value "Fertileforge"
+execute if score #name_roll rituals.temp matches 12 run data modify storage rituals:temp soul_name set value "Earthtender"
+execute if score #name_roll rituals.temp matches 13 run data modify storage rituals:temp soul_name set value "Rootwaker"
+execute if score #name_roll rituals.temp matches 14 run data modify storage rituals:temp soul_name set value "Sproutcaller"
+execute if score #name_roll rituals.temp matches 15 run data modify storage rituals:temp soul_name set value "Bloomweaver"
+execute if score #name_roll rituals.temp matches 16 run data modify storage rituals:temp soul_name set value "Cultivator"
+execute if score #name_roll rituals.temp matches 17 run data modify storage rituals:temp soul_name set value "Reapersoul"
+execute if score #name_roll rituals.temp matches 18 run data modify storage rituals:temp soul_name set value "Greenthumb"
+execute if score #name_roll rituals.temp matches 19..49 run data modify storage rituals:temp soul_name set value "Naturebound"

@@ -1,0 +1,12 @@
+{
+  "function": "minecraft:set_lore",
+  "lore": [
+    {"text": "✦ Soul: ", "color": "dark_purple", "italic": false, "extra": [{"text": "Awakening...", "color": "white", "bold": true}]},
+    {"text": "Level: 1/15 (Tier I)", "color": "gray", "italic": false},
+    {"text": "XP: 0 ░░░░░░░░░░ 0%", "color": "dark_green", "italic": false},
+    {"text": "", "italic": false},
+    {"text": "Soul Embodied", "color": "dark_purple", "italic": false}
+  ],
+  "mode": "replace_all"
+}
+
