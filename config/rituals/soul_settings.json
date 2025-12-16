@@ -1,0 +1,188 @@
+{
+  "_comment": "Soul Embodiment - System Settings",
+  "_description": "Core configuration for the Soul Embodiment system. Adjust values to balance for your server.",
+  "_format_version": 1,
+
+  "leveling": {
+    "_comment": "XP and leveling configuration",
+    
+    "max_level": 100,
+    "xp_base": 100,
+    "xp_exponent": 1.5,
+    "xp_linear_bonus": 50,
+    "_xp_formula": "XP_required = xp_base × (level ^ xp_exponent) + (level × xp_linear_bonus)"
+  },
+
+  "ascension": {
+    "_comment": "Ascension ritual configuration",
+    
+    "initial_level_cap": 15,
+    "level_cap_increment": 5,
+    "max_ascension_tier": 18,
+    "bonus_enchant_chance": 50,
+    "_note": "bonus_enchant_chance is a percentage (0-100)"
+  },
+
+  "xp_rewards": {
+    "_comment": "XP awarded per action type. Adjust for balance.",
+    
+    "sword": {
+      "damage_dealt": 1,
+      "kill_mob": 10,
+      "kill_boss": 100,
+      "critical_hit": 5
+    },
+    "pickaxe": {
+      "block_mined": 1,
+      "ore_mined": 5,
+      "diamond_ore": 25,
+      "ancient_debris": 50
+    },
+    "axe": {
+      "log_chopped": 2,
+      "damage_dealt": 1,
+      "kill_mob": 8,
+      "stripped_log": 1
+    },
+    "shovel": {
+      "block_dug": 1,
+      "path_created": 2,
+      "gravel_cleared": 1,
+      "snow_cleared": 1
+    },
+    "hoe": {
+      "crop_harvested": 3,
+      "soil_tilled": 1,
+      "moss_spread": 2
+    },
+    "bow": {
+      "arrow_hit": 3,
+      "critical_hit": 8,
+      "long_range_hit": 10,
+      "kill_mob": 12
+    },
+    "crossbow": {
+      "arrow_hit": 4,
+      "piercing_hit": 6,
+      "kill_mob": 12,
+      "multishot_all_hit": 15
+    },
+    "trident": {
+      "damage_dealt": 2,
+      "throw_hit": 5,
+      "riptide_use": 3,
+      "lightning_strike": 25,
+      "kill_mob": 15
+    }
+  },
+
+  "bonus_enchantments": {
+    "_comment": "Possible bonus enchantments per tool type and their max stack limits",
+    
+    "sword": {
+      "sharpness": { "max_bonus": 3 },
+      "looting": { "max_bonus": 3 },
+      "sweeping_edge": { "max_bonus": 2 },
+      "unbreaking": { "max_bonus": 2 }
+    },
+    "pickaxe": {
+      "efficiency": { "max_bonus": 3 },
+      "fortune": { "max_bonus": 3 },
+      "unbreaking": { "max_bonus": 2 },
+      "silk_touch": { "max_bonus": 1, "exclusive_with": "fortune" }
+    },
+    "axe": {
+      "efficiency": { "max_bonus": 3 },
+      "sharpness": { "max_bonus": 2 },
+      "unbreaking": { "max_bonus": 2 }
+    },
+    "shovel": {
+      "efficiency": { "max_bonus": 3 },
+      "unbreaking": { "max_bonus": 2 },
+      "silk_touch": { "max_bonus": 1 }
+    },
+    "hoe": {
+      "efficiency": { "max_bonus": 3 },
+      "fortune": { "max_bonus": 2 },
+      "unbreaking": { "max_bonus": 2 }
+    },
+    "bow": {
+      "power": { "max_bonus": 3 },
+      "punch": { "max_bonus": 2 },
+      "infinity": { "max_bonus": 1, "exclusive_with": "mending" }
+    },
+    "crossbow": {
+      "quick_charge": { "max_bonus": 3 },
+      "piercing": { "max_bonus": 3, "exclusive_with": "multishot" },
+      "multishot": { "max_bonus": 1, "exclusive_with": "piercing" }
+    },
+    "trident": {
+      "loyalty": { "max_bonus": 3 },
+      "riptide": { "max_bonus": 2, "exclusive_with": ["loyalty", "channeling"] },
+      "channeling": { "max_bonus": 1, "exclusive_with": "riptide" },
+      "impaling": { "max_bonus": 2 }
+    }
+  },
+
+  "display": {
+    "_comment": "Tooltip and display settings",
+    
+    "show_xp_bar": true,
+    "show_xp_numbers": true,
+    "show_tier": true,
+    "show_level_cap": true,
+    "show_kill_count": true,
+    "show_block_count": true,
+    "show_bonus_enchants": true,
+    "show_personality_quote": true,
+    "quote_change_frequency": "per_level",
+    "_quote_options": ["per_level", "per_session", "random_each_view"]
+  },
+
+  "particles": {
+    "_comment": "Visual effects settings",
+    
+    "awakening_particles": true,
+    "ascension_particles": true,
+    "level_up_particles": true,
+    "max_level_aura": true,
+    "xp_gain_particles": false
+  },
+
+  "sounds": {
+    "_comment": "Audio settings",
+    
+    "awakening_sound": "entity.wither.spawn",
+    "awakening_pitch": 0.5,
+    "ascension_sound": "entity.player.levelup",
+    "level_up_sound": "entity.experience_orb.pickup",
+    "max_level_sound": "ui.toast.challenge_complete",
+    "bonus_enchant_sound": "block.enchantment_table.use"
+  },
+
+  "ritual_components": {
+    "_comment": "Items required for the Soul Embodiment ritual",
+    
+    "north": "minecraft:soul_sand",
+    "east": "minecraft:ender_pearl",
+    "south": "minecraft:glowstone_dust",
+    "west": "minecraft:amethyst_shard"
+  },
+
+  "compatibility": {
+    "_comment": "Mod compatibility settings",
+    
+    "allow_modded_tools": true,
+    "additional_tool_tags": [],
+    "_example": "Add tags like 'c:swords' or 'modid:special_tools' to additional_tool_tags"
+  },
+
+  "persistence": {
+    "_comment": "Data persistence settings",
+    
+    "save_ascension_history": true,
+    "max_history_entries": 50,
+    "track_lifetime_stats": true
+  }
+}
+

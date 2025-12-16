@@ -1,0 +1,36 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    " A ",
+    "ASA",
+    " A "
+  ],
+  "key": {
+    "A": {"item": "minecraft:amethyst_shard"},
+    "S": {"item": "minecraft:spyglass"}
+  },
+  "result": {
+    "id": "minecraft:spyglass",
+    "count": 1,
+    "components": {
+      "minecraft:custom_name": "{\"text\":\"✦ Scrying Glass\",\"color\":\"light_purple\",\"italic\":false}",
+      "minecraft:lore": [
+        "{\"text\":\"━━━━━━━━━━━━━━━━━━━━\",\"color\":\"dark_purple\"}",
+        "{\"text\":\"A mystical lens attuned to souls.\",\"color\":\"gray\",\"italic\":true}",
+        "{\"text\":\"\",\"color\":\"gray\"}",
+        "{\"text\":\"Uses Remaining: 5\",\"color\":\"aqua\"}",
+        "{\"text\":\"\",\"color\":\"gray\"}",
+        "{\"text\":\"▶ Hold Soul Weapon in OFFHAND\",\"color\":\"yellow\"}",
+        "{\"text\":\"▶ Look through this glass\",\"color\":\"yellow\"}",
+        "{\"text\":\"▶ Soul progress syncs!\",\"color\":\"green\"}",
+        "{\"text\":\"━━━━━━━━━━━━━━━━━━━━\",\"color\":\"dark_purple\"}"
+      ],
+      "minecraft:enchantment_glint_override": true,
+      "minecraft:custom_model_data": 8675309,
+      "minecraft:custom_data": {
+        "rituals_scrying_glass": true,
+        "scrying_uses": 5
+      }
+    }
+  }
+}

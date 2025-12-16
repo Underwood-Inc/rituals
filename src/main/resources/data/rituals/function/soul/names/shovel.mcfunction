@@ -1,0 +1,23 @@
+# Shovel soul names
+# Uses #name_roll from generate.mcfunction (already randomized)
+
+execute if score #name_roll rituals.temp matches 0 run data modify storage rituals:temp soul_name set value "Dirtdevourer"
+execute if score #name_roll rituals.temp matches 1 run data modify storage rituals:temp soul_name set value "Gravedigger"
+execute if score #name_roll rituals.temp matches 2 run data modify storage rituals:temp soul_name set value "Sandshifter"
+execute if score #name_roll rituals.temp matches 3 run data modify storage rituals:temp soul_name set value "Mudmover"
+execute if score #name_roll rituals.temp matches 4 run data modify storage rituals:temp soul_name set value "Soilsplitter"
+execute if score #name_roll rituals.temp matches 5 run data modify storage rituals:temp soul_name set value "Dustbane"
+execute if score #name_roll rituals.temp matches 6 run data modify storage rituals:temp soul_name set value "Earthmaw"
+execute if score #name_roll rituals.temp matches 7 run data modify storage rituals:temp soul_name set value "Clayscooper"
+execute if score #name_roll rituals.temp matches 8 run data modify storage rituals:temp soul_name set value "Gravelgulp"
+execute if score #name_roll rituals.temp matches 9 run data modify storage rituals:temp soul_name set value "Dirtwhisper"
+execute if score #name_roll rituals.temp matches 10 run data modify storage rituals:temp soul_name set value "Groundbreaker"
+execute if score #name_roll rituals.temp matches 11 run data modify storage rituals:temp soul_name set value "Pathcarver"
+execute if score #name_roll rituals.temp matches 12 run data modify storage rituals:temp soul_name set value "Tunneler"
+execute if score #name_roll rituals.temp matches 13 run data modify storage rituals:temp soul_name set value "Burrowfang"
+execute if score #name_roll rituals.temp matches 14 run data modify storage rituals:temp soul_name set value "Depthdigger"
+execute if score #name_roll rituals.temp matches 15 run data modify storage rituals:temp soul_name set value "Soulshovel"
+execute if score #name_roll rituals.temp matches 16 run data modify storage rituals:temp soul_name set value "Pitmaker"
+execute if score #name_roll rituals.temp matches 17 run data modify storage rituals:temp soul_name set value "Foundationfury"
+execute if score #name_roll rituals.temp matches 18 run data modify storage rituals:temp soul_name set value "Excavator"
+execute if score #name_roll rituals.temp matches 19..49 run data modify storage rituals:temp soul_name set value "Terraforge"
