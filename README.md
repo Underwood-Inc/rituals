@@ -1,5 +1,5 @@
 ![Minecraft 1.21.10](https://img.shields.io/badge/Minecraft-1.21.10-db1f29?style=for-the-badge&logo=minecraft)
-![Fabric Loader 0.15.11](https://img.shields.io/badge/Fabric%20Loader-0.15.11-dbd0b4?style=for-the-badge&logo=fabricmc)
+![Minecraft 1.21.11](https://img.shields.io/badge/Minecraft-1.21.11-ff5900?style=for-the-badge&logo=minecraft)
 
 # Rituals Datapack/Mod
 
