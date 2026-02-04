@@ -1,0 +1,42 @@
+{
+  "parent": "rituals:hidden/soul/level_75",
+  "display": {
+    "icon": {
+      "id": "minecraft:netherite_sword",
+      "components": {
+        "minecraft:enchantment_glint_override": true
+      }
+    },
+    "title": {
+      "text": "☆ OMEGA ☆",
+      "color": "red",
+      "bold": true
+    },
+    "description": {
+      "text": "Reach level 100 - APOTHEOSIS ACHIEVED! Your soul weapon has become godlike!",
+      "color": "gold"
+    },
+    "frame": "challenge",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "level_100": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "minecraft:custom_data": "{soul_embodied:1b,soul_level:100}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 2000
+  }
+}
+

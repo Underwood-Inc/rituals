@@ -102,6 +102,9 @@ scoreboard players set #100 rituals.data 100
 # Initialize global ID counter
 execute unless score #global_totem_id rituals.id matches 1.. run scoreboard players set #global_totem_id rituals.id 1
 
+# Initialize Soul Embodiment system
+function rituals:soul/init
+
 # Calculate badge progress for all online players (view with /function rituals:badges/check_status)
 execute as @a run function rituals:badges/calculate_badge
 

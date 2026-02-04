@@ -10,6 +10,10 @@ scoreboard players remove @a[scores={rituals.temp=1..}] rituals.temp 1
 execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_totem:1}}}}] at @s run function rituals:totem/check_place
 execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_totem:1b}}}}] at @s run function rituals:totem/check_place
 
+# Check for Scrying Glass use (in MAINHAND, soul weapon in offhand)
+# Check both formats: true (JSON) and 1b (NBT byte) for compatibility
+execute as @a at @s if data entity @s SelectedItem.components."minecraft:custom_data".rituals_scrying_glass run function rituals:soul/check_scrying_use
+
 # Check for illegally crafted totems (recipe progression enforcement)
 execute as @a run function rituals:player/check_illegal_totem
 
@@ -26,6 +30,9 @@ execute as @e[type=interaction,tag=rituals.totem,tag=rituals.active_ritual] at @
 # Update sentry projectiles
 execute as @e[type=marker,tag=rituals.sentry_projectile] at @s run function rituals:ritual/effects/sentry_projectile_motion
 
+# === SOUL EMBODIMENT XP TRACKING ===
+# Check players holding soul-embodied weapons for XP gains
+function rituals:soul/tick
 
 # Handle menu triggers
 function rituals:menu/handler

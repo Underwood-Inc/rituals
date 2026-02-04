@@ -175,5 +175,15 @@ data modify storage rituals:config breeding_tier6_frequency set value 600
 # If false, runs silently (default for normal gameplay)
 data modify storage rituals:config debug_mode set value false
 
+# ==================== SOUL EMBODIMENT XP SETTINGS ====================
+# Complete block-to-XP mappings loaded from separate files for performance
+# Edit individual files in: data/rituals/function/config/soul_xp/
+# - pickaxe_blocks.mcfunction
+# - shovel_blocks.mcfunction  
+# - axe_blocks.mcfunction
+# - hoe_blocks.mcfunction
+# Minecraft 1.21.11 (Mounts of Mayhem) - December 9, 2025
+function rituals:config/soul_xp/load
+
 # Config loaded silently - fancy message shown in load.mcfunction
 

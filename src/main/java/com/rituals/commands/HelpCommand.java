@@ -45,6 +45,15 @@ public class HelpCommand {
         
         source.sendFeedback(() -> Text.literal(""), false);
         
+        // Soul Embodiment Commands
+        source.sendFeedback(() -> Text.literal("  Soul Embodiment:").formatted(Formatting.LIGHT_PURPLE).formatted(Formatting.BOLD), false);
+        source.sendFeedback(() -> Text.literal("  * /rituals soul info").formatted(Formatting.LIGHT_PURPLE)
+                .append(Text.literal(" - View soul weapon stats").formatted(Formatting.GRAY)), false);
+        source.sendFeedback(() -> Text.literal("  * /rituals soul rename <name>").formatted(Formatting.LIGHT_PURPLE)
+                .append(Text.literal(" - Rename your soul weapon").formatted(Formatting.GRAY)), false);
+        
+        source.sendFeedback(() -> Text.literal(""), false);
+        
         // Config & Progress
         source.sendFeedback(() -> Text.literal("  Config & Progress:").formatted(Formatting.YELLOW).formatted(Formatting.BOLD), false);
         source.sendFeedback(() -> Text.literal("  * /rituals badges check_status").formatted(Formatting.GOLD)

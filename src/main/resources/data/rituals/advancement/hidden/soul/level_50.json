@@ -1,0 +1,38 @@
+{
+  "parent": "rituals:hidden/soul/level_25",
+  "display": {
+    "icon": {
+      "id": "minecraft:beacon"
+    },
+    "title": {
+      "text": "Half-Transcendence",
+      "color": "aqua"
+    },
+    "description": {
+      "text": "Reach level 50 with a soul weapon - halfway to ultimate power!",
+      "color": "gray"
+    },
+    "frame": "goal",
+    "show_toast": true,
+    "announce_to_chat": true,
+    "hidden": true
+  },
+  "criteria": {
+    "level_50": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "predicates": {
+              "minecraft:custom_data": "{soul_embodied:1b,soul_level:50}"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "rewards": {
+    "experience": 500
+  }
+}
+

@@ -204,7 +204,7 @@ This lets you preview different ritual patterns without rebuilding!
 |----------------|-----------------|
 | 1+ totems with SAME item | Multiple totems with DIFFERENT items |
 | Flexible totem placement | EXACT positions required |
-| Permanent until deactivated | Permanent until item removed |
+| Permanent until item removed | Permanent until item removed |
 | Examples: Growth, Strength, Healing | Examples: Auto-Farming, Auto-Breeding |
 
 ---

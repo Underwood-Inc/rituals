@@ -20,6 +20,15 @@
         "color": "gray",
         "italic": false
       },
+      "minecraft:lore": [
+        {"text": "━━━━━━━━━━━━━━━━━━━━", "color": "gray", "italic": false},
+        {"text": "Tier III", "color": "white", "italic": false},
+        {"text": "Sturdy and reliable.", "color": "gray", "italic": true},
+        {"text": "", "italic": false},
+        {"text": "▶ Place and sneak + right-click", "color": "yellow", "italic": false},
+        {"text": "▶ Toss items to perform rituals", "color": "yellow", "italic": false},
+        {"text": "━━━━━━━━━━━━━━━━━━━━", "color": "gray", "italic": false}
+      ],
       "minecraft:custom_data": {
         "rituals_totem": 1,
         "totem_tier": 3
