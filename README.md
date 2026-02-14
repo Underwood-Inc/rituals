@@ -398,7 +398,7 @@ mindmap
 ```mermaid
 pie title "Ritual Implementation Status"
     "Implemented (8)" : 8
-    "Planned/Coming Soon (9)" : 9
+    "Planned/Coming Soon (6)" : 6
 ```
 
 #### ✅ Currently Implemented Rituals
@@ -416,14 +416,7 @@ pie title "Ritual Implementation Status"
 
 #### 🚧 Planned Rituals (Coming Soon)
 
-These rituals are defined in the advancement system but not yet implemented. They come in two types:
-
-**Standard Rituals** - Place ritual item on totem, trigger with fire sacrifice
-**Crafting Rituals** - Place special item on central totem with specific totem pattern
-
----
-
-### Standard Area Effect Rituals
+These 6 rituals are designed but not yet implemented. They require multi-totem geometric patterns and specialized catalysts.
 
 | Ritual | Item | Min Totems | Pattern | Effect |
 |--------|------|------------|---------|--------|
@@ -433,18 +426,6 @@ These rituals are defined in the advancement system but not yet implemented. The
 | **Mining Haste** | Netherite Pickaxe | 5+ | Underground cross pattern | Grant Haste III to nearby players |
 | **Forcefield** | End Crystal | 8+ | Circle pattern (8 totems) | Create impenetrable barrier around area |
 | **Mob Repellent** | Zombie Head | 8+ | Barrier pattern (octagon) | Prevent hostile mob spawns in area |
-
----
-
-### ⚠️ Planned Rituals (Not Yet Implemented)
-
-The following are ideas for future rituals:
-- **Flight Zone** (Elytra) - Grant levitation/slow falling
-- **Weather Control** (Lightning Rod) - Control weather
-- **Time Warp** (Clock) - Accelerate time
-- **Mining Haste** (Netherite Pickaxe) - Grant Haste effect
-- **Forcefield** (End Crystal) - Create barriers
-- **Mob Repellent** (Zombie Head) - Prevent mob spawns
 
 **🎯 NEW: Visual Pattern Guides!** Power your central totem with redstone (place redstone block/torch/lever next to it) to see colored particle markers showing exactly where each surrounding totem should be placed and what item it needs!
 

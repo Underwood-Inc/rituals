@@ -87,7 +87,7 @@ Legend:
    - South: Potato
    - West: Beetroot Seeds
 4. Fire sacrifice at center
-5. Animals within range will auto-breed when fed matching food
+5. Animals within range will auto-breed (sets InLove directly — no food consumed from chests)
 
 ![Auto-Breeding Ritual Pattern](../images/breeding%20ritual.webp)
 

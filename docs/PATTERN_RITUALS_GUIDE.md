@@ -97,9 +97,20 @@ This makes setup MUCH easier - you don't need to memorize coordinates!
 7. Central totem remains - animals will auto-breed every 3 minutes (default)
 8. Immediate effect: At least one breeding pair of each animal type breeds instantly on activation!
 
-**Effect Range:** Based on central totem tier (Wood = 8 blocks, Netherite = 32 blocks)  
-**Frequency:** Every 3 minutes (180 seconds / 3600 ticks) by default  
-**Animals Affected:** Cows, Sheep, Pigs, Chickens, Rabbits, Horses, Wolves, Cats
+**Effect Range by Tier:**
+
+| Tier | Totem Material | Breeding Range |
+|------|---------------|----------------|
+| 1 | Wood | 3 blocks |
+| 2 | Copper | 4 blocks |
+| 3 | Iron | 5 blocks |
+| 4 | Gold | 6 blocks |
+| 5 | Diamond | 7 blocks |
+| 6 | Netherite | 8 blocks |
+
+**Frequency:** Configurable (default interval loaded from `get_breeding_settings`)
+**Animals Affected:** Cows, Sheep, Pigs, Chickens, Rabbits
+**Mechanic:** Finds pairs of eligible adults (`Age:0, InLove:0`) within range and sets `InLove:600` directly — no food items are consumed from chests
 
 ![Auto-Breeding Ritual Setup](../images/breeding%20ritual.webp)
 

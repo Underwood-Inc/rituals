@@ -245,5 +245,6 @@ Before deployment, test:
 
 **Audit Completed**: October 14, 2025  
 **Correction Made**: October 14, 2025 - Clarified Auto-Farming is already implemented (not "coming soon")  
+**Correction Made**: February 14, 2026 - Auto-Breeding Ritual (Wheat + Star pattern) has since been implemented. COMING_SOON_RITUALS.md updated accordingly. Remaining planned rituals: 6 (Flight Zone, Weather Control, Time Warp, Mining Haste, Forcefield, Mob Repellent).  
 **Next Steps**: User review and testing phase
 

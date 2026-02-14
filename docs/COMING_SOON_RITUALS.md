@@ -6,10 +6,15 @@ This document outlines the planned advanced ritual system that will be added in 
 
 ## Overview
 
-Advanced rituals represent the pinnacle of totem magic, requiring careful planning and significant resource investment. Unlike standard single-Rituals, these require specific geometric patterns and act more like custom enchantments or crafting stations.
+Advanced rituals represent the pinnacle of totem magic, requiring careful planning and significant resource investment. Unlike standard single-totem rituals, these require specific geometric patterns and act more like custom enchantments or crafting stations.
 
-> **✅ Already Implemented**: Auto-Farming (Diamond Hoe, 4+ totems, fire sacrifice)  
-> See main README for usage instructions!
+> **✅ Already Implemented:**
+> - **Auto-Farming** (Diamond Hoe + Square pattern, 4 diagonal totems) — Automatically harvests and replants fully grown crops
+> - **Auto-Breeding** (Wheat + Star pattern, 4 cardinal totems) — Automatically breeds nearby animals (cow, sheep, pig, chicken, rabbit)
+> - **Soul Embodiment** (Tool/Weapon + Star pattern, 4 cardinal totems) — Transforms tools into living weapons
+> - **Soul Ascension** (Soul weapon + Star pattern, 4 cardinal totems) — Raises soul weapon level cap
+>
+> See [Pattern Rituals Guide](PATTERN_RITUALS_GUIDE.md) and [Soul Embodiment Player Guide](SOUL_EMBODIMENT_PLAYER_GUIDE.md) for usage instructions!
 
 ```mermaid
 mindmap
@@ -51,38 +56,9 @@ These rituals generate resources over time within their influence.
 
 ## Planned Rituals
 
-> **⚠️ Note**: Auto-Farming with Diamond Hoe is ALREADY IMPLEMENTED! Use 4+ totems with Diamond Hoe and fire sacrifice. See main README for details.
+> **⚠️ Note**: Auto-Farming (Diamond Hoe + Square pattern) and Auto-Breeding (Wheat + Star pattern) are **ALREADY IMPLEMENTED**. See [Pattern Rituals Guide](PATTERN_RITUALS_GUIDE.md) for details.
 
 The following rituals are planned for future updates:
-
-### 🐄 Auto-Breeding Ritual
-**Pattern**: 5+ totems in star pattern  
-**Catalyst**: Wheat (or appropriate breeding item)  
-**Effect**: Automatically breeds nearby animals when population is low
-
-```mermaid
-flowchart TD
-    Start[Ritual Active] --> Check{Population<br/>Below Max?}
-    Check -->|Yes| FindPair[Find Breeding Pair]
-    FindPair --> Feed[Feed Animals]
-    Feed --> Wait[Wait for Baby]
-    Wait --> Check
-    Check -->|No| Sleep[Wait 60s]
-    Sleep --> Check
-    
-    style Start fill:#FF9800,stroke:#E65100
-    style Feed fill:#4CAF50,stroke:#2E7D32
-    style Wait fill:#2196F3,stroke:#0D47A1
-```
-
-**Mechanics**:
-- Monitors animal population within zone
-- Maintains population at configurable level (default: 12 animals)
-- Consumes breeding items from nearby chests
-- Works with: Cows, Sheep, Pigs, Chickens, Horses, Llamas
-- Higher tiers support more animals and faster breeding
-
----
 
 ### 🕊️ Flight Zone Ritual
 **Pattern**: 7+ totems in tower pattern (vertical stack)  
@@ -347,6 +323,6 @@ These rituals are in planning stages. Have suggestions or balance concerns? The 
 
 ---
 
-*Last Updated: October 2025*  
+*Last Updated: February 2026*  
 *Status: Planning Phase - Subject to Change*
 

@@ -325,8 +325,8 @@ The guidebook uses color-coded pages for visual organization:
 ### ✅ Covered Topics
 - Fire sacrifice system and catalyst costs
 - All 6 totem tiers with ranges
-- 7 area effect rituals (Growth, Strength, Prosperity, Protection, Healing, Sentry, Auto-Farming)
-- 1 pattern-based ritual (Auto-Breeding)
+- 6 single-totem area effect rituals (Growth, Strength, Prosperity, Protection, Healing, Sentry)
+- 2 pattern-based rituals (Auto-Farming with Square pattern, Auto-Breeding with Star pattern)
 - Redstone pattern visualization system
 - Basic crafting recipes
 - Range display system
