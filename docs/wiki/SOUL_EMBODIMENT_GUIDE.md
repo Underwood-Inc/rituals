@@ -82,7 +82,7 @@ When you hit your level cap, you'll need to perform the **Soul Ascension Ritual*
 
 ### Bonus Enchantments
 
-Every time you perform an Ascension Ritual, you have a **50% chance** to receive a **free bonus enchantment** on your weapon! Over 18 rituals, lucky players could gain up to 9 extra enchantment levels!
+Every time you perform an Ascension Ritual, you have a **50% chance** to receive a **random bonus enchantment** from the entire pool of 40 vanilla enchantments! The enchantment is type-agnostic — any enchantment can land on any soul item. Over 18 rituals, lucky players could gain up to 9 extra enchantment levels! Some may be "illegal" combinations (Feather Falling on a sword, Sharpness on boots), but they're earned through ritual fire and yours to keep.
 
 ---
 
@@ -333,7 +333,7 @@ Works on: Swords, Pickaxes, Axes, Shovels, Hoes, Bows, Crossbows, Tridents
 Yes! Rename in an anvil - the soul decorators (✦ prefix, [Lv.X] suffix) are preserved!
 
 ### "Do ascension bonuses stack with existing enchants?"
-YES! Sharpness III + bonus Sharpness = Sharpness IV!
+YES! Sharpness III + bonus Sharpness = Sharpness IV! Each enchantment stacks up to its vanilla max level. "Illegal" enchantments (ones that don't normally apply to that item type) are kept too — you earned them through ritual fire.
 
 ### "What's the best strategy for buffs?"
 Get movement/utility buffs early to block opposing debuffs. Pray you don't fracture!

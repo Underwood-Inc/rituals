@@ -133,15 +133,14 @@ But here's the twist...
 
 ### Why Is This AWESOME?
 
-Because **EVERY TIME** you do the ritual again, there's a **50% CHANCE** you get a **BONUS ENCHANTMENT**! 🎲
+Because **EVERY TIME** you do the ritual again, there's a **50% CHANCE** you get a **RANDOM ENCHANTMENT** from the entire vanilla pool! 🎲
 
-That's right - your sword could randomly get:
-- ⚔️ Extra Sharpness!
-- 💎 Extra Looting!
-- 🛡️ Extra Unbreaking!
-- ...and MORE!
+That's right — any of the 40 vanilla enchantments, regardless of item type:
+- ⚔️ Sharpness on a pickaxe? Sure.
+- 🐟 Luck of the Sea on a sword? Why not.
+- 🪶 Feather Falling on a trident? The soul doesn't judge.
 
-**The more you invest, the more powerful your weapon becomes!**
+**It's a cosmic gamble. You earn it, you keep it!**
 
 ---
 
@@ -353,25 +352,35 @@ Every time you perform an Ascension Ritual, you spin the wheel!
 
 ### What Can You Win?
 
-| Weapon | Possible Bonuses |
-|--------|------------------|
-| ⚔️ Sword | Sharpness +1, Looting +1, Sweeping Edge +1 |
-| ⛏️ Pickaxe | Efficiency +1, Fortune +1, Unbreaking +1 |
-| 🪓 Axe | Efficiency +1, Sharpness +1, Unbreaking +1 |
-| 🏹 Bow | Power +1, Punch +1, maybe even INFINITY! |
-| 🔱 Trident | Loyalty +1, Riptide +1, maybe CHANNELING! |
+**ANY of the 40 vanilla enchantments in the game.** The pool is type-agnostic — the item doesn't matter. You're rolling the cosmic dice.
+
+| Category | Enchantments in Pool |
+|----------|---------------------|
+| **Melee** | Sharpness, Smite, Bane of Arthropods, Knockback, Fire Aspect, Looting, Sweeping Edge |
+| **Ranged** | Power, Punch, Flame, Infinity, Quick Charge, Multishot, Piercing |
+| **Trident** | Loyalty, Channeling, Riptide, Impaling |
+| **Tool** | Efficiency, Fortune, Silk Touch, Luck of the Sea, Lure |
+| **Armor** | Protection, Fire/Blast/Projectile Protection, Feather Falling, Respiration, Aqua Affinity, Thorns, Depth Strider, Frost Walker, Soul Speed, Swift Sneak |
+| **Universal** | Unbreaking, Mending |
+| **Mace** | Wind Burst, Density, Breach |
+
+> **Wait... Sharpness on boots? Feather Falling on a sword?**
+>
+> Yes. This is a soul gamble, not a curated enchanting table. You earned these through 
+> blood, sweat, and ritual fire. The universe doesn't care about "intended use."
+> Some rolls will be incredible. Some will be... interesting. That's the price of power.
 
 ### Maximum Bonuses From 18 Rituals:
 
 If you're **SUPER LUCKY** (50% each time), you could get up to **9 bonus enchantments**!
 
-That means your Level 100 sword could have:
-- Sharpness **+3** (from bonuses!)
-- Looting **+3** (from bonuses!)
-- Sweeping Edge **+2** (from bonuses!)
+Each enchantment can be rolled multiple times — it stacks up to its vanilla max level. So your Level 100 sword could theoretically accumulate:
+- Sharpness **V** (from bonuses!)
+- Mending **I** (from bonuses!)
+- ...or Feather Falling IV, because the gods have a sense of humor.
 - **PLUS** whatever enchantments it already had!
 
-🤯 **INSANELY POWERFUL!**
+🤯 **THE ULTIMATE GAMBLE!**
 
 ---
 
@@ -396,13 +405,13 @@ You fight mobs, clear dungeons, and explore. Grimfang reaches Level 15!
 After many adventures, Grimfang reaches Level 50!
 - **8 rituals performed**
 - **4 bonus enchantments received** (lucky!)
-- **Current bonuses**: Sharpness +2, Looting +1, Sweeping Edge +1
+- **Current bonuses**: Sharpness 2, Looting 1, Mending 1, Feather Falling 1 (wait, what?)
 - **Quote**: *"Few remain who dare challenge us."*
 
 ## 🔥 Month 3: TRANSCENDENCE
 You've done it. 18 rituals. Level 100. OMEGA status.
 - **Final quote**: *"I am the end of all who oppose you."*
-- **Total bonuses**: Sharpness +3, Looting +2, Sweeping Edge +2 (7 lucky rolls!)
+- **Total bonuses**: Sharpness 3, Looting 2, Mending 1, Feather Falling 1 (7 lucky rolls! Some... questionable.)
 - **Your sword literally GLOWS with power!**
 
 **Grimfang is now LEGENDARY!** 🏆
@@ -428,7 +437,7 @@ You've done it. 18 rituals. Level 100. OMEGA status.
 You get ONE free rename per level. Choose wisely!
 
 ## "Do bonuses stack with existing enchantments?"
-✅ **YES!** If your sword already has Sharpness III and you get a Sharpness bonus, it becomes Sharpness IV!
+✅ **YES!** If your sword already has Sharpness III and you roll a Sharpness bonus, it becomes Sharpness IV! Each enchantment stacks up to its vanilla maximum level. And yes, "illegal" enchantments that don't normally go on your item type are kept too — you earned them through ritual fire.
 
 ## "What's the point of doing 18 rituals?"
 🎯 Each ritual:
