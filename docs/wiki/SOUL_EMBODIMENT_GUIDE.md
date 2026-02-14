@@ -58,6 +58,8 @@ Place 5 totems in a **star pattern** with your tool in the center:
 
 Your weapon now has a soul and will begin leveling up as you use it!
 
+> **⚠️ A Note on Foolish Awakenings:** The ritual will accept *any* item — not just tools and weapons. You can soul-embody a raw potato if you want. It will receive a soul name, a personality, and an overwhelming sense of purposelessness. Non-tool items can *technically* earn XP (your soul absorbs experience from deeds while holding ANY soul item — you could hand-mine dirt with a soul-bound potato), but at hand-mining speed with 1 XP per block, you'll die of old age before it levels up. **Stick to tools and weapons** unless you enjoy suffering for comedic effect.
+
 ---
 
 ## 📈 How Leveling Works
@@ -86,7 +88,7 @@ Every time you perform an Ascension Ritual, you have a **50% chance** to receive
 
 ## ⚔️ Earning Experience
 
-Your soul weapon gains XP when you **USE** it properly. Different tools earn XP in different ways:
+When you hold a soul weapon and perform deeds — mining, killing, harvesting — **your soul absorbs the experience**. The energy stays within you until channeled into the weapon via a conduit (totem or Scrying Glass). Different actions yield different amounts of soul energy:
 
 ### Tool XP Sources
 
@@ -131,12 +133,12 @@ mindmap
 | Warden | 100 XP |
 | Bosses | 500 XP |
 
-### Syncing Your XP
+### Channeling Your Soul Energy
 
-XP is tracked while you use your weapon, but you need to **sync** it to apply the levels:
+Your soul absorbs experience as you act, but the energy must be **channeled into the weapon** to strengthen its bond:
 
-1. **Totem Sync** - Place your weapon on a totem and retrieve it
-2. **Scrying Glass** - Use the portable Scrying Glass item (see below)
+1. **Totem Conduit** — Place your weapon on any totem. The totem channels your stored soul energy into the weapon.
+2. **Scrying Glass** — A portable conduit. Hold the soul weapon in your offhand and look through the glass to channel energy without a totem.
 
 ---
 

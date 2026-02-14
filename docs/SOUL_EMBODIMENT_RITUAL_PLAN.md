@@ -22,7 +22,7 @@ The **Soul Embodiment Ritual** transforms ordinary tools and weapons into **livi
 
 A **Living Weapon** (or Living Tool) is any tool that has undergone the Soul Embodiment Ritual. Once awakened:
 
-1. **Gains Experience** - XP from using the item (mining, attacking, chopping, etc.)
+1. **Gains Experience** - The wielder's soul absorbs XP from their deeds (mining, attacking, chopping, etc.), channeled into the weapon via totem conduit
 2. **Levels Up** - Thresholds unlock new visual tiers and potentially bonuses
 3. **Dynamic Tooltip** - Lore updates in real-time showing level, XP, and personality
 4. **Persists Across Sessions** - All data stored in item's `custom_data` component

@@ -31,6 +31,6 @@ $tellraw @a[nbt={UUID:$(interacting_uuid)}] [{"text":"[Rituals] ","color":"gold"
 # Check if this is a pattern ritual item and show setup help immediately
 function rituals:totem/check_pattern_help
 
-# === SOUL WEAPON SYNC ===
-# If this is a soul-embodied item, sync pending XP and refresh lore
+# === SOUL WEAPON — TOTEM CONDUIT ===
+# If soul-embodied: totem channels wielder's stored soul energy into weapon; refresh lore
 execute if data storage rituals:temp item.components."minecraft:custom_data".soul_embodied as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #transfer_id rituals.temp run function rituals:soul/sync_item with storage rituals:temp

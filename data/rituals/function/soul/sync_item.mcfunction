@@ -1,8 +1,9 @@
 # ========================================
-# Sync Soul Item on Totem
+# Totem Conduit — Channel Soul Energy into Weapon
 # ========================================
-# Called when a soul item is placed on a totem
-# Applies any pending XP and updates the item's data
+# Called when a soul item is placed on a totem.
+# The totem acts as a conduit: it channels the wielder's stored
+# soul energy into the weapon, strengthening the bond.
 # Runs as the item_display entity (@s)
 # Player UUID in rituals:temp interacting_uuid (macro)
 
@@ -14,7 +15,7 @@ execute store result score #soul_current_xp rituals.soul_temp run data get stora
 execute store result score #soul_current_level rituals.soul_temp run data get storage rituals:temp item.components."minecraft:custom_data".soul_level
 execute store result score #soul_level_cap rituals.soul_temp run data get storage rituals:temp item.components."minecraft:custom_data".soul_level_cap
 
-# === STEP 2: APPLY PENDING XP (if any) ===
+# === STEP 2: CHANNEL PENDING SOUL ENERGY (if any) ===
 scoreboard players set #did_level_up rituals.soul_temp 0
 scoreboard players set #xp_applied rituals.soul_temp 0
 $execute if entity @a[nbt={UUID:$(interacting_uuid)},tag=rituals.soul_pending_sync] run function rituals:soul/apply_pending_xp with storage rituals:temp

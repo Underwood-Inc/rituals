@@ -1,17 +1,18 @@
 # ========================================
-# Sync Soul Weapon Progress from Totem
+# Totem Conduit — Channel Soul Energy (Legacy)
 # ========================================
-# Called when a player with pending sync places a soul weapon on a totem
+# Called when a player with pending sync places a soul weapon on a totem.
+# The totem channels the wielder's stored soul energy into the weapon.
 # Runs AS the player, totem is in context
 
-# Get the accumulated XP from player's score
+# Get the wielder's stored soul energy from their scoreboard
 execute store result score #sync_xp rituals.soul_temp run scoreboard players get @s rituals.soul_xp_gain
 
 # Find the totem display entity and apply XP
 # The item was just placed, so use storage
 execute store result score #current_xp rituals.soul_temp run data get storage rituals:temp item.components."minecraft:custom_data".soul_xp
 
-# Add synced XP
+# Channel soul energy into the weapon
 scoreboard players operation #current_xp rituals.soul_temp += #sync_xp rituals.soul_temp
 
 # Store back to item in storage

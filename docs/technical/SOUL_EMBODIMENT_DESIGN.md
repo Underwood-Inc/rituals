@@ -8,7 +8,7 @@
 
 ## 1. Executive Summary
 
-The Soul Embodiment system transforms vanilla Minecraft tools and weapons into persistent, leveling "living items" that track player actions via vanilla statistics, accumulate experience, and gain randomized buffs/debuffs through a progression system spanning 100 levels across 18 ascension tiers.
+The Soul Embodiment system transforms vanilla Minecraft tools and weapons into persistent, leveling "living items." The wielder's soul absorbs experience from their deeds (tracked via vanilla statistics), and totems act as conduits to channel that stored energy into the weapon. Weapons gain randomized buffs/debuffs through a progression system spanning 100 levels across 18 ascension tiers.
 
 This document provides complete technical specifications for developers, server administrators, and contributors.
 

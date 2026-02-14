@@ -92,6 +92,29 @@ Your weapon now has a **SOUL**!
 
 ---
 
+# ⚠️ FOOLISH AWAKENINGS (A Word of Wisdom)
+
+> *"The ritual does not judge. It does not question. It will bind a soul to whatever you place upon the altar — a mighty blade, a humble hoe... or a potato. The soul does not care. But YOU should."*
+>
+> — Tome of the Ancients, Chapter III (Frequently Ignored)
+
+The Soul Embodiment Ritual accepts **ANY item**. There is no restriction. You can soul-embody dirt, a bucket, a piece of string, a raw porkchop — anything your heart desires and your wisdom should prevent.
+
+**What happens when you do this?**
+
+| What You Get | What You Don't Get |
+|---|---|
+| A soul name (like "Ghosttouch" or "Phantomgrip") | Any practical way to earn XP |
+| A personality and quotes | Any reason this was a good idea |
+| Wasted catalysts and soul components | Your dignity |
+| An item with existential dread | A refund |
+
+**Why is this a bad idea?** Your soul absorbs experience from *deeds* — mining blocks, killing mobs, harvesting crops — while holding the soul item. Technically, you CAN hand-mine dirt while clutching a soul-bound potato, and your soul WILL absorb the XP. You could even punch zombies to death with it. So it's not *impossible* to level up... just agonizingly, hilariously impractical. You'll be mining at hand speed with no tool bonuses, earning 1 XP per block, questioning every decision that led you here.
+
+> 💡 **Stick to tools and weapons.** Swords, pickaxes, axes, shovels, hoes, bows, crossbows, and tridents are the intended recipients. Everything else is technically functional but spiritually inadvisable.
+
+---
+
 # 📈 THE LEVELING SYSTEM (This Is Where It Gets EPIC!)
 
 ## Your Weapon Levels Up From 1 to 100! 
@@ -160,7 +183,7 @@ That's right - your sword could randomly get:
 
 # ⚔️ EARNING XP (Make Your Weapon STRONGER!)
 
-Your soul weapon gains XP when you USE it! Different weapons earn XP different ways:
+When you hold a soul weapon and perform deeds, YOUR SOUL absorbs the experience! Different actions yield different amounts of soul energy:
 
 | 🔧 Weapon | 💥 How to Earn XP | 🔥 Bonus XP From |
 |-----------|-------------------|------------------|
@@ -187,7 +210,7 @@ Your soul weapon gains XP when you USE it! Different weapons earn XP different w
 
 ---
 
-# 🌟 THE SOUL RESONANCE SYSTEM
+# 🌟 THE SOUL BOND
 
 ## How XP Actually Works (The Lore!)
 
@@ -195,61 +218,61 @@ When you awaken a weapon, something magical happens... **YOUR soul becomes linke
 
 ### ✨ The Soul Bond
 
-> *"A Soul-Bonded weapon does not merely absorb power from battle. Instead, it resonates with YOUR spirit. As you fight, mine, and conquer, your very essence gathers Soul Energy - a shimmering force that only you can perceive."*
+> *"A Soul-Bonded weapon does not grant power through mere contact. The wielder's soul absorbs experience from their deeds — every block broken, every foe slain, every harvest reaped. This energy gathers within the wielder's spirit, invisible yet potent, waiting to be channeled."*
 >
 > — Tome of the Ancients, Chapter VII
 
-When you **hold a soul weapon** and perform actions (mining, fighting, etc.), you don't immediately power up the weapon. Instead, you accumulate **Soul Energy** within yourself - like a spiritual battery charging up!
+When you **hold a soul weapon** and perform actions (mining, fighting, etc.), **your soul absorbs the experience from your deeds**. The energy doesn't go directly into the weapon — it accumulates within YOU, growing stronger with every action.
 
-### 🔮 How Soul Energy Works
+### 🔮 How Soul Energy Flows
 
 ```
-╔═══════════════════════════════════════════════════════════════╗
-║                    SOUL ENERGY FLOW                           ║
-╠═══════════════════════════════════════════════════════════════╣
-║                                                               ║
-║   YOU (Wielder)              SOUL WEAPON                      ║
-║   ┌─────────────┐            ┌─────────────┐                  ║
-║   │  ✦ SOUL   ✦ │            │             │                  ║
-║   │  ENERGY     │  ═══════►  │  PERMANENT  │                  ║
-║   │  (Pending)  │   SYNC!    │  POWER!     │                  ║
-║   └─────────────┘            └─────────────┘                  ║
-║                                                               ║
-║   Actions:                   Methods to Sync:                 ║
-║   • Mine blocks             • Place in totem                  ║
-║   • Kill mobs               • Use Scrying Glass               ║
-║   • Harvest crops                                             ║
-║                                                               ║
-╚═══════════════════════════════════════════════════════════════╝
+╔══════════════════════════════════════════════════════════════════════╗
+║                    SOUL ENERGY FLOW                                  ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║   YOU (Wielder)         TOTEM (Conduit)         SOUL WEAPON          ║
+║   ┌─────────────┐      ┌─────────────┐         ┌─────────────┐      ║
+║   │  ✦ SOUL   ✦ │      │  ⚡ CHANNEL  │         │  PERMANENT  │      ║
+║   │  ENERGY     │ ═══► │  ENERGY     │  ═════► │  POWER!     │      ║
+║   │  (Absorbed) │      │  (Conduit)  │         │  (Weapon)   │      ║
+║   └─────────────┘      └─────────────┘         └─────────────┘      ║
+║                                                                      ║
+║   Your deeds:           Conduits:               Result:              ║
+║   • Mine blocks         • Totem placement       • Weapon levels up   ║
+║   • Kill mobs           • Scrying Glass         • Bond strengthens   ║
+║   • Harvest crops                               • New buffs!         ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
 ```
 
 ### 📊 What This Means For You
 
 | Concept | Explanation |
 |---------|-------------|
-| **Soul Energy (Pending)** | XP you've earned while holding ANY soul weapon. Stored in YOUR spirit! |
-| **Weapon XP** | Permanent power stored IN the weapon itself. Gained only through syncing. |
-| **Syncing** | The act of transferring YOUR accumulated Soul Energy into a specific weapon |
+| **Soul Energy (Pending)** | Experience your soul has absorbed from your deeds while wielding a soul weapon. Stored within YOU. |
+| **Weapon XP** | Permanent power stored IN the weapon itself. Gained only through channeling via a conduit. |
+| **Channeling** | The totem (or Scrying Glass) acts as a conduit, transferring your stored soul energy into the weapon to strengthen its bond. |
 
 ### 🎯 The Strategic Advantage
 
 This system gives you **CHOICE**! 
 
-> *"The wise wielder gathers Soul Energy with one weapon, but may choose to bestow it upon another. A warrior might mine with a humble pickaxe, then gift all that gathered energy to their cherished blade."*
+> *"The wise wielder's soul absorbs experience from all deeds, regardless of which weapon is held. A warrior might mine with a humble pickaxe, then place their cherished blade upon the totem — and the conduit channels all that gathered energy into the blade, strengthening its bond."*
 
 **Example Scenario:**
-1. You spend an hour mining with **Soul Pickaxe "Stoneheart"** → Gain 500 Soul Energy
-2. You spend an hour fighting with **Soul Sword "Grimfang"** → Gain 300 MORE Soul Energy
-3. Your total pending Soul Energy = **800**
-4. You choose to sync it ALL to Grimfang → **Grimfang gains 800 XP!**
-5. Stoneheart got none... but you can sync to it next time!
+1. You spend an hour mining with **Soul Pickaxe "Stoneheart"** → Your soul absorbs 500 energy
+2. You spend an hour fighting with **Soul Sword "Grimfang"** → Your soul absorbs 300 MORE energy
+3. Your total stored soul energy = **800**
+4. You place Grimfang on a totem → The totem channels ALL 800 energy into Grimfang!
+5. Stoneheart got none... but you can channel to it next time!
 
 ### ⚠️ Important Notes
 
-- 🔄 **Pending Soul Energy is shared** - It doesn't matter WHICH soul weapon you were holding when you earned it
-- 🎁 **You choose where it goes** - Sync transfers ALL pending energy to ONE weapon
-- 🧹 **Syncing clears your pool** - After syncing, your pending energy resets to 0
-- 🏛️ **Multiple soul weapons?** - Earn with any, invest in your favorite!
+- 🔄 **Absorbed energy is shared** — It doesn't matter WHICH soul weapon you were holding when your soul absorbed it
+- 🎁 **You choose where it goes** — Place a weapon on a totem to channel ALL stored energy into it
+- 🧹 **Channeling clears your reserves** — After channeling, your stored soul energy resets to 0
+- 🏛️ **Multiple soul weapons?** — Absorb with any, channel into your favorite!
 
 ### 💎 Pro Tips
 
@@ -462,7 +485,7 @@ Print this out! Stick it on your wall! Never forget the ritual setup!
 
 Don't want to trek back to your totem every time? **CRAFT A SCRYING GLASS!**
 
-> *"The Scrying Glass peers into the ethereal realm where souls reside. Through its crystalline lens, the bond between wielder and weapon becomes visible - a shimmering thread of pure energy. When you gaze through this mystical device, that thread becomes a bridge, allowing your accumulated Soul Energy to flow into your cherished blade."*
+> *"The Scrying Glass is a portable conduit, forged from crystal and amethyst. Through its lens, the bond between wielder and weapon becomes visible — a shimmering thread connecting your soul to the blade. When you gaze through this mystical device, the glass acts as a bridge, channeling your stored soul energy directly into the weapon, strengthening its bond without need of a totem."*
 >
 > — Enchanter's Codex
 

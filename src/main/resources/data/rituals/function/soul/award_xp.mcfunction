@@ -1,14 +1,15 @@
 # ========================================
-# Award XP to Soul Weapon
+# Absorb Soul Energy from Deeds
 # ========================================
 # Runs as player holding soul weapon
 # #xp_gain rituals.soul_temp contains the XP amount to add
-# Accumulates XP in scoreboard, syncs to item on totem placement
+# The wielder's soul absorbs experience from their deeds.
+# Energy accumulates in the wielder; totem channels it into the weapon.
 
-# Add to player's pending XP
+# Add to wielder's pending soul energy
 scoreboard players operation @s rituals.soul_xp_gain += #xp_gain rituals.soul_temp
 
-# Mark player as needing sync
+# Mark wielder as carrying unsynchronized soul energy
 tag @s add rituals.soul_pending_sync
 
 # Show feedback with actual XP amount (cooldown from config)

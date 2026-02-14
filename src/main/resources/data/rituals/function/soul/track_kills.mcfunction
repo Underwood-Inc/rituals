@@ -31,7 +31,7 @@ execute unless entity @s[tag=rituals.kills_initialized] run tag @s add rituals.k
 scoreboard players operation #xp_gain rituals.soul_temp = #total rituals.soul_temp
 scoreboard players operation #xp_gain rituals.soul_temp -= @s rituals.prev_kills
 
-# === AWARD XP IF ANY (applies directly to held item) ===
+# === AWARD XP IF ANY (wielder's soul absorbs; channels to weapon via totem) ===
 execute if score #xp_gain rituals.soul_temp matches 1.. run function rituals:soul/award_xp
 
 # Update previous weighted count

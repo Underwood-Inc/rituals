@@ -48,8 +48,8 @@ particle dust{color:[1.0,0.5,1.0],scale:1.0} ~ ~2.2 ~ 0.2 0.2 0.2 0 15
 playsound entity.item.pickup block @a ~ ~ ~ 1.0 1.0
 playsound block.enchantment_table.use block @a ~ ~ ~ 0.5 1.5
 
-# === SOUL WEAPON SYNC ===
-# If this is a soul-embodied item, sync pending XP and refresh lore
+# === SOUL WEAPON — TOTEM CONDUIT ===
+# If soul-embodied: totem channels wielder's stored soul energy into weapon; refresh lore
 execute if data storage rituals:temp item.components."minecraft:custom_data".soul_embodied as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #swap_id rituals.temp run function rituals:soul/sync_item with storage rituals:temp
 
 $tellraw @a[nbt={UUID:$(interacting_uuid)}] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Item swapped! Ritual changed.","color":"light_purple","bold":false}]
