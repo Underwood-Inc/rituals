@@ -75,7 +75,20 @@ Your soul weapon starts at **Level 1** and can eventually reach **Level 100**. B
 | 1st (Awakening) | Level 15 |
 | 2nd (Ascension I) | Level 20 |
 | 3rd (Ascension II) | Level 25 |
-| ... | +5 each time |
+| 4th (Ascension III) | Level 30 |
+| 5th (Ascension IV) | Level 35 |
+| 6th (Ascension V) | Level 40 |
+| 7th (Ascension VI) | Level 45 |
+| 8th (Ascension VII) | Level 50 |
+| 9th (Ascension VIII) | Level 55 |
+| 10th (Ascension IX) | Level 60 |
+| 11th (Ascension X) | Level 65 |
+| 12th (Ascension XI) | Level 70 |
+| 13th (Ascension XII) | Level 75 |
+| 14th (Ascension XIII) | Level 80 |
+| 15th (Ascension XIV) | Level 85 |
+| 16th (Ascension XV) | Level 90 |
+| 17th (Ascension XVI) | Level 95 |
 | 18th (Transcendence) | Level 100 |
 
 When you hit your level cap, you'll need to perform the **Soul Ascension Ritual** (same setup as awakening) to increase it!
@@ -148,32 +161,48 @@ Every time your soul weapon levels up, something special happens!
 
 ### You Always Get a Buff! 🟢
 
-Random positive effect chosen from 20 possibilities:
+One random buff is selected from the pool of **20** on every level up. Equal 1/20 chance for each. Duplicates stack up to max level.
 
-| Buff | What It Does |
-|------|--------------|
-| **Soul Haste** | Mine faster (+10% per level, max III) |
-| **Soul Strength** | Hit harder (+0.5 damage per level, max IV) |
-| **Magnetic Pull** | Items fly to you (5-7 block radius) |
-| **Soul Speed** | Move faster (+3% per level, max III) |
-| **Soul Mending** | Auto-repairs over time |
-| **Dark Vision** | See in the dark |
-| **Aquatic Soul** | Breathe underwater |
-| **Flame Ward** | Fire resistance |
-| *...and 12 more!* | |
+| # | Buff | What It Does | Max |
+|---|------|--------------|-----|
+| 1 | **Soul Haste** | +10% mining speed per level | III |
+| 2 | **Soul Sight** | Nearby entities glow (10 block radius) | I |
+| 3 | **Magnetic Pull** | Attract items: 5 blocks (I), 7 blocks (II) | II |
+| 4 | **Extended Reach** | +0.5 block interaction range per level | III |
+| 5 | **Soul Mending** | 0.5% chance per tick to repair 1 durability | III |
+| 6 | **Fortune's Favor** | +0.5 luck per level | II |
+| 7 | **Soul Speed** | +3% movement speed per level | III |
+| 8 | **Soul Strength** | +0.5 attack damage per level | IV |
+| 9 | **Soul Armor** | +1 armor per level | III |
+| 10 | **Featherweight** | Jump Boost I | I |
+| 11 | **Soul Flame** | 10% chance per level to ignite targets on hit | II |
+| 12 | **Soul Leech** | 5% of damage dealt is healed per level | II |
+| 13 | **Soul Wisdom** | +10% soul XP gain per level | II |
+| 14 | **Soul Harvest** | Extra drops (like Looting) per level | II |
+| 15 | **Eternal Edge** | 25% less durability loss per level | II |
+| 16 | **Dark Vision** | Night Vision effect while held | I |
+| 17 | **Aquatic Soul** | Water Breathing effect while held | I |
+| 18 | **Flame Ward** | Fire Resistance effect while held | I |
+| 19 | **Soul Sustenance** | 0.5% chance per tick for Saturation effect | II |
+| 20 | **Reserved Soul** | Weapon speaks less often (personality) | I |
 
 ### You Might Get a Debuff! 🔴
 
-30% chance per level up to receive a downside:
+**30% chance** per level up to also receive a debuff. One is randomly selected from the pool of **11**. Equal 1/11 chance for each.
 
-| Debuff | The Downside |
-|--------|--------------|
-| **Ravenous Soul** | Get hungrier faster |
-| **Burdened** | Move slower |
-| **Brittle Edge** | Durability loss increased |
-| **Chatty Soul** | Weapon talks TOO much |
-| **Bloodthirst** | Takes damage if unused |
-| *...and 6 more!* | |
+| # | Debuff | The Downside | Max |
+|---|--------|--------------|-----|
+| 1 | **Ravenous Soul** | Chance per tick for Hunger effect (1/400 at I, 1/200 at II) | II |
+| 2 | **Burdened** | -3% movement speed per level | II |
+| 3 | **Cursed Aura** | 1/6000 chance per tick for Bad Omen (600s) | I |
+| 4 | **Brittle Edge** | +25% durability loss per level | II |
+| 5 | **Restless Soul** | 1/400 chance per tick to alert nearby raiders | I |
+| 6 | **Clumsy Grip** | Chance per tick for Mining Fatigue (1/600 at I, 1/300 at II) | II |
+| 7 | **Misfortune** | -0.5 luck per level | II |
+| 8 | **Soul Hunger** | +20% soul XP required to level up per level | II |
+| 9 | **Paranoid Soul** | 1/1200 chance per tick for random spooky sounds | I |
+| 10 | **Bloodthirst** | Takes 1 damage every 30s if no recent combat | I |
+| 11 | **Chatty Soul** | Weapon speaks MORE often (never shuts up) | I |
 
 ### Buffs Can Stack! 📊
 
@@ -186,23 +215,33 @@ Soul Haste I → Soul Haste II → Soul Haste III
 
 ### Protection System
 
-Some buffs **block** their opposing debuffs:
+Some buffs **block** their opposing debuffs (and vice versa):
 
 ```mermaid
 flowchart LR
     A[Soul Speed] ---|blocks|B[Burdened]
     C[Fortune's Favor] ---|blocks|D[Misfortune]
     E[Soul Mending] ---|blocks|F[Brittle Edge]
+    E2[Eternal Edge] ---|blocks|F
     G[Reserved Soul] ---|blocks|H[Chatty Soul]
+    I[Soul Sustenance] ---|blocks|J[Ravenous Soul]
+    K[Flame Ward] ---|blocks|L[Aquatic Soul]
+    K ---|blocks|M[Soul Flame]
     
     style A fill:#2e7d32,color:#fff
     style C fill:#2e7d32,color:#fff
     style E fill:#2e7d32,color:#fff
+    style E2 fill:#2e7d32,color:#fff
     style G fill:#2e7d32,color:#fff
+    style I fill:#2e7d32,color:#fff
+    style K fill:#2e7d32,color:#fff
     style B fill:#c62828,color:#fff
     style D fill:#c62828,color:#fff
     style F fill:#c62828,color:#fff
     style H fill:#c62828,color:#fff
+    style J fill:#c62828,color:#fff
+    style L fill:#e65100,color:#fff
+    style M fill:#e65100,color:#fff
 ```
 
 **Strategy Tip:** Getting good buffs early protects you from bad debuffs later!

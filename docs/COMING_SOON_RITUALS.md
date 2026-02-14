@@ -264,7 +264,7 @@ graph TD
 - Passive mobs are unaffected
 - Zone size based on totem tier (20-100 block radius)
 - Different mob heads affect different mob types:
-  - Zombie Head: Affects undead (zombies, skeletons, etc.)
+  - Zombie Head: Affects undead (zombies, zombie villagers, drowned, husks, skeletons, strays, wither skeletons, phantoms, zoglins)
   - Creeper Head: Affects all hostiles
   - Dragon Head: Affects ALL mobs including bosses
 

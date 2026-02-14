@@ -97,7 +97,7 @@ That's it! Your ritual activates and crops nearby start growing faster. 🌱
 
 ### How It Works
 
-1. **Place your totem** and add a ritual item (Diamond, Emerald, etc.)
+1. **Place your totem** and add a ritual item (Emerald, Diamond, Iron Ingot, Nether Star, Arrow, Nether Block, or any tool/weapon)
 2. **Drop 4 catalyst items** on the ground around your totem (North, South, East, West)
 3. **Light a fire** at the totem's base using flint & steel
 4. **The offerings are consumed** and your ritual begins!
@@ -789,7 +789,7 @@ This datapack is provided as-is for use in Minecraft worlds. Feel free to modify
 ### Essential Guides
 - **[📦 Installation](docs/INSTALLATION.md)** - Setup instructions for datapack and resourcepack
 - **[🔥 Fire Sacrifice System](docs/FIRE_SACRIFICE_GUIDE.md)** - How to activate rituals
-- **[⚙️ Configuration](docs/CONFIG_GUIDE.md)** - Customize ranges, costs, and more
+- **[⚙️ Configuration](docs/CONFIG_GUIDE.md)** - Customize ranges, costs, and ritual behavior
 - **[🎨 Crafting Recipes](docs/CRAFTING_RECIPES.md)** - All totem crafting recipes with images
 
 ### Advanced Topics

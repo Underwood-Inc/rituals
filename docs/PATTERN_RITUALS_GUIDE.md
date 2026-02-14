@@ -50,7 +50,7 @@ This makes setup MUCH easier - you don't need to memorize coordinates!
    - SE (+5,-5) (orange particles): Carrot
    - SW (-5,-5) (gray particles): Potato
    - NW (-5,+5) (red particles): Beetroot
-5. Fire sacrifice at center (4 coal/iron/etc. + fire at ±2 diagonal positions)
+5. Fire sacrifice at center (4 catalyst items matching totem tier + fire at ±2 diagonal positions — see Catalyst Costs in the guidebook)
 6. Ritual activates! The 4 surrounding totems are **sacrificed** (destroyed)
 7. Central totem remains - crops will auto-harvest every 5 seconds
 
@@ -175,7 +175,7 @@ The system **reads the item on the central totem every tick** (20 times per seco
 **Important Notes:**
 - ✅ Particles **only appear** when totem has a pattern ritual item AND is powered with redstone
 - ✅ Particles **update instantly** when you swap the central item (changes within 1 tick / 0.05 seconds)
-- ❌ Regular ritual items (Emerald, Diamond, Nether Star, etc.) do **NOT** show pattern particles
+- ❌ Regular area-effect ritual items (Emerald, Diamond, Iron Ingot, Nether Star, Arrow, Nether Block) do **NOT** show pattern particles
 - ❌ Totems without items do **NOT** show pattern particles (only tier range box)
 
 #### Dynamic Item Swapping

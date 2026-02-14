@@ -205,10 +205,9 @@ Circle Points (9 totems around center at 8 block radius):
   SSW: (-4,  0,  -7)  - 280°
   WSW: (-7,  0,  -4)  - 320°
   W:   (-8,  0,   0)  - 360°
-  (Wait, that's 10 points... let me use 9)
 ```
 
-Actually, for a proper circle of 9 totems, approximate coordinates at 8 block radius:
+For a proper circle of 9 totems, approximate coordinates at 8 block radius:
 
 ### Time Warp Ritual (Clock)
 

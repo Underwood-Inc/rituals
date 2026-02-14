@@ -267,19 +267,40 @@ Where `base_xp = 100`
 ```mermaid
 stateDiagram-v2
     [*] --> Tier1: Awakening Ritual
-    
     Tier1 --> Tier1: Level 1-15
     Tier1 --> Tier2: Ascension I
-    
     Tier2 --> Tier2: Level 16-20
     Tier2 --> Tier3: Ascension II
-    
-    Tier3 --> TierN: ...continues...
-    TierN --> Tier17: Ascension XVI
-    
+    Tier3 --> Tier3: Level 21-25
+    Tier3 --> Tier4: Ascension III
+    Tier4 --> Tier4: Level 26-30
+    Tier4 --> Tier5: Ascension IV
+    Tier5 --> Tier5: Level 31-35
+    Tier5 --> Tier6: Ascension V
+    Tier6 --> Tier6: Level 36-40
+    Tier6 --> Tier7: Ascension VI
+    Tier7 --> Tier7: Level 41-45
+    Tier7 --> Tier8: Ascension VII
+    Tier8 --> Tier8: Level 46-50
+    Tier8 --> Tier9: Ascension VIII
+    Tier9 --> Tier9: Level 51-55
+    Tier9 --> Tier10: Ascension IX
+    Tier10 --> Tier10: Level 56-60
+    Tier10 --> Tier11: Ascension X
+    Tier11 --> Tier11: Level 61-65
+    Tier11 --> Tier12: Ascension XI
+    Tier12 --> Tier12: Level 66-70
+    Tier12 --> Tier13: Ascension XII
+    Tier13 --> Tier13: Level 71-75
+    Tier13 --> Tier14: Ascension XIII
+    Tier14 --> Tier14: Level 76-80
+    Tier14 --> Tier15: Ascension XIV
+    Tier15 --> Tier15: Level 81-85
+    Tier15 --> Tier16: Ascension XV
+    Tier16 --> Tier16: Level 86-90
+    Tier16 --> Tier17: Ascension XVI
     Tier17 --> Tier17: Level 91-95
     Tier17 --> Tier18: Final Ascension
-    
     Tier18 --> Tier18: Level 96-100
     Tier18 --> [*]: OMEGA Achieved
 ```

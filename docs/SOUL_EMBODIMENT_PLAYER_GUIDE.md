@@ -125,11 +125,24 @@ But here's the twist...
 
 | Stage | What Happens |
 |-------|--------------|
-| **First Ritual** | Unlocks Levels 1-15 |
-| **Second Ritual** | Unlocks Levels 16-20 |
-| **Third Ritual** | Unlocks Levels 21-25 |
-| ...and so on... | +5 levels each time! |
-| **18th Ritual** | Unlocks Levels 96-100 (MAXIMUM POWER!) |
+| **1st Ritual (Awakening)** | Unlocks Levels 1-15 |
+| **2nd Ritual (Ascension I)** | Unlocks Levels 16-20 |
+| **3rd Ritual (Ascension II)** | Unlocks Levels 21-25 |
+| **4th Ritual (Ascension III)** | Unlocks Levels 26-30 |
+| **5th Ritual (Ascension IV)** | Unlocks Levels 31-35 |
+| **6th Ritual (Ascension V)** | Unlocks Levels 36-40 |
+| **7th Ritual (Ascension VI)** | Unlocks Levels 41-45 |
+| **8th Ritual (Ascension VII)** | Unlocks Levels 46-50 |
+| **9th Ritual (Ascension VIII)** | Unlocks Levels 51-55 |
+| **10th Ritual (Ascension IX)** | Unlocks Levels 56-60 |
+| **11th Ritual (Ascension X)** | Unlocks Levels 61-65 |
+| **12th Ritual (Ascension XI)** | Unlocks Levels 66-70 |
+| **13th Ritual (Ascension XII)** | Unlocks Levels 71-75 |
+| **14th Ritual (Ascension XIII)** | Unlocks Levels 76-80 |
+| **15th Ritual (Ascension XIV)** | Unlocks Levels 81-85 |
+| **16th Ritual (Ascension XV)** | Unlocks Levels 86-90 |
+| **17th Ritual (Ascension XVI)** | Unlocks Levels 91-95 |
+| **18th Ritual (Transcendence)** | Unlocks Levels 96-100 (MAXIMUM POWER!) |
 
 ### Why Is This AWESOME?
 
@@ -221,7 +234,7 @@ When you awaken a weapon, something magical happens... **YOUR soul becomes linke
 >
 > — Tome of the Ancients, Chapter VII
 
-When you **hold a soul weapon** and perform actions (mining, fighting, etc.), **your soul absorbs the experience from your deeds**. The energy doesn't go directly into the weapon — it accumulates within YOU, growing stronger with every action.
+When you **hold a soul weapon** and perform actions (mining, killing, chopping, digging, harvesting, ranged combat), **your soul absorbs the experience from your deeds**. The energy doesn't go directly into the weapon — it accumulates within YOU, growing stronger with every action.
 
 ### 🔮 How Soul Energy Flows
 
@@ -302,37 +315,39 @@ Your weapon receives a randomly generated fantasy name like:
 
 ## 💭 Personality Quotes!
 
-Your weapon TALKS to you through its tooltip! And the quotes CHANGE as it levels up:
+Your weapon TALKS to you through its tooltip! Quotes change based on the weapon's **level era** (which determines its maturity) and **mood** (randomly assigned per quote display). There are **6 eras**, each with **3 moods**, and **20 quotes per mood** — totaling **360 era quotes** plus **30 ascension-specific quotes** (390 total).
 
-### Early Game (Levels 1-15):
-> *"I sense great potential in you, wielder."*
-> 
-> *"Together, we shall carve our legend."*
-> 
-> *"Point me at your enemies. I will not disappoint."*
+A quick taste of the progression:
 
-### Mid Game (Levels 30-50):
-> *"Our bond strengthens with each battle."*
+### Early Game (Levels 1-15 — Awakening):
+> *"I sense great potential in you, wielder."* (eager)
 > 
-> *"Few remain who dare challenge us."*
+> *"What mysteries await us beyond the horizon?"* (curious)
 > 
-> *"I remember every foe we've vanquished..."*
+> *"Point me at your enemies. I will not disappoint."* (fierce)
 
-### End Game (Levels 70-90):
-> *"Kingdoms tremble at the mere whisper of my name."*
+### Mid Game (Levels 31-50 — Maturity):
+> *"Experience has taught me patience."* (wise)
 > 
-> *"We have transcended mortality together."*
+> *"I would shatter myself before betraying you."* (loyal)
 > 
-> *"The gods themselves take notice of our power."*
+> *"Few remain who dare challenge us openly."* (powerful)
 
-### MAX LEVEL (Level 100):
-> *"I AM BECOME DEATH, DESTROYER OF WORLDS."*
+### End Game (Levels 71-90 — Transcendence):
+> *"We have transcended mortality together."* (divine)
 > 
-> *"My edge knows no equal in this realm or ANY."*
+> *"I feel older than the mountains themselves."* (ancient)
 > 
-> *"We are ETERNAL. We are INFINITE. We are ONE."*
+> *"Even I am unsettled by what I have become."* (terrifying)
 
-😱 **EPIC RIGHT?!**
+### MAX LEVEL (Levels 91-100 — Apotheosis):
+> *"I AM BECOME DEATH, DESTROYER OF WORLDS."* (godlike)
+> 
+> *"I perceive all possible realities simultaneously."* (transcendent)
+> 
+> *"Having achieved everything, I wonder what remains."* (philosophical)
+
+For the **complete list of all 390 quotes**, see [Appendix A: Full Soul Quote Reference](#-appendix-a-full-soul-quote-reference) at the bottom of this document.
 
 ---
 
@@ -562,50 +577,69 @@ Every time your soul weapon **LEVELS UP**, you gain a **RANDOM BUFF!**
 
 ## 🟢 Possible Buffs (You Get ONE Each Level!)
 
-| Buff | What It Does | Max Level |
-|------|--------------|-----------|
-| ⛏️ **Soul Haste** | +10% mining speed per level | III |
-| ✨ **Soul Sight** | Nearby mobs glow! | I |
-| 🧲 **Magnetic Pull** | Items fly to you (5-7 blocks) | II |
-| 🖐️ **Extended Reach** | +0.5 block reach per level | III |
-| 🔧 **Soul Mending** | Auto-repairs over time! | III |
-| 🍀 **Fortune's Favor** | +0.5 luck per level | II |
-| 💨 **Soul Speed** | +3% movement per level | III |
-| 💪 **Soul Strength** | +0.5 damage per level | IV |
-| 🛡️ **Soul Armor** | +1 armor per level | III |
-| 🦘 **Featherweight** | Jump higher! | I |
-| 🔥 **Soul Flame** | 10% ignite chance per level | II |
-| ❤️ **Soul Leech** | 5% damage healed per level | II |
-| 👁️ **Dark Vision** | See in the dark! | I |
-| 🫧 **Aquatic Soul** | Breathe underwater! | I |
-| 🔥 **Flame Ward** | Fire resistance! | I |
-| 🤫 **Reserved Soul** | Weapon talks less often | I |
-| ...and MORE! | |
+There are **20 buffs** in the pool. Each level up, one is randomly selected. If you already have it, it stacks (up to its max level). Equal 1/20 chance for each.
+
+| # | Buff | What It Does | Max Level |
+|---|------|--------------|-----------|
+| 1 | ⛏️ **Soul Haste** | +10% mining speed per level | III |
+| 2 | ✨ **Soul Sight** | Nearby entities glow within 10 blocks | I |
+| 3 | 🧲 **Magnetic Pull** | Attract items: 5 blocks (I), 7 blocks (II) | II |
+| 4 | 🖐️ **Extended Reach** | +0.5 block interaction range per level | III |
+| 5 | 🔧 **Soul Mending** | 0.5% chance per tick to repair 1 durability | III |
+| 6 | 🍀 **Fortune's Favor** | +0.5 luck per level | II |
+| 7 | 💨 **Soul Speed** | +3% movement speed per level | III |
+| 8 | 💪 **Soul Strength** | +0.5 attack damage per level | IV |
+| 9 | 🛡️ **Soul Armor** | +1 armor per level | III |
+| 10 | 🦘 **Featherweight** | Jump Boost I | I |
+| 11 | 🔥 **Soul Flame** | 10% chance per level to ignite targets on hit | II |
+| 12 | ❤️ **Soul Leech** | 5% of damage dealt is healed per level | II |
+| 13 | 📖 **Soul Wisdom** | +10% soul XP gain per level | II |
+| 14 | 💎 **Soul Harvest** | Extra drops (like Looting) per level | II |
+| 15 | 🛡️ **Eternal Edge** | 25% less durability loss per level | II |
+| 16 | 👁️ **Dark Vision** | Night Vision effect while held | I |
+| 17 | 🫧 **Aquatic Soul** | Water Breathing effect while held | I |
+| 18 | 🔥 **Flame Ward** | Fire Resistance effect while held | I |
+| 19 | 🍞 **Soul Sustenance** | 0.5% chance per tick for Saturation effect | II |
+| 20 | 🤫 **Reserved Soul** | Weapon speaks less often (personality) | I |
 
 ## 🔴 Possible Debuffs (30% Chance Each Level)
 
-| Debuff | The Downside | Max Level |
-|--------|--------------|-----------|
-| 🍖 **Ravenous Soul** | Get hungrier faster | II |
-| ⚓ **Burdened** | -3% movement per level | II |
-| 💔 **Brittle Edge** | +25% durability loss per level | II |
-| 😵 **Clumsy Grip** | Sometimes mine slower | II |
-| 👻 **Paranoid Soul** | Hear spooky sounds | I |
-| 💀 **Bloodthirst** | Weapon hurts you if unused | I |
-| 🗣️ **Chatty Soul** | Weapon NEVER shuts up | I |
+On each level up there is a **30% chance** a debuff is also rolled. There are **11 debuffs** in the pool, each with equal chance (1/11).
+
+| # | Debuff | The Downside | Max Level |
+|---|--------|--------------|-----------|
+| 1 | 🍖 **Ravenous Soul** | Chance per tick for Hunger effect (1/400 at I, 1/200 at II) | II |
+| 2 | ⚓ **Burdened** | -3% movement speed per level | II |
+| 3 | ☠️ **Cursed Aura** | 1/6000 chance per tick for Bad Omen (600s) | I |
+| 4 | 💔 **Brittle Edge** | +25% durability loss per level | II |
+| 5 | 📢 **Restless Soul** | 1/400 chance per tick to alert nearby raiders | I |
+| 6 | 😵 **Clumsy Grip** | Chance per tick for Mining Fatigue (1/600 at I, 1/300 at II) | II |
+| 7 | 🎲 **Misfortune** | -0.5 luck per level | II |
+| 8 | 🕳️ **Soul Hunger** | +20% soul XP required per level to level up | II |
+| 9 | 👻 **Paranoid Soul** | 1/1200 chance per tick for random spooky sounds | I |
+| 10 | 💀 **Bloodthirst** | Takes 1 damage every 30s if no combat (must feed the soul) | I |
+| 11 | 🗣️ **Chatty Soul** | Weapon speaks MORE often (never shuts up) | I |
 
 ### ⚔️ BUFF/DEBUFF CONFLICTS!
 
-Some buffs **BLOCK** opposing debuffs (and vice versa):
+Some buffs **BLOCK** opposing debuffs (and vice versa). If you already have one side, the conflicting roll is rerolled:
 
 | If You Have... | You're Protected From... |
 |----------------|--------------------------|
 | 💨 Soul Speed | ⚓ Burdened |
+| ⚓ Burdened | 💨 Soul Speed |
 | 🍀 Fortune's Favor | 🎲 Misfortune |
+| 🎲 Misfortune | 🍀 Fortune's Favor |
 | 🔧 Soul Mending | 💔 Brittle Edge |
+| 🛡️ Eternal Edge | 💔 Brittle Edge |
+| 💔 Brittle Edge | 🔧 Soul Mending, 🛡️ Eternal Edge |
+| 🍞 Soul Sustenance | 🍖 Ravenous Soul |
+| 🍖 Ravenous Soul | 🍞 Soul Sustenance |
 | 🤫 Reserved Soul | 🗣️ Chatty Soul |
+| 🗣️ Chatty Soul | 🤫 Reserved Soul |
+| 🔥 Flame Ward | 🫧 Aquatic Soul, 🔥 Soul Flame |
 
-**Strategy:** Having good buffs protects you from bad debuffs!
+**Strategy:** Getting good buffs early protects you from their opposing debuffs later!
 
 ### 🔄 BUFFS & DEBUFFS CAN STACK!
 
@@ -643,8 +677,8 @@ Soul weapons are **100% compatible** with vanilla enchantments:
 | 🪓 Grindstone | ✅ YES (keeps soul!) |
 
 **Your soul weapon can have BOTH:**
-- Regular enchantments (Sharpness V, Unbreaking III, etc.)
-- Soul buffs (Soul Strength III, Soul Haste II, etc.)
+- Regular vanilla enchantments (applied via enchanting table, anvil, or ascension bonus rolls)
+- Soul buffs (the 20 random buffs gained on each level up — see the Buffs & Debuffs section above)
 
 **MAXIMUM POWER COMBO POSSIBLE!** ⚡⚔️⚡
 
@@ -659,11 +693,11 @@ If you're a:
 - 🤓 Player who wants to know EVERYTHING
 
 Check out the **[Technical Documentation](SOUL_EMBODIMENT_RITUAL_PLAN.md)** for:
-- Exact XP formulas
-- Data storage schemas
-- Implementation details
-- Config file structures
-- And much more!
+- Exact XP formulas and level threshold calculations
+- NBT data storage schemas (custom_data fields)
+- Scoreboard objective definitions
+- Config file structures (rituals.toml)
+- Datapack function call graph and execution flow
 
 ---
 
@@ -681,7 +715,7 @@ Check out the **[Technical Documentation](SOUL_EMBODIMENT_RITUAL_PLAN.md)** for:
 
 ---
 
-**Version**: 1.0  
-**Last Updated**: 2025  
+**Version**: 1.1  
+**Last Updated**: 2026  
 **Part of**: Rituals Datapack & Mod
 

@@ -373,7 +373,7 @@ Same as regular, but uses 1 less material (no top piece)
 ## 🎮 Usage Tips
 
 1. **Starting Out:** Craft a Wooden Totem and place it
-2. **Add Effect:** Right-click with an item (emerald, diamond, etc.)
+2. **Add Effect:** Right-click with a ritual item (Emerald for growth, Diamond for strength, Iron Ingot for damage, Nether Star for healing, Arrow for turret, Nether Block for prosperity)
 3. **Watch Magic:** Ritual activates automatically!
 4. **Upgrade:** Craft higher tier totem bases to increase power
 5. **Range Check:** Power with redstone to see effect range

@@ -8,7 +8,7 @@
 
 ```
 1. Place Totem         → Right-click on ground
-2. Add Ritual Item     → Right-click totem with item (Diamond, Emerald, etc.)
+2. Add Ritual Item     → Right-click totem with item (Emerald, Diamond, Iron Ingot, Nether Star, Arrow, Nether Block, or tool/weapon)
 3. Drop 4 Catalysts    → Throw items on ground (N, S, E, W of totem)
 4. Light Fire          → Use Flint & Steel at totem base
 5. Watch Magic!        → Offerings consumed, ritual starts

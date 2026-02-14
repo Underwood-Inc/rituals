@@ -188,7 +188,7 @@ graph TB
 **Pattern Detection:**
 - `#pattern_valid` - 1 if pattern is complete and correct
 - `#totems_found` - Count of valid totems in pattern
-- `#found_n`, `#found_ne`, etc. - Individual position validation flags
+- `#found_n`, `#found_ne`, `#found_e`, `#found_se`, `#found_s`, `#found_sw`, `#found_w`, `#found_nw` - Individual position validation flags (used per-pattern; not all patterns use all directions)
 
 **Ritual Effects:**
 - Effect type 11: Auto-Breeding
@@ -210,7 +210,7 @@ graph TB
 ### Step-by-Step Guide
 
 1. **Define Pattern Geometry**
-   - Choose shape (pentagon, octagon, etc.)
+   - Choose shape (star, cross, pentagon, hexagon, octagon, circle, or custom)
    - Calculate exact coordinates for each position
    - Decide item requirements for each position
 
@@ -220,7 +220,7 @@ graph TB
    ├── detect_[ritual_name].mcfunction
    ├── check_[position1].mcfunction
    ├── check_[position2].mcfunction
-   ...
+   ├── check_[positionN].mcfunction   (one per totem position in your pattern)
    └── activate_[ritual_name].mcfunction
    ```
 
@@ -256,7 +256,7 @@ execute positioned ~ ~ ~X as @e[type=interaction,tag=rituals.totem,tag=rituals.h
 # Sum totems found
 scoreboard players operation #totems_found rituals.temp = #found_pos1 rituals.temp
 scoreboard players operation #totems_found rituals.temp += #found_pos2 rituals.temp
-# ... add all positions
+# (repeat += for each position in your pattern: #found_pos3, #found_pos4, ...#found_posN)
 
 # If complete, activate
 execute if score #totems_found rituals.temp matches [N] run function rituals:ritual/patterns/[shape]/activate_my_ritual
