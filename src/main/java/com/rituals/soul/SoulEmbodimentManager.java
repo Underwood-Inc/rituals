@@ -16,26 +16,29 @@ import net.minecraft.text.TextColor;
 import net.minecraft.util.Formatting;
 
 /**
- * SoulWeaponManager - Helper utilities for soul weapons
+ * SoulEmbodimentManager - Helper utilities for soul-embodied items
  * 
  * Provides helper methods used by commands and the SoulXpTracker.
  * The datapack handles all core ritual logic (totem sync, level-up, etc.).
  * When the Java mod is present, SoulXpTracker handles XP tracking via events.
  * 
  * This class provides:
- * - Soul weapon detection (isSoulWeapon)
+ * - Soul item detection (isSoulWeapon)
  * - Lore/tooltip rendering (updateLore)
  * - XP curve calculation (calculateXpForLevel)
  * - NBT helper utilities
  * 
+ * NOTE: "Weapon" in method names is retained for backward compatibility,
+ * but the system supports ANY item (tools, weapons, or otherwise).
+ * 
  * IMPORTANT: The datapack works standalone without this mod!
  */
-public class SoulWeaponManager {
+public class SoulEmbodimentManager {
 
     private static boolean initialized = false;
 
     /**
-     * Initialize the soul weapon helper system.
+     * Initialize the soul embodiment helper system.
      * Called from RitualsMod.onInitialize().
      * 
      * NOTE: XP tracking is handled by SoulXpTracker, not here.

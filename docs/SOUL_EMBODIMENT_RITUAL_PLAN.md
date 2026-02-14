@@ -1057,8 +1057,8 @@ flowchart LR
 #### Mod Enhancements
 
 ```java
-// SoulWeaponManager.java
-public class SoulWeaponManager {
+// SoulEmbodimentManager.java
+public class SoulEmbodimentManager {
     // Track soul items and update tooltips in real-time
     public void onItemUsed(PlayerEntity player, ItemStack stack);
     public void updateSoulLore(ItemStack stack, int level, int xp);
@@ -1298,7 +1298,7 @@ config/rituals/
 
 src/main/java/com/rituals/
 ├── soul/
-│   ├── SoulWeaponManager.java
+│   ├── SoulEmbodimentManager.java
 │   ├── SoulData.java
 │   ├── SoulAscensionHandler.java
 │   ├── SoulBonusEnchant.java
@@ -1373,7 +1373,7 @@ src/main/java/com/rituals/
   - [x] Hot-reload supported by existing system
 
 - [x] **Phase 6: Fabric Mod Integration** ✅ COMPLETE
-  - [x] Create `SoulWeaponManager.java`
+  - [x] Create `SoulEmbodimentManager.java`
   - [x] Real-time XP tracking via events
   - [x] Real-time tooltip updates
   - [x] Create `SoulCommands.java`

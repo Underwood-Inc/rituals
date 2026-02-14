@@ -50,7 +50,7 @@ public class RitualsMod implements ModInitializer {
         LOGGER.info("Commands registered! Use /rituals help");
         
         // Initialize Soul Weapon enhancement layer
-        com.rituals.soul.SoulWeaponManager.initialize();
+        com.rituals.soul.SoulEmbodimentManager.initialize();
         com.rituals.soul.SoulXpTracker.initialize();
         LOGGER.info("Soul Embodiment enhancements active!");
         LOGGER.info("===========================================");
