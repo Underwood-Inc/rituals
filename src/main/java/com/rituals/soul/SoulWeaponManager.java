@@ -11,8 +11,8 @@ import net.minecraft.component.type.NbtComponent;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.nbt.NbtElement;
-import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.Text;
+import net.minecraft.text.TextColor;
 import net.minecraft.util.Formatting;
 
 /**
@@ -140,13 +140,57 @@ public class SoulWeaponManager {
         }
     }
 
+    // ── Color constants for rich tooltip rendering (compressy pattern) ──
+
+    /** Bright green for filled XP bar segments */
+    private static final TextColor BAR_FILLED_COLOR = parseColor("#55FF55", 0x55FF55);
+    /** Dark gray for empty XP bar segments */
+    private static final TextColor BAR_EMPTY_COLOR = parseColor("#3A3A3A", 0x3A3A3A);
+    /** Percentage text color */
+    private static final TextColor PERCENT_COLOR = parseColor("#AAFFAA", 0xAAFFAA);
+    /** Header/footer separator color */
+    private static final TextColor SEPARATOR_COLOR = parseColor("#5B2C8E", 0x5B2C8E);
+    /** Soul name highlight */
+    private static final TextColor SOUL_NAME_COLOR = parseColor("#FF55FF", 0xFF55FF);
+    /** Stat label color */
+    private static final TextColor LABEL_COLOR = parseColor("#AAAAAA", 0xAAAAAA);
+    /** Ascension ready pulse color */
+    private static final TextColor ASCEND_COLOR = parseColor("#FFD700", 0xFFD700);
+    /** Muted info color */
+    private static final TextColor MUTED_COLOR = parseColor("#666666", 0x666666);
+    /** Bonus enchant color */
+    private static final TextColor BONUS_COLOR = parseColor("#AA00FF", 0xAA00FF);
+
+    /** Number of segments in the XP bar */
+    private static final int BAR_SEGMENTS = 20;
+    /** Character for filled bar segments */
+    private static final String BAR_FILLED_CHAR = "█";
+    /** Character for empty bar segments */
+    private static final String BAR_EMPTY_CHAR = "░";
+
     /**
-     * Update the item's lore to reflect current soul state
-     * MOD ENHANCEMENT - real-time tooltip updates
+     * Parse a hex color string with a fallback RGB value.
+     * Mirrors the compressy mod's TextColor.parse() pattern.
+     */
+    private static TextColor parseColor(String hex, int fallbackRgb) {
+        return TextColor.parse(hex).result().orElse(TextColor.fromRgb(fallbackRgb));
+    }
+
+    /**
+     * Update the item's lore to reflect current soul state.
+     * 
+     * MOD ENHANCEMENT - Rich tooltip with XP progress bar.
+     * 
+     * Follows the compressy mod's tooltip pattern:
+     * - All lines use withItalic(false) to prevent default lore italic
+     * - Separate Text components for filled/empty bar segments with distinct colors
+     * - Hex colors via TextColor for richer visuals
+     * - Decorative separators for visual structure
      */
     public static void updateLore(ItemStack stack, NbtCompound nbt) {
         List<Text> loreLines = new ArrayList<>();
-        
+
+        // ── Read soul data from NBT ──
         String name = getNbtString(nbt, "soul_name", "Soulbound");
         int level = getNbtInt(nbt, "soul_level", 1);
         int xp = getNbtInt(nbt, "soul_xp", 0);
@@ -154,64 +198,160 @@ public class SoulWeaponManager {
         int tier = getNbtInt(nbt, "soul_ascension_tier", 1);
         int bonusEnchants = getNbtInt(nbt, "soul_bonus_enchants", 0);
         boolean readyAscend = getNbtBool(nbt, "soul_ready_ascend");
+        boolean fractured = getNbtBool(nbt, "soul_fractured");
         String type = getNbtString(nbt, "soul_type", "generic");
         int kills = getNbtInt(nbt, "soul_kills", 0);
         int blocks = getNbtInt(nbt, "soul_blocks_broken", 0);
-        
-        // Soul name
-        loreLines.add(Text.literal("✦ Soul: ").formatted(Formatting.DARK_PURPLE)
-            .append(Text.literal("\"" + name + "\"").formatted(Formatting.WHITE, Formatting.BOLD)));
-        
-        // Level and tier
-        if (readyAscend) {
-            loreLines.add(Text.literal("⚡ LEVEL " + level + " - READY TO ASCEND!")
-                .formatted(Formatting.GOLD, Formatting.BOLD));
-        } else {
-            loreLines.add(Text.literal("Level: ").formatted(Formatting.GRAY)
-                .append(Text.literal(level + "/" + levelCap).formatted(Formatting.YELLOW))
-                .append(Text.literal(" (Tier " + toRoman(tier) + ")").formatted(Formatting.DARK_GRAY)));
-        }
-        
-        // XP bar
+        int xpTotal = getNbtInt(nbt, "soul_xp_total", 0);
+
+        // ── XP calculations ──
         int xpForNext = calculateXpForLevel(level + 1);
         int percent = level >= levelCap ? 100 : (xp * 100 / Math.max(1, xpForNext));
-        String bar = generateXpBar(percent);
-        loreLines.add(Text.literal("XP: ").formatted(Formatting.GRAY)
-            .append(Text.literal(xp + "/" + xpForNext + " ").formatted(Formatting.GREEN))
-            .append(Text.literal(bar).formatted(Formatting.DARK_GREEN)));
-        
-        // Bonus enchants if any
-        if (bonusEnchants > 0) {
-            loreLines.add(Text.literal("✧ Bonus Enchants: +" + bonusEnchants)
-                .formatted(Formatting.DARK_PURPLE));
-        }
-        
-        // Stats based on type
-        if (type.equals("sword") || type.equals("axe")) {
-            loreLines.add(Text.literal("Kills: " + kills).formatted(Formatting.DARK_GRAY));
+        TextColor accentColor = getSoulAccentColor(level);
+
+        // ── Top separator ──
+        loreLines.add(styledLine("━━━━━━━━━━━━━━━━━━━━━━━━", SEPARATOR_COLOR));
+
+        // ── Soul name ──
+        loreLines.add(noItalic(
+            Text.literal("✦ ").styled(s -> s.withColor(accentColor))
+                .append(Text.literal("\"" + name + "\"").styled(s -> s.withColor(SOUL_NAME_COLOR).withBold(true).withItalic(false)))
+        ));
+
+        // ── Level / Tier ──
+        if (readyAscend) {
+            loreLines.add(noItalic(
+                Text.literal("⚡ ").styled(s -> s.withColor(ASCEND_COLOR))
+                    .append(Text.literal("Lv." + level + "/" + levelCap).styled(s -> s.withColor(Formatting.YELLOW).withItalic(false)))
+                    .append(Text.literal(" READY TO ASCEND!").styled(s -> s.withColor(ASCEND_COLOR).withBold(true).withItalic(false)))
+            ));
         } else {
-            loreLines.add(Text.literal("Blocks: " + blocks).formatted(Formatting.DARK_GRAY));
+            loreLines.add(noItalic(
+                Text.literal("⬥ Level: ").styled(s -> s.withColor(LABEL_COLOR))
+                    .append(Text.literal(level + "/" + levelCap).styled(s -> s.withColor(Formatting.YELLOW).withItalic(false)))
+                    .append(Text.literal(" (Tier " + toRoman(tier) + ")").styled(s -> s.withColor(MUTED_COLOR).withItalic(false)))
+            ));
         }
-        
-        // Soul Embodied marker
+
+        // ── XP progress bar ──
+        // Line 1: "XP: 79/382"
+        loreLines.add(noItalic(
+            Text.literal("⬥ XP: ").styled(s -> s.withColor(LABEL_COLOR))
+                .append(Text.literal(String.format("%,d", xp) + "/" + String.format("%,d", xpForNext)).styled(s -> s.withColor(Formatting.GREEN).withItalic(false)))
+        ));
+
+        // Line 2: The visual bar — filled segments (green) + empty segments (dark) + percent
+        int filledSegments = (percent * BAR_SEGMENTS) / 100;
+        int emptySegments = BAR_SEGMENTS - filledSegments;
+        String filledStr = BAR_FILLED_CHAR.repeat(Math.max(0, filledSegments));
+        String emptyStr = BAR_EMPTY_CHAR.repeat(Math.max(0, emptySegments));
+
+        loreLines.add(noItalic(
+            Text.literal("  ").styled(s -> s.withItalic(false))
+                .append(Text.literal(filledStr).styled(s -> s.withColor(BAR_FILLED_COLOR).withItalic(false)))
+                .append(Text.literal(emptyStr).styled(s -> s.withColor(BAR_EMPTY_COLOR).withItalic(false)))
+                .append(Text.literal(" " + percent + "%").styled(s -> s.withColor(PERCENT_COLOR).withItalic(false)))
+        ));
+
+        // ── Empty spacer ──
         loreLines.add(Text.empty());
-        if (level >= 100) {
-            loreLines.add(Text.literal("☆ OMEGA ☆").formatted(Formatting.RED, Formatting.BOLD));
-        } else {
-            loreLines.add(Text.literal("Soul Embodied").formatted(Formatting.DARK_PURPLE));
+
+        // ── Bonus enchants ──
+        if (bonusEnchants > 0) {
+            loreLines.add(noItalic(
+                Text.literal("✧ Enchants: ").styled(s -> s.withColor(LABEL_COLOR))
+                    .append(Text.literal("+" + bonusEnchants).styled(s -> s.withColor(BONUS_COLOR).withBold(true).withItalic(false)))
+            ));
         }
-        
-        // Apply lore
+
+        // ── Stats (type-appropriate) ──
+        if (type.equals("sword") || type.equals("axe")) {
+            loreLines.add(noItalic(
+                Text.literal("⬥ Kills: ").styled(s -> s.withColor(LABEL_COLOR))
+                    .append(Text.literal(String.format("%,d", kills)).styled(s -> s.withColor(Formatting.RED).withItalic(false)))
+            ));
+        } else {
+            loreLines.add(noItalic(
+                Text.literal("⬥ Blocks: ").styled(s -> s.withColor(LABEL_COLOR))
+                    .append(Text.literal(String.format("%,d", blocks)).styled(s -> s.withColor(Formatting.AQUA).withItalic(false)))
+            ));
+        }
+
+        // ── Total XP ──
+        loreLines.add(noItalic(
+            Text.literal("⬥ Total XP: ").styled(s -> s.withColor(LABEL_COLOR))
+                .append(Text.literal(String.format("%,d", xpTotal)).styled(s -> s.withColor(Formatting.GREEN).withItalic(false)))
+        ));
+
+        // ── Ascension progress ──
+        int remaining = 18 - tier;
+        loreLines.add(noItalic(
+            Text.literal("⬥ Ascensions: ").styled(s -> s.withColor(LABEL_COLOR))
+                .append(Text.literal(tier + "/18").styled(s -> s.withColor(Formatting.YELLOW).withItalic(false)))
+                .append(Text.literal(" (" + remaining + " left)").styled(s -> s.withColor(MUTED_COLOR).withItalic(false)))
+        ));
+
+        // ── Fractured warning ──
+        if (fractured) {
+            loreLines.add(Text.empty());
+            loreLines.add(noItalic(
+                Text.literal("☠ FRACTURED").styled(s -> s.withColor(Formatting.DARK_RED).withBold(true))
+            ));
+        }
+
+        // ── Bottom separator + soul marker ──
+        loreLines.add(styledLine("━━━━━━━━━━━━━━━━━━━━━━━━", SEPARATOR_COLOR));
+        if (level >= 100) {
+            loreLines.add(noItalic(
+                Text.literal("☆ OMEGA ☆").styled(s -> s.withColor(ASCEND_COLOR).withBold(true))
+            ));
+        } else {
+            loreLines.add(noItalic(
+                Text.literal("Soul Embodied").styled(s -> s.withColor(accentColor))
+            ));
+        }
+
+        // ── Apply lore to item stack ──
         stack.set(DataComponentTypes.LORE, new LoreComponent(loreLines));
     }
 
     /**
-     * Generate a visual XP bar
+     * Create a styled separator line with italic disabled.
+     * Follows compressy's withItalic(false) pattern for lore lines.
      */
-    private static String generateXpBar(int percent) {
-        int filled = percent / 10;
-        int empty = 10 - filled;
-        return "▓".repeat(Math.max(0, filled)) + "░".repeat(Math.max(0, empty)) + " " + percent + "%";
+    private static Text styledLine(String text, TextColor color) {
+        return Text.literal(text).styled(s -> s.withColor(color).withItalic(false));
+    }
+
+    /**
+     * Wrap a Text in a non-italic style for lore display.
+     * Minecraft renders item lore in italic by default; this prevents that.
+     */
+    private static Text noItalic(Text text) {
+        return text.copy().styled(s -> s.withItalic(false));
+    }
+
+    /**
+     * Get a soul-level-based accent color for visual progression.
+     * Similar to compressy's getTierColor() — color shifts as the weapon grows.
+     *
+     * @param level the current soul level (1-100)
+     * @return accent TextColor appropriate for the soul's maturity
+     */
+    private static TextColor getSoulAccentColor(int level) {
+        if (level <= 15) {
+            return parseColor("#55FFFF", 0x55FFFF);  // Cyan — Awakening
+        } else if (level <= 30) {
+            return parseColor("#55FF55", 0x55FF55);  // Green — Growth
+        } else if (level <= 50) {
+            return parseColor("#FFFF55", 0xFFFF55);  // Yellow — Maturity
+        } else if (level <= 70) {
+            return parseColor("#FFAA00", 0xFFAA00);  // Orange — Mastery
+        } else if (level <= 90) {
+            return parseColor("#FF55FF", 0xFF55FF);  // Magenta — Transcendence
+        } else {
+            return parseColor("#FFD700", 0xFFD700);  // Gold — Apotheosis
+        }
     }
 
     /**
