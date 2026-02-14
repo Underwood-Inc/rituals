@@ -11,7 +11,10 @@ base {
 }
 
 repositories {
-    // Add repositories to retrieve artifacts from in here.
+    // ModMenu
+    maven { url "https://maven.terraformersmc.com/releases/" }
+    // Cloth Config
+    maven { url "https://maven.shedaniel.me/" }
 }
 
 dependencies {
@@ -22,6 +25,20 @@ dependencies {
     
     // Fabric API for command registration
     modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+    
+    // TOML parser for config files (supports comments!)
+    implementation "com.moandjiezana.toml:toml4j:0.7.2"
+    include "com.moandjiezana.toml:toml4j:0.7.2"
+    
+    // Optional: ModMenu integration (config screen)
+    modCompileOnly("com.terraformersmc:modmenu:13.0.0-beta.1") {
+        transitive = false
+    }
+    
+    // Optional: Cloth Config (fancy config screen)
+    modCompileOnly("me.shedaniel.cloth:cloth-config-fabric:17.0.144") {
+        exclude(group: "net.fabricmc.fabric-api")
+    }
 }
 
 // Task to sync datapack/resourcepack to mod resources before building

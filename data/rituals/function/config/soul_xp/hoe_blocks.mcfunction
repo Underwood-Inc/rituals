@@ -1,89 +1,85 @@
 # ========================================
-# HOE BLOCKS - Complete XP Mapping
+# HOE BLOCKS - XP Value Configuration
 # ========================================
-# All hoe-mineable blocks in Minecraft 1.21.11
+# Scoreboard constants for hoe-mineable blocks
+# Each #xp_<block> value on rituals.config defines XP per block mined
 # Edit values then /reload to apply
+# Minecraft 1.21.11
 
 # === LEAVES (1 XP) ===
-data modify storage rituals:config soul_xp_hoe.oak_leaves set value 1
-data modify storage rituals:config soul_xp_hoe.spruce_leaves set value 1
-data modify storage rituals:config soul_xp_hoe.birch_leaves set value 1
-data modify storage rituals:config soul_xp_hoe.jungle_leaves set value 1
-data modify storage rituals:config soul_xp_hoe.acacia_leaves set value 1
-data modify storage rituals:config soul_xp_hoe.dark_oak_leaves set value 1
-data modify storage rituals:config soul_xp_hoe.mangrove_leaves set value 1
-data modify storage rituals:config soul_xp_hoe.cherry_leaves set value 1
-data modify storage rituals:config soul_xp_hoe.pale_oak_leaves set value 1
-data modify storage rituals:config soul_xp_hoe.azalea_leaves set value 1
-data modify storage rituals:config soul_xp_hoe.flowering_azalea_leaves set value 1
+scoreboard players set #xp_oak_leaves rituals.config 1
+scoreboard players set #xp_spruce_leaves rituals.config 1
+scoreboard players set #xp_birch_leaves rituals.config 1
+scoreboard players set #xp_jungle_leaves rituals.config 1
+scoreboard players set #xp_acacia_leaves rituals.config 1
+scoreboard players set #xp_dark_oak_leaves rituals.config 1
+scoreboard players set #xp_mangrove_leaves rituals.config 1
+scoreboard players set #xp_cherry_leaves rituals.config 1
+scoreboard players set #xp_pale_oak_leaves rituals.config 1
+scoreboard players set #xp_azalea_leaves rituals.config 1
+scoreboard players set #xp_flowering_azalea_leaves rituals.config 1
 
 # === HAY/DRIED KELP (2 XP) ===
-data modify storage rituals:config soul_xp_hoe.hay_block set value 2
-data modify storage rituals:config soul_xp_hoe.dried_kelp_block set value 1
-data modify storage rituals:config soul_xp_hoe.target set value 2
+scoreboard players set #xp_hay_block rituals.config 2
+scoreboard players set #xp_dried_kelp_block rituals.config 1
+scoreboard players set #xp_target rituals.config 2
 
 # === MOSS (1 XP) ===
-data modify storage rituals:config soul_xp_hoe.moss_block set value 1
-data modify storage rituals:config soul_xp_hoe.moss_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.pale_moss_block set value 1
-data modify storage rituals:config soul_xp_hoe.pale_moss_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.pale_hanging_moss set value 1
+scoreboard players set #xp_moss_block rituals.config 1
+scoreboard players set #xp_moss_carpet rituals.config 1
+scoreboard players set #xp_pale_moss_block rituals.config 1
+scoreboard players set #xp_pale_moss_carpet rituals.config 1
+scoreboard players set #xp_pale_hanging_moss rituals.config 1
 
 # === SCULK (3-5 XP) ===
-data modify storage rituals:config soul_xp_hoe.sculk set value 3
-data modify storage rituals:config soul_xp_hoe.sculk_vein set value 1
-data modify storage rituals:config soul_xp_hoe.sculk_catalyst set value 5
-data modify storage rituals:config soul_xp_hoe.sculk_sensor set value 4
-data modify storage rituals:config soul_xp_hoe.calibrated_sculk_sensor set value 5
-data modify storage rituals:config soul_xp_hoe.sculk_shrieker set value 5
+scoreboard players set #xp_sculk rituals.config 3
+scoreboard players set #xp_sculk_vein rituals.config 1
+scoreboard players set #xp_sculk_catalyst rituals.config 5
+scoreboard players set #xp_sculk_sensor rituals.config 4
+scoreboard players set #xp_calibrated_sculk_sensor rituals.config 5
+scoreboard players set #xp_sculk_shrieker rituals.config 5
 
 # === SPONGE (3 XP) ===
-data modify storage rituals:config soul_xp_hoe.sponge set value 3
-data modify storage rituals:config soul_xp_hoe.wet_sponge set value 3
+scoreboard players set #xp_sponge rituals.config 3
+scoreboard players set #xp_wet_sponge rituals.config 3
 
 # === NETHER WART BLOCKS (2 XP) ===
-data modify storage rituals:config soul_xp_hoe.nether_wart_block set value 2
-data modify storage rituals:config soul_xp_hoe.warped_wart_block set value 2
-data modify storage rituals:config soul_xp_hoe.shroomlight set value 2
+scoreboard players set #xp_nether_wart_block rituals.config 2
+scoreboard players set #xp_warped_wart_block rituals.config 2
+scoreboard players set #xp_shroomlight rituals.config 2
 
 # === WOOL (1 XP) ===
-data modify storage rituals:config soul_xp_hoe.white_wool set value 1
-data modify storage rituals:config soul_xp_hoe.orange_wool set value 1
-data modify storage rituals:config soul_xp_hoe.magenta_wool set value 1
-data modify storage rituals:config soul_xp_hoe.light_blue_wool set value 1
-data modify storage rituals:config soul_xp_hoe.yellow_wool set value 1
-data modify storage rituals:config soul_xp_hoe.lime_wool set value 1
-data modify storage rituals:config soul_xp_hoe.pink_wool set value 1
-data modify storage rituals:config soul_xp_hoe.gray_wool set value 1
-data modify storage rituals:config soul_xp_hoe.light_gray_wool set value 1
-data modify storage rituals:config soul_xp_hoe.cyan_wool set value 1
-data modify storage rituals:config soul_xp_hoe.purple_wool set value 1
-data modify storage rituals:config soul_xp_hoe.blue_wool set value 1
-data modify storage rituals:config soul_xp_hoe.brown_wool set value 1
-data modify storage rituals:config soul_xp_hoe.green_wool set value 1
-data modify storage rituals:config soul_xp_hoe.red_wool set value 1
-data modify storage rituals:config soul_xp_hoe.black_wool set value 1
+scoreboard players set #xp_white_wool rituals.config 1
+scoreboard players set #xp_orange_wool rituals.config 1
+scoreboard players set #xp_magenta_wool rituals.config 1
+scoreboard players set #xp_light_blue_wool rituals.config 1
+scoreboard players set #xp_yellow_wool rituals.config 1
+scoreboard players set #xp_lime_wool rituals.config 1
+scoreboard players set #xp_pink_wool rituals.config 1
+scoreboard players set #xp_gray_wool rituals.config 1
+scoreboard players set #xp_light_gray_wool rituals.config 1
+scoreboard players set #xp_cyan_wool rituals.config 1
+scoreboard players set #xp_purple_wool rituals.config 1
+scoreboard players set #xp_blue_wool rituals.config 1
+scoreboard players set #xp_brown_wool rituals.config 1
+scoreboard players set #xp_green_wool rituals.config 1
+scoreboard players set #xp_red_wool rituals.config 1
+scoreboard players set #xp_black_wool rituals.config 1
 
 # === CARPET (1 XP) ===
-data modify storage rituals:config soul_xp_hoe.white_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.orange_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.magenta_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.light_blue_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.yellow_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.lime_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.pink_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.gray_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.light_gray_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.cyan_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.purple_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.blue_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.brown_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.green_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.red_carpet set value 1
-data modify storage rituals:config soul_xp_hoe.black_carpet set value 1
-
-# === DEFAULT (blocks not listed) ===
-data modify storage rituals:config soul_xp_hoe_default set value 1
-
-
-
+scoreboard players set #xp_white_carpet rituals.config 1
+scoreboard players set #xp_orange_carpet rituals.config 1
+scoreboard players set #xp_magenta_carpet rituals.config 1
+scoreboard players set #xp_light_blue_carpet rituals.config 1
+scoreboard players set #xp_yellow_carpet rituals.config 1
+scoreboard players set #xp_lime_carpet rituals.config 1
+scoreboard players set #xp_pink_carpet rituals.config 1
+scoreboard players set #xp_gray_carpet rituals.config 1
+scoreboard players set #xp_light_gray_carpet rituals.config 1
+scoreboard players set #xp_cyan_carpet rituals.config 1
+scoreboard players set #xp_purple_carpet rituals.config 1
+scoreboard players set #xp_blue_carpet rituals.config 1
+scoreboard players set #xp_brown_carpet rituals.config 1
+scoreboard players set #xp_green_carpet rituals.config 1
+scoreboard players set #xp_red_carpet rituals.config 1
+scoreboard players set #xp_black_carpet rituals.config 1

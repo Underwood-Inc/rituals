@@ -42,6 +42,7 @@ public class RitualsMod implements ModInitializer {
         LOGGER.info("===========================================");
         LOGGER.info("Mod loaded successfully!");
         LOGGER.info("Datapack and resource pack auto-installed.");
+        com.rituals.config.RitualsConfig.load();
         LOGGER.info("Registering commands...");
 
         registerCommands();
@@ -50,6 +51,7 @@ public class RitualsMod implements ModInitializer {
         
         // Initialize Soul Weapon enhancement layer
         com.rituals.soul.SoulWeaponManager.initialize();
+        com.rituals.soul.SoulXpTracker.initialize();
         LOGGER.info("Soul Embodiment enhancements active!");
         LOGGER.info("===========================================");
     }
@@ -114,9 +116,11 @@ public class RitualsMod implements ModInitializer {
             LiteralArgumentBuilder<ServerCommandSource> configCommand = CommandManager.literal("config");
             configCommand.then(CommandManager.literal("reload").executes(ctx -> {
                 com.rituals.config.RitualsConfig.reload();
+                // Re-push config values to the same scoreboard constants
+                com.rituals.soul.SoulXpTracker.repushConfig(ctx.getSource().getServer());
                 ctx.getSource().sendFeedback(
                         () -> Text.literal("[Rituals] ").formatted(Formatting.GOLD).formatted(Formatting.BOLD)
-                                .append(Text.literal("✓ Config reloaded!").formatted(Formatting.GREEN)),
+                                .append(Text.literal("✓ Config reloaded & XP values pushed to scoreboards!").formatted(Formatting.GREEN)),
                         false);
                 return Command.SINGLE_SUCCESS;
             }));

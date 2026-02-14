@@ -17,6 +17,9 @@
   "entrypoints": {
     "main": [
       "com.rituals.RitualsMod"
+    ],
+    "modmenu": [
+      "com.rituals.config.RitualsModMenuIntegration"
     ]
   },
   "depends": {
