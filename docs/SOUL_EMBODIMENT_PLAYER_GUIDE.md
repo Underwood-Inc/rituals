@@ -244,11 +244,11 @@ When you **hold a soul weapon** and perform actions (mining, killing, chopping, 
 ╠══════════════════════════════════════════════════════════════════════╣
 ║                                                                      ║
 ║   YOU (Wielder)         TOTEM (Conduit)         SOUL WEAPON          ║
-║   ┌─────────────┐      ┌─────────────┐         ┌─────────────┐      ║
-║   │  ✦ SOUL   ✦ │      │  ⚡ CHANNEL  │         │  PERMANENT  │      ║
-║   │  ENERGY     │ ═══► │  ENERGY     │  ═════► │  POWER!     │      ║
-║   │  (Absorbed) │      │  (Conduit)  │         │  (Weapon)   │      ║
-║   └─────────────┘      └─────────────┘         └─────────────┘      ║
+║   ┌─────────────┐      ┌─────────────┐         ┌─────────────┐       ║
+║   │  ✦ SOUL  ✦ │      │  CHANNEL    │         │  PERMANENT  │       ║
+║   │  ENERGY     │ ═══► │  ENERGY     │  ═════► │  POWER!     │       ║
+║   │  (Absorbed) │      │  (Conduit)  │         │  (Weapon)   │       ║
+║   └─────────────┘      └─────────────┘         └─────────────┘       ║
 ║                                                                      ║
 ║   Your deeds:           Conduits:               Result:              ║
 ║   • Mine blocks         • Totem placement       • Weapon levels up   ║
@@ -347,7 +347,7 @@ A quick taste of the progression:
 > 
 > *"Having achieved everything, I wonder what remains."* (philosophical)
 
-For the **complete list of all 390 quotes**, see [Appendix A: Full Soul Quote Reference](#-appendix-a-full-soul-quote-reference) at the bottom of this document.
+For the **complete list of all 390 quotes**, see **[SOUL_QUOTES_REFERENCE.md](SOUL_QUOTES_REFERENCE.md)**.
 
 ---
 
@@ -360,7 +360,7 @@ Every time you perform an Ascension Ritual, you spin the wheel!
     ╔═══════════════════════════╗
     ║   50% CHANCE TO WIN!      ║
     ║                           ║
-    ║   💎 BONUS ENCHANT! 💎    ║
+    ║   💎 BONUS ENCHANT! 💎   ║
     ║                           ║
     ╚═══════════════════════════╝
 ```
@@ -476,7 +476,7 @@ Print this out! Stick it on your wall! Never forget the ritual setup!
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║                 SOUL EMBODIMENT QUICK GUIDE                   ║
+║                 SOUL EMBODIMENT QUICK GUIDE                  ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║
 ║   RITUAL PATTERN:                                            ║
@@ -484,15 +484,15 @@ Print this out! Stick it on your wall! Never forget the ritual setup!
 ║                    [N] Soul Sand                             ║
 ║                         |                                    ║
 ║                         |                                    ║
-║   [W] Amethyst ----[CENTER]---- [E] Ender Pearl             ║
+║   [W] Amethyst ----[CENTER]---- [E] Ender Pearl              ║
 ║                    YOUR TOOL                                 ║
 ║                         |                                    ║
 ║                         |                                    ║
 ║                    [S] Glowstone                             ║
 ║                                                              ║
-║   DISTANCE: 5 blocks from center to each cardinal totem     ║
+║   DISTANCE: 5 blocks from center to each cardinal totem      ║
 ║                                                              ║
-║   TO ACTIVATE: Light fire at center totem base              ║
+║   TO ACTIVATE: Light fire at center totem base               ║
 ║                                                              ║
 ╠══════════════════════════════════════════════════════════════╣
 ║   STATS:                                                     ║
@@ -528,18 +528,18 @@ Don't want to trek back to your totem every time? **CRAFT A SCRYING GLASS!**
 ║           SCRYING GLASS - SYNC PROCEDURE              ║
 ╠═══════════════════════════════════════════════════════╣
 ║                                                       ║
-║   STEP 1: Equip your SOUL WEAPON in OFFHAND          ║
-║           (Press F to swap, or drag to shield slot)  ║
+║   STEP 1: Equip your SOUL WEAPON in OFFHAND           ║
+║           (Press F to swap, or drag to shield slot)   ║
 ║                                                       ║
-║   STEP 2: Hold SCRYING GLASS in MAINHAND             ║
-║           (Your main hotbar selection)               ║
+║   STEP 2: Hold SCRYING GLASS in MAINHAND              ║
+║           (Your main hotbar selection)                ║
 ║                                                       ║
-║   STEP 3: RIGHT-CLICK and LOOK through the glass     ║
-║           (Like using a normal spyglass!)            ║
+║   STEP 3: RIGHT-CLICK and LOOK through the glass      ║
+║           (Like using a normal spyglass!)             ║
 ║                                                       ║
-║   STEP 4: ✨ SOUL SYNCED! ✨                          ║
-║           All pending Soul Energy transfers to       ║
-║           the weapon in your offhand!                ║
+║   STEP 4: ✨ SOUL SYNCED! ✨                         ║
+║           All pending Soul Energy transfers to        ║
+║           the weapon in your offhand!                 ║
 ║                                                       ║
 ╚═══════════════════════════════════════════════════════╝
 ```
@@ -701,6 +701,16 @@ Check out the **[Technical Documentation](SOUL_EMBODIMENT_RITUAL_PLAN.md)** for:
 
 ---
 
+# 📜 Full Soul Quote Reference
+
+For the complete list of all **390 personality quotes** (6 eras, 18 moods, 20 quotes each, plus 30 ascension quotes), see:
+
+**[SOUL_QUOTES_REFERENCE.md](SOUL_QUOTES_REFERENCE.md)**
+
+Source data file: `config/rituals/soul_lore.json`
+
+---
+
 <div align="center">
 
 # 🔥 NOW GO AWAKEN YOUR WEAPONS! 🔥
@@ -715,7 +725,8 @@ Check out the **[Technical Documentation](SOUL_EMBODIMENT_RITUAL_PLAN.md)** for:
 
 ---
 
-**Version**: 1.1  
-**Last Updated**: 2026  
+**Version**: 1.2
+**Last Updated**: 2026
 **Part of**: Rituals Datapack & Mod
 
+<!-- End of document - Full quote reference at SOUL_QUOTES_REFERENCE.md -->

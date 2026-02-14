@@ -288,19 +288,31 @@ Your weapon has a personality and will **speak to you** randomly!
 
 ### How It Works
 
-- Comments appear in chat every **5-60 minutes** (random)
-- **150+ unique comments** across 10 categories
-- Comments change based on what you're doing (mining, combat, idle)
+- Quotes appear on the weapon's tooltip, randomly selected
+- **390 unique quotes** across 21 categories (6 eras x 3 moods = 18 era categories + 3 ascension categories)
+- Quotes change based on the weapon's **level era** (Awakening, Growth, Maturity, Mastery, Transcendence, Apotheosis) and a randomly selected **mood** within that era
 
-### Sample Comments
+### Sample Quotes by Era
 
-> *"I sense great potential in you, wielder."*
+**Awakening (Levels 1-15):**
+> *"I sense great potential in you, wielder."* (eager)
 
-> *"Point me at your enemies. I will not disappoint."*
+**Growth (Levels 16-30):**
+> *"Our bond strengthens with each battle."* (bonding)
 
-> *"The blood of our foes sustains me..."*
+**Maturity (Levels 31-50):**
+> *"Experience has taught me patience."* (wise)
 
-> *"I wonder what lies beyond the horizon?"*
+**Mastery (Levels 51-70):**
+> *"Kingdoms tremble at the mere whisper of my name."* (legendary)
+
+**Transcendence (Levels 71-90):**
+> *"We have transcended mortality together."* (divine)
+
+**Apotheosis (Levels 91-100):**
+> *"I AM BECOME DEATH, DESTROYER OF WORLDS."* (godlike)
+
+For the **complete list of all 390 quotes**, see **[SOUL_QUOTES_REFERENCE.md](../SOUL_QUOTES_REFERENCE.md)**.
 
 ### Personality Modifiers
 
