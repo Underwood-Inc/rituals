@@ -1,17 +1,15 @@
-# Update Soul Weapon Tooltip (Datapack-only method)
-# Called when a soul weapon needs its lore refreshed
-# For full real-time updates, use the Fabric mod version
+# Update Soul Item Tooltip
+# Called when a soul-embodied item's essence shifts (level-up, ascension, etc.)
+#
+# DATAPACK: Lore is rebuilt on every totem sync and scrying glass use via
+#           lore/apply_full, which calculates a proportional XP bar.
+#           No manual anvil refresh needed — next sync picks it up.
+# MOD:     The mod auto-refreshes in real-time via SoulEmbodimentManager.
+#
+# This function just notifies the player that something changed.
 
-# This function is called by check_level_up and ascension functions
-# It marks the item for tooltip refresh
+execute if entity @s[type=player] run tellraw @s ["",{"text":"✦ ","color":"dark_purple"},{"text":"Your soul item's essence has shifted!","color":"gray"}]
 
-# Set pending lore update flag
-# The mod will handle this automatically if present
-# For datapack-only users, they need to rename the item in an anvil
-
-execute if entity @s[type=player] run tellraw @s ["",{"text":"✦ ","color":"dark_purple"},{"text":"Your soul weapon's essence has shifted!","color":"gray"}]
-
-# If using mod, it will auto-refresh
-# If datapack-only, inform player about anvil refresh
-execute unless entity @s[type=player,nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_mod_present:true}}}}] run tellraw @s ["",{"text":"  → ","color":"gray"},{"text":"Rename in an anvil to refresh tooltip","color":"yellow","italic":true}]
+# Datapack-only: remind to sync via totem or scrying glass to see updated lore
+execute unless entity @s[type=player,nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_mod_present:true}}}}] run tellraw @s ["",{"text":"  → ","color":"gray"},{"text":"Sync at a totem or use a Scrying Glass to refresh tooltip","color":"yellow","italic":true}]
 
