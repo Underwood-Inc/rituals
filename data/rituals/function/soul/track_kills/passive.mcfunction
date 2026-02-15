@@ -1,31 +1,60 @@
 # ========================================
-# Track Passive Mob Kills - Weighted Tier XP
+# Track Passive Mob Kills - Config-Driven XP
 # ========================================
-# Adds weighted passive mob kill counts to #total rituals.soul_temp
+# Each mob's kill count is multiplied by its XP value from rituals.config
+# Config values set in config/soul_xp/kill_values.mcfunction
 # Called from soul/track_kills.mcfunction
 # Low XP for passive mobs (they don't fight back, you monster)
 
-# === TIER 1 (1 XP - standard passive) ===
-scoreboard players operation #total rituals.soul_temp += @s rituals.k_pig
-scoreboard players operation #total rituals.soul_temp += @s rituals.k_cow
-scoreboard players operation #total rituals.soul_temp += @s rituals.k_sheep
-scoreboard players operation #total rituals.soul_temp += @s rituals.k_chicken
-scoreboard players operation #total rituals.soul_temp += @s rituals.k_rabbit
-scoreboard players operation #total rituals.soul_temp += @s rituals.k_frog
-scoreboard players operation #total rituals.soul_temp += @s rituals.k_armadillo
+# === Passive Mobs ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_pig
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_pig rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
 
-# === TIER 2 (2 XP - slightly more interesting) ===
-scoreboard players set #kp2 rituals.soul_temp 0
-scoreboard players operation #kp2 rituals.soul_temp += @s rituals.k_fox
-scoreboard players operation #kp2 rituals.soul_temp += @s rituals.k_bee
-scoreboard players operation #kp2 rituals.soul_temp += @s rituals.k_goat
-scoreboard players operation #kp2 rituals.soul_temp += @s rituals.k_camel
-scoreboard players operation #kp2 rituals.soul_temp += @s rituals.k_sniffer
-scoreboard players operation #kp2 rituals.soul_temp *= #2 rituals.data
-scoreboard players operation #total rituals.soul_temp += #kp2 rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_cow
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_cow rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
 
-# === TIER 3 (3 XP - wolf, because it fights back) ===
-scoreboard players set #kp3 rituals.soul_temp 0
-scoreboard players operation #kp3 rituals.soul_temp += @s rituals.k_wolf
-scoreboard players operation #kp3 rituals.soul_temp *= #3 rituals.data
-scoreboard players operation #total rituals.soul_temp += #kp3 rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_sheep
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_sheep rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_chicken
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_chicken rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_rabbit
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_rabbit rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_wolf
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_wolf rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_fox
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_fox rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_bee
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_bee rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_goat
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_goat rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_frog
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_frog rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_camel
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_camel rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_sniffer
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_sniffer rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_armadillo
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_armadillo rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp

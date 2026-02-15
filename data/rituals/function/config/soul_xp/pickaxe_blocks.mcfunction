@@ -336,3 +336,138 @@ scoreboard players set #xp_polished_blackstone_button rituals.config 1
 scoreboard players set #xp_iron_door rituals.config 2
 scoreboard players set #xp_iron_trapdoor rituals.config 2
 scoreboard players set #xp_end_portal_frame rituals.config 50
+
+# ========================================
+# STAIRS / SLABS / WALLS / FENCES
+# ========================================
+# XP values match the parent block type
+
+# === STONE VARIANT STAIRS/SLABS/WALLS (1 XP) ===
+scoreboard players set #xp_stone_stairs rituals.config 1
+scoreboard players set #xp_cobblestone_stairs rituals.config 1
+scoreboard players set #xp_stone_brick_stairs rituals.config 1
+scoreboard players set #xp_mossy_cobblestone_stairs rituals.config 1
+scoreboard players set #xp_mossy_stone_brick_stairs rituals.config 1
+scoreboard players set #xp_stone_slab rituals.config 1
+scoreboard players set #xp_cobblestone_slab rituals.config 1
+scoreboard players set #xp_stone_brick_slab rituals.config 1
+scoreboard players set #xp_mossy_cobblestone_slab rituals.config 1
+scoreboard players set #xp_mossy_stone_brick_slab rituals.config 1
+scoreboard players set #xp_smooth_stone_slab rituals.config 1
+scoreboard players set #xp_cobblestone_wall rituals.config 1
+scoreboard players set #xp_mossy_cobblestone_wall rituals.config 1
+scoreboard players set #xp_stone_brick_wall rituals.config 1
+scoreboard players set #xp_mossy_stone_brick_wall rituals.config 1
+
+# === DEEPSLATE STAIRS/SLABS/WALLS (1 XP) ===
+scoreboard players set #xp_cobbled_deepslate_stairs rituals.config 1
+scoreboard players set #xp_polished_deepslate_stairs rituals.config 1
+scoreboard players set #xp_deepslate_brick_stairs rituals.config 1
+scoreboard players set #xp_deepslate_tile_stairs rituals.config 1
+scoreboard players set #xp_cobbled_deepslate_slab rituals.config 1
+scoreboard players set #xp_polished_deepslate_slab rituals.config 1
+scoreboard players set #xp_deepslate_brick_slab rituals.config 1
+scoreboard players set #xp_deepslate_tile_slab rituals.config 1
+scoreboard players set #xp_cobbled_deepslate_wall rituals.config 1
+scoreboard players set #xp_polished_deepslate_wall rituals.config 1
+scoreboard players set #xp_deepslate_brick_wall rituals.config 1
+scoreboard players set #xp_deepslate_tile_wall rituals.config 1
+
+# === GRANITE/DIORITE/ANDESITE STAIRS/SLABS/WALLS (1 XP) ===
+scoreboard players set #xp_granite_stairs rituals.config 1
+scoreboard players set #xp_polished_granite_stairs rituals.config 1
+scoreboard players set #xp_granite_slab rituals.config 1
+scoreboard players set #xp_polished_granite_slab rituals.config 1
+scoreboard players set #xp_granite_wall rituals.config 1
+scoreboard players set #xp_diorite_stairs rituals.config 1
+scoreboard players set #xp_polished_diorite_stairs rituals.config 1
+scoreboard players set #xp_diorite_slab rituals.config 1
+scoreboard players set #xp_polished_diorite_slab rituals.config 1
+scoreboard players set #xp_diorite_wall rituals.config 1
+scoreboard players set #xp_andesite_stairs rituals.config 1
+scoreboard players set #xp_polished_andesite_stairs rituals.config 1
+scoreboard players set #xp_andesite_slab rituals.config 1
+scoreboard players set #xp_polished_andesite_slab rituals.config 1
+scoreboard players set #xp_andesite_wall rituals.config 1
+
+# === SANDSTONE STAIRS/SLABS/WALLS (1 XP) ===
+scoreboard players set #xp_sandstone_stairs rituals.config 1
+scoreboard players set #xp_smooth_sandstone_stairs rituals.config 1
+scoreboard players set #xp_sandstone_slab rituals.config 1
+scoreboard players set #xp_cut_sandstone_slab rituals.config 1
+scoreboard players set #xp_smooth_sandstone_slab rituals.config 1
+scoreboard players set #xp_sandstone_wall rituals.config 1
+scoreboard players set #xp_red_sandstone_stairs rituals.config 1
+scoreboard players set #xp_smooth_red_sandstone_stairs rituals.config 1
+scoreboard players set #xp_red_sandstone_slab rituals.config 1
+scoreboard players set #xp_cut_red_sandstone_slab rituals.config 1
+scoreboard players set #xp_smooth_red_sandstone_slab rituals.config 1
+scoreboard players set #xp_red_sandstone_wall rituals.config 1
+
+# === PRISMARINE STAIRS/SLABS/WALLS (2 XP) ===
+scoreboard players set #xp_prismarine_stairs rituals.config 2
+scoreboard players set #xp_prismarine_brick_stairs rituals.config 2
+scoreboard players set #xp_dark_prismarine_stairs rituals.config 2
+scoreboard players set #xp_prismarine_slab rituals.config 2
+scoreboard players set #xp_prismarine_brick_slab rituals.config 2
+scoreboard players set #xp_dark_prismarine_slab rituals.config 2
+scoreboard players set #xp_prismarine_wall rituals.config 2
+
+# === NETHER BRICK STAIRS/SLABS/WALLS/FENCES (1 XP) ===
+scoreboard players set #xp_nether_brick_stairs rituals.config 1
+scoreboard players set #xp_red_nether_brick_stairs rituals.config 1
+scoreboard players set #xp_nether_brick_slab rituals.config 1
+scoreboard players set #xp_red_nether_brick_slab rituals.config 1
+scoreboard players set #xp_nether_brick_wall rituals.config 1
+scoreboard players set #xp_red_nether_brick_wall rituals.config 1
+scoreboard players set #xp_nether_brick_fence rituals.config 1
+
+# === BLACKSTONE STAIRS/SLABS/WALLS (1 XP) ===
+scoreboard players set #xp_blackstone_stairs rituals.config 1
+scoreboard players set #xp_polished_blackstone_stairs rituals.config 1
+scoreboard players set #xp_polished_blackstone_brick_stairs rituals.config 1
+scoreboard players set #xp_blackstone_slab rituals.config 1
+scoreboard players set #xp_polished_blackstone_slab rituals.config 1
+scoreboard players set #xp_polished_blackstone_brick_slab rituals.config 1
+scoreboard players set #xp_blackstone_wall rituals.config 1
+scoreboard players set #xp_polished_blackstone_wall rituals.config 1
+scoreboard players set #xp_polished_blackstone_brick_wall rituals.config 1
+
+# === END BLOCK STAIRS/SLABS/WALLS (2 XP) ===
+scoreboard players set #xp_end_stone_brick_stairs rituals.config 2
+scoreboard players set #xp_end_stone_brick_slab rituals.config 2
+scoreboard players set #xp_end_stone_brick_wall rituals.config 2
+scoreboard players set #xp_purpur_stairs rituals.config 2
+scoreboard players set #xp_purpur_slab rituals.config 2
+
+# === QUARTZ STAIRS/SLABS (2 XP) ===
+scoreboard players set #xp_quartz_stairs rituals.config 2
+scoreboard players set #xp_smooth_quartz_stairs rituals.config 2
+scoreboard players set #xp_quartz_slab rituals.config 2
+scoreboard players set #xp_smooth_quartz_slab rituals.config 2
+
+# === BRICK STAIRS/SLABS/WALLS (1 XP) ===
+scoreboard players set #xp_brick_stairs rituals.config 1
+scoreboard players set #xp_brick_slab rituals.config 1
+scoreboard players set #xp_brick_wall rituals.config 1
+scoreboard players set #xp_mud_brick_stairs rituals.config 1
+scoreboard players set #xp_mud_brick_slab rituals.config 1
+scoreboard players set #xp_mud_brick_wall rituals.config 1
+
+# === COPPER STAIRS/SLABS (2 XP) ===
+scoreboard players set #xp_cut_copper_stairs rituals.config 2
+scoreboard players set #xp_exposed_cut_copper_stairs rituals.config 2
+scoreboard players set #xp_weathered_cut_copper_stairs rituals.config 2
+scoreboard players set #xp_oxidized_cut_copper_stairs rituals.config 2
+scoreboard players set #xp_cut_copper_slab rituals.config 2
+scoreboard players set #xp_exposed_cut_copper_slab rituals.config 2
+scoreboard players set #xp_weathered_cut_copper_slab rituals.config 2
+scoreboard players set #xp_oxidized_cut_copper_slab rituals.config 2
+scoreboard players set #xp_waxed_cut_copper_stairs rituals.config 2
+scoreboard players set #xp_waxed_exposed_cut_copper_stairs rituals.config 2
+scoreboard players set #xp_waxed_weathered_cut_copper_stairs rituals.config 2
+scoreboard players set #xp_waxed_oxidized_cut_copper_stairs rituals.config 2
+scoreboard players set #xp_waxed_cut_copper_slab rituals.config 2
+scoreboard players set #xp_waxed_exposed_cut_copper_slab rituals.config 2
+scoreboard players set #xp_waxed_weathered_cut_copper_slab rituals.config 2
+scoreboard players set #xp_waxed_oxidized_cut_copper_slab rituals.config 2

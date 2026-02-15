@@ -271,3 +271,49 @@ scoreboard players set #xp_brown_banner rituals.config 1
 scoreboard players set #xp_green_banner rituals.config 1
 scoreboard players set #xp_red_banner rituals.config 1
 scoreboard players set #xp_black_banner rituals.config 1
+
+# === WALL SIGNS (1 XP) ===
+scoreboard players set #xp_oak_wall_sign rituals.config 1
+scoreboard players set #xp_spruce_wall_sign rituals.config 1
+scoreboard players set #xp_birch_wall_sign rituals.config 1
+scoreboard players set #xp_jungle_wall_sign rituals.config 1
+scoreboard players set #xp_acacia_wall_sign rituals.config 1
+scoreboard players set #xp_dark_oak_wall_sign rituals.config 1
+scoreboard players set #xp_mangrove_wall_sign rituals.config 1
+scoreboard players set #xp_cherry_wall_sign rituals.config 1
+scoreboard players set #xp_pale_oak_wall_sign rituals.config 1
+scoreboard players set #xp_bamboo_wall_sign rituals.config 1
+scoreboard players set #xp_crimson_wall_sign rituals.config 1
+scoreboard players set #xp_warped_wall_sign rituals.config 1
+
+# === WALL HANGING SIGNS (1 XP) ===
+scoreboard players set #xp_oak_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_spruce_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_birch_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_jungle_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_acacia_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_dark_oak_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_mangrove_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_cherry_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_pale_oak_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_bamboo_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_crimson_wall_hanging_sign rituals.config 1
+scoreboard players set #xp_warped_wall_hanging_sign rituals.config 1
+
+# === BEDS (1 XP) ===
+scoreboard players set #xp_white_bed rituals.config 1
+scoreboard players set #xp_orange_bed rituals.config 1
+scoreboard players set #xp_magenta_bed rituals.config 1
+scoreboard players set #xp_light_blue_bed rituals.config 1
+scoreboard players set #xp_yellow_bed rituals.config 1
+scoreboard players set #xp_lime_bed rituals.config 1
+scoreboard players set #xp_pink_bed rituals.config 1
+scoreboard players set #xp_gray_bed rituals.config 1
+scoreboard players set #xp_light_gray_bed rituals.config 1
+scoreboard players set #xp_cyan_bed rituals.config 1
+scoreboard players set #xp_purple_bed rituals.config 1
+scoreboard players set #xp_blue_bed rituals.config 1
+scoreboard players set #xp_brown_bed rituals.config 1
+scoreboard players set #xp_green_bed rituals.config 1
+scoreboard players set #xp_red_bed rituals.config 1
+scoreboard players set #xp_black_bed rituals.config 1

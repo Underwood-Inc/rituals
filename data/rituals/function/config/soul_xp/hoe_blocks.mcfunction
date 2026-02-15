@@ -83,3 +83,32 @@ scoreboard players set #xp_brown_carpet rituals.config 1
 scoreboard players set #xp_green_carpet rituals.config 1
 scoreboard players set #xp_red_carpet rituals.config 1
 scoreboard players set #xp_black_carpet rituals.config 1
+
+# === NETHER FUNGUS - HOE VARIANTS (2 XP) ===
+# Suffixed with _hoe to avoid collision with axe tracking objectives
+scoreboard players set #xp_nether_wart_block_hoe rituals.config 2
+scoreboard players set #xp_warped_wart_block_hoe rituals.config 2
+scoreboard players set #xp_shroomlight_hoe rituals.config 2
+
+# === CROPS (1 XP) ===
+scoreboard players set #xp_wheat rituals.config 1
+scoreboard players set #xp_carrots rituals.config 1
+scoreboard players set #xp_potatoes rituals.config 1
+scoreboard players set #xp_beetroots rituals.config 1
+scoreboard players set #xp_nether_wart rituals.config 1
+scoreboard players set #xp_sweet_berry_bush rituals.config 1
+scoreboard players set #xp_cave_vines rituals.config 1
+scoreboard players set #xp_cave_vines_plant rituals.config 1
+scoreboard players set #xp_torchflower rituals.config 1
+scoreboard players set #xp_torchflower_crop rituals.config 1
+scoreboard players set #xp_pitcher_crop rituals.config 1
+scoreboard players set #xp_pitcher_plant rituals.config 2
+
+# === VINES / PLANTS (1 XP) ===
+scoreboard players set #xp_vine rituals.config 1
+scoreboard players set #xp_glow_lichen rituals.config 1
+scoreboard players set #xp_hanging_roots rituals.config 1
+scoreboard players set #xp_spore_blossom rituals.config 2
+scoreboard players set #xp_big_dripleaf rituals.config 1
+scoreboard players set #xp_big_dripleaf_stem rituals.config 1
+scoreboard players set #xp_small_dripleaf rituals.config 1
