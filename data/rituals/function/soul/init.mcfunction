@@ -14,29 +14,9 @@ scoreboard objectives add rituals.combat_timer dummy "Bloodthirst Combat Timer"
 scoreboard objectives add rituals.repair_cd dummy "Soul Mending Cooldown"
 scoreboard objectives add rituals.prev_damage dummy "Fragile Damage Tracker"
 
-# Statistics tracking (using vanilla stats)
-# Mob kills - track total mobs killed
-scoreboard objectives add rituals.mob_kills minecraft.custom:minecraft.mob_kills "Mobs Killed"
-# Damage dealt for combat XP  
-scoreboard objectives add rituals.damage_dealt minecraft.custom:minecraft.damage_dealt "Damage Dealt"
-
-# === BLOCK SCOREBOARDS ===
-# Full block tracking for all tool types (Minecraft 1.21.11)
-# Loaded from separate files for organization
-function rituals:soul/scoreboards/load
-
-# Combined tracking scoreboards (per tool type)
-scoreboard objectives add rituals.pickaxe_mined dummy
-scoreboard objectives add rituals.shovel_mined dummy
-scoreboard objectives add rituals.axe_mined dummy
-scoreboard objectives add rituals.hoe_mined dummy
-scoreboard objectives add rituals.sword_kills dummy
-scoreboard objectives add rituals.ranged_kills dummy
-scoreboard objectives add rituals.axe_kills dummy
-
-# Previous values for delta calculation (unified tracking)
-scoreboard objectives add rituals.prev_blocks dummy "Prev Blocks Mined"
-scoreboard objectives add rituals.prev_kills dummy "Prev Kills"
+# === PASSIVE XP TIMER ===
+# Per-player tick counter for time-based soul XP accrual
+scoreboard objectives add rituals.soul_timer dummy "Soul XP Timer"
 
 # Notification cooldown (prevents chat spam)
 scoreboard objectives add rituals.soul_notify_cd dummy "Soul Notify Cooldown"
@@ -75,8 +55,7 @@ data modify storage rituals:soul fallback_names set value ["Soulbound", "Spiritf
 # Ascension bonus chance (50 = 50%)
 data modify storage rituals:soul bonus_chance set value 50
 
-# XP multipliers per action
-data modify storage rituals:soul xp_values set value {block_mined: 1, ore_mined: 5, damage_dealt: 1, mob_killed: 10, boss_killed: 100}
+# (Time-based XP system — config values loaded from config/soul_xp/load.mcfunction)
 
 # Initialize name index counter
 scoreboard players set #soul_name_index rituals.data 0
@@ -92,6 +71,7 @@ scoreboard players set #15 rituals.data 15
 scoreboard players set #20 rituals.data 20
 scoreboard players set #25 rituals.data 25
 scoreboard players set #50 rituals.data 50
+scoreboard players set #60 rituals.data 60
 scoreboard players set #100 rituals.data 100
 
 # Initialize buff/debuff registry
