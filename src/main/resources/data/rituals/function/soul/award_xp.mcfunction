@@ -6,16 +6,6 @@
 # The wielder's soul absorbs experience from their deeds.
 # Energy accumulates in the wielder; totem channels it into the weapon.
 
-# === XP BOOST (Soul Wisdom) ===
-# If the held item has xpboost buff, multiply XP by (100 + 10*level) / 100
-# Level 1: +10%, Level 2: +20%, Level 3: +30%
-execute store result score #xpboost_lvl rituals.soul_temp run data get entity @s SelectedItem.components."minecraft:custom_data".soul_buff_levels.xpboost
-execute if score #xpboost_lvl rituals.soul_temp matches 1.. run scoreboard players operation #xp_bonus rituals.soul_temp = #xp_gain rituals.soul_temp
-execute if score #xpboost_lvl rituals.soul_temp matches 1.. run scoreboard players operation #xp_bonus rituals.soul_temp *= #xpboost_lvl rituals.soul_temp
-execute if score #xpboost_lvl rituals.soul_temp matches 1.. run scoreboard players operation #xp_bonus rituals.soul_temp *= #10 rituals.data
-execute if score #xpboost_lvl rituals.soul_temp matches 1.. run scoreboard players operation #xp_bonus rituals.soul_temp /= #100 rituals.data
-execute if score #xpboost_lvl rituals.soul_temp matches 1.. run scoreboard players operation #xp_gain rituals.soul_temp += #xp_bonus rituals.soul_temp
-
 # Add to wielder's pending soul energy
 scoreboard players operation @s rituals.soul_xp_gain += #xp_gain rituals.soul_temp
 
@@ -23,6 +13,6 @@ scoreboard players operation @s rituals.soul_xp_gain += #xp_gain rituals.soul_te
 tag @s add rituals.soul_pending_sync
 
 # Show feedback with actual XP amount (cooldown from config)
-execute unless score @s rituals.soul_notify_cd matches 1.. run title @s actionbar [{"text":"✦ +","color":"light_purple"},{"score":{"name":"#xp_gain","objective":"rituals.soul_temp"},"color":"aqua"},{"text":" Soul XP (","color":"gray"},{"score":{"name":"@s","objective":"rituals.soul_xp_gain"},"color":"green"},{"text":" pending)","color":"gray"}]
+execute unless score @s rituals.soul_notify_cd matches 1.. run title @s actionbar [{"text":"+ ","color":"light_purple"},{"score":{"name":"#xp_gain","objective":"rituals.soul_temp"},"color":"aqua"},{"text":" Soul XP (","color":"gray"},{"score":{"name":"@s","objective":"rituals.soul_xp_gain"},"color":"green"},{"text":" pending)","color":"gray"}]
 execute unless score @s rituals.soul_notify_cd matches 1.. run playsound minecraft:entity.experience_orb.pickup player @s ~ ~ ~ 0.3 1.8
 execute unless score @s rituals.soul_notify_cd matches 1.. store result score @s rituals.soul_notify_cd run data get storage rituals:config soul_notify_cooldown

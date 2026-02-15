@@ -1,5 +1,5 @@
 # ========================================
-# Totem Conduit — Channel Soul Energy into Weapon
+# Totem Conduit ΓÇö Channel Soul Energy into Weapon
 # ========================================
 # Called when a soul item is placed on a totem.
 # The totem acts as a conduit: it channels the wielder's stored
@@ -18,7 +18,6 @@ execute store result score #soul_level_cap rituals.soul_temp run data get storag
 # === STEP 2: CHANNEL PENDING SOUL ENERGY (if any) ===
 scoreboard players set #did_level_up rituals.soul_temp 0
 scoreboard players set #xp_applied rituals.soul_temp 0
-scoreboard players set #xp_to_apply rituals.soul_temp 0
 $execute if entity @a[nbt={UUID:$(interacting_uuid)},tag=rituals.soul_pending_sync] run function rituals:soul/apply_pending_xp with storage rituals:temp
 scoreboard players operation #xp_applied rituals.soul_temp = #xp_to_apply rituals.soul_temp
 
@@ -48,5 +47,5 @@ function rituals:soul/lore/apply_full with storage rituals:temp
 data modify entity @s item set from storage rituals:temp item
 
 # === STEP 7: NOTIFY PLAYER ===
-$execute if score #xp_applied rituals.soul_temp matches 1.. run tellraw @a[nbt={UUID:$(interacting_uuid)}] [{"text":"✦ ","color":"dark_purple"},{"text":"Soul synced! ","color":"light_purple"},{"text":"+","color":"green"},{"score":{"name":"#xp_applied","objective":"rituals.soul_temp"},"color":"green"},{"text":" XP applied.","color":"green"}]
-$execute if score #xp_applied rituals.soul_temp matches 0 run tellraw @a[nbt={UUID:$(interacting_uuid)}] [{"text":"✦ ","color":"dark_purple"},{"text":"Soul weapon placed. No pending XP.","color":"gray"}]
+$execute if score #xp_applied rituals.soul_temp matches 1.. run tellraw @a[nbt={UUID:$(interacting_uuid)}] [{"text":"Γ£ª ","color":"dark_purple"},{"text":"Soul synced! ","color":"light_purple"},{"text":"+","color":"green"},{"score":{"name":"#xp_applied","objective":"rituals.soul_temp"},"color":"green"},{"text":" XP applied.","color":"green"}]
+$execute if score #xp_applied rituals.soul_temp matches 0 run tellraw @a[nbt={UUID:$(interacting_uuid)}] [{"text":"Γ£ª ","color":"dark_purple"},{"text":"Soul weapon placed. No pending XP.","color":"gray"}]

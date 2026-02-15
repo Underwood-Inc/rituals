@@ -47,11 +47,11 @@ public class RitualsConfig {
     public Map<String, Integer> killXpValues = new HashMap<>();
 
     // === STATIC API (backward compatibility) ===
-
+    
     public static boolean isKiwiMode() {
         return get().kiwiMode;
     }
-
+    
     public static void setKiwiMode(boolean enabled) {
         get().kiwiMode = enabled;
         if (enabled) {
@@ -59,20 +59,20 @@ public class RitualsConfig {
         }
         RitualsMod.LOGGER.info("Kiwi Mode: {}", enabled);
     }
-
+    
     public static boolean isDebugMode() {
         return get().debugMode;
     }
-
+    
     public static void setDebugMode(boolean enabled) {
         get().debugMode = enabled;
         RitualsMod.LOGGER.info("Debug Mode: {}", enabled);
     }
-
+    
     public static boolean requiresFireSacrifice() {
         return get().requireFireSacrifice;
     }
-
+    
     public static void setRequireFireSacrifice(boolean required) {
         get().requireFireSacrifice = required;
         RitualsMod.LOGGER.info("Fire Sacrifice Required: {}", required);
@@ -84,7 +84,7 @@ public class RitualsConfig {
         }
         return INSTANCE;
     }
-
+    
     public static void reload() {
         INSTANCE = null;
         load();

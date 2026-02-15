@@ -12,8 +12,8 @@ scoreboard players add #tick_counter rituals.temp 1
 # Check each player holding a soul-embodied item in their mainhand
 execute as @a[gamemode=!spectator] at @s if data entity @s SelectedItem.components."minecraft:custom_data".soul_embodied run function rituals:soul/check_player_action
 
-# Apply buff effects to players holding soul weapons
-execute as @a[gamemode=!spectator] at @s if data entity @s SelectedItem.components."minecraft:custom_data".soul_embodied run function rituals:soul/buffs/apply_effects
+# TEMPORARILY DISABLED — isolating XP gain bug
+# execute as @a[gamemode=!spectator] at @s if data entity @s SelectedItem.components."minecraft:custom_data".soul_embodied run function rituals:soul/buffs/apply_effects
 
 # Remove effects from players NOT holding soul weapons (who previously were)
 execute as @a[gamemode=!spectator,tag=rituals.had_soul_weapon] at @s unless data entity @s SelectedItem.components."minecraft:custom_data".soul_embodied run function rituals:soul/buffs/remove_effects

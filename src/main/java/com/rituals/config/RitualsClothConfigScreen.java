@@ -1,10 +1,13 @@
 package com.rituals.config;
 
 import com.rituals.RitualsMod;
+import com.rituals.soul.SoulXpTracker;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.text.Text;
 
 import java.util.ArrayList;
@@ -38,7 +41,15 @@ public class RitualsClothConfigScreen {
         
         builder.setSavingRunnable(() -> {
             RitualsConfig.save();
-            RitualsMod.LOGGER.info("Config saved from ModMenu - values will push to scoreboards on next server start or /rituals config reload");
+            // Push updated values to datapack scoreboards immediately
+            // (singleplayer: integrated server available; dedicated: null, requires /rituals config reload)
+            MinecraftServer server = MinecraftClient.getInstance().getServer();
+            if (server != null) {
+                SoulXpTracker.repushConfig(server);
+                RitualsMod.LOGGER.info("Config saved from ModMenu — values pushed to scoreboards immediately");
+            } else {
+                RitualsMod.LOGGER.info("Config saved from ModMenu — run /rituals config reload on the server to apply");
+            }
         });
         
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
