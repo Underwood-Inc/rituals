@@ -7,12 +7,8 @@ package com.rituals.config;
  * control how frequently XP is awarded while a soul weapon sits in
  * the player's hotbar.</p>
  *
- * <ul>
- *   <li><b>EASY</b> — 200 ticks (10 seconds) per cycle</li>
- *   <li><b>MEDIUM</b> — 400 ticks (20 seconds) per cycle</li>
- *   <li><b>HARD</b> — 600 ticks (30 seconds) per cycle (default)</li>
- *   <li><b>CUSTOM</b> — user-specified interval in ticks</li>
- * </ul>
+ * <p>13 presets spanning 10 seconds to 60 minutes, plus CUSTOM.
+ * Default is {@link #HARD} (3 minutes).</p>
  *
  * <p>Used by {@link RitualsConfig} for config storage, by
  * {@link com.rituals.soul.SoulXpTracker} for pushing resolved values,
@@ -20,10 +16,20 @@ package com.rituals.config;
  */
 public enum SoulXpRate {
 
-    EASY(200, "Easy (10s)"),
-    MEDIUM(400, "Medium (20s)"),
-    HARD(600, "Hard (30s)"),
-    CUSTOM(-1, "Custom");
+    TRIVIAL(200,   "Trivial (10s)"),
+    EASY(600,      "Easy (30s)"),
+    MODERATE(1200, "Moderate (1m)"),
+    STANDARD(2400, "Standard (2m)"),
+    HARD(3600,     "Hard (3m)"),
+    TOUGH(6000,    "Tough (5m)"),
+    GRUELING(9600, "Grueling (8m)"),
+    BRUTAL(12000,  "Brutal (10m)"),
+    PUNISHING(18000, "Punishing (15m)"),
+    EXTREME(24000, "Extreme (20m)"),
+    INSANE(36000,  "Insane (30m)"),
+    NIGHTMARE(54000, "Nightmare (45m)"),
+    IMPOSSIBLE(72000, "Impossible (60m)"),
+    CUSTOM(-1,     "Custom");
 
     /** Tick interval for this preset, or -1 for CUSTOM (uses user-defined value). */
     public final int ticks;

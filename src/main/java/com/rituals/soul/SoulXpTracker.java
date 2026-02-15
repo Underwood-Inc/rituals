@@ -135,6 +135,10 @@ public final class SoulXpTracker {
         runCommand(server,
                 "data modify storage rituals:config soul_level_scaling set value " + config.levelScaling);
 
+        // === XP COUNTDOWN DEBUG FLAG (scoreboard) ===
+        runCommand(server,
+                "scoreboard players set #xp_countdown rituals.config " + (config.soulXpCountdown ? 1 : 0));
+
         // === OFFHAND RATE MODIFIERS (scoreboard) ===
         int offhandCount = 0;
         for (Map.Entry<String, Integer> entry : config.offhandRates.entrySet()) {

@@ -62,6 +62,9 @@ public class RitualsConfig {
     /** Custom tick interval, only used when {@link #soulXpRate} is CUSTOM. */
     public int soulXpCustomInterval = 600;
 
+    /** Log a 1-per-second countdown to next XP award in chat (debug tool). */
+    public boolean soulXpCountdown = false;
+
     // === OFFHAND RATE MODIFIERS ===
     // Key: namespaced item ID (e.g. "minecraft:soul_sand"), Value: rate percentage (100 = 1.0x)
     // These are pushed to the rituals.config scoreboard by SoulXpTracker
@@ -142,6 +145,7 @@ public class RitualsConfig {
                 INSTANCE.soulXpBaseRate = toml.getLong("soulXp.baseRate", 1L).intValue();
                 INSTANCE.soulXpRate = SoulXpRate.fromString(toml.getString("soulXp.rate", "hard"));
                 INSTANCE.soulXpCustomInterval = toml.getLong("soulXp.customInterval", 600L).intValue();
+                INSTANCE.soulXpCountdown = toml.getBoolean("soulXp.countdown", false);
 
                 // Offhand rate modifiers
                 INSTANCE.offhandRates = parseMap(toml.getList("offhandRates.entries"));
@@ -252,13 +256,17 @@ public class RitualsConfig {
 
             toml.append("[soulXp]\n");
             toml.append("# The soul grows through observation and existence.\n");
-            toml.append("# XP rate preset: \"easy\", \"medium\", \"hard\", or \"custom\"\n");
-            toml.append("# easy = 10 seconds, medium = 20 seconds, hard = 30 seconds\n");
+            toml.append("# XP rate preset (case-insensitive):\n");
+            toml.append("# trivial(10s) easy(30s) moderate(1m) standard(2m) hard(3m) tough(5m)\n");
+            toml.append("# grueling(8m) brutal(10m) punishing(15m) extreme(20m) insane(30m)\n");
+            toml.append("# nightmare(45m) impossible(60m) custom(set customInterval below)\n");
             toml.append("rate = \"").append(c.soulXpRate.name().toLowerCase()).append("\"\n");
             toml.append("# Base XP gained per award cycle\n");
             toml.append("baseRate = ").append(c.soulXpBaseRate).append("\n");
             toml.append("# Only used when rate = \"custom\". Ticks between XP awards (20 = 1 second).\n");
-            toml.append("customInterval = ").append(c.soulXpCustomInterval).append("\n\n");
+            toml.append("customInterval = ").append(c.soulXpCustomInterval).append("\n");
+            toml.append("# Show a 1/second countdown in chat until next XP award (debug tool)\n");
+            toml.append("countdown = ").append(c.soulXpCountdown).append("\n\n");
 
             toml.append("[offhandRates]\n");
             toml.append("# Holding certain items in your offhand influences the soul's growth rate.\n");

@@ -14,17 +14,22 @@
 # === PASSIVE XP TIMER ===
 # Increment timer for all non-spectator players with a soul weapon in their hotbar.
 # Uses 1.21+ `if items` with component matching to check all 9 hotbar slots.
-execute as @a[gamemode=!spectator] at @s if items entity @s hotbar.* *[custom_data~{soul_embodied:1}] run scoreboard players add @s rituals.soul_timer 1
+execute as @a[gamemode=!spectator] at @s if items entity @s hotbar.* *[custom_data~{soul_embodied:1b}] run scoreboard players add @s rituals.soul_timer 1
 
 # Read the configured interval from storage into a temp score
 execute store result score #interval rituals.soul_temp run data get storage rituals:config soul_xp_interval
 
 # Award XP to players whose timer has reached the interval, then reset
-execute as @a[gamemode=!spectator] at @s if items entity @s hotbar.* *[custom_data~{soul_embodied:1}] if score @s rituals.soul_timer >= #interval rituals.soul_temp run function rituals:soul/accrue_xp
+execute as @a[gamemode=!spectator] at @s if items entity @s hotbar.* *[custom_data~{soul_embodied:1b}] if score @s rituals.soul_timer >= #interval rituals.soul_temp run function rituals:soul/accrue_xp
 execute as @a[gamemode=!spectator] if score @s rituals.soul_timer >= #interval rituals.soul_temp run scoreboard players set @s rituals.soul_timer 0
 
 # Reset timer for players who no longer have a soul weapon in hotbar
-execute as @a[gamemode=!spectator] unless items entity @s hotbar.* *[custom_data~{soul_embodied:1}] run scoreboard players set @s rituals.soul_timer 0
+execute as @a[gamemode=!spectator] unless items entity @s hotbar.* *[custom_data~{soul_embodied:1b}] run scoreboard players set @s rituals.soul_timer 0
+
+# === XP COUNTDOWN DEBUG LOG (1/second when enabled) ===
+# Toggle via ModMenu -> Soul XP -> XP Countdown Log, or soulXp.countdown in TOML
+# Shows remaining seconds until next XP award in chat
+execute if score #xp_countdown rituals.config matches 1 as @a[gamemode=!spectator] at @s if items entity @s hotbar.* *[custom_data~{soul_embodied:1b}] run function rituals:soul/debug_countdown
 
 # === BUFF/DEBUFF EFFECTS (mainhand only, throttled) ===
 # Effects only apply when actively wielding the soul weapon.

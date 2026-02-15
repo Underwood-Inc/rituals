@@ -112,11 +112,18 @@ public class RitualsMod implements ModInitializer {
                             .executes(com.rituals.commands.SoulCommands::rename)));
             ritualsCommand.then(soulCommand);
 
-            // /rituals config subcommands
-            LiteralArgumentBuilder<ServerCommandSource> configCommand = CommandManager.literal("config");
+            // /rituals config subcommands (OP required — XP rate settings are admin-only)
+            LiteralArgumentBuilder<ServerCommandSource> configCommand = CommandManager.literal("config")
+                    .requires(source -> {
+                        var perms = source.getPermissions();
+                        if (perms instanceof net.minecraft.command.permission.LeveledPermissionPredicate lpp) {
+                            return lpp.getLevel().compareTo(
+                                    net.minecraft.command.permission.LeveledPermissionPredicate.GAMEMASTERS.getLevel()) >= 0;
+                        }
+                        return false;
+                    });
             configCommand.then(CommandManager.literal("reload").executes(ctx -> {
                 com.rituals.config.RitualsConfig.reload();
-                // Re-push config values to the same scoreboard constants
                 com.rituals.soul.SoulXpTracker.repushConfig(ctx.getSource().getServer());
                 ctx.getSource().sendFeedback(
                         () -> Text.literal("[Rituals] ").formatted(Formatting.GOLD).formatted(Formatting.BOLD)
@@ -124,6 +131,70 @@ public class RitualsMod implements ModInitializer {
                         false);
                 return Command.SINGLE_SUCCESS;
             }));
+
+            // /rituals config xp_interval <easy|medium|hard|NUMBER>
+            // Sets the soul XP cycle interval — accepts a preset name or a custom tick count.
+            configCommand.then(CommandManager.literal("xp_interval")
+                    .then(CommandManager.argument("value", com.mojang.brigadier.arguments.StringArgumentType.word())
+                            .executes(ctx -> {
+                                String input = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "value");
+                                com.rituals.config.RitualsConfig config = com.rituals.config.RitualsConfig.get();
+
+                                // Try preset name first
+                                com.rituals.config.SoulXpRate preset = null;
+                                for (com.rituals.config.SoulXpRate r : com.rituals.config.SoulXpRate.values()) {
+                                    if (r != com.rituals.config.SoulXpRate.CUSTOM
+                                            && r.name().equalsIgnoreCase(input)) {
+                                        preset = r;
+                                        break;
+                                    }
+                                }
+
+                                int resolvedInterval;
+                                String label;
+
+                                if (preset != null) {
+                                    config.soulXpRate = preset;
+                                    resolvedInterval = preset.ticks;
+                                    label = preset.label;
+                                } else {
+                                    // Try parsing as tick count
+                                    int ticks;
+                                    try {
+                                        ticks = Integer.parseInt(input);
+                                    } catch (NumberFormatException e) {
+                                        ctx.getSource().sendError(Text.literal("[Rituals] ")
+                                                .formatted(Formatting.RED)
+                                                .append(Text.literal("Invalid value: \"" + input + "\". Use easy, medium, hard, or a tick number (20+).")
+                                                        .formatted(Formatting.YELLOW)));
+                                        return 0;
+                                    }
+                                    if (ticks < 20) {
+                                        ctx.getSource().sendError(Text.literal("[Rituals] ")
+                                                .formatted(Formatting.RED)
+                                                .append(Text.literal("Minimum interval is 20 ticks (1 second).")
+                                                        .formatted(Formatting.YELLOW)));
+                                        return 0;
+                                    }
+                                    config.soulXpRate = com.rituals.config.SoulXpRate.CUSTOM;
+                                    config.soulXpCustomInterval = ticks;
+                                    resolvedInterval = ticks;
+                                    label = "Custom";
+                                }
+
+                                com.rituals.config.RitualsConfig.save();
+                                com.rituals.soul.SoulXpTracker.repushConfig(ctx.getSource().getServer());
+
+                                String timeStr = com.rituals.config.SoulXpRate.formatTicks(resolvedInterval);
+                                ctx.getSource().sendFeedback(
+                                        () -> Text.literal("[Rituals] ").formatted(Formatting.GOLD)
+                                                .append(Text.literal("XP interval set to ").formatted(Formatting.GREEN))
+                                                .append(Text.literal(label + " (" + timeStr + ")").formatted(Formatting.AQUA))
+                                                .append(Text.literal(" — saved & applied.").formatted(Formatting.GREEN)),
+                                        true);
+                                return Command.SINGLE_SUCCESS;
+                            })));
+
             ritualsCommand.then(configCommand);
 
             // /rituals badges subcommands

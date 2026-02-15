@@ -123,7 +123,7 @@ public class RitualsClothConfigScreen {
                 SoulXpRate.class,
                 config.soulXpRate)
                 .setDefaultValue(SoulXpRate.HARD)
-                .setTooltip(Text.literal("Easy = 10s, Medium = 20s, Hard = 30s, Custom = set your own."))
+                .setTooltip(Text.literal("13 presets from 10s to 60m. Default: Hard (3m).\nSet to Custom to use your own tick interval."))
                 .setSaveConsumer(val -> config.soulXpRate = val)
                 .build());
 
@@ -149,6 +149,15 @@ public class RitualsClothConfigScreen {
                         + "Ticks between XP awards. 20 = 1 second, 1200 = 1 minute.\n"
                         + "Current: " + SoulXpRate.formatTicks(config.soulXpCustomInterval)))
                 .setSaveConsumer(val -> config.soulXpCustomInterval = val)
+                .build());
+
+        // XP countdown debug toggle
+        soulXp.addEntry(entryBuilder.startBooleanToggle(
+                Text.literal("XP Countdown Log"),
+                config.soulXpCountdown)
+                .setDefaultValue(false)
+                .setTooltip(Text.literal("Show a 1/second countdown in chat until next XP award.\nUseful for debugging whether passive XP is working."))
+                .setSaveConsumer(val -> config.soulXpCountdown = val)
                 .build());
 
         // === OFFHAND RATES CATEGORY ===
