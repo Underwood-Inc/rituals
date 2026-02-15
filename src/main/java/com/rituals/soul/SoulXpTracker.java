@@ -38,6 +38,16 @@ public final class SoulXpTracker {
      */
     public static void initialize() {
         ServerLifecycleEvents.SERVER_STARTED.register(SoulXpTracker::pushConfigToScoreboards);
+
+        // Re-push after /reload so datapack defaults don't overwrite TOML values.
+        // Flow: /reload -> datapack load.mcfunction sets defaults -> END_DATA_PACK_RELOAD fires -> we overwrite with TOML.
+        ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> {
+            if (success) {
+                pushConfigToScoreboards(server);
+                RitualsMod.LOGGER.info("[Soul Embodiment] Config re-pushed after datapack reload");
+            }
+        });
+
         RitualsMod.LOGGER.info("[Soul Embodiment] Config pusher registered (datapack handles tracking)");
     }
 

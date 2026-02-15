@@ -1,10 +1,13 @@
 package com.rituals.config;
 
 import com.rituals.RitualsMod;
+import com.rituals.soul.SoulXpTracker;
 import me.shedaniel.clothconfig2.api.ConfigBuilder;
 import me.shedaniel.clothconfig2.api.ConfigCategory;
 import me.shedaniel.clothconfig2.api.ConfigEntryBuilder;
+import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.server.MinecraftServer;
 import net.minecraft.text.Text;
 
 import java.util.ArrayList;
@@ -38,7 +41,14 @@ public class RitualsClothConfigScreen {
         
         builder.setSavingRunnable(() -> {
             RitualsConfig.save();
-            RitualsMod.LOGGER.info("Config saved from ModMenu - values will push to scoreboards on next server start or /rituals config reload");
+            // Push to scoreboards immediately if an integrated server is available (single-player)
+            MinecraftServer server = MinecraftClient.getInstance().getServer();
+            if (server != null) {
+                SoulXpTracker.repushConfig(server);
+                RitualsMod.LOGGER.info("Config saved & pushed to scoreboards");
+            } else {
+                RitualsMod.LOGGER.info("Config saved - run /rituals config reload on server to apply");
+            }
         });
         
         ConfigEntryBuilder entryBuilder = builder.entryBuilder();
@@ -60,6 +70,14 @@ public class RitualsClothConfigScreen {
                 .setDefaultValue(false)
                 .setTooltip(Text.literal("Skip fire sacrifice requirement for rituals."))
                 .setSaveConsumer(val -> config.kiwiMode = val)
+                .build());
+        
+        general.addEntry(entryBuilder.startBooleanToggle(
+                Text.literal("Require Fire Sacrifice"),
+                config.requireFireSacrifice)
+                .setDefaultValue(true)
+                .setTooltip(Text.literal("Whether rituals require a fire sacrifice to activate.\nDisabled automatically when Kiwi Mode is on."))
+                .setSaveConsumer(val -> config.requireFireSacrifice = val)
                 .build());
         
         // === LEVEL CURVE CATEGORY ===
