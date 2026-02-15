@@ -81,7 +81,12 @@ stateDiagram-v2
         
         Wood0 --> Wood1: Activate Ritual
         Wood1 --> Wood2: Activate Ritual
-        Wood2 --> Wood8: Continue...
+        Wood2 --> Wood3: Activate Ritual
+        Wood3 --> Wood4: Activate Ritual
+        Wood4 --> Wood5: Activate Ritual
+        Wood5 --> Wood6: Activate Ritual
+        Wood6 --> Wood7: Activate Ritual
+        Wood7 --> Wood8: Activate Ritual
     }
     
     state "Copper Badge" as CopperTier {
@@ -134,7 +139,7 @@ stateDiagram-v2
 
 **Two dimensions of progress:**
 1. **Vertical (Tiers)**: Craft higher-tier totems → Wood → Copper → Iron → Gold → Diamond → Netherite
-2. **Horizontal (Rituals)**: Activate unique ritual types → 0/8 → 1/8 → ... → 8/8
+2. **Horizontal (Rituals)**: Activate unique ritual types → 0/8 → 1/8 → 2/8 → 3/8 → 4/8 → 5/8 → 6/8 → 7/8 → 8/8
 
 **Your badge reflects BOTH!**
 
@@ -457,7 +462,7 @@ Each of the 8 ritual types has 7 milestones based on **how many times you've per
 All advancement progress is tracked automatically via scoreboards:
 - `rituals.ritual_count` - Tracks unique ritual types completed
 - `rituals.total_activations` - Tracks total ritual activations
-- `rituals.growth_count`, `rituals.strength_count`, etc. - Tracks per-ritual activations
+- `rituals.growth_count`, `rituals.strength_count`, `rituals.healing_count`, `rituals.prosperity_count`, `rituals.damage_count`, `rituals.turret_count`, `rituals.harvest_count`, `rituals.breeding_count` - Tracks per-ritual activations
 - `rituals.badge_tier` - Tracks your highest totem tier
 
 Check your progress anytime with:

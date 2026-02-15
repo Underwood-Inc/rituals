@@ -10,6 +10,9 @@ scoreboard objectives add rituals.soul_holder dummy "Soul Holder"
 scoreboard objectives add rituals.soul_xp_gain dummy "Soul XP Pending"
 scoreboard objectives add rituals.soul_durability dummy "Soul Tool Durability"
 scoreboard objectives add rituals.soul_action dummy "Soul Action Type"
+scoreboard objectives add rituals.combat_timer dummy "Bloodthirst Combat Timer"
+scoreboard objectives add rituals.repair_cd dummy "Soul Mending Cooldown"
+scoreboard objectives add rituals.prev_damage dummy "Fragile Damage Tracker"
 
 # Statistics tracking (using vanilla stats)
 # Mob kills - track total mobs killed

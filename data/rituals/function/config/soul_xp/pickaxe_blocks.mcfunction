@@ -1,341 +1,338 @@
 # ========================================
-# PICKAXE BLOCKS - Complete XP Mapping
+# PICKAXE BLOCKS - XP Value Configuration
 # ========================================
-# All pickaxe-mineable blocks in Minecraft 1.21.11
+# Scoreboard constants for pickaxe-mineable blocks
+# Each #xp_<block> value on rituals.config defines XP per block mined
 # Edit values then /reload to apply
+# Minecraft 1.21.11
 
 # === STONE TYPES (1 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.stone set value 1
-data modify storage rituals:config soul_xp_pickaxe.cobblestone set value 1
-data modify storage rituals:config soul_xp_pickaxe.mossy_cobblestone set value 1
-data modify storage rituals:config soul_xp_pickaxe.smooth_stone set value 1
-data modify storage rituals:config soul_xp_pickaxe.stone_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.mossy_stone_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.cracked_stone_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.chiseled_stone_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.infested_stone set value 1
-data modify storage rituals:config soul_xp_pickaxe.infested_cobblestone set value 1
-data modify storage rituals:config soul_xp_pickaxe.infested_stone_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.infested_mossy_stone_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.infested_cracked_stone_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.infested_chiseled_stone_bricks set value 1
+scoreboard players set #xp_stone rituals.config 1
+scoreboard players set #xp_cobblestone rituals.config 1
+scoreboard players set #xp_mossy_cobblestone rituals.config 1
+scoreboard players set #xp_smooth_stone rituals.config 1
+scoreboard players set #xp_stone_bricks rituals.config 1
+scoreboard players set #xp_mossy_stone_bricks rituals.config 1
+scoreboard players set #xp_cracked_stone_bricks rituals.config 1
+scoreboard players set #xp_chiseled_stone_bricks rituals.config 1
+scoreboard players set #xp_infested_stone rituals.config 1
+scoreboard players set #xp_infested_cobblestone rituals.config 1
+scoreboard players set #xp_infested_stone_bricks rituals.config 1
+scoreboard players set #xp_infested_mossy_stone_bricks rituals.config 1
+scoreboard players set #xp_infested_cracked_stone_bricks rituals.config 1
+scoreboard players set #xp_infested_chiseled_stone_bricks rituals.config 1
 
 # === DEEPSLATE (1 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.deepslate set value 1
-data modify storage rituals:config soul_xp_pickaxe.cobbled_deepslate set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_deepslate set value 1
-data modify storage rituals:config soul_xp_pickaxe.deepslate_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.cracked_deepslate_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.deepslate_tiles set value 1
-data modify storage rituals:config soul_xp_pickaxe.cracked_deepslate_tiles set value 1
-data modify storage rituals:config soul_xp_pickaxe.chiseled_deepslate set value 1
-data modify storage rituals:config soul_xp_pickaxe.infested_deepslate set value 1
-data modify storage rituals:config soul_xp_pickaxe.reinforced_deepslate set value 5
+scoreboard players set #xp_deepslate rituals.config 1
+scoreboard players set #xp_cobbled_deepslate rituals.config 1
+scoreboard players set #xp_polished_deepslate rituals.config 1
+scoreboard players set #xp_deepslate_bricks rituals.config 1
+scoreboard players set #xp_cracked_deepslate_bricks rituals.config 1
+scoreboard players set #xp_deepslate_tiles rituals.config 1
+scoreboard players set #xp_cracked_deepslate_tiles rituals.config 1
+scoreboard players set #xp_chiseled_deepslate rituals.config 1
+scoreboard players set #xp_infested_deepslate rituals.config 1
+scoreboard players set #xp_reinforced_deepslate rituals.config 5
 
 # === GRANITE/DIORITE/ANDESITE (1 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.granite set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_granite set value 1
-data modify storage rituals:config soul_xp_pickaxe.diorite set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_diorite set value 1
-data modify storage rituals:config soul_xp_pickaxe.andesite set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_andesite set value 1
+scoreboard players set #xp_granite rituals.config 1
+scoreboard players set #xp_polished_granite rituals.config 1
+scoreboard players set #xp_diorite rituals.config 1
+scoreboard players set #xp_polished_diorite rituals.config 1
+scoreboard players set #xp_andesite rituals.config 1
+scoreboard players set #xp_polished_andesite rituals.config 1
 
 # === TUFF (1 XP) - 1.21 ===
-data modify storage rituals:config soul_xp_pickaxe.tuff set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_tuff set value 1
-data modify storage rituals:config soul_xp_pickaxe.tuff_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.chiseled_tuff set value 1
-data modify storage rituals:config soul_xp_pickaxe.chiseled_tuff_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.tuff_slab set value 1
-data modify storage rituals:config soul_xp_pickaxe.tuff_stairs set value 1
-data modify storage rituals:config soul_xp_pickaxe.tuff_wall set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_tuff_slab set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_tuff_stairs set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_tuff_wall set value 1
-data modify storage rituals:config soul_xp_pickaxe.tuff_brick_slab set value 1
-data modify storage rituals:config soul_xp_pickaxe.tuff_brick_stairs set value 1
-data modify storage rituals:config soul_xp_pickaxe.tuff_brick_wall set value 1
+scoreboard players set #xp_tuff rituals.config 1
+scoreboard players set #xp_polished_tuff rituals.config 1
+scoreboard players set #xp_tuff_bricks rituals.config 1
+scoreboard players set #xp_chiseled_tuff rituals.config 1
+scoreboard players set #xp_chiseled_tuff_bricks rituals.config 1
+scoreboard players set #xp_tuff_slab rituals.config 1
+scoreboard players set #xp_tuff_stairs rituals.config 1
+scoreboard players set #xp_tuff_wall rituals.config 1
+scoreboard players set #xp_polished_tuff_slab rituals.config 1
+scoreboard players set #xp_polished_tuff_stairs rituals.config 1
+scoreboard players set #xp_polished_tuff_wall rituals.config 1
+scoreboard players set #xp_tuff_brick_slab rituals.config 1
+scoreboard players set #xp_tuff_brick_stairs rituals.config 1
+scoreboard players set #xp_tuff_brick_wall rituals.config 1
 
 # === CALCITE/DRIPSTONE (1 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.calcite set value 1
-data modify storage rituals:config soul_xp_pickaxe.dripstone_block set value 1
-data modify storage rituals:config soul_xp_pickaxe.pointed_dripstone set value 1
+scoreboard players set #xp_calcite rituals.config 1
+scoreboard players set #xp_dripstone_block rituals.config 1
+scoreboard players set #xp_pointed_dripstone rituals.config 1
 
 # === SANDSTONE (1 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.sandstone set value 1
-data modify storage rituals:config soul_xp_pickaxe.chiseled_sandstone set value 1
-data modify storage rituals:config soul_xp_pickaxe.cut_sandstone set value 1
-data modify storage rituals:config soul_xp_pickaxe.smooth_sandstone set value 1
-data modify storage rituals:config soul_xp_pickaxe.red_sandstone set value 1
-data modify storage rituals:config soul_xp_pickaxe.chiseled_red_sandstone set value 1
-data modify storage rituals:config soul_xp_pickaxe.cut_red_sandstone set value 1
-data modify storage rituals:config soul_xp_pickaxe.smooth_red_sandstone set value 1
+scoreboard players set #xp_sandstone rituals.config 1
+scoreboard players set #xp_chiseled_sandstone rituals.config 1
+scoreboard players set #xp_cut_sandstone rituals.config 1
+scoreboard players set #xp_smooth_sandstone rituals.config 1
+scoreboard players set #xp_red_sandstone rituals.config 1
+scoreboard players set #xp_chiseled_red_sandstone rituals.config 1
+scoreboard players set #xp_cut_red_sandstone rituals.config 1
+scoreboard players set #xp_smooth_red_sandstone rituals.config 1
 
 # === PRISMARINE (2 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.prismarine set value 2
-data modify storage rituals:config soul_xp_pickaxe.prismarine_bricks set value 2
-data modify storage rituals:config soul_xp_pickaxe.dark_prismarine set value 2
-data modify storage rituals:config soul_xp_pickaxe.sea_lantern set value 2
+scoreboard players set #xp_prismarine rituals.config 2
+scoreboard players set #xp_prismarine_bricks rituals.config 2
+scoreboard players set #xp_dark_prismarine rituals.config 2
+scoreboard players set #xp_sea_lantern rituals.config 2
 
 # === NETHER BLOCKS (1 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.netherrack set value 1
-data modify storage rituals:config soul_xp_pickaxe.nether_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.cracked_nether_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.chiseled_nether_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.red_nether_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.basalt set value 1
-data modify storage rituals:config soul_xp_pickaxe.smooth_basalt set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_basalt set value 1
-data modify storage rituals:config soul_xp_pickaxe.blackstone set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_blackstone set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_blackstone_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.cracked_polished_blackstone_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.chiseled_polished_blackstone set value 1
-data modify storage rituals:config soul_xp_pickaxe.gilded_blackstone set value 3
-data modify storage rituals:config soul_xp_pickaxe.magma_block set value 1
-data modify storage rituals:config soul_xp_pickaxe.glowstone set value 2
+scoreboard players set #xp_netherrack rituals.config 1
+scoreboard players set #xp_nether_bricks rituals.config 1
+scoreboard players set #xp_cracked_nether_bricks rituals.config 1
+scoreboard players set #xp_chiseled_nether_bricks rituals.config 1
+scoreboard players set #xp_red_nether_bricks rituals.config 1
+scoreboard players set #xp_basalt rituals.config 1
+scoreboard players set #xp_smooth_basalt rituals.config 1
+scoreboard players set #xp_polished_basalt rituals.config 1
+scoreboard players set #xp_blackstone rituals.config 1
+scoreboard players set #xp_polished_blackstone rituals.config 1
+scoreboard players set #xp_polished_blackstone_bricks rituals.config 1
+scoreboard players set #xp_cracked_polished_blackstone_bricks rituals.config 1
+scoreboard players set #xp_chiseled_polished_blackstone rituals.config 1
+scoreboard players set #xp_gilded_blackstone rituals.config 3
+scoreboard players set #xp_magma_block rituals.config 1
+scoreboard players set #xp_glowstone rituals.config 2
 
 # === END BLOCKS (2 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.end_stone set value 2
-data modify storage rituals:config soul_xp_pickaxe.end_stone_bricks set value 2
-data modify storage rituals:config soul_xp_pickaxe.purpur_block set value 2
-data modify storage rituals:config soul_xp_pickaxe.purpur_pillar set value 2
+scoreboard players set #xp_end_stone rituals.config 2
+scoreboard players set #xp_end_stone_bricks rituals.config 2
+scoreboard players set #xp_purpur_block rituals.config 2
+scoreboard players set #xp_purpur_pillar rituals.config 2
 
 # === QUARTZ (2 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.quartz_block set value 2
-data modify storage rituals:config soul_xp_pickaxe.chiseled_quartz_block set value 2
-data modify storage rituals:config soul_xp_pickaxe.quartz_bricks set value 2
-data modify storage rituals:config soul_xp_pickaxe.quartz_pillar set value 2
-data modify storage rituals:config soul_xp_pickaxe.smooth_quartz set value 2
+scoreboard players set #xp_quartz_block rituals.config 2
+scoreboard players set #xp_chiseled_quartz_block rituals.config 2
+scoreboard players set #xp_quartz_bricks rituals.config 2
+scoreboard players set #xp_quartz_pillar rituals.config 2
+scoreboard players set #xp_smooth_quartz rituals.config 2
 
 # === BRICKS/TERRACOTTA (1 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.mud_bricks set value 1
-data modify storage rituals:config soul_xp_pickaxe.terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.white_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.orange_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.magenta_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.light_blue_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.yellow_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.lime_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.pink_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.gray_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.light_gray_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.cyan_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.purple_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.blue_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.brown_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.green_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.red_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.black_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.white_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.orange_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.magenta_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.light_blue_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.yellow_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.lime_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.pink_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.gray_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.light_gray_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.cyan_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.purple_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.blue_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.brown_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.green_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.red_glazed_terracotta set value 1
-data modify storage rituals:config soul_xp_pickaxe.black_glazed_terracotta set value 1
+scoreboard players set #xp_bricks rituals.config 1
+scoreboard players set #xp_mud_bricks rituals.config 1
+scoreboard players set #xp_terracotta rituals.config 1
+scoreboard players set #xp_white_terracotta rituals.config 1
+scoreboard players set #xp_orange_terracotta rituals.config 1
+scoreboard players set #xp_magenta_terracotta rituals.config 1
+scoreboard players set #xp_light_blue_terracotta rituals.config 1
+scoreboard players set #xp_yellow_terracotta rituals.config 1
+scoreboard players set #xp_lime_terracotta rituals.config 1
+scoreboard players set #xp_pink_terracotta rituals.config 1
+scoreboard players set #xp_gray_terracotta rituals.config 1
+scoreboard players set #xp_light_gray_terracotta rituals.config 1
+scoreboard players set #xp_cyan_terracotta rituals.config 1
+scoreboard players set #xp_purple_terracotta rituals.config 1
+scoreboard players set #xp_blue_terracotta rituals.config 1
+scoreboard players set #xp_brown_terracotta rituals.config 1
+scoreboard players set #xp_green_terracotta rituals.config 1
+scoreboard players set #xp_red_terracotta rituals.config 1
+scoreboard players set #xp_black_terracotta rituals.config 1
+scoreboard players set #xp_white_glazed_terracotta rituals.config 1
+scoreboard players set #xp_orange_glazed_terracotta rituals.config 1
+scoreboard players set #xp_magenta_glazed_terracotta rituals.config 1
+scoreboard players set #xp_light_blue_glazed_terracotta rituals.config 1
+scoreboard players set #xp_yellow_glazed_terracotta rituals.config 1
+scoreboard players set #xp_lime_glazed_terracotta rituals.config 1
+scoreboard players set #xp_pink_glazed_terracotta rituals.config 1
+scoreboard players set #xp_gray_glazed_terracotta rituals.config 1
+scoreboard players set #xp_light_gray_glazed_terracotta rituals.config 1
+scoreboard players set #xp_cyan_glazed_terracotta rituals.config 1
+scoreboard players set #xp_purple_glazed_terracotta rituals.config 1
+scoreboard players set #xp_blue_glazed_terracotta rituals.config 1
+scoreboard players set #xp_brown_glazed_terracotta rituals.config 1
+scoreboard players set #xp_green_glazed_terracotta rituals.config 1
+scoreboard players set #xp_red_glazed_terracotta rituals.config 1
+scoreboard players set #xp_black_glazed_terracotta rituals.config 1
 
 # === CONCRETE (1 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.white_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.orange_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.magenta_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.light_blue_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.yellow_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.lime_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.pink_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.gray_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.light_gray_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.cyan_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.purple_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.blue_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.brown_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.green_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.red_concrete set value 1
-data modify storage rituals:config soul_xp_pickaxe.black_concrete set value 1
+scoreboard players set #xp_white_concrete rituals.config 1
+scoreboard players set #xp_orange_concrete rituals.config 1
+scoreboard players set #xp_magenta_concrete rituals.config 1
+scoreboard players set #xp_light_blue_concrete rituals.config 1
+scoreboard players set #xp_yellow_concrete rituals.config 1
+scoreboard players set #xp_lime_concrete rituals.config 1
+scoreboard players set #xp_pink_concrete rituals.config 1
+scoreboard players set #xp_gray_concrete rituals.config 1
+scoreboard players set #xp_light_gray_concrete rituals.config 1
+scoreboard players set #xp_cyan_concrete rituals.config 1
+scoreboard players set #xp_purple_concrete rituals.config 1
+scoreboard players set #xp_blue_concrete rituals.config 1
+scoreboard players set #xp_brown_concrete rituals.config 1
+scoreboard players set #xp_green_concrete rituals.config 1
+scoreboard players set #xp_red_concrete rituals.config 1
+scoreboard players set #xp_black_concrete rituals.config 1
 
 # === COPPER BLOCKS (2 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.copper_block set value 2
-data modify storage rituals:config soul_xp_pickaxe.exposed_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.weathered_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.oxidized_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.cut_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.exposed_cut_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.weathered_cut_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.oxidized_cut_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_copper_block set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_exposed_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_weathered_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_oxidized_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_cut_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_exposed_cut_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_weathered_cut_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_oxidized_cut_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.chiseled_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.exposed_chiseled_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.weathered_chiseled_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.oxidized_chiseled_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_chiseled_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_exposed_chiseled_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_weathered_chiseled_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_oxidized_chiseled_copper set value 2
-data modify storage rituals:config soul_xp_pickaxe.copper_grate set value 2
-data modify storage rituals:config soul_xp_pickaxe.exposed_copper_grate set value 2
-data modify storage rituals:config soul_xp_pickaxe.weathered_copper_grate set value 2
-data modify storage rituals:config soul_xp_pickaxe.oxidized_copper_grate set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_copper_grate set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_exposed_copper_grate set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_weathered_copper_grate set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_oxidized_copper_grate set value 2
-data modify storage rituals:config soul_xp_pickaxe.copper_bulb set value 2
-data modify storage rituals:config soul_xp_pickaxe.exposed_copper_bulb set value 2
-data modify storage rituals:config soul_xp_pickaxe.weathered_copper_bulb set value 2
-data modify storage rituals:config soul_xp_pickaxe.oxidized_copper_bulb set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_copper_bulb set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_exposed_copper_bulb set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_weathered_copper_bulb set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_oxidized_copper_bulb set value 2
-data modify storage rituals:config soul_xp_pickaxe.copper_door set value 2
-data modify storage rituals:config soul_xp_pickaxe.exposed_copper_door set value 2
-data modify storage rituals:config soul_xp_pickaxe.weathered_copper_door set value 2
-data modify storage rituals:config soul_xp_pickaxe.oxidized_copper_door set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_copper_door set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_exposed_copper_door set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_weathered_copper_door set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_oxidized_copper_door set value 2
-data modify storage rituals:config soul_xp_pickaxe.copper_trapdoor set value 2
-data modify storage rituals:config soul_xp_pickaxe.exposed_copper_trapdoor set value 2
-data modify storage rituals:config soul_xp_pickaxe.weathered_copper_trapdoor set value 2
-data modify storage rituals:config soul_xp_pickaxe.oxidized_copper_trapdoor set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_copper_trapdoor set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_exposed_copper_trapdoor set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_weathered_copper_trapdoor set value 2
-data modify storage rituals:config soul_xp_pickaxe.waxed_oxidized_copper_trapdoor set value 2
-data modify storage rituals:config soul_xp_pickaxe.lightning_rod set value 2
-data modify storage rituals:config soul_xp_pickaxe.raw_copper_block set value 2
+scoreboard players set #xp_copper_block rituals.config 2
+scoreboard players set #xp_exposed_copper rituals.config 2
+scoreboard players set #xp_weathered_copper rituals.config 2
+scoreboard players set #xp_oxidized_copper rituals.config 2
+scoreboard players set #xp_cut_copper rituals.config 2
+scoreboard players set #xp_exposed_cut_copper rituals.config 2
+scoreboard players set #xp_weathered_cut_copper rituals.config 2
+scoreboard players set #xp_oxidized_cut_copper rituals.config 2
+scoreboard players set #xp_waxed_copper_block rituals.config 2
+scoreboard players set #xp_waxed_exposed_copper rituals.config 2
+scoreboard players set #xp_waxed_weathered_copper rituals.config 2
+scoreboard players set #xp_waxed_oxidized_copper rituals.config 2
+scoreboard players set #xp_waxed_cut_copper rituals.config 2
+scoreboard players set #xp_waxed_exposed_cut_copper rituals.config 2
+scoreboard players set #xp_waxed_weathered_cut_copper rituals.config 2
+scoreboard players set #xp_waxed_oxidized_cut_copper rituals.config 2
+scoreboard players set #xp_chiseled_copper rituals.config 2
+scoreboard players set #xp_exposed_chiseled_copper rituals.config 2
+scoreboard players set #xp_weathered_chiseled_copper rituals.config 2
+scoreboard players set #xp_oxidized_chiseled_copper rituals.config 2
+scoreboard players set #xp_waxed_chiseled_copper rituals.config 2
+scoreboard players set #xp_waxed_exposed_chiseled_copper rituals.config 2
+scoreboard players set #xp_waxed_weathered_chiseled_copper rituals.config 2
+scoreboard players set #xp_waxed_oxidized_chiseled_copper rituals.config 2
+scoreboard players set #xp_copper_grate rituals.config 2
+scoreboard players set #xp_exposed_copper_grate rituals.config 2
+scoreboard players set #xp_weathered_copper_grate rituals.config 2
+scoreboard players set #xp_oxidized_copper_grate rituals.config 2
+scoreboard players set #xp_waxed_copper_grate rituals.config 2
+scoreboard players set #xp_waxed_exposed_copper_grate rituals.config 2
+scoreboard players set #xp_waxed_weathered_copper_grate rituals.config 2
+scoreboard players set #xp_waxed_oxidized_copper_grate rituals.config 2
+scoreboard players set #xp_copper_bulb rituals.config 2
+scoreboard players set #xp_exposed_copper_bulb rituals.config 2
+scoreboard players set #xp_weathered_copper_bulb rituals.config 2
+scoreboard players set #xp_oxidized_copper_bulb rituals.config 2
+scoreboard players set #xp_waxed_copper_bulb rituals.config 2
+scoreboard players set #xp_waxed_exposed_copper_bulb rituals.config 2
+scoreboard players set #xp_waxed_weathered_copper_bulb rituals.config 2
+scoreboard players set #xp_waxed_oxidized_copper_bulb rituals.config 2
+scoreboard players set #xp_copper_door rituals.config 2
+scoreboard players set #xp_exposed_copper_door rituals.config 2
+scoreboard players set #xp_weathered_copper_door rituals.config 2
+scoreboard players set #xp_oxidized_copper_door rituals.config 2
+scoreboard players set #xp_waxed_copper_door rituals.config 2
+scoreboard players set #xp_waxed_exposed_copper_door rituals.config 2
+scoreboard players set #xp_waxed_weathered_copper_door rituals.config 2
+scoreboard players set #xp_waxed_oxidized_copper_door rituals.config 2
+scoreboard players set #xp_copper_trapdoor rituals.config 2
+scoreboard players set #xp_exposed_copper_trapdoor rituals.config 2
+scoreboard players set #xp_weathered_copper_trapdoor rituals.config 2
+scoreboard players set #xp_oxidized_copper_trapdoor rituals.config 2
+scoreboard players set #xp_waxed_copper_trapdoor rituals.config 2
+scoreboard players set #xp_waxed_exposed_copper_trapdoor rituals.config 2
+scoreboard players set #xp_waxed_weathered_copper_trapdoor rituals.config 2
+scoreboard players set #xp_waxed_oxidized_copper_trapdoor rituals.config 2
+scoreboard players set #xp_lightning_rod rituals.config 2
+scoreboard players set #xp_raw_copper_block rituals.config 2
 
 # === ORES - COMMON (2 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.coal_ore set value 2
-data modify storage rituals:config soul_xp_pickaxe.deepslate_coal_ore set value 2
-data modify storage rituals:config soul_xp_pickaxe.copper_ore set value 2
-data modify storage rituals:config soul_xp_pickaxe.deepslate_copper_ore set value 2
+scoreboard players set #xp_coal_ore rituals.config 2
+scoreboard players set #xp_deepslate_coal_ore rituals.config 2
+scoreboard players set #xp_copper_ore rituals.config 2
+scoreboard players set #xp_deepslate_copper_ore rituals.config 2
 
 # === ORES - UNCOMMON (3 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.iron_ore set value 3
-data modify storage rituals:config soul_xp_pickaxe.deepslate_iron_ore set value 3
-data modify storage rituals:config soul_xp_pickaxe.raw_iron_block set value 3
-data modify storage rituals:config soul_xp_pickaxe.redstone_ore set value 3
-data modify storage rituals:config soul_xp_pickaxe.deepslate_redstone_ore set value 3
-data modify storage rituals:config soul_xp_pickaxe.nether_quartz_ore set value 3
+scoreboard players set #xp_iron_ore rituals.config 3
+scoreboard players set #xp_deepslate_iron_ore rituals.config 3
+scoreboard players set #xp_raw_iron_block rituals.config 3
+scoreboard players set #xp_redstone_ore rituals.config 3
+scoreboard players set #xp_deepslate_redstone_ore rituals.config 3
+scoreboard players set #xp_nether_quartz_ore rituals.config 3
 
 # === ORES - RARE (4 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.gold_ore set value 4
-data modify storage rituals:config soul_xp_pickaxe.deepslate_gold_ore set value 4
-data modify storage rituals:config soul_xp_pickaxe.nether_gold_ore set value 4
-data modify storage rituals:config soul_xp_pickaxe.raw_gold_block set value 4
-data modify storage rituals:config soul_xp_pickaxe.lapis_ore set value 4
-data modify storage rituals:config soul_xp_pickaxe.deepslate_lapis_ore set value 4
+scoreboard players set #xp_gold_ore rituals.config 4
+scoreboard players set #xp_deepslate_gold_ore rituals.config 4
+scoreboard players set #xp_nether_gold_ore rituals.config 4
+scoreboard players set #xp_raw_gold_block rituals.config 4
+scoreboard players set #xp_lapis_ore rituals.config 4
+scoreboard players set #xp_deepslate_lapis_ore rituals.config 4
 
 # === ORES - PRECIOUS (10 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.diamond_ore set value 10
-data modify storage rituals:config soul_xp_pickaxe.deepslate_diamond_ore set value 10
-data modify storage rituals:config soul_xp_pickaxe.emerald_ore set value 12
-data modify storage rituals:config soul_xp_pickaxe.deepslate_emerald_ore set value 12
+scoreboard players set #xp_diamond_ore rituals.config 10
+scoreboard players set #xp_deepslate_diamond_ore rituals.config 10
+scoreboard players set #xp_emerald_ore rituals.config 12
+scoreboard players set #xp_deepslate_emerald_ore rituals.config 12
 
 # === ORES - LEGENDARY (25 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.ancient_debris set value 25
+scoreboard players set #xp_ancient_debris rituals.config 25
 
 # === METAL BLOCKS (3 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.iron_block set value 3
-data modify storage rituals:config soul_xp_pickaxe.gold_block set value 4
-data modify storage rituals:config soul_xp_pickaxe.diamond_block set value 10
-data modify storage rituals:config soul_xp_pickaxe.emerald_block set value 12
-data modify storage rituals:config soul_xp_pickaxe.netherite_block set value 25
-data modify storage rituals:config soul_xp_pickaxe.lapis_block set value 4
-data modify storage rituals:config soul_xp_pickaxe.redstone_block set value 3
-data modify storage rituals:config soul_xp_pickaxe.coal_block set value 2
-data modify storage rituals:config soul_xp_pickaxe.amethyst_block set value 3
-data modify storage rituals:config soul_xp_pickaxe.budding_amethyst set value 5
+scoreboard players set #xp_iron_block rituals.config 3
+scoreboard players set #xp_gold_block rituals.config 4
+scoreboard players set #xp_diamond_block rituals.config 10
+scoreboard players set #xp_emerald_block rituals.config 12
+scoreboard players set #xp_netherite_block rituals.config 25
+scoreboard players set #xp_lapis_block rituals.config 4
+scoreboard players set #xp_redstone_block rituals.config 3
+scoreboard players set #xp_coal_block rituals.config 2
+scoreboard players set #xp_amethyst_block rituals.config 3
+scoreboard players set #xp_budding_amethyst rituals.config 5
 
 # === OBSIDIAN (3 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.obsidian set value 3
-data modify storage rituals:config soul_xp_pickaxe.crying_obsidian set value 3
+scoreboard players set #xp_obsidian rituals.config 3
+scoreboard players set #xp_crying_obsidian rituals.config 3
 
 # === ICE (1 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.ice set value 1
-data modify storage rituals:config soul_xp_pickaxe.packed_ice set value 1
-data modify storage rituals:config soul_xp_pickaxe.blue_ice set value 2
+scoreboard players set #xp_ice rituals.config 1
+scoreboard players set #xp_packed_ice rituals.config 1
+scoreboard players set #xp_blue_ice rituals.config 2
 
 # === AMETHYST (2 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.amethyst_cluster set value 2
-data modify storage rituals:config soul_xp_pickaxe.large_amethyst_bud set value 2
-data modify storage rituals:config soul_xp_pickaxe.medium_amethyst_bud set value 1
-data modify storage rituals:config soul_xp_pickaxe.small_amethyst_bud set value 1
+scoreboard players set #xp_amethyst_cluster rituals.config 2
+scoreboard players set #xp_large_amethyst_bud rituals.config 2
+scoreboard players set #xp_medium_amethyst_bud rituals.config 1
+scoreboard players set #xp_small_amethyst_bud rituals.config 1
 
 # === UTILITY BLOCKS (2 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.furnace set value 2
-data modify storage rituals:config soul_xp_pickaxe.blast_furnace set value 2
-data modify storage rituals:config soul_xp_pickaxe.smoker set value 2
-data modify storage rituals:config soul_xp_pickaxe.stonecutter set value 2
-data modify storage rituals:config soul_xp_pickaxe.grindstone set value 2
-data modify storage rituals:config soul_xp_pickaxe.brewing_stand set value 3
-data modify storage rituals:config soul_xp_pickaxe.cauldron set value 2
-data modify storage rituals:config soul_xp_pickaxe.hopper set value 3
-data modify storage rituals:config soul_xp_pickaxe.dispenser set value 2
-data modify storage rituals:config soul_xp_pickaxe.dropper set value 2
-data modify storage rituals:config soul_xp_pickaxe.observer set value 2
-data modify storage rituals:config soul_xp_pickaxe.piston set value 2
-data modify storage rituals:config soul_xp_pickaxe.sticky_piston set value 2
-data modify storage rituals:config soul_xp_pickaxe.lodestone set value 5
-data modify storage rituals:config soul_xp_pickaxe.respawn_anchor set value 5
-data modify storage rituals:config soul_xp_pickaxe.enchanting_table set value 5
-data modify storage rituals:config soul_xp_pickaxe.anvil set value 3
-data modify storage rituals:config soul_xp_pickaxe.chipped_anvil set value 3
-data modify storage rituals:config soul_xp_pickaxe.damaged_anvil set value 3
-data modify storage rituals:config soul_xp_pickaxe.bell set value 5
-data modify storage rituals:config soul_xp_pickaxe.conduit set value 10
-data modify storage rituals:config soul_xp_pickaxe.beacon set value 15
-data modify storage rituals:config soul_xp_pickaxe.ender_chest set value 5
+scoreboard players set #xp_furnace rituals.config 2
+scoreboard players set #xp_blast_furnace rituals.config 2
+scoreboard players set #xp_smoker rituals.config 2
+scoreboard players set #xp_stonecutter rituals.config 2
+scoreboard players set #xp_grindstone rituals.config 2
+scoreboard players set #xp_brewing_stand rituals.config 3
+scoreboard players set #xp_cauldron rituals.config 2
+scoreboard players set #xp_hopper rituals.config 3
+scoreboard players set #xp_dispenser rituals.config 2
+scoreboard players set #xp_dropper rituals.config 2
+scoreboard players set #xp_observer rituals.config 2
+scoreboard players set #xp_piston rituals.config 2
+scoreboard players set #xp_sticky_piston rituals.config 2
+scoreboard players set #xp_lodestone rituals.config 5
+scoreboard players set #xp_respawn_anchor rituals.config 5
+scoreboard players set #xp_enchanting_table rituals.config 5
+scoreboard players set #xp_anvil rituals.config 3
+scoreboard players set #xp_chipped_anvil rituals.config 3
+scoreboard players set #xp_damaged_anvil rituals.config 3
+scoreboard players set #xp_bell rituals.config 5
+scoreboard players set #xp_conduit rituals.config 10
+scoreboard players set #xp_beacon rituals.config 15
+scoreboard players set #xp_ender_chest rituals.config 5
 
 # === RAILS (1 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.rail set value 1
-data modify storage rituals:config soul_xp_pickaxe.powered_rail set value 2
-data modify storage rituals:config soul_xp_pickaxe.detector_rail set value 2
-data modify storage rituals:config soul_xp_pickaxe.activator_rail set value 2
+scoreboard players set #xp_rail rituals.config 1
+scoreboard players set #xp_powered_rail rituals.config 2
+scoreboard players set #xp_detector_rail rituals.config 2
+scoreboard players set #xp_activator_rail rituals.config 2
 
 # === LANTERNS (2 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.lantern set value 2
-data modify storage rituals:config soul_xp_pickaxe.soul_lantern set value 2
-data modify storage rituals:config soul_xp_pickaxe.chain set value 1
-data modify storage rituals:config soul_xp_pickaxe.iron_bars set value 1
+scoreboard players set #xp_lantern rituals.config 2
+scoreboard players set #xp_soul_lantern rituals.config 2
+scoreboard players set #xp_chain rituals.config 1
+scoreboard players set #xp_iron_bars rituals.config 1
 
 # === SPAWNER/SPECIAL (10 XP) ===
-data modify storage rituals:config soul_xp_pickaxe.spawner set value 10
-data modify storage rituals:config soul_xp_pickaxe.trial_spawner set value 15
-data modify storage rituals:config soul_xp_pickaxe.vault set value 20
-data modify storage rituals:config soul_xp_pickaxe.crafter set value 3
+scoreboard players set #xp_spawner rituals.config 10
+scoreboard players set #xp_trial_spawner rituals.config 15
+scoreboard players set #xp_vault rituals.config 20
+scoreboard players set #xp_crafter rituals.config 3
 
 # === MISC PICKAXE BLOCKS ===
-data modify storage rituals:config soul_xp_pickaxe.heavy_weighted_pressure_plate set value 1
-data modify storage rituals:config soul_xp_pickaxe.light_weighted_pressure_plate set value 1
-data modify storage rituals:config soul_xp_pickaxe.stone_pressure_plate set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_blackstone_pressure_plate set value 1
-data modify storage rituals:config soul_xp_pickaxe.stone_button set value 1
-data modify storage rituals:config soul_xp_pickaxe.polished_blackstone_button set value 1
-data modify storage rituals:config soul_xp_pickaxe.iron_door set value 2
-data modify storage rituals:config soul_xp_pickaxe.iron_trapdoor set value 2
-data modify storage rituals:config soul_xp_pickaxe.end_portal_frame set value 50
-
-# === DEFAULT (blocks not listed) ===
-data modify storage rituals:config soul_xp_pickaxe_default set value 1
-
-
+scoreboard players set #xp_heavy_weighted_pressure_plate rituals.config 1
+scoreboard players set #xp_light_weighted_pressure_plate rituals.config 1
+scoreboard players set #xp_stone_pressure_plate rituals.config 1
+scoreboard players set #xp_polished_blackstone_pressure_plate rituals.config 1
+scoreboard players set #xp_stone_button rituals.config 1
+scoreboard players set #xp_polished_blackstone_button rituals.config 1
+scoreboard players set #xp_iron_door rituals.config 2
+scoreboard players set #xp_iron_trapdoor rituals.config 2
+scoreboard players set #xp_end_portal_frame rituals.config 50

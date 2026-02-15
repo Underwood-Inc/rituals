@@ -45,7 +45,7 @@ This is the **Fabric mod** version of Rituals. It automatically installs the dat
 
 1. Craft a totem (see in-game advancements for recipes)
 2. Place totem with Right-click on ground
-3. Add a ritual item (Diamond, Emerald, Arrow, etc.)
+3. Add a ritual item (Emerald, Diamond, Iron Ingot, Nether Star, Arrow, or Nether Block for area effects; or any tool/weapon for Soul Embodiment)
 4. Drop 4 catalyst items around totem (N/S/E/W)
 5. Light fire at totem base
 6. Watch the magic happen! 🔥

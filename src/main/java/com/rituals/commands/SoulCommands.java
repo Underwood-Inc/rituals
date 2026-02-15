@@ -3,7 +3,7 @@ package com.rituals.commands;
 import com.mojang.brigadier.Command;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
-import com.rituals.soul.SoulWeaponManager;
+import com.rituals.soul.SoulEmbodimentManager;
 import net.minecraft.component.DataComponentTypes;
 import net.minecraft.component.type.NbtComponent;
 import net.minecraft.item.ItemStack;
@@ -28,7 +28,7 @@ public class SoulCommands {
             ServerPlayerEntity player = source.getPlayerOrThrow();
             ItemStack held = player.getMainHandStack();
             
-            if (!SoulWeaponManager.isSoulWeapon(held)) {
+            if (!SoulEmbodimentManager.isSoulWeapon(held)) {
                 source.sendError(Text.literal("You must hold a soul-embodied weapon to use this command!"));
                 return 0;
             }
@@ -54,7 +54,7 @@ public class SoulCommands {
             int blocks = getNbtInt(nbt, "soul_blocks_broken", 0);
             boolean readyAscend = getNbtBool(nbt, "soul_ready_ascend");
             
-            int xpForNext = SoulWeaponManager.calculateXpForLevel(level + 1);
+            int xpForNext = SoulEmbodimentManager.calculateXpForLevel(level + 1);
             int percent = level >= cap ? 100 : (xp * 100 / Math.max(1, xpForNext));
             
             // Display header
@@ -146,7 +146,7 @@ public class SoulCommands {
             ServerPlayerEntity player = source.getPlayerOrThrow();
             ItemStack held = player.getMainHandStack();
             
-            if (!SoulWeaponManager.isSoulWeapon(held)) {
+            if (!SoulEmbodimentManager.isSoulWeapon(held)) {
                 source.sendError(Text.literal("You must hold a soul-embodied weapon to rename it!"));
                 return 0;
             }
@@ -172,7 +172,7 @@ public class SoulCommands {
             held.set(DataComponentTypes.CUSTOM_DATA, NbtComponent.of(nbt));
             
             // Refresh lore
-            SoulWeaponManager.updateLore(held, nbt);
+            SoulEmbodimentManager.updateLore(held, nbt);
             
             source.sendFeedback(() -> Text.literal("✦ ").formatted(Formatting.DARK_PURPLE)
                 .append(Text.literal("Soul renamed from ").formatted(Formatting.GRAY))

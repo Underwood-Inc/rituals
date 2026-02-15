@@ -58,6 +58,8 @@ Place 5 totems in a **star pattern** with your tool in the center:
 
 Your weapon now has a soul and will begin leveling up as you use it!
 
+> **⚠️ A Note on Foolish Awakenings:** The ritual will accept *any* item — not just tools and weapons. You can soul-embody a raw potato if you want. It will receive a soul name, a personality, and an overwhelming sense of purposelessness. Non-tool items can *technically* earn XP (your soul absorbs experience from deeds while holding ANY soul item — you could hand-mine dirt with a soul-bound potato), but at hand-mining speed with 1 XP per block, you'll die of old age before it levels up. **Stick to tools and weapons** unless you enjoy suffering for comedic effect.
+
 ---
 
 ## 📈 How Leveling Works
@@ -73,20 +75,33 @@ Your soul weapon starts at **Level 1** and can eventually reach **Level 100**. B
 | 1st (Awakening) | Level 15 |
 | 2nd (Ascension I) | Level 20 |
 | 3rd (Ascension II) | Level 25 |
-| ... | +5 each time |
+| 4th (Ascension III) | Level 30 |
+| 5th (Ascension IV) | Level 35 |
+| 6th (Ascension V) | Level 40 |
+| 7th (Ascension VI) | Level 45 |
+| 8th (Ascension VII) | Level 50 |
+| 9th (Ascension VIII) | Level 55 |
+| 10th (Ascension IX) | Level 60 |
+| 11th (Ascension X) | Level 65 |
+| 12th (Ascension XI) | Level 70 |
+| 13th (Ascension XII) | Level 75 |
+| 14th (Ascension XIII) | Level 80 |
+| 15th (Ascension XIV) | Level 85 |
+| 16th (Ascension XV) | Level 90 |
+| 17th (Ascension XVI) | Level 95 |
 | 18th (Transcendence) | Level 100 |
 
 When you hit your level cap, you'll need to perform the **Soul Ascension Ritual** (same setup as awakening) to increase it!
 
 ### Bonus Enchantments
 
-Every time you perform an Ascension Ritual, you have a **50% chance** to receive a **free bonus enchantment** on your weapon! Over 18 rituals, lucky players could gain up to 9 extra enchantment levels!
+Every time you perform an Ascension Ritual, you have a **50% chance** to receive a **random bonus enchantment** from the entire pool of 40 vanilla enchantments! The enchantment is type-agnostic — any enchantment can land on any soul item. Over 18 rituals, lucky players could gain up to 9 extra enchantment levels! Some may be "illegal" combinations (Feather Falling on a sword, Sharpness on boots), but they're earned through ritual fire and yours to keep.
 
 ---
 
 ## ⚔️ Earning Experience
 
-Your soul weapon gains XP when you **USE** it properly. Different tools earn XP in different ways:
+When you hold a soul weapon and perform deeds — mining, killing, harvesting — **your soul absorbs the experience**. The energy stays within you until channeled into the weapon via a conduit (totem or Scrying Glass). Different actions yield different amounts of soul energy:
 
 ### Tool XP Sources
 
@@ -131,12 +146,12 @@ mindmap
 | Warden | 100 XP |
 | Bosses | 500 XP |
 
-### Syncing Your XP
+### Channeling Your Soul Energy
 
-XP is tracked while you use your weapon, but you need to **sync** it to apply the levels:
+Your soul absorbs experience as you act, but the energy must be **channeled into the weapon** to strengthen its bond:
 
-1. **Totem Sync** - Place your weapon on a totem and retrieve it
-2. **Scrying Glass** - Use the portable Scrying Glass item (see below)
+1. **Totem Conduit** — Place your weapon on any totem. The totem channels your stored soul energy into the weapon.
+2. **Scrying Glass** — A portable conduit. Hold the soul weapon in your offhand and look through the glass to channel energy without a totem.
 
 ---
 
@@ -146,32 +161,48 @@ Every time your soul weapon levels up, something special happens!
 
 ### You Always Get a Buff! 🟢
 
-Random positive effect chosen from 20 possibilities:
+One random buff is selected from the pool of **20** on every level up. Equal 1/20 chance for each. Duplicates stack up to max level.
 
-| Buff | What It Does |
-|------|--------------|
-| **Soul Haste** | Mine faster (+10% per level, max III) |
-| **Soul Strength** | Hit harder (+0.5 damage per level, max IV) |
-| **Magnetic Pull** | Items fly to you (5-7 block radius) |
-| **Soul Speed** | Move faster (+3% per level, max III) |
-| **Soul Mending** | Auto-repairs over time |
-| **Dark Vision** | See in the dark |
-| **Aquatic Soul** | Breathe underwater |
-| **Flame Ward** | Fire resistance |
-| *...and 12 more!* | |
+| # | Buff | What It Does | Max |
+|---|------|--------------|-----|
+| 1 | **Soul Haste** | +10% mining speed per level | III |
+| 2 | **Soul Sight** | Nearby entities glow (10 block radius) | I |
+| 3 | **Magnetic Pull** | Attract items: 5 blocks (I), 7 blocks (II) | II |
+| 4 | **Extended Reach** | +0.5 block interaction range per level | III |
+| 5 | **Soul Mending** | 0.5% chance per tick to repair 1 durability | III |
+| 6 | **Fortune's Favor** | +0.5 luck per level | II |
+| 7 | **Soul Speed** | +3% movement speed per level | III |
+| 8 | **Soul Strength** | +0.5 attack damage per level | IV |
+| 9 | **Soul Armor** | +1 armor per level | III |
+| 10 | **Featherweight** | Jump Boost I | I |
+| 11 | **Soul Flame** | 10% chance per level to ignite targets on hit | II |
+| 12 | **Soul Leech** | 5% of damage dealt is healed per level | II |
+| 13 | **Soul Wisdom** | +10% soul XP gain per level | II |
+| 14 | **Soul Harvest** | Extra drops (like Looting) per level | II |
+| 15 | **Eternal Edge** | 25% less durability loss per level | II |
+| 16 | **Dark Vision** | Night Vision effect while held | I |
+| 17 | **Aquatic Soul** | Water Breathing effect while held | I |
+| 18 | **Flame Ward** | Fire Resistance effect while held | I |
+| 19 | **Soul Sustenance** | 0.5% chance per tick for Saturation effect | II |
+| 20 | **Reserved Soul** | Weapon speaks less often (personality) | I |
 
 ### You Might Get a Debuff! 🔴
 
-30% chance per level up to receive a downside:
+**30% chance** per level up to also receive a debuff. One is randomly selected from the pool of **11**. Equal 1/11 chance for each.
 
-| Debuff | The Downside |
-|--------|--------------|
-| **Ravenous Soul** | Get hungrier faster |
-| **Burdened** | Move slower |
-| **Brittle Edge** | Durability loss increased |
-| **Chatty Soul** | Weapon talks TOO much |
-| **Bloodthirst** | Takes damage if unused |
-| *...and 6 more!* | |
+| # | Debuff | The Downside | Max |
+|---|--------|--------------|-----|
+| 1 | **Ravenous Soul** | Chance per tick for Hunger effect (1/400 at I, 1/200 at II) | II |
+| 2 | **Burdened** | -3% movement speed per level | II |
+| 3 | **Cursed Aura** | 1/6000 chance per tick for Bad Omen (600s) | I |
+| 4 | **Brittle Edge** | +25% durability loss per level | II |
+| 5 | **Restless Soul** | 1/400 chance per tick to alert nearby raiders | I |
+| 6 | **Clumsy Grip** | Chance per tick for Mining Fatigue (1/600 at I, 1/300 at II) | II |
+| 7 | **Misfortune** | -0.5 luck per level | II |
+| 8 | **Soul Hunger** | +20% soul XP required to level up per level | II |
+| 9 | **Paranoid Soul** | 1/1200 chance per tick for random spooky sounds | I |
+| 10 | **Bloodthirst** | Takes 1 damage every 30s if no recent combat | I |
+| 11 | **Chatty Soul** | Weapon speaks MORE often (never shuts up) | I |
 
 ### Buffs Can Stack! 📊
 
@@ -184,23 +215,33 @@ Soul Haste I → Soul Haste II → Soul Haste III
 
 ### Protection System
 
-Some buffs **block** their opposing debuffs:
+Some buffs **block** their opposing debuffs (and vice versa):
 
 ```mermaid
 flowchart LR
     A[Soul Speed] ---|blocks|B[Burdened]
     C[Fortune's Favor] ---|blocks|D[Misfortune]
     E[Soul Mending] ---|blocks|F[Brittle Edge]
+    E2[Eternal Edge] ---|blocks|F
     G[Reserved Soul] ---|blocks|H[Chatty Soul]
+    I[Soul Sustenance] ---|blocks|J[Ravenous Soul]
+    K[Flame Ward] ---|blocks|L[Aquatic Soul]
+    K ---|blocks|M[Soul Flame]
     
     style A fill:#2e7d32,color:#fff
     style C fill:#2e7d32,color:#fff
     style E fill:#2e7d32,color:#fff
+    style E2 fill:#2e7d32,color:#fff
     style G fill:#2e7d32,color:#fff
+    style I fill:#2e7d32,color:#fff
+    style K fill:#2e7d32,color:#fff
     style B fill:#c62828,color:#fff
     style D fill:#c62828,color:#fff
     style F fill:#c62828,color:#fff
     style H fill:#c62828,color:#fff
+    style J fill:#c62828,color:#fff
+    style L fill:#e65100,color:#fff
+    style M fill:#e65100,color:#fff
 ```
 
 **Strategy Tip:** Getting good buffs early protects you from bad debuffs later!
@@ -247,19 +288,31 @@ Your weapon has a personality and will **speak to you** randomly!
 
 ### How It Works
 
-- Comments appear in chat every **5-60 minutes** (random)
-- **150+ unique comments** across 10 categories
-- Comments change based on what you're doing (mining, combat, idle)
+- Quotes appear on the weapon's tooltip, randomly selected
+- **390 unique quotes** across 21 categories (6 eras x 3 moods = 18 era categories + 3 ascension categories)
+- Quotes change based on the weapon's **level era** (Awakening, Growth, Maturity, Mastery, Transcendence, Apotheosis) and a randomly selected **mood** within that era
 
-### Sample Comments
+### Sample Quotes by Era
 
-> *"I sense great potential in you, wielder."*
+**Awakening (Levels 1-15):**
+> *"I sense great potential in you, wielder."* (eager)
 
-> *"Point me at your enemies. I will not disappoint."*
+**Growth (Levels 16-30):**
+> *"Our bond strengthens with each battle."* (bonding)
 
-> *"The blood of our foes sustains me..."*
+**Maturity (Levels 31-50):**
+> *"Experience has taught me patience."* (wise)
 
-> *"I wonder what lies beyond the horizon?"*
+**Mastery (Levels 51-70):**
+> *"Kingdoms tremble at the mere whisper of my name."* (legendary)
+
+**Transcendence (Levels 71-90):**
+> *"We have transcended mortality together."* (divine)
+
+**Apotheosis (Levels 91-100):**
+> *"I AM BECOME DEATH, DESTROYER OF WORLDS."* (godlike)
+
+For the **complete list of all 390 quotes**, see **[SOUL_QUOTES_REFERENCE.md](../SOUL_QUOTES_REFERENCE.md)**.
 
 ### Personality Modifiers
 
@@ -331,7 +384,7 @@ Works on: Swords, Pickaxes, Axes, Shovels, Hoes, Bows, Crossbows, Tridents
 Yes! Rename in an anvil - the soul decorators (✦ prefix, [Lv.X] suffix) are preserved!
 
 ### "Do ascension bonuses stack with existing enchants?"
-YES! Sharpness III + bonus Sharpness = Sharpness IV!
+YES! Sharpness III + bonus Sharpness = Sharpness IV! Each enchantment stacks up to its vanilla max level. "Illegal" enchantments (ones that don't normally apply to that item type) are kept too — you earned them through ritual fire.
 
 ### "What's the best strategy for buffs?"
 Get movement/utility buffs early to block opposing debuffs. Pray you don't fracture!

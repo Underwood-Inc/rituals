@@ -60,7 +60,7 @@ playsound minecraft:block.enchantment_table.use master @a ~ ~ ~ 2.0 1.0
 # === SUCCESS MESSAGE ===
 tellraw @a[distance=..32] [{"text":""},{"text":"✦ ","color":"dark_purple","bold":true},{"text":"SOUL EMBODIMENT","color":"light_purple","bold":true},{"text":" ✦","color":"dark_purple","bold":true}]
 tellraw @a[distance=..32] [{"text":"   Your weapon has been granted a ","color":"gray"},{"text":"living soul","color":"aqua","bold":true},{"text":"!","color":"gray"}]
-tellraw @a[distance=..32] [{"text":"   It will grow stronger as you use it.","color":"gray"}]
+tellraw @a[distance=..32] [{"text":"   Your soul is now bound to it. Use it well.","color":"gray"}]
 tellraw @a[distance=..32] [{"text":"   ","color":"gray"},{"text":"Level Cap: 15","color":"yellow"},{"text":" | Perform ritual again to ascend!","color":"gray"}]
 
 # Mark ritual as completed for badges

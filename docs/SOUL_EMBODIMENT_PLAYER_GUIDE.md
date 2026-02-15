@@ -92,6 +92,29 @@ Your weapon now has a **SOUL**!
 
 ---
 
+# ⚠️ FOOLISH AWAKENINGS (A Word of Wisdom)
+
+> *"The ritual does not judge. It does not question. It will bind a soul to whatever you place upon the altar — a mighty blade, a humble hoe... or a potato. The soul does not care. But YOU should."*
+>
+> — Tome of the Ancients, Chapter III (Frequently Ignored)
+
+The Soul Embodiment Ritual accepts **ANY item**. There is no restriction. You can soul-embody dirt, a bucket, a piece of string, a raw porkchop — anything your heart desires and your wisdom should prevent.
+
+**What happens when you do this?**
+
+| What You Get | What You Don't Get |
+|---|---|
+| A soul name (like "Ghosttouch" or "Phantomgrip") | Any practical way to earn XP |
+| A personality and quotes | Any reason this was a good idea |
+| Wasted catalysts and soul components | Your dignity |
+| An item with existential dread | A refund |
+
+**Why is this a bad idea?** Your soul absorbs experience from *deeds* — mining blocks, killing mobs, harvesting crops — while holding the soul item. Technically, you CAN hand-mine dirt while clutching a soul-bound potato, and your soul WILL absorb the XP. You could even punch zombies to death with it. So it's not *impossible* to level up... just agonizingly, hilariously impractical. You'll be mining at hand speed with no tool bonuses, earning 1 XP per block, questioning every decision that led you here.
+
+> 💡 **Stick to tools and weapons.** Swords, pickaxes, axes, shovels, hoes, bows, crossbows, and tridents are the intended recipients. Everything else is technically functional but spiritually inadvisable.
+
+---
+
 # 📈 THE LEVELING SYSTEM (This Is Where It Gets EPIC!)
 
 ## Your Weapon Levels Up From 1 to 100! 
@@ -102,23 +125,35 @@ But here's the twist...
 
 | Stage | What Happens |
 |-------|--------------|
-| **First Ritual** | Unlocks Levels 1-15 |
-| **Second Ritual** | Unlocks Levels 16-20 |
-| **Third Ritual** | Unlocks Levels 21-25 |
-| ...and so on... | +5 levels each time! |
-| **18th Ritual** | Unlocks Levels 96-100 (MAXIMUM POWER!) |
+| **1st Ritual (Awakening)** | Unlocks Levels 1-15 |
+| **2nd Ritual (Ascension I)** | Unlocks Levels 16-20 |
+| **3rd Ritual (Ascension II)** | Unlocks Levels 21-25 |
+| **4th Ritual (Ascension III)** | Unlocks Levels 26-30 |
+| **5th Ritual (Ascension IV)** | Unlocks Levels 31-35 |
+| **6th Ritual (Ascension V)** | Unlocks Levels 36-40 |
+| **7th Ritual (Ascension VI)** | Unlocks Levels 41-45 |
+| **8th Ritual (Ascension VII)** | Unlocks Levels 46-50 |
+| **9th Ritual (Ascension VIII)** | Unlocks Levels 51-55 |
+| **10th Ritual (Ascension IX)** | Unlocks Levels 56-60 |
+| **11th Ritual (Ascension X)** | Unlocks Levels 61-65 |
+| **12th Ritual (Ascension XI)** | Unlocks Levels 66-70 |
+| **13th Ritual (Ascension XII)** | Unlocks Levels 71-75 |
+| **14th Ritual (Ascension XIII)** | Unlocks Levels 76-80 |
+| **15th Ritual (Ascension XIV)** | Unlocks Levels 81-85 |
+| **16th Ritual (Ascension XV)** | Unlocks Levels 86-90 |
+| **17th Ritual (Ascension XVI)** | Unlocks Levels 91-95 |
+| **18th Ritual (Transcendence)** | Unlocks Levels 96-100 (MAXIMUM POWER!) |
 
 ### Why Is This AWESOME?
 
-Because **EVERY TIME** you do the ritual again, there's a **50% CHANCE** you get a **BONUS ENCHANTMENT**! 🎲
+Because **EVERY TIME** you do the ritual again, there's a **50% CHANCE** you get a **RANDOM ENCHANTMENT** from the entire vanilla pool! 🎲
 
-That's right - your sword could randomly get:
-- ⚔️ Extra Sharpness!
-- 💎 Extra Looting!
-- 🛡️ Extra Unbreaking!
-- ...and MORE!
+That's right — any of the 40 vanilla enchantments, regardless of item type:
+- ⚔️ Sharpness on a pickaxe? Sure.
+- 🐟 Luck of the Sea on a sword? Why not.
+- 🪶 Feather Falling on a trident? The soul doesn't judge.
 
-**The more you invest, the more powerful your weapon becomes!**
+**It's a cosmic gamble. You earn it, you keep it!**
 
 ---
 
@@ -160,7 +195,7 @@ That's right - your sword could randomly get:
 
 # ⚔️ EARNING XP (Make Your Weapon STRONGER!)
 
-Your soul weapon gains XP when you USE it! Different weapons earn XP different ways:
+When you hold a soul weapon and perform deeds, YOUR SOUL absorbs the experience! Different actions yield different amounts of soul energy:
 
 | 🔧 Weapon | 💥 How to Earn XP | 🔥 Bonus XP From |
 |-----------|-------------------|------------------|
@@ -187,7 +222,7 @@ Your soul weapon gains XP when you USE it! Different weapons earn XP different w
 
 ---
 
-# 🌟 THE SOUL RESONANCE SYSTEM
+# 🌟 THE SOUL BOND
 
 ## How XP Actually Works (The Lore!)
 
@@ -195,61 +230,61 @@ When you awaken a weapon, something magical happens... **YOUR soul becomes linke
 
 ### ✨ The Soul Bond
 
-> *"A Soul-Bonded weapon does not merely absorb power from battle. Instead, it resonates with YOUR spirit. As you fight, mine, and conquer, your very essence gathers Soul Energy - a shimmering force that only you can perceive."*
+> *"A Soul-Bonded weapon does not grant power through mere contact. The wielder's soul absorbs experience from their deeds — every block broken, every foe slain, every harvest reaped. This energy gathers within the wielder's spirit, invisible yet potent, waiting to be channeled."*
 >
 > — Tome of the Ancients, Chapter VII
 
-When you **hold a soul weapon** and perform actions (mining, fighting, etc.), you don't immediately power up the weapon. Instead, you accumulate **Soul Energy** within yourself - like a spiritual battery charging up!
+When you **hold a soul weapon** and perform actions (mining, killing, chopping, digging, harvesting, ranged combat), **your soul absorbs the experience from your deeds**. The energy doesn't go directly into the weapon — it accumulates within YOU, growing stronger with every action.
 
-### 🔮 How Soul Energy Works
+### 🔮 How Soul Energy Flows
 
 ```
-╔═══════════════════════════════════════════════════════════════╗
-║                    SOUL ENERGY FLOW                           ║
-╠═══════════════════════════════════════════════════════════════╣
-║                                                               ║
-║   YOU (Wielder)              SOUL WEAPON                      ║
-║   ┌─────────────┐            ┌─────────────┐                  ║
-║   │  ✦ SOUL   ✦ │            │             │                  ║
-║   │  ENERGY     │  ═══════►  │  PERMANENT  │                  ║
-║   │  (Pending)  │   SYNC!    │  POWER!     │                  ║
-║   └─────────────┘            └─────────────┘                  ║
-║                                                               ║
-║   Actions:                   Methods to Sync:                 ║
-║   • Mine blocks             • Place in totem                  ║
-║   • Kill mobs               • Use Scrying Glass               ║
-║   • Harvest crops                                             ║
-║                                                               ║
-╚═══════════════════════════════════════════════════════════════╝
+╔══════════════════════════════════════════════════════════════════════╗
+║                    SOUL ENERGY FLOW                                  ║
+╠══════════════════════════════════════════════════════════════════════╣
+║                                                                      ║
+║   YOU (Wielder)         TOTEM (Conduit)         SOUL WEAPON          ║
+║   ┌─────────────┐      ┌─────────────┐         ┌─────────────┐       ║
+║   │  ✦ SOUL  ✦ │      │  CHANNEL    │         │  PERMANENT  │       ║
+║   │  ENERGY     │ ═══► │  ENERGY     │  ═════► │  POWER!     │       ║
+║   │  (Absorbed) │      │  (Conduit)  │         │  (Weapon)   │       ║
+║   └─────────────┘      └─────────────┘         └─────────────┘       ║
+║                                                                      ║
+║   Your deeds:           Conduits:               Result:              ║
+║   • Mine blocks         • Totem placement       • Weapon levels up   ║
+║   • Kill mobs           • Scrying Glass         • Bond strengthens   ║
+║   • Harvest crops                               • New buffs!         ║
+║                                                                      ║
+╚══════════════════════════════════════════════════════════════════════╝
 ```
 
 ### 📊 What This Means For You
 
 | Concept | Explanation |
 |---------|-------------|
-| **Soul Energy (Pending)** | XP you've earned while holding ANY soul weapon. Stored in YOUR spirit! |
-| **Weapon XP** | Permanent power stored IN the weapon itself. Gained only through syncing. |
-| **Syncing** | The act of transferring YOUR accumulated Soul Energy into a specific weapon |
+| **Soul Energy (Pending)** | Experience your soul has absorbed from your deeds while wielding a soul weapon. Stored within YOU. |
+| **Weapon XP** | Permanent power stored IN the weapon itself. Gained only through channeling via a conduit. |
+| **Channeling** | The totem (or Scrying Glass) acts as a conduit, transferring your stored soul energy into the weapon to strengthen its bond. |
 
 ### 🎯 The Strategic Advantage
 
 This system gives you **CHOICE**! 
 
-> *"The wise wielder gathers Soul Energy with one weapon, but may choose to bestow it upon another. A warrior might mine with a humble pickaxe, then gift all that gathered energy to their cherished blade."*
+> *"The wise wielder's soul absorbs experience from all deeds, regardless of which weapon is held. A warrior might mine with a humble pickaxe, then place their cherished blade upon the totem — and the conduit channels all that gathered energy into the blade, strengthening its bond."*
 
 **Example Scenario:**
-1. You spend an hour mining with **Soul Pickaxe "Stoneheart"** → Gain 500 Soul Energy
-2. You spend an hour fighting with **Soul Sword "Grimfang"** → Gain 300 MORE Soul Energy
-3. Your total pending Soul Energy = **800**
-4. You choose to sync it ALL to Grimfang → **Grimfang gains 800 XP!**
-5. Stoneheart got none... but you can sync to it next time!
+1. You spend an hour mining with **Soul Pickaxe "Stoneheart"** → Your soul absorbs 500 energy
+2. You spend an hour fighting with **Soul Sword "Grimfang"** → Your soul absorbs 300 MORE energy
+3. Your total stored soul energy = **800**
+4. You place Grimfang on a totem → The totem channels ALL 800 energy into Grimfang!
+5. Stoneheart got none... but you can channel to it next time!
 
 ### ⚠️ Important Notes
 
-- 🔄 **Pending Soul Energy is shared** - It doesn't matter WHICH soul weapon you were holding when you earned it
-- 🎁 **You choose where it goes** - Sync transfers ALL pending energy to ONE weapon
-- 🧹 **Syncing clears your pool** - After syncing, your pending energy resets to 0
-- 🏛️ **Multiple soul weapons?** - Earn with any, invest in your favorite!
+- 🔄 **Absorbed energy is shared** — It doesn't matter WHICH soul weapon you were holding when your soul absorbed it
+- 🎁 **You choose where it goes** — Place a weapon on a totem to channel ALL stored energy into it
+- 🧹 **Channeling clears your reserves** — After channeling, your stored soul energy resets to 0
+- 🏛️ **Multiple soul weapons?** — Absorb with any, channel into your favorite!
 
 ### 💎 Pro Tips
 
@@ -280,37 +315,39 @@ Your weapon receives a randomly generated fantasy name like:
 
 ## 💭 Personality Quotes!
 
-Your weapon TALKS to you through its tooltip! And the quotes CHANGE as it levels up:
+Your weapon TALKS to you through its tooltip! Quotes change based on the weapon's **level era** (which determines its maturity) and **mood** (randomly assigned per quote display). There are **6 eras**, each with **3 moods**, and **20 quotes per mood** — totaling **360 era quotes** plus **30 ascension-specific quotes** (390 total).
 
-### Early Game (Levels 1-15):
-> *"I sense great potential in you, wielder."*
-> 
-> *"Together, we shall carve our legend."*
-> 
-> *"Point me at your enemies. I will not disappoint."*
+A quick taste of the progression:
 
-### Mid Game (Levels 30-50):
-> *"Our bond strengthens with each battle."*
+### Early Game (Levels 1-15 — Awakening):
+> *"I sense great potential in you, wielder."* (eager)
 > 
-> *"Few remain who dare challenge us."*
+> *"What mysteries await us beyond the horizon?"* (curious)
 > 
-> *"I remember every foe we've vanquished..."*
+> *"Point me at your enemies. I will not disappoint."* (fierce)
 
-### End Game (Levels 70-90):
-> *"Kingdoms tremble at the mere whisper of my name."*
+### Mid Game (Levels 31-50 — Maturity):
+> *"Experience has taught me patience."* (wise)
 > 
-> *"We have transcended mortality together."*
+> *"I would shatter myself before betraying you."* (loyal)
 > 
-> *"The gods themselves take notice of our power."*
+> *"Few remain who dare challenge us openly."* (powerful)
 
-### MAX LEVEL (Level 100):
-> *"I AM BECOME DEATH, DESTROYER OF WORLDS."*
+### End Game (Levels 71-90 — Transcendence):
+> *"We have transcended mortality together."* (divine)
 > 
-> *"My edge knows no equal in this realm or ANY."*
+> *"I feel older than the mountains themselves."* (ancient)
 > 
-> *"We are ETERNAL. We are INFINITE. We are ONE."*
+> *"Even I am unsettled by what I have become."* (terrifying)
 
-😱 **EPIC RIGHT?!**
+### MAX LEVEL (Levels 91-100 — Apotheosis):
+> *"I AM BECOME DEATH, DESTROYER OF WORLDS."* (godlike)
+> 
+> *"I perceive all possible realities simultaneously."* (transcendent)
+> 
+> *"Having achieved everything, I wonder what remains."* (philosophical)
+
+For the **complete list of all 390 quotes**, see **[SOUL_QUOTES_REFERENCE.md](SOUL_QUOTES_REFERENCE.md)**.
 
 ---
 
@@ -323,32 +360,42 @@ Every time you perform an Ascension Ritual, you spin the wheel!
     ╔═══════════════════════════╗
     ║   50% CHANCE TO WIN!      ║
     ║                           ║
-    ║   💎 BONUS ENCHANT! 💎    ║
+    ║   💎 BONUS ENCHANT! 💎   ║
     ║                           ║
     ╚═══════════════════════════╝
 ```
 
 ### What Can You Win?
 
-| Weapon | Possible Bonuses |
-|--------|------------------|
-| ⚔️ Sword | Sharpness +1, Looting +1, Sweeping Edge +1 |
-| ⛏️ Pickaxe | Efficiency +1, Fortune +1, Unbreaking +1 |
-| 🪓 Axe | Efficiency +1, Sharpness +1, Unbreaking +1 |
-| 🏹 Bow | Power +1, Punch +1, maybe even INFINITY! |
-| 🔱 Trident | Loyalty +1, Riptide +1, maybe CHANNELING! |
+**ANY of the 40 vanilla enchantments in the game.** The pool is type-agnostic — the item doesn't matter. You're rolling the cosmic dice.
+
+| Category | Enchantments in Pool |
+|----------|---------------------|
+| **Melee** | Sharpness, Smite, Bane of Arthropods, Knockback, Fire Aspect, Looting, Sweeping Edge |
+| **Ranged** | Power, Punch, Flame, Infinity, Quick Charge, Multishot, Piercing |
+| **Trident** | Loyalty, Channeling, Riptide, Impaling |
+| **Tool** | Efficiency, Fortune, Silk Touch, Luck of the Sea, Lure |
+| **Armor** | Protection, Fire/Blast/Projectile Protection, Feather Falling, Respiration, Aqua Affinity, Thorns, Depth Strider, Frost Walker, Soul Speed, Swift Sneak |
+| **Universal** | Unbreaking, Mending |
+| **Mace** | Wind Burst, Density, Breach |
+
+> **Wait... Sharpness on boots? Feather Falling on a sword?**
+>
+> Yes. This is a soul gamble, not a curated enchanting table. You earned these through 
+> blood, sweat, and ritual fire. The universe doesn't care about "intended use."
+> Some rolls will be incredible. Some will be... interesting. That's the price of power.
 
 ### Maximum Bonuses From 18 Rituals:
 
 If you're **SUPER LUCKY** (50% each time), you could get up to **9 bonus enchantments**!
 
-That means your Level 100 sword could have:
-- Sharpness **+3** (from bonuses!)
-- Looting **+3** (from bonuses!)
-- Sweeping Edge **+2** (from bonuses!)
+Each enchantment can be rolled multiple times — it stacks up to its vanilla max level. So your Level 100 sword could theoretically accumulate:
+- Sharpness **V** (from bonuses!)
+- Mending **I** (from bonuses!)
+- ...or Feather Falling IV, because the gods have a sense of humor.
 - **PLUS** whatever enchantments it already had!
 
-🤯 **INSANELY POWERFUL!**
+🤯 **THE ULTIMATE GAMBLE!**
 
 ---
 
@@ -373,13 +420,13 @@ You fight mobs, clear dungeons, and explore. Grimfang reaches Level 15!
 After many adventures, Grimfang reaches Level 50!
 - **8 rituals performed**
 - **4 bonus enchantments received** (lucky!)
-- **Current bonuses**: Sharpness +2, Looting +1, Sweeping Edge +1
+- **Current bonuses**: Sharpness 2, Looting 1, Mending 1, Feather Falling 1 (wait, what?)
 - **Quote**: *"Few remain who dare challenge us."*
 
 ## 🔥 Month 3: TRANSCENDENCE
 You've done it. 18 rituals. Level 100. OMEGA status.
 - **Final quote**: *"I am the end of all who oppose you."*
-- **Total bonuses**: Sharpness +3, Looting +2, Sweeping Edge +2 (7 lucky rolls!)
+- **Total bonuses**: Sharpness 3, Looting 2, Mending 1, Feather Falling 1 (7 lucky rolls! Some... questionable.)
 - **Your sword literally GLOWS with power!**
 
 **Grimfang is now LEGENDARY!** 🏆
@@ -405,7 +452,7 @@ You've done it. 18 rituals. Level 100. OMEGA status.
 You get ONE free rename per level. Choose wisely!
 
 ## "Do bonuses stack with existing enchantments?"
-✅ **YES!** If your sword already has Sharpness III and you get a Sharpness bonus, it becomes Sharpness IV!
+✅ **YES!** If your sword already has Sharpness III and you roll a Sharpness bonus, it becomes Sharpness IV! Each enchantment stacks up to its vanilla maximum level. And yes, "illegal" enchantments that don't normally go on your item type are kept too — you earned them through ritual fire.
 
 ## "What's the point of doing 18 rituals?"
 🎯 Each ritual:
@@ -429,7 +476,7 @@ Print this out! Stick it on your wall! Never forget the ritual setup!
 
 ```
 ╔══════════════════════════════════════════════════════════════╗
-║                 SOUL EMBODIMENT QUICK GUIDE                   ║
+║                 SOUL EMBODIMENT QUICK GUIDE                  ║
 ╠══════════════════════════════════════════════════════════════╣
 ║                                                              ║
 ║   RITUAL PATTERN:                                            ║
@@ -437,15 +484,15 @@ Print this out! Stick it on your wall! Never forget the ritual setup!
 ║                    [N] Soul Sand                             ║
 ║                         |                                    ║
 ║                         |                                    ║
-║   [W] Amethyst ----[CENTER]---- [E] Ender Pearl             ║
+║   [W] Amethyst ----[CENTER]---- [E] Ender Pearl              ║
 ║                    YOUR TOOL                                 ║
 ║                         |                                    ║
 ║                         |                                    ║
 ║                    [S] Glowstone                             ║
 ║                                                              ║
-║   DISTANCE: 5 blocks from center to each cardinal totem     ║
+║   DISTANCE: 5 blocks from center to each cardinal totem      ║
 ║                                                              ║
-║   TO ACTIVATE: Light fire at center totem base              ║
+║   TO ACTIVATE: Light fire at center totem base               ║
 ║                                                              ║
 ╠══════════════════════════════════════════════════════════════╣
 ║   STATS:                                                     ║
@@ -462,7 +509,7 @@ Print this out! Stick it on your wall! Never forget the ritual setup!
 
 Don't want to trek back to your totem every time? **CRAFT A SCRYING GLASS!**
 
-> *"The Scrying Glass peers into the ethereal realm where souls reside. Through its crystalline lens, the bond between wielder and weapon becomes visible - a shimmering thread of pure energy. When you gaze through this mystical device, that thread becomes a bridge, allowing your accumulated Soul Energy to flow into your cherished blade."*
+> *"The Scrying Glass is a portable conduit, forged from crystal and amethyst. Through its lens, the bond between wielder and weapon becomes visible — a shimmering thread connecting your soul to the blade. When you gaze through this mystical device, the glass acts as a bridge, channeling your stored soul energy directly into the weapon, strengthening its bond without need of a totem."*
 >
 > — Enchanter's Codex
 
@@ -481,18 +528,18 @@ Don't want to trek back to your totem every time? **CRAFT A SCRYING GLASS!**
 ║           SCRYING GLASS - SYNC PROCEDURE              ║
 ╠═══════════════════════════════════════════════════════╣
 ║                                                       ║
-║   STEP 1: Equip your SOUL WEAPON in OFFHAND          ║
-║           (Press F to swap, or drag to shield slot)  ║
+║   STEP 1: Equip your SOUL WEAPON in OFFHAND           ║
+║           (Press F to swap, or drag to shield slot)   ║
 ║                                                       ║
-║   STEP 2: Hold SCRYING GLASS in MAINHAND             ║
-║           (Your main hotbar selection)               ║
+║   STEP 2: Hold SCRYING GLASS in MAINHAND              ║
+║           (Your main hotbar selection)                ║
 ║                                                       ║
-║   STEP 3: RIGHT-CLICK and LOOK through the glass     ║
-║           (Like using a normal spyglass!)            ║
+║   STEP 3: RIGHT-CLICK and LOOK through the glass      ║
+║           (Like using a normal spyglass!)             ║
 ║                                                       ║
-║   STEP 4: ✨ SOUL SYNCED! ✨                          ║
-║           All pending Soul Energy transfers to       ║
-║           the weapon in your offhand!                ║
+║   STEP 4: ✨ SOUL SYNCED! ✨                         ║
+║           All pending Soul Energy transfers to        ║
+║           the weapon in your offhand!                 ║
 ║                                                       ║
 ╚═══════════════════════════════════════════════════════╝
 ```
@@ -530,50 +577,69 @@ Every time your soul weapon **LEVELS UP**, you gain a **RANDOM BUFF!**
 
 ## 🟢 Possible Buffs (You Get ONE Each Level!)
 
-| Buff | What It Does | Max Level |
-|------|--------------|-----------|
-| ⛏️ **Soul Haste** | +10% mining speed per level | III |
-| ✨ **Soul Sight** | Nearby mobs glow! | I |
-| 🧲 **Magnetic Pull** | Items fly to you (5-7 blocks) | II |
-| 🖐️ **Extended Reach** | +0.5 block reach per level | III |
-| 🔧 **Soul Mending** | Auto-repairs over time! | III |
-| 🍀 **Fortune's Favor** | +0.5 luck per level | II |
-| 💨 **Soul Speed** | +3% movement per level | III |
-| 💪 **Soul Strength** | +0.5 damage per level | IV |
-| 🛡️ **Soul Armor** | +1 armor per level | III |
-| 🦘 **Featherweight** | Jump higher! | I |
-| 🔥 **Soul Flame** | 10% ignite chance per level | II |
-| ❤️ **Soul Leech** | 5% damage healed per level | II |
-| 👁️ **Dark Vision** | See in the dark! | I |
-| 🫧 **Aquatic Soul** | Breathe underwater! | I |
-| 🔥 **Flame Ward** | Fire resistance! | I |
-| 🤫 **Reserved Soul** | Weapon talks less often | I |
-| ...and MORE! | |
+There are **20 buffs** in the pool. Each level up, one is randomly selected. If you already have it, it stacks (up to its max level). Equal 1/20 chance for each.
+
+| # | Buff | What It Does | Max Level |
+|---|------|--------------|-----------|
+| 1 | ⛏️ **Soul Haste** | +10% mining speed per level | III |
+| 2 | ✨ **Soul Sight** | Nearby entities glow within 10 blocks | I |
+| 3 | 🧲 **Magnetic Pull** | Attract items: 5 blocks (I), 7 blocks (II) | II |
+| 4 | 🖐️ **Extended Reach** | +0.5 block interaction range per level | III |
+| 5 | 🔧 **Soul Mending** | 0.5% chance per tick to repair 1 durability | III |
+| 6 | 🍀 **Fortune's Favor** | +0.5 luck per level | II |
+| 7 | 💨 **Soul Speed** | +3% movement speed per level | III |
+| 8 | 💪 **Soul Strength** | +0.5 attack damage per level | IV |
+| 9 | 🛡️ **Soul Armor** | +1 armor per level | III |
+| 10 | 🦘 **Featherweight** | Jump Boost I | I |
+| 11 | 🔥 **Soul Flame** | 10% chance per level to ignite targets on hit | II |
+| 12 | ❤️ **Soul Leech** | 5% of damage dealt is healed per level | II |
+| 13 | 📖 **Soul Wisdom** | +10% soul XP gain per level | II |
+| 14 | 💎 **Soul Harvest** | Extra drops (like Looting) per level | II |
+| 15 | 🛡️ **Eternal Edge** | 25% less durability loss per level | II |
+| 16 | 👁️ **Dark Vision** | Night Vision effect while held | I |
+| 17 | 🫧 **Aquatic Soul** | Water Breathing effect while held | I |
+| 18 | 🔥 **Flame Ward** | Fire Resistance effect while held | I |
+| 19 | 🍞 **Soul Sustenance** | 0.5% chance per tick for Saturation effect | II |
+| 20 | 🤫 **Reserved Soul** | Weapon speaks less often (personality) | I |
 
 ## 🔴 Possible Debuffs (30% Chance Each Level)
 
-| Debuff | The Downside | Max Level |
-|--------|--------------|-----------|
-| 🍖 **Ravenous Soul** | Get hungrier faster | II |
-| ⚓ **Burdened** | -3% movement per level | II |
-| 💔 **Brittle Edge** | +25% durability loss per level | II |
-| 😵 **Clumsy Grip** | Sometimes mine slower | II |
-| 👻 **Paranoid Soul** | Hear spooky sounds | I |
-| 💀 **Bloodthirst** | Weapon hurts you if unused | I |
-| 🗣️ **Chatty Soul** | Weapon NEVER shuts up | I |
+On each level up there is a **30% chance** a debuff is also rolled. There are **11 debuffs** in the pool, each with equal chance (1/11).
+
+| # | Debuff | The Downside | Max Level |
+|---|--------|--------------|-----------|
+| 1 | 🍖 **Ravenous Soul** | Chance per tick for Hunger effect (1/400 at I, 1/200 at II) | II |
+| 2 | ⚓ **Burdened** | -3% movement speed per level | II |
+| 3 | ☠️ **Cursed Aura** | 1/6000 chance per tick for Bad Omen (600s) | I |
+| 4 | 💔 **Brittle Edge** | +25% durability loss per level | II |
+| 5 | 📢 **Restless Soul** | 1/400 chance per tick to alert nearby raiders | I |
+| 6 | 😵 **Clumsy Grip** | Chance per tick for Mining Fatigue (1/600 at I, 1/300 at II) | II |
+| 7 | 🎲 **Misfortune** | -0.5 luck per level | II |
+| 8 | 🕳️ **Soul Hunger** | +20% soul XP required per level to level up | II |
+| 9 | 👻 **Paranoid Soul** | 1/1200 chance per tick for random spooky sounds | I |
+| 10 | 💀 **Bloodthirst** | Takes 1 damage every 30s if no combat (must feed the soul) | I |
+| 11 | 🗣️ **Chatty Soul** | Weapon speaks MORE often (never shuts up) | I |
 
 ### ⚔️ BUFF/DEBUFF CONFLICTS!
 
-Some buffs **BLOCK** opposing debuffs (and vice versa):
+Some buffs **BLOCK** opposing debuffs (and vice versa). If you already have one side, the conflicting roll is rerolled:
 
 | If You Have... | You're Protected From... |
 |----------------|--------------------------|
 | 💨 Soul Speed | ⚓ Burdened |
+| ⚓ Burdened | 💨 Soul Speed |
 | 🍀 Fortune's Favor | 🎲 Misfortune |
+| 🎲 Misfortune | 🍀 Fortune's Favor |
 | 🔧 Soul Mending | 💔 Brittle Edge |
+| 🛡️ Eternal Edge | 💔 Brittle Edge |
+| 💔 Brittle Edge | 🔧 Soul Mending, 🛡️ Eternal Edge |
+| 🍞 Soul Sustenance | 🍖 Ravenous Soul |
+| 🍖 Ravenous Soul | 🍞 Soul Sustenance |
 | 🤫 Reserved Soul | 🗣️ Chatty Soul |
+| 🗣️ Chatty Soul | 🤫 Reserved Soul |
+| 🔥 Flame Ward | 🫧 Aquatic Soul, 🔥 Soul Flame |
 
-**Strategy:** Having good buffs protects you from bad debuffs!
+**Strategy:** Getting good buffs early protects you from their opposing debuffs later!
 
 ### 🔄 BUFFS & DEBUFFS CAN STACK!
 
@@ -611,8 +677,8 @@ Soul weapons are **100% compatible** with vanilla enchantments:
 | 🪓 Grindstone | ✅ YES (keeps soul!) |
 
 **Your soul weapon can have BOTH:**
-- Regular enchantments (Sharpness V, Unbreaking III, etc.)
-- Soul buffs (Soul Strength III, Soul Haste II, etc.)
+- Regular vanilla enchantments (applied via enchanting table, anvil, or ascension bonus rolls)
+- Soul buffs (the 20 random buffs gained on each level up — see the Buffs & Debuffs section above)
 
 **MAXIMUM POWER COMBO POSSIBLE!** ⚡⚔️⚡
 
@@ -627,11 +693,21 @@ If you're a:
 - 🤓 Player who wants to know EVERYTHING
 
 Check out the **[Technical Documentation](SOUL_EMBODIMENT_RITUAL_PLAN.md)** for:
-- Exact XP formulas
-- Data storage schemas
-- Implementation details
-- Config file structures
-- And much more!
+- Exact XP formulas and level threshold calculations
+- NBT data storage schemas (custom_data fields)
+- Scoreboard objective definitions
+- Config file structures (rituals.toml)
+- Datapack function call graph and execution flow
+
+---
+
+# 📜 Full Soul Quote Reference
+
+For the complete list of all **390 personality quotes** (6 eras, 18 moods, 20 quotes each, plus 30 ascension quotes), see:
+
+**[SOUL_QUOTES_REFERENCE.md](SOUL_QUOTES_REFERENCE.md)**
+
+Source data file: `config/rituals/soul_lore.json`
 
 ---
 
@@ -649,7 +725,8 @@ Check out the **[Technical Documentation](SOUL_EMBODIMENT_RITUAL_PLAN.md)** for:
 
 ---
 
-**Version**: 1.0  
-**Last Updated**: 2025  
+**Version**: 1.2
+**Last Updated**: 2026
 **Part of**: Rituals Datapack & Mod
 
+<!-- End of document - Full quote reference at SOUL_QUOTES_REFERENCE.md -->

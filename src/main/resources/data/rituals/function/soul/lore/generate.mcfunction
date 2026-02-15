@@ -21,8 +21,9 @@ data modify storage rituals:temp lore append value '{"text":"✦ Soul: ","color"
 # This is a placeholder - actual value inserted below
 data modify storage rituals:temp lore append value '{"text":"Level: ","color":"gray","extra":[{"score":{"name":"@s","objective":"rituals.soul_level"},"color":"yellow"},{"text":"/","color":"gray"},{"score":{"name":"@s","objective":"rituals.soul_level_cap"},"color":"yellow"},{"text":" (Tier ","color":"dark_gray"},{"score":{"name":"@s","objective":"rituals.soul_tier"},"color":"dark_gray"},{"text":")","color":"dark_gray"}]}'
 
-# Line 3: XP bar placeholder
-data modify storage rituals:temp lore append value '{"text":"XP: ","color":"gray","extra":[{"score":{"name":"@s","objective":"rituals.soul_xp"},"color":"green"},{"text":" ▓▓▓▓▓░░░░░","color":"dark_green"}]}'
+# Line 3: XP bar — 0% at awakening (XP is always 0 on a fresh soul)
+data modify storage rituals:temp lore append value '[{"text":"⬥ XP: ","color":"gray","italic":false},{"text":"0","color":"green","italic":false}]'
+data modify storage rituals:temp lore append value '[{"text":"  ","italic":false},{"text":"░░░░░░░░░░","color":"dark_gray","italic":false},{"text":" 0%","color":"gray","italic":false}]'
 
 # Line 4: Spacer
 data modify storage rituals:temp lore append value '{"text":""}'

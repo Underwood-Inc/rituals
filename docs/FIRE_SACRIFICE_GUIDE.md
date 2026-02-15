@@ -38,7 +38,7 @@ flowchart TD
 ### Basic Steps
 
 1. **Place your totem** (right-click)
-2. **Add your ritual item** to the totem (e.g., Diamond, Emerald, Arrow, etc.)
+2. **Add your ritual item** to the totem (Emerald, Diamond, Iron Ingot, Nether Star, Arrow, Nether Block for area effects; or any tool/weapon for Soul Embodiment)
 3. **Drop 4 catalyst items** on the ground in the 4 cardinal directions around the totem (N, S, E, W)
 4. **Light a fire** at the totem's base using flint & steel or other fire source
 5. **Watch the magic!** The offerings are consumed, and the ritual activates

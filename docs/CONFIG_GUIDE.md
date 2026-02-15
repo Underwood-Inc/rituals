@@ -225,7 +225,7 @@ All ritual effects now use a **generic, reusable system**:
 
 1. **`get_tier_settings.mcfunction`** - Loads tier-specific range and frequency from config into temp scoreboards
 2. **`apply_in_tier_range.mcfunction`** - Calculates box coordinates for dx/dy/dz selectors
-3. **Individual effect files** (growth, strength, healing, etc.) - Call the generic functions, then apply their specific effects
+3. **Individual effect files** (growth, strength, healing, prosperity, damage, turret) - Call the generic functions, then apply their specific effects
 
 This means:
 - ✅ All effects scale with tier automatically

@@ -118,7 +118,9 @@ Each pattern has its own visualization file that spawns particles:
 ```
 totem/patterns/
 ├── visualize_pattern.mcfunction (router - checks item type)
-└── visualize_star.mcfunction (Auto-Breeding)
+├── visualize_square.mcfunction (Auto-Farming)
+├── visualize_star.mcfunction (Auto-Breeding)
+└── visualize_soul_star.mcfunction (Soul Embodiment / Soul Ascension)
 ```
 
 ### Routing Logic
@@ -284,7 +286,9 @@ execute if data storage rituals:temp {pattern_item:"minecraft:YOUR_ITEM"} run fu
 ### Modifying Existing Patterns
 
 Edit the pattern-specific visualization file:
+- `visualize_square.mcfunction` - Auto-Farming
 - `visualize_star.mcfunction` - Auto-Breeding
+- `visualize_soul_star.mcfunction` - Soul Embodiment / Soul Ascension
 
 **Do NOT modify:**
 - `visualize_pattern.mcfunction` (router logic is correct)

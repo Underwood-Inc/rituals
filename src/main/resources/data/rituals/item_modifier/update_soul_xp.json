@@ -1,0 +1,14 @@
+{
+  "function": "minecraft:copy_custom_data",
+  "source": {
+    "type": "storage",
+    "source": "rituals:temp"
+  },
+  "ops": [
+    {
+      "source": "soul_update",
+      "target": "",
+      "op": "merge"
+    }
+  ]
+}

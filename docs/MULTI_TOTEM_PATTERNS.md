@@ -87,7 +87,7 @@ Legend:
    - South: Potato
    - West: Beetroot Seeds
 4. Fire sacrifice at center
-5. Animals within range will auto-breed when fed matching food
+5. Animals within range will auto-breed (sets InLove directly — no food consumed from chests)
 
 ![Auto-Breeding Ritual Pattern](../images/breeding%20ritual.webp)
 
@@ -205,10 +205,9 @@ Circle Points (9 totems around center at 8 block radius):
   SSW: (-4,  0,  -7)  - 280°
   WSW: (-7,  0,  -4)  - 320°
   W:   (-8,  0,   0)  - 360°
-  (Wait, that's 10 points... let me use 9)
 ```
 
-Actually, for a proper circle of 9 totems, approximate coordinates at 8 block radius:
+For a proper circle of 9 totems, approximate coordinates at 8 block radius:
 
 ### Time Warp Ritual (Clock)
 

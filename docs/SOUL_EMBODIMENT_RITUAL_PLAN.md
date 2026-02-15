@@ -22,7 +22,7 @@ The **Soul Embodiment Ritual** transforms ordinary tools and weapons into **livi
 
 A **Living Weapon** (or Living Tool) is any tool that has undergone the Soul Embodiment Ritual. Once awakened:
 
-1. **Gains Experience** - XP from using the item (mining, attacking, chopping, etc.)
+1. **Gains Experience** - The wielder's soul absorbs XP from their deeds (mining, killing, chopping, digging, harvesting, ranged combat), channeled into the weapon via totem conduit
 2. **Levels Up** - Thresholds unlock new visual tiers and potentially bonuses
 3. **Dynamic Tooltip** - Lore updates in real-time showing level, XP, and personality
 4. **Persists Across Sessions** - All data stored in item's `custom_data` component
@@ -470,7 +470,7 @@ sequenceDiagram
     participant Lore as Lore Generator
     participant Display as Tooltip
     
-    Item->>System: Action performed (mining, attack, etc.)
+    Item->>System: Action performed (mining, killing, chopping, digging, harvesting, ranged)
     System->>System: Calculate XP gained
     System->>Item: Update custom_data.soul_xp
     System->>System: Check level threshold
@@ -538,7 +538,7 @@ sequenceDiagram
 | `soul_personality` | int | Index into personality quotes |
 | `soul_created` | long | Unix timestamp of awakening |
 | `soul_ascension_tier` | int | Current tier (1-18) |
-| `soul_level_cap` | int | Current max level (15/20/25/.../100) |
+| `soul_level_cap` | int | Current max level (15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80, 85, 90, 95, or 100) |
 | `soul_bonus_enchants` | int | Count of bonus enchants received |
 | `soul_ready_ascend` | boolean | True when at cap & can ascend |
 | `soul_kills` | int | Mob kills (swords/axes) |
@@ -634,41 +634,43 @@ config/rituals/
   "format_version": 1,
   "names": {
     "sword": [
-      "Vexbane", "Soulreaver", "Grimfang", "Bloodthirst", "Nightfall",
-      "... 500+ names ..."
+      "Vexbane", "Soulreaver", "Grimfang", "Bloodthirst", "Nightfall"
+      // ... 134 total sword names (see full list in config/rituals/soul_names.json)
     ],
     "pickaxe": [
-      "Earthshatter", "Orebiter", "Stoneheart", "Deepdelver", "Crystalmaw",
-      "... 500+ names ..."
+      "Earthshatter", "Orebiter", "Stoneheart", "Deepdelver", "Crystalmaw"
+      // ... 130 total pickaxe names
     ],
     "axe": [
-      "Timberghast", "Splinterfury", "Barkrender", "Grovekeeper", "Hewnbane",
-      "... 500+ names ..."
+      "Timberghast", "Splinterfury", "Barkrender", "Grovekeeper", "Hewnbane"
+      // ... 123 total axe names
     ],
     "shovel": [
-      "Gravedigger", "Dustwalker", "Sandsorrow", "Earthwhisper", "Loamseeker",
-      "... 500+ names ..."
+      "Gravedigger", "Dustwalker", "Sandsorrow", "Earthwhisper", "Loamseeker"
+      // ... 123 total shovel names
     ],
     "hoe": [
-      "Harvestwarden", "Cropkeeper", "Fieldbound", "Growthsinger", "Soilblessed",
-      "... 500+ names ..."
+      "Harvestwarden", "Cropkeeper", "Fieldbound", "Growthsinger", "Soilblessed"
+      // ... 125 total hoe names
     ],
     "bow": [
-      "Skypierce", "Windseeker", "Hawkstrike", "Silentsting", "Farsight",
-      "... 500+ names ..."
+      "Skypierce", "Windseeker", "Hawkstrike", "Silentsting", "Farsight"
+      // ... 125 total bow names
     ],
     "crossbow": [
-      "Boltreaper", "Ironwhistle", "Deathclick", "Springfury", "Mechanawrath",
-      "... 500+ names ..."
+      "Boltreaper", "Ironwhistle", "Deathclick", "Springfury", "Mechanawrath"
+      // ... 124 total crossbow names
     ],
     "trident": [
-      "Tidecaller", "Stormfork", "Depthwarden", "Wavecrusher", "Seasorrow",
-      "... 500+ names ..."
+      "Tidecaller", "Stormfork", "Depthwarden", "Wavecrusher", "Seasorrow"
+      // ... 120 total trident names
     ],
     "generic": [
-      "Soulbound", "Spiritforged", "Essencekeeper", "Voidtouched", "Eternum",
-      "... fallback names for any tool type ..."
+      "Soulbound", "Spiritforged", "Essencekeeper", "Voidtouched", "Eternum"
+      // ... 120 total generic/fallback names (used when tool type has no specific pool)
     ]
+    // TOTAL: 1,122 unique names across all pools
+    // Full list: config/rituals/soul_names.json
   }
 }
 ```
@@ -688,43 +690,47 @@ Lore quotes are organized by **era** (level range) and **mood/personality**:
         "eager": [
           "I sense great potential in you, wielder.",
           "Together, we shall carve our legend.",
-          "Each strike teaches me more of this world.",
-          "... many more quotes ..."
+          "Each strike teaches me more of this world."
+          // 20 quotes per mood (see config/rituals/soul_lore.json for full list)
         ],
         "curious": [
           "What mysteries await us beyond the horizon?",
           "I feel the warmth of your grip. It comforts me.",
-          "There is much I do not yet understand.",
-          "... many more quotes ..."
+          "There is much I do not yet understand."
+          // 20 quotes per mood
         ],
         "fierce": [
           "Point me at your enemies. I will not disappoint.",
           "I hunger for the taste of battle.",
-          "Let none stand before us!",
-          "... many more quotes ..."
+          "Let none stand before us!"
+          // 20 quotes per mood
         ]
       }
     },
     "growth": {
       "description": "Levels 16-30 - Growing stronger together",
-      "moods": { "..." }
+      "moods": { "bonding": ["(20 quotes)"], "confident": ["(20 quotes)"], "reflective": ["(20 quotes)"] }
     },
     "maturity": {
       "description": "Levels 31-50 - A seasoned companion",
-      "moods": { "..." }
+      "moods": { "wise": ["(20 quotes)"], "loyal": ["(20 quotes)"], "powerful": ["(20 quotes)"] }
     },
     "mastery": {
       "description": "Levels 51-70 - Approaching legendary status",
-      "moods": { "..." }
+      "moods": { "legendary": ["(20 quotes)"], "commanding": ["(20 quotes)"], "ominous": ["(20 quotes)"] }
     },
     "transcendence": {
       "description": "Levels 71-90 - Beyond mortal limits",
-      "moods": { "..." }
+      "moods": { "divine": ["(20 quotes)"], "ancient": ["(20 quotes)"], "terrifying": ["(20 quotes)"] }
     },
     "apotheosis": {
       "description": "Levels 91-100 - Godlike power achieved",
-      "moods": { "..." }
+      "moods": { "godlike": ["(20 quotes)"], "transcendent": ["(20 quotes)"], "philosophical": ["(20 quotes)"] }
     }
+    // TOTAL: 6 eras × 3 moods × 20 quotes = 360 era quotes
+    // Plus 30 ascension quotes (10 ready + 10 success + 10 bonus)
+    // Grand total: 390 unique quotes
+    // Full list: config/rituals/soul_lore.json
   },
   "ascension_quotes": {
     "ready": [
@@ -753,24 +759,33 @@ Lore quotes are organized by **era** (level range) and **mood/personality**:
   "_comment": "Level titles displayed on the tooltip",
   "format_version": 1,
   "titles": {
-    "1": "Awakened",
-    "2": "Stirring",
-    "3": "Aware",
-    "...": "...",
-    "15": "Unbound",
-    "16": "Ascended",
-    "...": "...",
-    "50": "Legendary",
-    "...": "...",
-    "99": "Infinite",
-    "100": "OMEGA"
+    "1": "Awakened", "2": "Stirring", "3": "Aware", "4": "Conscious", "5": "Alert",
+    "6": "Sentient", "7": "Perceiving", "8": "Feeling", "9": "Learning", "10": "Growing",
+    "11": "Developing", "12": "Maturing", "13": "Evolving", "14": "Ascending", "15": "Unbound",
+    "16": "Liberated", "17": "Unchained", "18": "Unleashed", "19": "Empowered", "20": "Strengthened",
+    "21": "Fortified", "22": "Hardened", "23": "Tempered", "24": "Refined", "25": "Polished",
+    "26": "Honed", "27": "Sharpened", "28": "Keen", "29": "Razor", "30": "Deadly",
+    "31": "Lethal", "32": "Fatal", "33": "Mortal", "34": "Perilous", "35": "Dangerous",
+    "36": "Menacing", "37": "Threatening", "38": "Ominous", "39": "Foreboding", "40": "Dreadful",
+    "41": "Fearsome", "42": "Terrifying", "43": "Horrifying", "44": "Nightmarish", "45": "Abyssal",
+    "46": "Legendary", "47": "Mythical", "48": "Fabled", "49": "Storied", "50": "Renowned",
+    "51": "Illustrious", "52": "Distinguished", "53": "Eminent", "54": "Exalted", "55": "Venerated",
+    "56": "Revered", "57": "Hallowed", "58": "Sacred", "59": "Divine", "60": "Holy",
+    "61": "Blessed", "62": "Sanctified", "63": "Consecrated", "64": "Ordained", "65": "Anointed",
+    "66": "Chosen", "67": "Destined", "68": "Fated", "69": "Prophesied", "70": "Foretold",
+    "71": "Transcendent", "72": "Ascendant", "73": "Supreme", "74": "Paramount", "75": "Sovereign",
+    "76": "Imperial", "77": "Majestic", "78": "Regal", "79": "Royal", "80": "Kingly",
+    "81": "Celestial", "82": "Astral", "83": "Cosmic", "84": "Universal", "85": "Infinite",
+    "86": "Eternal", "87": "Timeless", "88": "Immortal", "89": "Undying", "90": "Deathless",
+    "91": "Primordial", "92": "Ancient", "93": "Primal", "94": "Original", "95": "First",
+    "96": "Ultimate", "97": "Absolute", "98": "Perfect", "99": "Infinite", "100": "OMEGA"
   },
   "tier_names": {
-    "1": "Awakening",
-    "2": "Ascension I",
-    "3": "Ascension II",
-    "...": "...",
-    "18": "Transcendence"
+    "1": "Awakening", "2": "Ascension I", "3": "Ascension II", "4": "Ascension III",
+    "5": "Ascension IV", "6": "Ascension V", "7": "Ascension VI", "8": "Ascension VII",
+    "9": "Ascension VIII", "10": "Ascension IX", "11": "Ascension X", "12": "Ascension XI",
+    "13": "Ascension XII", "14": "Ascension XIII", "15": "Ascension XIV", "16": "Ascension XV",
+    "17": "Ascension XVI", "18": "Transcendence"
   }
 }
 ```
@@ -820,7 +835,7 @@ flowchart TD
 
 When a soul is awakened, the name is selected:
 
-1. **Check tool type** (sword, pickaxe, etc.)
+1. **Check tool type** (sword, pickaxe, axe, shovel, hoe, bow, crossbow, trident, or generic fallback)
 2. **Random selection** from that tool's name pool
 3. **Fallback** to "generic" pool if tool type has no names
 4. **Uniqueness check** - avoid recent names on same server
@@ -1042,8 +1057,8 @@ flowchart LR
 #### Mod Enhancements
 
 ```java
-// SoulWeaponManager.java
-public class SoulWeaponManager {
+// SoulEmbodimentManager.java
+public class SoulEmbodimentManager {
     // Track soul items and update tooltips in real-time
     public void onItemUsed(PlayerEntity player, ItemStack stack);
     public void updateSoulLore(ItemStack stack, int level, int xp);
@@ -1283,7 +1298,7 @@ config/rituals/
 
 src/main/java/com/rituals/
 ├── soul/
-│   ├── SoulWeaponManager.java
+│   ├── SoulEmbodimentManager.java
 │   ├── SoulData.java
 │   ├── SoulAscensionHandler.java
 │   ├── SoulBonusEnchant.java
@@ -1358,7 +1373,7 @@ src/main/java/com/rituals/
   - [x] Hot-reload supported by existing system
 
 - [x] **Phase 6: Fabric Mod Integration** ✅ COMPLETE
-  - [x] Create `SoulWeaponManager.java`
+  - [x] Create `SoulEmbodimentManager.java`
   - [x] Real-time XP tracking via events
   - [x] Real-time tooltip updates
   - [x] Create `SoulCommands.java`
@@ -1392,9 +1407,14 @@ When a soul weapon levels up, it gains a **random buff**! There's also a **30% c
 
 **Buffs and debuffs can STACK!** If you roll the same buff/debuff multiple times:
 
-- **Stackable effects** (Haste, Glow, Magnetic, Reach, Repair, Lucky, Swift, Strong, Tough, etc.) will **UPGRADE** and become more powerful
-- **Non-stackable effects** (Fractured, Chatty, Reserved) can only occur once
-- Each stack typically adds **+1 to the effect's level**, making it more potent
+- **Stackable buffs** will **UPGRADE** and become more powerful (each stack = +1 level):
+  - Soul Haste (max III), Magnetic Pull (max II), Extended Reach (max III), Soul Mending (max III), Fortune's Favor (max II), Soul Speed (max III), Soul Strength (max IV), Soul Armor (max III), Soul Flame (max II), Soul Leech (max II), Soul Wisdom (max II), Soul Harvest (max II), Eternal Edge (max II), Soul Sustenance (max II)
+- **Stackable debuffs** also upgrade when rerolled:
+  - Ravenous Soul (max II), Burdened (max II), Brittle Edge (max II), Clumsy Grip (max II), Misfortune (max II), Soul Hunger (max II)
+- **Non-stackable effects** (max level I) can only occur once:
+  - Buffs: Soul Sight, Featherweight, Dark Vision, Aquatic Soul, Flame Ward, Reserved Soul
+  - Debuffs: Cursed Aura, Restless Soul, Paranoid Soul, Bloodthirst, Chatty Soul
+  - Special: Fractured (permanent, irreversible)
 - This creates potential for **wacky combinations** - imagine a weapon with Soul Speed III, Soul Strength V, AND Magnetic Pull II!
 
 **Max Stack Examples:**

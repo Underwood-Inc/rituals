@@ -2,14 +2,14 @@
 # Check Player Action for Soul XP
 # ========================================
 # Runs as player holding a soul weapon
-# Tracks ALL blocks mined + combat kills
+# Tracks blocks mined + combat kills via weighted tier system
+# Wielder's soul absorbs XP from deeds; totem channels it into the weapon
 
 # === INITIALIZE PLAYER SCORES (first time holding soul weapon) ===
 execute unless score @s rituals.soul_xp_gain matches 0.. run scoreboard players set @s rituals.soul_xp_gain 0
 
-# === BLOCKS: Track ALL blocks mined (unified system) ===
-function rituals:soul/track_all_blocks
+# === BLOCKS: Track blocks mined via weighted tier system ===
+function rituals:soul/track_blocks
 
-# === COMBAT: Track kills via statistics ===
-function rituals:soul/track_combat
-
+# === COMBAT: Track kills via weighted tier system ===
+function rituals:soul/track_kills

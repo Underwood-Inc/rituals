@@ -42,6 +42,7 @@ public class RitualsMod implements ModInitializer {
         LOGGER.info("===========================================");
         LOGGER.info("Mod loaded successfully!");
         LOGGER.info("Datapack and resource pack auto-installed.");
+        com.rituals.config.RitualsConfig.load();
         LOGGER.info("Registering commands...");
 
         registerCommands();
@@ -49,7 +50,8 @@ public class RitualsMod implements ModInitializer {
         LOGGER.info("Commands registered! Use /rituals help");
         
         // Initialize Soul Weapon enhancement layer
-        com.rituals.soul.SoulWeaponManager.initialize();
+        com.rituals.soul.SoulEmbodimentManager.initialize();
+        com.rituals.soul.SoulXpTracker.initialize();
         LOGGER.info("Soul Embodiment enhancements active!");
         LOGGER.info("===========================================");
     }
@@ -114,9 +116,11 @@ public class RitualsMod implements ModInitializer {
             LiteralArgumentBuilder<ServerCommandSource> configCommand = CommandManager.literal("config");
             configCommand.then(CommandManager.literal("reload").executes(ctx -> {
                 com.rituals.config.RitualsConfig.reload();
+                // Re-push config values to the same scoreboard constants
+                com.rituals.soul.SoulXpTracker.repushConfig(ctx.getSource().getServer());
                 ctx.getSource().sendFeedback(
                         () -> Text.literal("[Rituals] ").formatted(Formatting.GOLD).formatted(Formatting.BOLD)
-                                .append(Text.literal("✓ Config reloaded!").formatted(Formatting.GREEN)),
+                                .append(Text.literal("✓ Config reloaded & XP values pushed to scoreboards!").formatted(Formatting.GREEN)),
                         false);
                 return Command.SINGLE_SUCCESS;
             }));
@@ -191,11 +195,14 @@ public class RitualsMod implements ModInitializer {
                     "Area Effect Rituals\n\nEmerald - Growth\nGrows crops nearby\n\nDiamond - Strength\nBuffs players\n\nNetherite Block\nProsperity: Items+XP\n\nRituals stay active while totem has item. Remove item to stop!",
                     "More Area Effects\n\nIron Ingot\nProtection: Damage mobs\n\nNether Star\nHealing: Regeneration\n\nArrow\nSentry: Auto-fires (2x range!)\n\nDiamond Hoe\nAuto-Farming (4+ totems)",
                     "Pattern Rituals\n\nSome rituals need multiple totems with specific items!\n\nDiamond Hoe + 4 totems\nAuto-Harvest farms\n\nWheat + 4 totems\nAuto-Breeding animals\n\nUse redstone near totems to see patterns!",
-                    // Soul Embodiment pages (NEW!)
+                    // Soul Embodiment pages
                     "Soul Embodiment\n\nAwaken your weapons with a LIVING SOUL!\n\nPlace any tool on central totem with:\n- N: Soul Sand\n- E: Ender Pearl\n- S: Glowstone Dust\n- W: Amethyst Shard\n\nLight fire to awaken!",
-                    "Living Weapons\n\nSoul weapons grow with you!\n\n- Gain XP by using them\n- Level up to 100\n- Each level = stronger bond\n\nMax level (15) reached?\nRepeat ritual to ASCEND!\n\n18 ascensions to max!",
+                    "The Soul Bond\n\nWhen you awaken a weapon, your soul becomes linked to it.\n\nAs you fight, mine, and conquer, YOUR soul absorbs experience from your deeds.\n\nThis energy stays within YOU until channeled into the weapon.",
+                    "Channeling Energy\n\nThe totem is a conduit!\n\n1. Use soul weapon (mine, kill)\n2. Your soul absorbs XP\n3. Place weapon on ANY totem\n4. Totem channels energy into weapon\n5. Weapon levels up!\n\nOr use a Scrying Glass for portable syncing!",
+                    "Soul Leveling\n\nLevel cap starts at 15.\nEach level = stronger bond.\nRandom buffs (and risks!) per level.\n\nMax level (15) reached?\nRepeat the awakening ritual to ASCEND!\n\n+5 level cap per ascension.\n18 ascensions to reach 100!",
+                    "Foolish Awakenings\n\nFair warning: the ritual accepts ANY item.\n\nYes. Even dirt. Even a potato.\n\nYou CAN technically level it up (hand-mine dirt while holding it...) but at hand speed, 1 XP per block, you will question every life choice.\n\nStick to tools and weapons.",
                     "Ascension Ritual\n\nWhen your soul weapon hits its level cap:\n\n1. Place it on totem\n2. Same pattern items\n3. Light fire\n4. +5 level cap!\n5. 50% chance for bonus enchant!\n\nRepeat until level 100!",
-                    "Soul Commands\n\n/rituals soul info\nShow weapon stats\n\n/rituals soul rename <name>\nRename your soul\n\nSee docs/ for:\nSOUL_EMBODIMENT_PLAYER_GUIDE.md",
+                    "Soul Commands\n\n/rituals soul info\nShow weapon stats\n\n/rituals soul rename <name>\nRename your soul weapon\n\nSee docs/ for:\nSOUL_EMBODIMENT_PLAYER_GUIDE.md",
                     "Crafting: Wood Totem\n\n    [S]\n [S][P][S]\n    [P]\n\nS = Stick\nP = Oak Planks\n\nResult:\n1 Wood Totem\n\nShort: Skip top row",
                     "Crafting: Higher Tiers\n\nAll follow same pattern:\n\n    [I]\n [I][B][I]\n    [B]\n\nCopper: Copper Ingot + Block\nIron: Iron Ingot + Block\nGold: Gold Ingot + Block\nDiamond: Diamond + Block\nNetherite: Netherite + Block\n\n\nCraft higher tier totems directly!",
                     "Range Display\n\nPower totem with redstone to see range!\n\nRed particles = tier range\nColored particles = pattern positions\n\nWorks with lever, torch, redstone block, button",
