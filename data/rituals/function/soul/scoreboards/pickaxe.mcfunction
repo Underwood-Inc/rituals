@@ -414,7 +414,7 @@ scoreboard objectives add rituals.m_activator_rail minecraft.mined:minecraft.act
 # === LANTERNS/CHAINS ===
 scoreboard objectives add rituals.m_lantern minecraft.mined:minecraft.lantern
 scoreboard objectives add rituals.m_soul_lantern minecraft.mined:minecraft.soul_lantern
-scoreboard objectives add rituals.m_chain minecraft.mined:minecraft.chain
+# scoreboard objectives add rituals.m_chain minecraft.mined:minecraft.chain
 scoreboard objectives add rituals.m_iron_bars minecraft.mined:minecraft.iron_bars
 
 # === SPECIAL ===

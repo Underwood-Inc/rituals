@@ -1,40 +1,29 @@
 # ========================================
-# Track End Mobs & Bosses - Weighted Tier XP
+# Track End Mobs & Bosses - Config-Driven XP
 # ========================================
-# Adds weighted end/boss kill counts to #total rituals.soul_temp
+# Each mob's kill count is multiplied by its XP value from rituals.config
+# Config values set in config/soul_xp/kill_values.mcfunction
 # Called from soul/track_kills.mcfunction
 
-# === END MOBS ===
-# Tier 5 (5 XP - endermite)
-scoreboard players set #ke5 rituals.soul_temp 0
-scoreboard players operation #ke5 rituals.soul_temp += @s rituals.k_endermite
-scoreboard players operation #ke5 rituals.soul_temp *= #5 rituals.data
-scoreboard players operation #total rituals.soul_temp += #ke5 rituals.soul_temp
+# === End Mobs ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_endermite
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_endermite rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
 
-# Tier 15 (15 XP - shulker)
-scoreboard players set #ke15 rituals.soul_temp 0
-scoreboard players operation #ke15 rituals.soul_temp += @s rituals.k_shulker
-scoreboard players operation #ke15 rituals.soul_temp *= #15 rituals.data
-scoreboard players operation #total rituals.soul_temp += #ke15 rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_shulker
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_shulker rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
 
-# === DEEP DARK ===
-# Tier 50 (50 XP - warden)
-scoreboard players set #kw rituals.soul_temp 0
-scoreboard players operation #kw rituals.soul_temp += @s rituals.k_warden
-scoreboard players operation #kw rituals.soul_temp *= #50 rituals.data
-scoreboard players operation #total rituals.soul_temp += #kw rituals.soul_temp
+# === Deep Dark ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_warden
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_warden rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
 
-# === BOSSES ===
-# Wither (200 XP) - multiply 20 * 10
-scoreboard players set #kb1 rituals.soul_temp 0
-scoreboard players operation #kb1 rituals.soul_temp += @s rituals.k_wither
-scoreboard players operation #kb1 rituals.soul_temp *= #20 rituals.data
-scoreboard players operation #kb1 rituals.soul_temp *= #10 rituals.data
-scoreboard players operation #total rituals.soul_temp += #kb1 rituals.soul_temp
+# === Bosses ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_wither
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_wither rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
 
-# Ender Dragon (500 XP) - multiply 50 * 10
-scoreboard players set #kb2 rituals.soul_temp 0
-scoreboard players operation #kb2 rituals.soul_temp += @s rituals.k_ender_dragon
-scoreboard players operation #kb2 rituals.soul_temp *= #50 rituals.data
-scoreboard players operation #kb2 rituals.soul_temp *= #10 rituals.data
-scoreboard players operation #total rituals.soul_temp += #kb2 rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.k_ender_dragon
+scoreboard players operation #bxp rituals.soul_temp *= #kxp_ender_dragon rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp

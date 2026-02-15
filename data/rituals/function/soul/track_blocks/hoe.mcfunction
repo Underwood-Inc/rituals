@@ -1,89 +1,269 @@
 # ========================================
-# Track Hoe Blocks - Weighted Tier XP
+# Track Hoe Blocks - Config-Driven XP
 # ========================================
-# Adds weighted hoe block counts to #total rituals.soul_temp
+# Each block's mined count is multiplied by its XP value from rituals.config
+# Config values set in config/soul_xp/hoe_blocks.mcfunction
 # Called from soul/track_blocks.mcfunction
 
-# === TIER 1 (1 XP - direct add) ===
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_oak_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_spruce_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_birch_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_jungle_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_acacia_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_dark_oak_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_mangrove_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_cherry_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_pale_oak_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_azalea_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_flowering_azalea_leaves
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_dried_kelp_block
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_moss_block
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_moss_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_pale_moss_block
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_pale_moss_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_pale_hanging_moss
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_sculk_vein
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_white_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_orange_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_magenta_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_light_blue_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_yellow_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_lime_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_pink_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_gray_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_light_gray_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_cyan_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_purple_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_blue_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_brown_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_green_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_red_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_black_wool
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_white_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_orange_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_magenta_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_light_blue_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_yellow_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_lime_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_pink_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_gray_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_light_gray_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_cyan_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_purple_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_blue_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_brown_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_green_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_red_carpet
-scoreboard players operation #total rituals.soul_temp += @s rituals.m_black_carpet
+# === LEAVES ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_oak_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_oak_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_spruce_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_spruce_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_birch_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_birch_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_jungle_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_jungle_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_acacia_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_acacia_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_dark_oak_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_dark_oak_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_mangrove_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_mangrove_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_cherry_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_cherry_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_pale_oak_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_pale_oak_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_azalea_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_azalea_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_flowering_azalea_leaves
+scoreboard players operation #bxp rituals.soul_temp *= #xp_flowering_azalea_leaves rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
 
-# === TIER 2 (2 XP) ===
-scoreboard players set #t2 rituals.soul_temp 0
-scoreboard players operation #t2 rituals.soul_temp += @s rituals.m_hay_block
-scoreboard players operation #t2 rituals.soul_temp += @s rituals.m_target
-scoreboard players operation #t2 rituals.soul_temp += @s rituals.m_nether_wart_block
-scoreboard players operation #t2 rituals.soul_temp += @s rituals.m_warped_wart_block
-scoreboard players operation #t2 rituals.soul_temp += @s rituals.m_shroomlight
-scoreboard players operation #t2 rituals.soul_temp *= #2 rituals.data
-scoreboard players operation #total rituals.soul_temp += #t2 rituals.soul_temp
+# === HAY/DRIED KELP ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_hay_block
+scoreboard players operation #bxp rituals.soul_temp *= #xp_hay_block rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_dried_kelp_block
+scoreboard players operation #bxp rituals.soul_temp *= #xp_dried_kelp_block rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_target
+scoreboard players operation #bxp rituals.soul_temp *= #xp_target rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
 
-# === TIER 3 (3 XP) ===
-scoreboard players set #t3 rituals.soul_temp 0
-scoreboard players operation #t3 rituals.soul_temp += @s rituals.m_sculk
-scoreboard players operation #t3 rituals.soul_temp += @s rituals.m_sponge
-scoreboard players operation #t3 rituals.soul_temp += @s rituals.m_wet_sponge
-scoreboard players operation #t3 rituals.soul_temp *= #3 rituals.data
-scoreboard players operation #total rituals.soul_temp += #t3 rituals.soul_temp
+# === MOSS ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_moss_block
+scoreboard players operation #bxp rituals.soul_temp *= #xp_moss_block rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_moss_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_moss_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_pale_moss_block
+scoreboard players operation #bxp rituals.soul_temp *= #xp_pale_moss_block rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_pale_moss_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_pale_moss_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_pale_hanging_moss
+scoreboard players operation #bxp rituals.soul_temp *= #xp_pale_hanging_moss rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
 
-# === TIER 4 (4 XP) ===
-scoreboard players set #t4 rituals.soul_temp 0
-scoreboard players operation #t4 rituals.soul_temp += @s rituals.m_sculk_sensor
-scoreboard players operation #t4 rituals.soul_temp *= #4 rituals.data
-scoreboard players operation #total rituals.soul_temp += #t4 rituals.soul_temp
+# === SCULK ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_sculk
+scoreboard players operation #bxp rituals.soul_temp *= #xp_sculk rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_sculk_vein
+scoreboard players operation #bxp rituals.soul_temp *= #xp_sculk_vein rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_sculk_catalyst
+scoreboard players operation #bxp rituals.soul_temp *= #xp_sculk_catalyst rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_sculk_sensor
+scoreboard players operation #bxp rituals.soul_temp *= #xp_sculk_sensor rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_calibrated_sculk_sensor
+scoreboard players operation #bxp rituals.soul_temp *= #xp_calibrated_sculk_sensor rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_sculk_shrieker
+scoreboard players operation #bxp rituals.soul_temp *= #xp_sculk_shrieker rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
 
-# === TIER 5 (5 XP) ===
-scoreboard players set #t5 rituals.soul_temp 0
-scoreboard players operation #t5 rituals.soul_temp += @s rituals.m_sculk_catalyst
-scoreboard players operation #t5 rituals.soul_temp += @s rituals.m_calibrated_sculk_sensor
-scoreboard players operation #t5 rituals.soul_temp += @s rituals.m_sculk_shrieker
-scoreboard players operation #t5 rituals.soul_temp *= #5 rituals.data
-scoreboard players operation #total rituals.soul_temp += #t5 rituals.soul_temp
+# === SPONGE ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_sponge
+scoreboard players operation #bxp rituals.soul_temp *= #xp_sponge rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_wet_sponge
+scoreboard players operation #bxp rituals.soul_temp *= #xp_wet_sponge rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+# === NETHER WART BLOCKS ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_nether_wart_block_hoe
+scoreboard players operation #bxp rituals.soul_temp *= #xp_nether_wart_block_hoe rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_warped_wart_block_hoe
+scoreboard players operation #bxp rituals.soul_temp *= #xp_warped_wart_block_hoe rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_shroomlight_hoe
+scoreboard players operation #bxp rituals.soul_temp *= #xp_shroomlight_hoe rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+# === WOOL ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_white_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_white_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_orange_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_orange_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_magenta_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_magenta_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_light_blue_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_light_blue_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_yellow_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_yellow_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_lime_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_lime_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_pink_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_pink_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_gray_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_gray_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_light_gray_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_light_gray_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_cyan_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_cyan_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_purple_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_purple_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_blue_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_blue_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_brown_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_brown_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_green_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_green_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_red_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_red_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_black_wool
+scoreboard players operation #bxp rituals.soul_temp *= #xp_black_wool rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+# === CARPET ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_white_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_white_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_orange_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_orange_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_magenta_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_magenta_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_light_blue_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_light_blue_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_yellow_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_yellow_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_lime_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_lime_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_pink_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_pink_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_gray_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_gray_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_light_gray_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_light_gray_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_cyan_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_cyan_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_purple_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_purple_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_blue_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_blue_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_brown_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_brown_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_green_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_green_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_red_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_red_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_black_carpet
+scoreboard players operation #bxp rituals.soul_temp *= #xp_black_carpet rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+# === CROPS ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_wheat
+scoreboard players operation #bxp rituals.soul_temp *= #xp_wheat rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_carrots
+scoreboard players operation #bxp rituals.soul_temp *= #xp_carrots rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_potatoes
+scoreboard players operation #bxp rituals.soul_temp *= #xp_potatoes rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_beetroots
+scoreboard players operation #bxp rituals.soul_temp *= #xp_beetroots rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_nether_wart
+scoreboard players operation #bxp rituals.soul_temp *= #xp_nether_wart rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_sweet_berry_bush
+scoreboard players operation #bxp rituals.soul_temp *= #xp_sweet_berry_bush rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_cave_vines
+scoreboard players operation #bxp rituals.soul_temp *= #xp_cave_vines rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_cave_vines_plant
+scoreboard players operation #bxp rituals.soul_temp *= #xp_cave_vines_plant rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_torchflower
+scoreboard players operation #bxp rituals.soul_temp *= #xp_torchflower rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_torchflower_crop
+scoreboard players operation #bxp rituals.soul_temp *= #xp_torchflower_crop rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_pitcher_crop
+scoreboard players operation #bxp rituals.soul_temp *= #xp_pitcher_crop rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_pitcher_plant
+scoreboard players operation #bxp rituals.soul_temp *= #xp_pitcher_plant rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+
+# === VINES/PLANTS ===
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_vine
+scoreboard players operation #bxp rituals.soul_temp *= #xp_vine rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_glow_lichen
+scoreboard players operation #bxp rituals.soul_temp *= #xp_glow_lichen rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_hanging_roots
+scoreboard players operation #bxp rituals.soul_temp *= #xp_hanging_roots rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_spore_blossom
+scoreboard players operation #bxp rituals.soul_temp *= #xp_spore_blossom rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_big_dripleaf
+scoreboard players operation #bxp rituals.soul_temp *= #xp_big_dripleaf rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_big_dripleaf_stem
+scoreboard players operation #bxp rituals.soul_temp *= #xp_big_dripleaf_stem rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
+scoreboard players operation #bxp rituals.soul_temp = @s rituals.m_small_dripleaf
+scoreboard players operation #bxp rituals.soul_temp *= #xp_small_dripleaf rituals.config
+scoreboard players operation #total rituals.soul_temp += #bxp rituals.soul_temp
