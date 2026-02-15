@@ -28,9 +28,13 @@ data modify storage rituals:config soul_notify_cooldown set value 40
 # === PASSIVE XP SETTINGS ===
 # Base XP gained per award cycle (soul grows through observation)
 data modify storage rituals:config soul_xp_base_rate set value 1
-# Ticks between XP awards — default: 600 (30 seconds, HARD preset)
-# Presets: EASY=200 (10s), MEDIUM=400 (20s), HARD=600 (30s)
-data modify storage rituals:config soul_xp_interval set value 600
+# Ticks between XP awards — default: 3600 (3 minutes, HARD preset)
+# Presets: TRIVIAL=200(10s) EASY=600(30s) MODERATE=1200(1m) STANDARD=2400(2m)
+#          HARD=3600(3m) TOUGH=6000(5m) GRUELING=9600(8m) BRUTAL=12000(10m)
+#          PUNISHING=18000(15m) EXTREME=24000(20m) INSANE=36000(30m)
+#          NIGHTMARE=54000(45m) IMPOSSIBLE=72000(60m)
+# Use /function rituals:config/soul_xp/set_<name> to change
+data modify storage rituals:config soul_xp_interval set value 3600
 
 # === LOAD OFFHAND RATE MODIFIERS (scoreboard constants) ===
 function rituals:config/soul_xp/offhand_rates

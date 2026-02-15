@@ -109,7 +109,7 @@ The Soul Embodiment Ritual accepts **ANY item**. There is no restriction. You ca
 | Wasted catalysts and soul components | Your dignity |
 | An item with existential dread | A refund |
 
-**Why is this a bad idea?** Your soul absorbs experience from *deeds* — mining blocks, killing mobs, harvesting crops — while holding the soul item. Technically, you CAN hand-mine dirt while clutching a soul-bound potato, and your soul WILL absorb the XP. You could even punch zombies to death with it. So it's not *impossible* to level up... just agonizingly, hilariously impractical. You'll be mining at hand speed with no tool bonuses, earning 1 XP per block, questioning every decision that led you here.
+**Why is this a bad idea?** Your soul absorbs experience passively just by **existing in your hotbar**. So technically, a soul-bound potato WILL level up at the exact same rate as a soul-bound diamond sword — the soul grows through observation, not deeds. The potato will gain a personality, talk to you, and accumulate buffs... on a potato. It's not impractical, it's just deeply, spiritually pointless.
 
 > 💡 **Stick to tools and weapons.** Swords, pickaxes, axes, shovels, hoes, bows, crossbows, and tridents are the intended recipients. Everything else is technically functional but spiritually inadvisable.
 
@@ -164,9 +164,12 @@ That's right — any of the 40 vanilla enchantments, regardless of item type:
 | 📊 Stat | 💪 Value |
 |---------|----------|
 | Total Level-Ups | **99** (going from 1 to 100) |
-| Total XP Required | **420,631 XP** |
+| Total XP Required | **57,683 XP** |
 | Total Rituals Needed | **18 rituals** |
-| Estimated Time | Many EPIC hours! |
+| Default XP Rate | **Hard — 3 minutes per 1 XP** |
+| Time to Max (Hard, no catalyst) | **~2,884 hours** |
+| Time to Max (Hard + Nether Star) | **~577 hours** |
+| Time to Max (Trivial + Nether Star) | **~32 hours** |
 
 ## The Full Ascension Path
 
@@ -193,32 +196,101 @@ That's right — any of the 40 vanilla enchantments, regardless of item type:
 
 ---
 
-# ⚔️ EARNING XP (Make Your Weapon STRONGER!)
+# ⚔️ EARNING XP (Your Soul Grows Through Existence!)
 
-When you hold a soul weapon and perform deeds, YOUR SOUL absorbs the experience! Different actions yield different amounts of soul energy:
+Your soul weapon doesn't need to do anything special to grow — it absorbs experience simply by **being with you**. As long as at least one soul-embodied item is somewhere in your **hotbar** (slots 1-9), the soul passively accumulates XP over time.
 
-| 🔧 Weapon | 💥 How to Earn XP | 🔥 Bonus XP From |
-|-----------|-------------------|------------------|
-| ⚔️ **Sword** | FIGHT MONSTERS! | Killing bosses! |
-| ⛏️ **Pickaxe** | MINE BLOCKS! | Diamond & Ancient Debris! |
-| 🪓 **Axe** | CHOP TREES! | Also works on mobs! |
-| 🪣 **Shovel** | DIG DIRT! | Making paths! |
-| 🌾 **Hoe** | HARVEST CROPS! | Tilling soil! |
-| 🏹 **Bow** | HIT YOUR SHOTS! | Long-range hits! |
-| ⚡ **Crossbow** | HIT YOUR SHOTS! | Piercing multiple enemies! |
-| 🔱 **Trident** | DAMAGE ENEMIES! | Lightning strikes! |
+> *"A soul does not require deeds to grow. It needs only to exist — to observe, to witness, to be present in the world. Through the simple act of existing alongside its wielder, the soul absorbs the fabric of experience itself."*
+>
+> — Tome of the Ancients, Chapter IX
+
+### How It Works
+
+1. Have **any** soul-embodied item in your **hotbar** (any of the 9 slots)
+2. The soul's timer ticks every game tick while you play
+3. When the timer reaches the configured interval, you receive **1 XP** (base rate)
+4. The energy accumulates in YOU as pending soul energy
+5. Channel it into a weapon via a **Totem** or **Scrying Glass**
+
+**Multiple soul items in your hotbar?** Only ONE timer runs — no double-dipping!
+
+### Offhand Catalysts (XP Multipliers!)
+
+Holding certain items in your **offhand** while the soul timer ticks multiplies your XP gain:
+
+| Offhand Item | Multiplier | Effect |
+|---|---|---|
+| *(empty)* | 1.0x | Normal rate |
+| **Soul Sand** | 1.5x | The Nether's memory |
+| **Soul Soil** | 1.5x | Ancient earth |
+| **Amethyst Shard** | 1.75x | Crystal resonance |
+| **Ender Pearl** | 2.0x | Dimensional energy |
+| **Eye of Ender** | 2.5x | Focused perception |
+| **Bottle o' Enchanting** | 3.0x | Concentrated experience |
+| **Nether Star** | 5.0x | The ultimate catalyst! |
+
+> 💡 **Pro Tip**: A Nether Star in your offhand cuts the time to max level by **80%**! It's the ultimate investment for serious soul growers.
+
+### XP Rate Presets
+
+Server admins and singleplayer users can choose how fast souls grow. The **default** is **Hard (3 minutes per XP)**.
+
+| Preset | Interval | Time to Level 15 | Time to Level 50 | Time to Level 100 |
+|---|---|---|---|---|
+| **Trivial** | 10s | ~11h | ~55h | ~160h (6.7 days) |
+| **Easy** | 30s | ~34h | ~164h | ~481h (20 days) |
+| **Moderate** | 1m | ~67h | ~329h | ~961h (40 days) |
+| **Standard** | 2m | ~135h | ~657h | ~1,923h (80 days) |
+| **Hard** *(default)* | 3m | ~202h | ~986h | ~2,884h (120 days) |
+| **Tough** | 5m | ~337h | ~1,644h | ~4,807h (200 days) |
+| **Grueling** | 8m | ~539h | ~2,630h | ~7,691h (321 days) |
+| **Brutal** | 10m | ~674h | ~3,287h | ~9,614h (401 days) |
+| **Punishing** | 15m | ~1,010h | ~4,931h | ~14,421h (601 days) |
+| **Extreme** | 20m | ~1,347h | ~6,574h | ~19,228h (801 days) |
+| **Insane** | 30m | ~2,021h | ~9,862h | ~28,842h (3.3 years) |
+| **Nightmare** | 45m | ~3,031h | ~14,792h | ~43,262h (4.9 years) |
+| **Impossible** | 60m | ~4,041h | ~19,723h | ~57,683h (6.6 years) |
+
+> All times are **active play hours** (item in hotbar, Minecraft running). With a Nether Star offhand (5x), divide all times by 5.
+>
+> At 4 hours/day of play on **Hard** with no catalyst: Level 15 takes ~50 days, Level 100 takes ~2 years.
+> With a Nether Star on **Hard**: Level 15 takes ~10 days, Level 100 takes ~5 months.
 
 ### XP Milestones
 
 | 🎯 Level | 📊 Total XP | 🏃 % Complete |
 |----------|-------------|---------------|
-| 15 | ~14,800 | 3.5% |
-| 25 | ~37,100 | 8.8% |
-| 50 | ~122,200 | 29% |
-| 75 | ~218,400 | 52% |
-| 100 | ~420,600 | **100%!!!** |
+| 15 (1st cap) | 4,041 | 7.0% |
+| 25 | 8,384 | 14.5% |
+| 50 (halfway) | 19,723 | 34.2% |
+| 75 | 38,807 | 67.3% |
+| 100 (MAX!) | 57,683 | **100%** |
 
-> 💡 **Pro Tip**: Early levels are FAST! But levels 90-100 take SERIOUS dedication. That's what makes Level 100 so LEGENDARY!
+> 💡 **Pro Tip**: Early levels are FAST — the first 15 levels only need 7% of total XP! But levels 75-100 need a third of ALL the XP. That's what makes Level 100 so LEGENDARY!
+
+### Changing the XP Rate
+
+**With the mod installed:**
+```
+/rituals config xp_interval easy        → 30 seconds per XP
+/rituals config xp_interval hard        → 3 minutes per XP (default)
+/rituals config xp_interval 100         → custom 5 seconds per XP
+```
+
+**Datapack-only (no mod):**
+```
+/function rituals:config/soul_xp/set_easy
+/function rituals:config/soul_xp/set_hard
+/function rituals:config/soul_xp/set_impossible
+```
+
+For custom intervals (datapack-only):
+```
+/data modify storage rituals:config soul_xp_interval set value 100
+/function rituals:config/soul_xp/set_interval
+```
+
+> All XP rate commands require **OP permissions** (level 2+).
 
 ---
 
@@ -230,11 +302,11 @@ When you awaken a weapon, something magical happens... **YOUR soul becomes linke
 
 ### ✨ The Soul Bond
 
-> *"A Soul-Bonded weapon does not grant power through mere contact. The wielder's soul absorbs experience from their deeds — every block broken, every foe slain, every harvest reaped. This energy gathers within the wielder's spirit, invisible yet potent, waiting to be channeled."*
+> *"A Soul-Bonded weapon does not grow through violence or labor. It grows through existence itself — through witnessing the world alongside its wielder. Every sunrise, every storm, every quiet moment in a mineshaft. The soul absorbs the fabric of experience simply by being present."*
 >
 > — Tome of the Ancients, Chapter VII
 
-When you **hold a soul weapon** and perform actions (mining, killing, chopping, digging, harvesting, ranged combat), **your soul absorbs the experience from your deeds**. The energy doesn't go directly into the weapon — it accumulates within YOU, growing stronger with every action.
+When a soul weapon sits in your **hotbar**, the soul passively absorbs experience from the world around it. The energy doesn't go directly into the weapon — it accumulates within YOU as pending soul energy, growing slowly and steadily over time. Holding certain items in your **offhand** acts as a catalyst, amplifying the absorption rate.
 
 ### 🔮 How Soul Energy Flows
 
@@ -247,13 +319,13 @@ When you **hold a soul weapon** and perform actions (mining, killing, chopping, 
 ║   ┌─────────────┐      ┌─────────────┐         ┌─────────────┐       ║
 ║   │  ✦ SOUL  ✦ │      │  CHANNEL    │         │  PERMANENT  │       ║
 ║   │  ENERGY     │ ═══► │  ENERGY     │  ═════► │  POWER!     │       ║
-║   │  (Absorbed) │      │  (Conduit)  │         │  (Weapon)   │       ║
+║   │  (Passive)  │      │  (Conduit)  │         │  (Weapon)   │       ║
 ║   └─────────────┘      └─────────────┘         └─────────────┘       ║
 ║                                                                      ║
-║   Your deeds:           Conduits:               Result:              ║
-║   • Mine blocks         • Totem placement       • Weapon levels up   ║
-║   • Kill mobs           • Scrying Glass         • Bond strengthens   ║
-║   • Harvest crops                               • New buffs!         ║
+║   Passive growth:       Conduits:               Result:              ║
+║   • Soul in hotbar      • Totem placement       • Weapon levels up   ║
+║   • Offhand catalyst    • Scrying Glass         • Bond strengthens   ║
+║   • Time passes                                 • New buffs!         ║
 ║                                                                      ║
 ╚══════════════════════════════════════════════════════════════════════╝
 ```
@@ -262,37 +334,40 @@ When you **hold a soul weapon** and perform actions (mining, killing, chopping, 
 
 | Concept | Explanation |
 |---------|-------------|
-| **Soul Energy (Pending)** | Experience your soul has absorbed from your deeds while wielding a soul weapon. Stored within YOU. |
+| **Soul Energy (Pending)** | Experience your soul passively absorbs while a soul weapon is in your hotbar. Stored within YOU. |
 | **Weapon XP** | Permanent power stored IN the weapon itself. Gained only through channeling via a conduit. |
 | **Channeling** | The totem (or Scrying Glass) acts as a conduit, transferring your stored soul energy into the weapon to strengthen its bond. |
+| **Offhand Catalyst** | Holding specific items in your offhand multiplies passive XP gain (e.g., Nether Star = 5x). |
 
 ### 🎯 The Strategic Advantage
 
 This system gives you **CHOICE**! 
 
-> *"The wise wielder's soul absorbs experience from all deeds, regardless of which weapon is held. A warrior might mine with a humble pickaxe, then place their cherished blade upon the totem — and the conduit channels all that gathered energy into the blade, strengthening its bond."*
+> *"The soul grows with its wielder, not through any specific action. A warrior who fights all day and a builder who constructs all day absorb soul energy at the same rate — for it is the soul's presence in the world that matters, not the wielder's deeds. Choose wisely where to channel that energy."*
 
 **Example Scenario:**
-1. You spend an hour mining with **Soul Pickaxe "Stoneheart"** → Your soul absorbs 500 energy
-2. You spend an hour fighting with **Soul Sword "Grimfang"** → Your soul absorbs 300 MORE energy
-3. Your total stored soul energy = **800**
-4. You place Grimfang on a totem → The totem channels ALL 800 energy into Grimfang!
+1. You play for 2 hours with **Soul Pickaxe "Stoneheart"** in your hotbar → Your soul absorbs energy passively
+2. You swap Stoneheart for **Soul Sword "Grimfang"** and play 1 more hour → Your soul absorbs MORE energy
+3. Your total stored soul energy = all the XP accumulated from 3 hours of play
+4. You place Grimfang on a totem → The totem channels ALL stored energy into Grimfang!
 5. Stoneheart got none... but you can channel to it next time!
 
 ### ⚠️ Important Notes
 
-- 🔄 **Absorbed energy is shared** — It doesn't matter WHICH soul weapon you were holding when your soul absorbed it
+- 🔄 **Absorbed energy is shared** — It doesn't matter WHICH soul weapon was in your hotbar when the XP was earned
 - 🎁 **You choose where it goes** — Place a weapon on a totem to channel ALL stored energy into it
 - 🧹 **Channeling clears your reserves** — After channeling, your stored soul energy resets to 0
-- 🏛️ **Multiple soul weapons?** — Absorb with any, channel into your favorite!
+- 🏛️ **Multiple soul weapons?** — They share one timer; channel into your favorite!
+- ⏱️ **Multiple soul items in hotbar?** — Only ONE timer runs, no bonus for stacking
 
 ### 💎 Pro Tips
 
 | Tip | Strategy |
 |-----|----------|
-| 🎯 **Focus Leveling** | Want to max one weapon fast? Use it to earn, sync only to it! |
-| ⚖️ **Balanced Leveling** | Want all weapons equal? Take turns syncing to each one |
-| 🎲 **XP Farming** | Use your fastest-earning weapon, sync to your favorite |
+| 🎯 **Focus Leveling** | Channel all energy into one weapon to max it fast! |
+| ⚖️ **Balanced Leveling** | Alternate which weapon you channel to each session |
+| ⭐ **Nether Star** | Hold in offhand for 5x XP — the ultimate soul catalyst |
+| 🕯️ **Soul Sand** | Easy to get, 1.5x multiplier — great early-game catalyst |
 
 ---
 
@@ -408,28 +483,31 @@ You perform the Soul Embodiment Ritual on your diamond sword.
 - **Name assigned**: "Grimfang"
 - **Starting quote**: *"Together, we shall carve our legend."*
 - **Level cap**: 15
+- **XP rate**: Hard (3 minutes per 1 XP) — the default
 
-## ⚔️ Week 1: The Grind Begins
-You fight mobs, clear dungeons, and explore. Grimfang reaches Level 15!
+## ⚔️ Weeks 1-7: The Slow Burn (with Nether Star)
+You keep Grimfang in your hotbar and a Nether Star in your offhand (5x XP). At Hard+Star, that's 5 XP every 3 minutes — Level 15 needs 4,041 XP → ~40 hours of play. After ~10 days at 4h/day, Grimfang reaches Level 15!
 - **Tooltip says**: *"I yearn to break these chains and reach new heights..."*
 - **You perform the Ascension Ritual**
 - 🎲 **BONUS ROLL**: SUCCESS! Sharpness +1!
 - **New level cap**: 20
 
-## 🌙 Month 1: Growing Stronger
-After many adventures, Grimfang reaches Level 50!
+## 🌙 Months 2-5: Growing Stronger
+You've been playing with Grimfang faithfully. Level 50 needs 19,723 XP → ~197 hours (with Nether Star). After ~50 days at 4h/day, Grimfang reaches Level 50!
 - **8 rituals performed**
 - **4 bonus enchantments received** (lucky!)
 - **Current bonuses**: Sharpness 2, Looting 1, Mending 1, Feather Falling 1 (wait, what?)
 - **Quote**: *"Few remain who dare challenge us."*
 
-## 🔥 Month 3: TRANSCENDENCE
-You've done it. 18 rituals. Level 100. OMEGA status.
+## 🔥 Months 5-15: TRANSCENDENCE
+You've done it. 18 rituals. Level 100 needs 57,683 XP → ~577 hours (with Nether Star). After ~145 days at 4h/day, OMEGA status!
 - **Final quote**: *"I am the end of all who oppose you."*
 - **Total bonuses**: Sharpness 3, Looting 2, Mending 1, Feather Falling 1 (7 lucky rolls! Some... questionable.)
 - **Your sword literally GLOWS with power!**
 
 **Grimfang is now LEGENDARY!** 🏆
+
+> Without a catalyst on the **default Hard** preset, these times are 5x longer. The journey IS the reward — there are no shortcuts (except better catalysts and easier presets).
 
 ---
 
@@ -498,8 +576,10 @@ Print this out! Stick it on your wall! Never forget the ritual setup!
 ║   STATS:                                                     ║
 ║   • Max Level: 100                                           ║
 ║   • Total Rituals: 18                                        ║
-║   • Total XP Needed: ~420,000                                ║
+║   • Total XP Needed: 57,683                                  ║
 ║   • Bonus Chance: 50% per ascension                          ║
+║   • XP Source: Passive (soul in hotbar)                      ║
+║   • Default Rate: Hard (3 min per 1 XP)                      ║
 ╚══════════════════════════════════════════════════════════════╝
 ```
 
@@ -725,8 +805,8 @@ Source data file: `config/rituals/soul_lore.json`
 
 ---
 
-**Version**: 1.2
-**Last Updated**: 2026
+**Version**: 1.3
+**Last Updated**: February 2026
 **Part of**: Rituals Datapack & Mod
 
 <!-- End of document - Full quote reference at SOUL_QUOTES_REFERENCE.md -->

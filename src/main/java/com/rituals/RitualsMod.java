@@ -268,10 +268,10 @@ public class RitualsMod implements ModInitializer {
                     "Pattern Rituals\n\nSome rituals need multiple totems with specific items!\n\nDiamond Hoe + 4 totems\nAuto-Harvest farms\n\nWheat + 4 totems\nAuto-Breeding animals\n\nUse redstone near totems to see patterns!",
                     // Soul Embodiment pages
                     "Soul Embodiment\n\nAwaken your weapons with a LIVING SOUL!\n\nPlace any tool on central totem with:\n- N: Soul Sand\n- E: Ender Pearl\n- S: Glowstone Dust\n- W: Amethyst Shard\n\nLight fire to awaken!",
-                    "The Soul Bond\n\nWhen you awaken a weapon, your soul becomes linked to it.\n\nAs you fight, mine, and conquer, YOUR soul absorbs experience from your deeds.\n\nThis energy stays within YOU until channeled into the weapon.",
-                    "Channeling Energy\n\nThe totem is a conduit!\n\n1. Use soul weapon (mine, kill)\n2. Your soul absorbs XP\n3. Place weapon on ANY totem\n4. Totem channels energy into weapon\n5. Weapon levels up!\n\nOr use a Scrying Glass for portable syncing!",
+                    "The Soul Bond\n\nWhen you awaken a weapon, your soul becomes linked to it.\n\nThe soul grows PASSIVELY just by being in your hotbar. No actions needed!\n\nOffhand catalysts boost XP:\nNether Star = 5x rate!",
+                    "Channeling Energy\n\nThe totem is a conduit!\n\n1. Keep soul item in hotbar\n2. Soul passively absorbs XP\n3. Place weapon on ANY totem\n4. Totem channels energy into weapon\n5. Weapon levels up!\n\nOr use a Scrying Glass for portable syncing!",
                     "Soul Leveling\n\nLevel cap starts at 15.\nEach level = stronger bond.\nRandom buffs (and risks!) per level.\n\nMax level (15) reached?\nRepeat the awakening ritual to ASCEND!\n\n+5 level cap per ascension.\n18 ascensions to reach 100!",
-                    "Foolish Awakenings\n\nFair warning: the ritual accepts ANY item.\n\nYes. Even dirt. Even a potato.\n\nYou CAN technically level it up (hand-mine dirt while holding it...) but at hand speed, 1 XP per block, you will question every life choice.\n\nStick to tools and weapons.",
+                    "Foolish Awakenings\n\nFair warning: the ritual accepts ANY item.\n\nYes. Even dirt. Even a potato.\n\nIt WILL level up (same passive rate as any soul item!) but buffs on a potato are... spiritually inadvisable.\n\nStick to tools and weapons.",
                     "Ascension Ritual\n\nWhen your soul weapon hits its level cap:\n\n1. Place it on totem\n2. Same pattern items\n3. Light fire\n4. +5 level cap!\n5. 50% chance for bonus enchant!\n\nRepeat until level 100!",
                     "Soul Commands\n\n/rituals soul info\nShow weapon stats\n\n/rituals soul rename <name>\nRename your soul weapon\n\nSee docs/ for:\nSOUL_EMBODIMENT_PLAYER_GUIDE.md",
                     "Crafting: Wood Totem\n\n    [S]\n [S][P][S]\n    [P]\n\nS = Stick\nP = Oak Planks\n\nResult:\n1 Wood Totem\n\nShort: Skip top row",
@@ -279,7 +279,7 @@ public class RitualsMod implements ModInitializer {
                     "Range Display\n\nPower totem with redstone to see range!\n\nRed particles = tier range\nColored particles = pattern positions\n\nWorks with lever, torch, redstone block, button",
                     "Helpful Commands\n\n/rituals help\nShows help menu\n\n/rituals get\nGet all items\n\n/rituals give guidebook\nGet another book\n\n/rituals soul info\nSoul weapon stats",
                     "Advanced Tips\n\n- Pattern rituals need exact item per totem\n- Regular rituals work with same item on all totems\n- Fire sacrifice required by default\n- Can disable with Kiwi Mode\n- See docs/ folder for more!",
-                    "Configuration\n\nCustomize settings:\n\n/data get storage rituals:config\n\nKey settings:\nrequire_fire_sacrifice\nmin_totems_required\nritual_duration\nkiwi_mode",
+                    "Configuration\n\nCustomize settings:\n\n/rituals config xp_interval <preset>\nSet XP rate (OP only)\n\nPresets: trivial, easy, moderate,\nstandard, hard (default), tough,\ngrueling, brutal, punishing,\nextreme, insane, nightmare,\nimpossible, or a tick number",
                     "Happy Ritualing!\n\nMay your totems shine bright!\n\nFor detailed guides see docs/ folder:\n- PATTERN_RITUALS_GUIDE.md\n- FIRE_SACRIFICE_GUIDE.md\n- CRAFTING_RECIPES.md\n- SOUL_EMBODIMENT_PLAYER_GUIDE.md\n\n- Ancient Ritualist"
             };
 

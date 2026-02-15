@@ -109,12 +109,19 @@ public class RitualsClothConfigScreen {
         // Dynamic description showing current rate in human-readable form
         int resolvedInterval = config.getResolvedInterval();
         String timeStr = SoulXpRate.formatTicks(resolvedInterval);
+        // Calculate time-to-max for display
+        long cyclesToMax = 57683L / Math.max(1, config.soulXpBaseRate);
+        long secondsToMax = cyclesToMax * (resolvedInterval / 20);
+        long hoursToMax = secondsToMax / 3600;
+
         soulXp.addEntry(entryBuilder.startTextDescription(
                 Text.literal("§7The soul grows through observation and existence.\n"
-                        + "§7Having a soul weapon in your hotbar passively gains XP.\n"
+                        + "§7Keep a soul weapon in your hotbar to passively gain XP.\n"
+                        + "§7Offhand catalysts multiply the rate (Nether Star = 5x).\n"
                         + "\n"
                         + "§fCurrent rate: §a" + config.soulXpBaseRate + " XP every " + timeStr
-                        + " §7(" + config.soulXpRate.name() + ")"))
+                        + " §7(" + config.soulXpRate.name() + ")\n"
+                        + "§fTime to max level (Lv 100): §e~" + hoursToMax + " hours §7(no catalyst)"))
                 .build());
 
         // Rate preset selector (enum dropdown)
