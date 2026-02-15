@@ -32,3 +32,39 @@ function rituals:config/soul_xp/hoe_blocks
 
 # === LOAD KILL XP VALUES (enumerated scoreboard constants) ===
 function rituals:config/soul_xp/kill_values
+
+# ========================================
+# CONFIG VERIFICATION DIAGNOSTICS
+# ========================================
+# Check one representative value from each category.
+# If any reads 0, that category's config file failed to load.
+scoreboard players set #cfg_ok rituals.soul_temp 0
+
+# --- Pickaxe check (#xp_stone should be 1) ---
+execute store result score #cfg_test rituals.soul_temp run scoreboard players get #xp_stone rituals.config
+execute if score #cfg_test rituals.soul_temp matches 1.. run scoreboard players add #cfg_ok rituals.soul_temp 1
+execute unless score #cfg_test rituals.soul_temp matches 1.. run tellraw @a [{"text":"[Rituals] ","color":"gold"},{"text":"ERROR: ","color":"red"},{"text":"Pickaxe block config FAILED to load (#xp_stone = 0)","color":"yellow"}]
+
+# --- Shovel check (#xp_dirt should be 1) ---
+execute store result score #cfg_test rituals.soul_temp run scoreboard players get #xp_dirt rituals.config
+execute if score #cfg_test rituals.soul_temp matches 1.. run scoreboard players add #cfg_ok rituals.soul_temp 1
+execute unless score #cfg_test rituals.soul_temp matches 1.. run tellraw @a [{"text":"[Rituals] ","color":"gold"},{"text":"ERROR: ","color":"red"},{"text":"Shovel block config FAILED to load (#xp_dirt = 0)","color":"yellow"}]
+
+# --- Axe check (#xp_oak_log should be 2) ---
+execute store result score #cfg_test rituals.soul_temp run scoreboard players get #xp_oak_log rituals.config
+execute if score #cfg_test rituals.soul_temp matches 1.. run scoreboard players add #cfg_ok rituals.soul_temp 1
+execute unless score #cfg_test rituals.soul_temp matches 1.. run tellraw @a [{"text":"[Rituals] ","color":"gold"},{"text":"ERROR: ","color":"red"},{"text":"Axe block config FAILED to load (#xp_oak_log = 0)","color":"yellow"}]
+
+# --- Hoe check (#xp_oak_leaves should be 1) ---
+execute store result score #cfg_test rituals.soul_temp run scoreboard players get #xp_oak_leaves rituals.config
+execute if score #cfg_test rituals.soul_temp matches 1.. run scoreboard players add #cfg_ok rituals.soul_temp 1
+execute unless score #cfg_test rituals.soul_temp matches 1.. run tellraw @a [{"text":"[Rituals] ","color":"gold"},{"text":"ERROR: ","color":"red"},{"text":"Hoe block config FAILED to load (#xp_oak_leaves = 0)","color":"yellow"}]
+
+# --- Kill check (#kxp_zombie should be 5) ---
+execute store result score #cfg_test rituals.soul_temp run scoreboard players get #kxp_zombie rituals.config
+execute if score #cfg_test rituals.soul_temp matches 1.. run scoreboard players add #cfg_ok rituals.soul_temp 1
+execute unless score #cfg_test rituals.soul_temp matches 1.. run tellraw @a [{"text":"[Rituals] ","color":"gold"},{"text":"ERROR: ","color":"red"},{"text":"Kill XP config FAILED to load (#kxp_zombie = 0)","color":"yellow"}]
+
+# --- Summary ---
+execute if score #cfg_ok rituals.soul_temp matches 5 run tellraw @a [{"text":"[Rituals] ","color":"gold"},{"text":"Soul XP config loaded OK (5/5 categories)","color":"green"}]
+execute unless score #cfg_ok rituals.soul_temp matches 5 run tellraw @a [{"text":"[Rituals] ","color":"gold"},{"text":"Soul XP config INCOMPLETE - see errors above","color":"red"}]

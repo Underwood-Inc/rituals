@@ -185,5 +185,12 @@ data modify storage rituals:config debug_mode set value false
 # Minecraft 1.21.11 (Mounts of Mayhem) - December 9, 2025
 function rituals:config/soul_xp/load
 
+# Reset block/kill tracking initialization so prev_blocks/prev_kills
+# recalibrate to the current weighted totals on next tick.
+# Without this, switching from tier-based to config-driven weighting
+# causes a delta mismatch (prev was stored under old weights).
+tag @a remove rituals.blocks_initialized
+tag @a remove rituals.kills_initialized
+
 # Config loaded silently - fancy message shown in load.mcfunction
 

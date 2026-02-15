@@ -74,9 +74,9 @@ execute store result score #bloodthirst_lvl rituals.soul_temp run data get stora
 # === APPLY SCALED BUFF EFFECTS ===
 
 # Haste - +10% mining speed per level (max 30%)
-execute if score #haste_lvl rituals.soul_temp matches 1 run attribute @s minecraft:player.block_break_speed modifier add rituals:soul_haste 0.10 add_multiplied_base
-execute if score #haste_lvl rituals.soul_temp matches 2 run attribute @s minecraft:player.block_break_speed modifier add rituals:soul_haste 0.20 add_multiplied_base
-execute if score #haste_lvl rituals.soul_temp matches 3 run attribute @s minecraft:player.block_break_speed modifier add rituals:soul_haste 0.30 add_multiplied_base
+# execute if score #haste_lvl rituals.soul_temp matches 1 run attribute @s minecraft:block_break_speed modifier add rituals:soul_haste 0.10 add_multiplied_base
+# execute if score #haste_lvl rituals.soul_temp matches 2 run attribute @s minecraft:block_break_speed modifier add rituals:soul_haste 0.20 add_multiplied_base
+# execute if score #haste_lvl rituals.soul_temp matches 3 run attribute @s minecraft:block_break_speed modifier add rituals:soul_haste 0.30 add_multiplied_base
 
 # Glow - Make nearby entities glow
 execute if score #glow_lvl rituals.soul_temp matches 1.. run effect give @e[distance=..10,type=!player] minecraft:glowing 2 0 true
@@ -86,35 +86,35 @@ execute if score #magnetic_lvl rituals.soul_temp matches 1 as @e[type=item,dista
 execute if score #magnetic_lvl rituals.soul_temp matches 2 as @e[type=item,distance=3..7] run tp @s ^ ^ ^-0.25
 
 # Reach - +0.5 block range per level (max +1.5)
-execute if score #reach_lvl rituals.soul_temp matches 1 run attribute @s minecraft:player.block_interaction_range modifier add rituals:soul_reach 0.5 add_value
-execute if score #reach_lvl rituals.soul_temp matches 1 run attribute @s minecraft:player.entity_interaction_range modifier add rituals:soul_reach_entity 0.5 add_value
-execute if score #reach_lvl rituals.soul_temp matches 2 run attribute @s minecraft:player.block_interaction_range modifier add rituals:soul_reach 1.0 add_value
-execute if score #reach_lvl rituals.soul_temp matches 2 run attribute @s minecraft:player.entity_interaction_range modifier add rituals:soul_reach_entity 1.0 add_value
-execute if score #reach_lvl rituals.soul_temp matches 3 run attribute @s minecraft:player.block_interaction_range modifier add rituals:soul_reach 1.5 add_value
-execute if score #reach_lvl rituals.soul_temp matches 3 run attribute @s minecraft:player.entity_interaction_range modifier add rituals:soul_reach_entity 1.5 add_value
+execute if score #reach_lvl rituals.soul_temp matches 1 run attribute @s minecraft:block_interaction_range modifier add rituals:soul_reach 0.5 add_value
+execute if score #reach_lvl rituals.soul_temp matches 1 run attribute @s minecraft:entity_interaction_range modifier add rituals:soul_reach_entity 0.5 add_value
+execute if score #reach_lvl rituals.soul_temp matches 2 run attribute @s minecraft:block_interaction_range modifier add rituals:soul_reach 1.0 add_value
+execute if score #reach_lvl rituals.soul_temp matches 2 run attribute @s minecraft:entity_interaction_range modifier add rituals:soul_reach_entity 1.0 add_value
+execute if score #reach_lvl rituals.soul_temp matches 3 run attribute @s minecraft:block_interaction_range modifier add rituals:soul_reach 1.5 add_value
+execute if score #reach_lvl rituals.soul_temp matches 3 run attribute @s minecraft:entity_interaction_range modifier add rituals:soul_reach_entity 1.5 add_value
 
 # Repair - Timer-based durability restoration
 execute if score #repair_lvl rituals.soul_temp matches 1.. run function rituals:soul/buffs/effects/try_repair
 
 # Lucky - +0.5 luck per level (max +1.0)
-execute if score #lucky_lvl rituals.soul_temp matches 1 run attribute @s minecraft:player.luck modifier add rituals:soul_luck 0.5 add_value
-execute if score #lucky_lvl rituals.soul_temp matches 2 run attribute @s minecraft:player.luck modifier add rituals:soul_luck 1.0 add_value
+execute if score #lucky_lvl rituals.soul_temp matches 1 run attribute @s minecraft:luck modifier add rituals:soul_luck 0.5 add_value
+execute if score #lucky_lvl rituals.soul_temp matches 2 run attribute @s minecraft:luck modifier add rituals:soul_luck 1.0 add_value
 
 # Swift - +3% movement speed per level (max +9%)
-execute if score #swift_lvl rituals.soul_temp matches 1 run attribute @s minecraft:player.movement_speed modifier add rituals:soul_swift 0.03 add_multiplied_base
-execute if score #swift_lvl rituals.soul_temp matches 2 run attribute @s minecraft:player.movement_speed modifier add rituals:soul_swift 0.06 add_multiplied_base
-execute if score #swift_lvl rituals.soul_temp matches 3 run attribute @s minecraft:player.movement_speed modifier add rituals:soul_swift 0.09 add_multiplied_base
+execute if score #swift_lvl rituals.soul_temp matches 1 run attribute @s minecraft:movement_speed modifier add rituals:soul_swift 0.03 add_multiplied_base
+execute if score #swift_lvl rituals.soul_temp matches 2 run attribute @s minecraft:movement_speed modifier add rituals:soul_swift 0.06 add_multiplied_base
+execute if score #swift_lvl rituals.soul_temp matches 3 run attribute @s minecraft:movement_speed modifier add rituals:soul_swift 0.09 add_multiplied_base
 
 # Strong - +0.5 attack damage per level (max +2.0)
-execute if score #strong_lvl rituals.soul_temp matches 1 run attribute @s minecraft:player.attack_damage modifier add rituals:soul_strong 0.5 add_value
-execute if score #strong_lvl rituals.soul_temp matches 2 run attribute @s minecraft:player.attack_damage modifier add rituals:soul_strong 1.0 add_value
-execute if score #strong_lvl rituals.soul_temp matches 3 run attribute @s minecraft:player.attack_damage modifier add rituals:soul_strong 1.5 add_value
-execute if score #strong_lvl rituals.soul_temp matches 4 run attribute @s minecraft:player.attack_damage modifier add rituals:soul_strong 2.0 add_value
+execute if score #strong_lvl rituals.soul_temp matches 1 run attribute @s minecraft:attack_damage modifier add rituals:soul_strong 0.5 add_value
+execute if score #strong_lvl rituals.soul_temp matches 2 run attribute @s minecraft:attack_damage modifier add rituals:soul_strong 1.0 add_value
+execute if score #strong_lvl rituals.soul_temp matches 3 run attribute @s minecraft:attack_damage modifier add rituals:soul_strong 1.5 add_value
+execute if score #strong_lvl rituals.soul_temp matches 4 run attribute @s minecraft:attack_damage modifier add rituals:soul_strong 2.0 add_value
 
 # Tough - +1 armor per level (max +3)
-execute if score #tough_lvl rituals.soul_temp matches 1 run attribute @s minecraft:player.armor modifier add rituals:soul_tough 1.0 add_value
-execute if score #tough_lvl rituals.soul_temp matches 2 run attribute @s minecraft:player.armor modifier add rituals:soul_tough 2.0 add_value
-execute if score #tough_lvl rituals.soul_temp matches 3 run attribute @s minecraft:player.armor modifier add rituals:soul_tough 3.0 add_value
+execute if score #tough_lvl rituals.soul_temp matches 1 run attribute @s minecraft:armor modifier add rituals:soul_tough 1.0 add_value
+execute if score #tough_lvl rituals.soul_temp matches 2 run attribute @s minecraft:armor modifier add rituals:soul_tough 2.0 add_value
+execute if score #tough_lvl rituals.soul_temp matches 3 run attribute @s minecraft:armor modifier add rituals:soul_tough 3.0 add_value
 
 # Nimble - Jump boost
 execute if score #nimble_lvl rituals.soul_temp matches 1.. run effect give @s minecraft:jump_boost 2 0 true
@@ -128,9 +128,9 @@ execute if score #lifesteal_lvl rituals.soul_temp matches 1.. run function ritua
 # XP Boost - applied in award_xp.mcfunction (no tick effect)
 
 # Looting (Soul Harvest) - Extra luck
-execute if score #looting_lvl rituals.soul_temp matches 1 run attribute @s minecraft:player.luck modifier add rituals:soul_looting 1.0 add_value
-execute if score #looting_lvl rituals.soul_temp matches 2 run attribute @s minecraft:player.luck modifier add rituals:soul_looting 2.0 add_value
-execute if score #looting_lvl rituals.soul_temp matches 3.. run attribute @s minecraft:player.luck modifier add rituals:soul_looting 3.0 add_value
+execute if score #looting_lvl rituals.soul_temp matches 1 run attribute @s minecraft:luck modifier add rituals:soul_looting 1.0 add_value
+execute if score #looting_lvl rituals.soul_temp matches 2 run attribute @s minecraft:luck modifier add rituals:soul_looting 2.0 add_value
+execute if score #looting_lvl rituals.soul_temp matches 3.. run attribute @s minecraft:luck modifier add rituals:soul_looting 3.0 add_value
 
 # Unbreaking (Eternal Edge) - Chance to undo durability damage
 execute if score #unbreaking_lvl rituals.soul_temp matches 1.. run function rituals:soul/buffs/effects/try_unbreaking
@@ -151,12 +151,12 @@ execute if score #saturation_lvl rituals.soul_temp matches 1.. if score #sat_rol
 # === APPLY SCALED DEBUFF EFFECTS ===
 
 # Heavy - -3% movement per level (max -6%)
-execute if score #heavy_lvl rituals.soul_temp matches 1 run attribute @s minecraft:player.movement_speed modifier add rituals:soul_heavy -0.03 add_multiplied_base
-execute if score #heavy_lvl rituals.soul_temp matches 2 run attribute @s minecraft:player.movement_speed modifier add rituals:soul_heavy -0.06 add_multiplied_base
+execute if score #heavy_lvl rituals.soul_temp matches 1 run attribute @s minecraft:movement_speed modifier add rituals:soul_heavy -0.03 add_multiplied_base
+execute if score #heavy_lvl rituals.soul_temp matches 2 run attribute @s minecraft:movement_speed modifier add rituals:soul_heavy -0.06 add_multiplied_base
 
 # Unlucky - -0.5 luck per level (max -1.0)
-execute if score #unlucky_lvl rituals.soul_temp matches 1 run attribute @s minecraft:player.luck modifier add rituals:soul_unlucky -0.5 add_value
-execute if score #unlucky_lvl rituals.soul_temp matches 2 run attribute @s minecraft:player.luck modifier add rituals:soul_unlucky -1.0 add_value
+execute if score #unlucky_lvl rituals.soul_temp matches 1 run attribute @s minecraft:luck modifier add rituals:soul_unlucky -0.5 add_value
+execute if score #unlucky_lvl rituals.soul_temp matches 2 run attribute @s minecraft:luck modifier add rituals:soul_unlucky -1.0 add_value
 
 # Hungry - 1/400 chance per tick for hunger effect (1/200 at level 2)
 execute if score #hungry_lvl rituals.soul_temp matches 1 store result score #hunger_roll rituals.soul_temp run random value 1..400

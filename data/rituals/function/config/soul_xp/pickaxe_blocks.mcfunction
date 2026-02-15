@@ -317,7 +317,7 @@ scoreboard players set #xp_activator_rail rituals.config 2
 # === LANTERNS (2 XP) ===
 scoreboard players set #xp_lantern rituals.config 2
 scoreboard players set #xp_soul_lantern rituals.config 2
-scoreboard players set #xp_chain rituals.config 1
+# scoreboard players set #xp_chain rituals.config 1
 scoreboard players set #xp_iron_bars rituals.config 1
 
 # === SPAWNER/SPECIAL (10 XP) ===

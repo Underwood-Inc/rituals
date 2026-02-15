@@ -18,6 +18,7 @@ execute store result score #soul_level_cap rituals.soul_temp run data get storag
 # === STEP 2: CHANNEL PENDING SOUL ENERGY (if any) ===
 scoreboard players set #did_level_up rituals.soul_temp 0
 scoreboard players set #xp_applied rituals.soul_temp 0
+scoreboard players set #xp_to_apply rituals.soul_temp 0
 $execute if entity @a[nbt={UUID:$(interacting_uuid)},tag=rituals.soul_pending_sync] run function rituals:soul/apply_pending_xp with storage rituals:temp
 scoreboard players operation #xp_applied rituals.soul_temp = #xp_to_apply rituals.soul_temp
 
