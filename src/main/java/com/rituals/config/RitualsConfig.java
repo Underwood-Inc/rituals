@@ -4,10 +4,7 @@ import com.rituals.RitualsMod;
 import com.moandjiezana.toml.Toml;
 import net.fabricmc.loader.api.FabricLoader;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -19,13 +16,25 @@ import java.util.Map;
  * Configuration management for Rituals mod.
  *
  * <p>Supports TOML config file at {@code config/rituals.toml} and ModMenu
- * integration. The block/kill XP maps here are the SAME enumerated lists
- * that the datapack defines via scoreboard constants. When the Java mod
- * loads, {@link com.rituals.soul.SoulXpTracker} pushes these values to
- * the {@code rituals.config} scoreboard, overriding the datapack defaults.</p>
+ * integration. The time-based soul XP settings and offhand rate multipliers
+ * here are pushed to {@code rituals:config} storage and the
+ * {@code rituals.config} scoreboard by {@link com.rituals.soul.SoulXpTracker},
+ * overriding the datapack defaults.</p>
  *
- * <p>If no TOML file exists, defaults matching the datapack's enumerated
- * lists are generated automatically.</p>
+ * <h3>Soul XP System</h3>
+ * <p>The soul grows through observation and existence. Having a soul weapon
+ * in the hotbar lets the soul passively accumulate XP. Offhand items act as
+ * catalysts that modify the growth rate.</p>
+ *
+ * <h3>XP Rate Presets</h3>
+ * <ul>
+ *   <li><b>Easy</b> — 200 ticks (10 seconds) per cycle</li>
+ *   <li><b>Medium</b> — 400 ticks (20 seconds) per cycle</li>
+ *   <li><b>Hard</b> — 600 ticks (30 seconds) per cycle (default)</li>
+ *   <li><b>Custom</b> — user-specified interval in ticks</li>
+ * </ul>
+ *
+ * <p>If no TOML file exists, reasonable defaults are generated automatically.</p>
  */
 public class RitualsConfig {
 
@@ -43,18 +52,30 @@ public class RitualsConfig {
     public int levelBase = 100;
     public int levelScaling = 25;
 
-    // === ENUMERATED XP LISTS ===
-    // Key: namespaced ID (e.g. "minecraft:stone"), Value: XP per action
+    // === PASSIVE SOUL XP ===
+    /** Base XP gained per award cycle. */
+    public int soulXpBaseRate = 1;
+
+    /** XP rate preset (easy/medium/hard/custom). */
+    public SoulXpRate soulXpRate = SoulXpRate.HARD;
+
+    /** Custom tick interval, only used when {@link #soulXpRate} is CUSTOM. */
+    public int soulXpCustomInterval = 600;
+
+    /** Log a 1-per-second countdown to next XP award in chat (debug tool). */
+    public boolean soulXpCountdown = false;
+
+    // === OFFHAND RATE MODIFIERS ===
+    // Key: namespaced item ID (e.g. "minecraft:soul_sand"), Value: rate percentage (100 = 1.0x)
     // These are pushed to the rituals.config scoreboard by SoulXpTracker
-    public Map<String, Integer> blockXpValues = new HashMap<>();
-    public Map<String, Integer> killXpValues = new HashMap<>();
+    public Map<String, Integer> offhandRates = new HashMap<>();
 
     // === STATIC API (backward compatibility) ===
-    
+
     public static boolean isKiwiMode() {
         return get().kiwiMode;
     }
-    
+
     public static void setKiwiMode(boolean enabled) {
         get().kiwiMode = enabled;
         if (enabled) {
@@ -62,20 +83,20 @@ public class RitualsConfig {
         }
         RitualsMod.LOGGER.info("Kiwi Mode: {}", enabled);
     }
-    
+
     public static boolean isDebugMode() {
         return get().debugMode;
     }
-    
+
     public static void setDebugMode(boolean enabled) {
         get().debugMode = enabled;
         RitualsMod.LOGGER.info("Debug Mode: {}", enabled);
     }
-    
+
     public static boolean requiresFireSacrifice() {
         return get().requireFireSacrifice;
     }
-    
+
     public static void setRequireFireSacrifice(boolean required) {
         get().requireFireSacrifice = required;
         RitualsMod.LOGGER.info("Fire Sacrifice Required: {}", required);
@@ -87,11 +108,25 @@ public class RitualsConfig {
         }
         return INSTANCE;
     }
-    
+
     public static void reload() {
         INSTANCE = null;
         load();
         RitualsMod.LOGGER.info("Config reloaded");
+    }
+
+    /**
+     * Returns the resolved tick interval based on the current rate preset.
+     * For EASY/MEDIUM/HARD, returns the preset's fixed ticks.
+     * For CUSTOM, returns {@link #soulXpCustomInterval}.
+     *
+     * @return tick interval between XP awards
+     */
+    public int getResolvedInterval() {
+        if (soulXpRate == SoulXpRate.CUSTOM) {
+            return soulXpCustomInterval;
+        }
+        return soulXpRate.ticks;
     }
 
     public static void load() {
@@ -106,159 +141,72 @@ public class RitualsConfig {
                 INSTANCE.levelBase = toml.getLong("levelCurve.levelBase", 100L).intValue();
                 INSTANCE.levelScaling = toml.getLong("levelCurve.levelScaling", 25L).intValue();
 
-                INSTANCE.blockXpValues = parseMap(toml.getList("blockXp.entries"));
-                INSTANCE.killXpValues = parseMap(toml.getList("killXp.entries"));
+                // Soul XP passive settings
+                INSTANCE.soulXpBaseRate = toml.getLong("soulXp.baseRate", 1L).intValue();
+                INSTANCE.soulXpRate = SoulXpRate.fromString(toml.getString("soulXp.rate", "hard"));
+                INSTANCE.soulXpCustomInterval = toml.getLong("soulXp.customInterval", 600L).intValue();
+                INSTANCE.soulXpCountdown = toml.getBoolean("soulXp.countdown", false);
 
-                // If TOML had empty lists, populate with defaults
-                if (INSTANCE.blockXpValues.isEmpty()) {
-                    populateDefaultBlockXp(INSTANCE.blockXpValues);
-                }
-                if (INSTANCE.killXpValues.isEmpty()) {
-                    populateDefaultKillXp(INSTANCE.killXpValues);
+                // Offhand rate modifiers
+                INSTANCE.offhandRates = parseMap(toml.getList("offhandRates.entries"));
+
+                // If TOML had empty offhand list, populate with defaults
+                if (INSTANCE.offhandRates.isEmpty()) {
+                    populateDefaultOffhandRates(INSTANCE.offhandRates);
                 }
 
-                RitualsMod.LOGGER.info("Loaded config from {}", CONFIG_PATH);
+                RitualsMod.LOGGER.info("Loaded config from {} (rate={})", CONFIG_PATH, INSTANCE.soulXpRate.name());
             } catch (Exception e) {
                 RitualsMod.LOGGER.error("Failed to load config, using defaults", e);
                 INSTANCE = new RitualsConfig();
-                populateDefaultBlockXp(INSTANCE.blockXpValues);
-                populateDefaultKillXp(INSTANCE.killXpValues);
+                populateDefaultOffhandRates(INSTANCE.offhandRates);
             }
         } else {
             INSTANCE = new RitualsConfig();
-            populateDefaultBlockXp(INSTANCE.blockXpValues);
-            populateDefaultKillXp(INSTANCE.killXpValues);
+            populateDefaultOffhandRates(INSTANCE.offhandRates);
             save();
             RitualsMod.LOGGER.info("Created default config at {}", CONFIG_PATH);
         }
     }
 
     /**
-     * XP awarded for breaking a block with a soul weapon.
+     * Get the offhand rate multiplier for a given item.
      *
-     * @param blockId Registry ID (e.g. "minecraft:stone")
-     * @return XP amount, or 0 if not in the enumerated list
+     * @param itemId Registry ID (e.g. "minecraft:soul_sand")
+     * @return rate percentage (100 = 1.0x), or 100 if not configured
      */
-    public int getBlockXpValue(String blockId) {
-        return blockXpValues.getOrDefault(blockId, 0);
-    }
-
-    /**
-     * XP awarded for killing an entity with a soul weapon.
-     *
-     * @param entityId Registry ID (e.g. "minecraft:zombie")
-     * @return XP amount, or 0 if not in the enumerated list
-     */
-    public int getKillXpValue(String entityId) {
-        return killXpValues.getOrDefault(entityId, 0);
+    public int getOffhandRate(String itemId) {
+        return offhandRates.getOrDefault(itemId, 100);
     }
 
     // ========================================
-    // DEFAULT ENUMERATED LISTS
+    // DEFAULT OFFHAND RATES
     // ========================================
-    // Defaults are parsed directly from the datapack's .mcfunction config files
-    // bundled in the JAR at /data/rituals/function/config/soul_xp/*.
-    // This ensures Java defaults always match the datapack exactly --
-    // single source of truth, zero drift.
-    //
+    // These match the datapack's offhand_rates.mcfunction defaults.
     // When the Java mod is present, SoulXpTracker pushes these to the
     // rituals.config scoreboard, overriding the datapack defaults.
 
-    /** Datapack config files that define block XP values. */
-    private static final String[] BLOCK_XP_RESOURCES = {
-            "/data/rituals/function/config/soul_xp/pickaxe_blocks.mcfunction",
-            "/data/rituals/function/config/soul_xp/shovel_blocks.mcfunction",
-            "/data/rituals/function/config/soul_xp/axe_blocks.mcfunction",
-            "/data/rituals/function/config/soul_xp/hoe_blocks.mcfunction"
-    };
-
-    /** Datapack config file that defines kill XP values. */
-    private static final String KILL_XP_RESOURCE =
-            "/data/rituals/function/config/soul_xp/kill_values.mcfunction";
-
     /**
-     * Populates the default block XP values by parsing the datapack's
-     * config/soul_xp/*.mcfunction files from the JAR resources.
+     * Populates the default offhand rate multipliers.
+     * Values are percentages: 100 = 1.0x, 150 = 1.5x, 200 = 2.0x
      *
-     * <p>Each line like {@code scoreboard players set #xp_stone rituals.config 1}
-     * becomes {@code minecraft:stone -> 1} in the map.</p>
+     * @param map target map to populate
      */
-    static void populateDefaultBlockXp(Map<String, Integer> map) {
-        for (String resource : BLOCK_XP_RESOURCES) {
-            parseDatapackConfig(resource, "xp_", map);
-        }
-        if (map.isEmpty()) {
-            RitualsMod.LOGGER.warn("No block XP defaults parsed from datapack resources!");
-        } else {
-            RitualsMod.LOGGER.info("Parsed {} block XP defaults from datapack resources", map.size());
-        }
-    }
+    static void populateDefaultOffhandRates(Map<String, Integer> map) {
+        // Soul-themed items
+        map.put("minecraft:soul_sand", 150);
+        map.put("minecraft:soul_soil", 150);
 
-    /**
-     * Populates the default kill XP values by parsing the datapack's
-     * config/soul_xp/kill_values.mcfunction from the JAR resources.
-     *
-     * <p>Each line like {@code scoreboard players set #kxp_zombie rituals.config 5}
-     * becomes {@code minecraft:zombie -> 5} in the map.</p>
-     */
-    static void populateDefaultKillXp(Map<String, Integer> map) {
-        parseDatapackConfig(KILL_XP_RESOURCE, "kxp_", map);
-        if (map.isEmpty()) {
-            RitualsMod.LOGGER.warn("No kill XP defaults parsed from datapack resources!");
-        } else {
-            RitualsMod.LOGGER.info("Parsed {} kill XP defaults from datapack resources", map.size());
-        }
-    }
+        // Mystical items
+        map.put("minecraft:amethyst_shard", 175);
+        map.put("minecraft:ender_pearl", 200);
+        map.put("minecraft:ender_eye", 225);
 
-    /**
-     * Parses a datapack .mcfunction config file from JAR resources.
-     *
-     * <p>Looks for lines matching:
-     * {@code scoreboard players set #<prefix><name> rituals.config <value>}
-     * and converts them to {@code minecraft:<name> -> <value>} entries.</p>
-     *
-     * @param resourcePath path to the .mcfunction file in the JAR
-     * @param prefix       score name prefix ("xp_" for blocks, "kxp_" for kills)
-     * @param map          target map to populate
-     */
-    private static void parseDatapackConfig(String resourcePath, String prefix, Map<String, Integer> map) {
-        try (InputStream is = RitualsConfig.class.getResourceAsStream(resourcePath)) {
-            if (is == null) {
-                RitualsMod.LOGGER.warn("Datapack config resource not found: {}", resourcePath);
-                return;
-            }
-            try (BufferedReader reader = new BufferedReader(new InputStreamReader(is))) {
-                String line;
-                String expectedStart = "scoreboard players set #" + prefix;
-                while ((line = reader.readLine()) != null) {
-                    line = line.trim();
-                    if (!line.startsWith(expectedStart)) {
-                        continue;
-                    }
-                    // Format: scoreboard players set #xp_stone rituals.config 1
-                    //         [0]        [1]     [2] [3]      [4]             [5]
-                    String[] parts = line.split("\\s+");
-                    if (parts.length < 6) {
-                        continue;
-                    }
-                    // parts[3] = "#xp_stone" -> strip "#" and prefix -> "stone"
-                    String scoreName = parts[3].substring(1); // remove #
-                    if (!scoreName.startsWith(prefix)) {
-                        continue;
-                    }
-                    String blockName = scoreName.substring(prefix.length());
-                    String id = "minecraft:" + blockName;
-                    try {
-                        int value = Integer.parseInt(parts[5]);
-                        map.put(id, value);
-                    } catch (NumberFormatException ignored) {
-                        // Skip malformed lines
-                    }
-                }
-            }
-        } catch (IOException e) {
-            RitualsMod.LOGGER.error("Failed to parse datapack config: {}", resourcePath, e);
-        }
+        // High-value catalysts
+        map.put("minecraft:experience_bottle", 250);
+        map.put("minecraft:nether_star", 500);
+
+        RitualsMod.LOGGER.info("Loaded {} default offhand rate modifiers", map.size());
     }
 
     // ========================================
@@ -293,11 +241,8 @@ public class RitualsConfig {
             toml.append("# Rituals Configuration\n");
             toml.append("# ========================================\n");
             toml.append("# Edit this file or use ModMenu in-game.\n");
-            toml.append("# Block/Kill XP entries are the ENUMERATED LISTS.\n");
-            toml.append("# Format: \"namespace:id=xp_value\"\n");
-            toml.append("# Blocks/mobs NOT in these lists give 0 Soul XP.\n");
-            toml.append("# NOTE: Adding new entries here only changes the config value.\n");
-            toml.append("# New blocks/mobs also need datapack scoreboard + tracking changes.\n\n");
+            toml.append("# The soul gains XP passively while in your hotbar.\n");
+            toml.append("# Offhand items act as catalysts that modify the growth rate.\n\n");
 
             toml.append("[general]\n");
             toml.append("debugMode = ").append(c.debugMode).append("\n");
@@ -309,17 +254,25 @@ public class RitualsConfig {
             toml.append("levelBase = ").append(c.levelBase).append("\n");
             toml.append("levelScaling = ").append(c.levelScaling).append("\n\n");
 
-            toml.append("[blockXp]\n");
-            toml.append("# XP granted when mining blocks with a soul weapon.\n");
-            toml.append("# Format: \"minecraft:stone=1\" means stone gives 1 XP.\n");
-            toml.append("# Only change values for existing entries. New blocks need datapack updates.\n");
-            toml.append("entries = ").append(formatMapList(c.blockXpValues)).append("\n\n");
+            toml.append("[soulXp]\n");
+            toml.append("# The soul grows through observation and existence.\n");
+            toml.append("# XP rate preset (case-insensitive):\n");
+            toml.append("# trivial(10s) easy(30s) moderate(1m) standard(2m) hard(3m) tough(5m)\n");
+            toml.append("# grueling(8m) brutal(10m) punishing(15m) extreme(20m) insane(30m)\n");
+            toml.append("# nightmare(45m) impossible(60m) custom(set customInterval below)\n");
+            toml.append("rate = \"").append(c.soulXpRate.name().toLowerCase()).append("\"\n");
+            toml.append("# Base XP gained per award cycle\n");
+            toml.append("baseRate = ").append(c.soulXpBaseRate).append("\n");
+            toml.append("# Only used when rate = \"custom\". Ticks between XP awards (20 = 1 second).\n");
+            toml.append("customInterval = ").append(c.soulXpCustomInterval).append("\n");
+            toml.append("# Show a 1/second countdown in chat until next XP award (debug tool)\n");
+            toml.append("countdown = ").append(c.soulXpCountdown).append("\n\n");
 
-            toml.append("[killXp]\n");
-            toml.append("# XP granted when killing mobs with a soul weapon.\n");
-            toml.append("# Format: \"minecraft:zombie=5\" means zombie gives 5 XP.\n");
-            toml.append("# Only change values for existing entries. New mobs need datapack updates.\n");
-            toml.append("entries = ").append(formatMapList(c.killXpValues)).append("\n");
+            toml.append("[offhandRates]\n");
+            toml.append("# Holding certain items in your offhand influences the soul's growth rate.\n");
+            toml.append("# Values are percentages: 100 = normal, 150 = 1.5x, 200 = 2x\n");
+            toml.append("# Format: \"minecraft:item_id=rate_percent\"\n");
+            toml.append("entries = ").append(formatMapList(c.offhandRates)).append("\n");
 
             Files.writeString(CONFIG_PATH, toml.toString());
             RitualsMod.LOGGER.info("Saved config to {}", CONFIG_PATH);

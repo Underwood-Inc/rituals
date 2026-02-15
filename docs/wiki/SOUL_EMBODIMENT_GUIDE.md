@@ -101,54 +101,71 @@ Every time you perform an Ascension Ritual, you have a **50% chance** to receive
 
 ## ⚔️ Earning Experience
 
-When you hold a soul weapon and perform deeds — mining, killing, harvesting — **your soul absorbs the experience**. The energy stays within you until channeled into the weapon via a conduit (totem or Scrying Glass). Different actions yield different amounts of soul energy:
+Your soul weapon grows through **passive observation** — simply having a soul-embodied item in your **hotbar** (any of the 9 slots) causes the soul to absorb experience over time. No specific actions are required. The soul grows by existing alongside its wielder.
 
-### Tool XP Sources
+### How Passive XP Works
 
 ```mermaid
-mindmap
-  root((Soul XP))
-    Pickaxe
-      Mining Stone
-      Mining Ores
-      Ancient Debris
-    Sword
-      Killing Mobs
-      Boss Kills
-    Axe
-      Chopping Logs
-      Combat
-    Shovel
-      Digging Dirt
-      Sand & Gravel
-    Hoe
-      Harvesting Crops
-      Breaking Leaves
-    Bow/Crossbow
-      Ranged Kills
-    Trident
-      Damage & Riptide
+flowchart LR
+    A[Soul Item in Hotbar] --> B[Timer Ticks Every Game Tick]
+    B --> C{Timer >= Interval?}
+    C -->|No| B
+    C -->|Yes| D[Award Base XP]
+    D --> E{Offhand Catalyst?}
+    E -->|Yes| F[Multiply XP by Catalyst Rate]
+    E -->|No| G[1 XP Awarded]
+    F --> G
+    G --> H[Pending Soul Energy Stored in Player]
+    H --> I[Channel via Totem or Scrying Glass]
+    I --> J[Weapon Levels Up!]
+    
+    style A fill:#6a1b9a,color:#fff
+    style D fill:#2e7d32,color:#fff
+    style J fill:#e65100,color:#fff
 ```
 
-### XP Values by Action
+### Offhand Catalysts (XP Multipliers)
 
-| Action | XP Per Block/Kill |
-|--------|-------------------|
-| Stone/Dirt/Wood | 1-2 XP |
-| Iron Ore | 3 XP |
-| Gold/Lapis Ore | 4 XP |
-| Diamond Ore | 10 XP |
-| Emerald Ore | 12 XP |
-| Ancient Debris | 25 XP |
-| Common Mobs | 5 XP |
-| Dangerous Mobs | 15 XP |
-| Elite Mobs | 25 XP |
-| Warden | 100 XP |
-| Bosses | 500 XP |
+Holding specific items in your **offhand** while the soul timer ticks amplifies the XP gained:
+
+| Offhand Item | Multiplier | Lore |
+|---|---|---|
+| *(nothing)* | 1.0x | Normal growth |
+| **Soul Sand** | 1.5x | The Nether's memory quickens the soul |
+| **Soul Soil** | 1.5x | Ancient earth resonates with spirit |
+| **Amethyst Shard** | 1.75x | Crystal harmonics amplify absorption |
+| **Ender Pearl** | 2.0x | Dimensional energy feeds the bond |
+| **Eye of Ender** | 2.5x | Focused perception of reality |
+| **Bottle o' Enchanting** | 3.0x | Concentrated experience essence |
+| **Nether Star** | 5.0x | The ultimate catalyst — a captured soul |
+
+> All catalyst rates are configurable by server admins via TOML or ModMenu.
+
+### XP Rate Presets
+
+The interval between XP awards is configurable. Default is **Hard (3 minutes)**:
+
+| Preset | Interval | Time to Lv 15 | Time to Lv 50 | Time to Lv 100 |
+|---|---|---|---|---|
+| Trivial | 10s | ~11h | ~55h | ~160h |
+| Easy | 30s | ~34h | ~164h | ~481h |
+| Moderate | 1m | ~67h | ~329h | ~961h |
+| Standard | 2m | ~135h | ~657h | ~1,923h |
+| **Hard** *(default)* | **3m** | **~202h** | **~986h** | **~2,884h** |
+| Tough | 5m | ~337h | ~1,644h | ~4,807h |
+| Grueling | 8m | ~539h | ~2,630h | ~7,691h |
+| Brutal | 10m | ~674h | ~3,287h | ~9,614h |
+| Punishing | 15m | ~1,010h | ~4,931h | ~14,421h |
+| Extreme | 20m | ~1,347h | ~6,574h | ~19,228h |
+| Insane | 30m | ~2,021h | ~9,862h | ~28,842h |
+| Nightmare | 45m | ~3,031h | ~14,792h | ~43,262h |
+| Impossible | 60m | ~4,041h | ~19,723h | ~57,683h |
+
+> All times assume base rate (1 XP, no catalyst). With Nether Star (5x), divide by 5.
 
 ### Channeling Your Soul Energy
 
-Your soul absorbs experience as you act, but the energy must be **channeled into the weapon** to strengthen its bond:
+Your soul absorbs experience passively, but the energy must be **channeled into the weapon** to strengthen its bond:
 
 1. **Totem Conduit** — Place your weapon on any totem. The totem channels your stored soul energy into the weapon.
 2. **Scrying Glass** — A portable conduit. Hold the soul weapon in your offhand and look through the glass to channel energy without a totem.
@@ -366,9 +383,11 @@ journey
 |-----------|-------|
 | **Maximum Level** | 100 |
 | **Total Rituals Needed** | 18 |
-| **Total XP Required** | ~420,000 |
+| **Total XP Required** | 57,683 |
+| **Default XP Rate** | Hard (3m per 1 XP) |
 | **Potential Bonus Enchants** | Up to 9 |
-| **Estimated Time** | Many hours of gameplay! |
+| **Time to Max (Hard, no catalyst)** | ~2,884 hours |
+| **Time to Max (Hard + Nether Star)** | ~577 hours |
 
 ---
 

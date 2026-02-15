@@ -90,11 +90,53 @@ The `give` category provides various totem items and the guidebook.
 ## Configuration Commands
 
 ### `/rituals config reload`
-Reloads the ritual configuration settings.
+Reloads the ritual configuration from the TOML file and pushes updated values to the datapack scoreboards/storage.
 
 **Usage:** `/rituals config reload`
-**Permissions:** None required
-**Use Case:** Apply configuration changes without restarting
+**Permissions:** Operator level 2 (OP) required
+**Use Case:** Apply configuration changes made to `rituals.toml` without restarting
+
+---
+
+### `/rituals config xp_interval <value>`
+Sets the soul XP rate — how often the soul gains passive XP while a soul-embodied item is in the player's hotbar. Accepts either a **preset name** or a **custom tick count**.
+
+**Usage:**
+```
+/rituals config xp_interval easy         # 30 seconds per XP
+/rituals config xp_interval hard         # 3 minutes per XP (default)
+/rituals config xp_interval impossible   # 60 minutes per XP
+/rituals config xp_interval 100          # Custom: 5 seconds (100 ticks)
+```
+
+**Permissions:** Operator level 2 (OP) required
+**Saves to:** `rituals.toml` and pushes to datapack immediately
+**Minimum custom value:** 20 ticks (1 second)
+
+**Available presets:**
+
+| Preset | Interval |
+|---|---|
+| `trivial` | 10 seconds |
+| `easy` | 30 seconds |
+| `moderate` | 1 minute |
+| `standard` | 2 minutes |
+| `hard` *(default)* | 3 minutes |
+| `tough` | 5 minutes |
+| `grueling` | 8 minutes |
+| `brutal` | 10 minutes |
+| `punishing` | 15 minutes |
+| `extreme` | 20 minutes |
+| `insane` | 30 minutes |
+| `nightmare` | 45 minutes |
+| `impossible` | 60 minutes |
+
+**Note:** For datapack-only servers (no mod), use the equivalent `/function` commands instead:
+```
+/function rituals:config/soul_xp/set_easy
+/function rituals:config/soul_xp/set_hard
+```
+For custom values: `/data modify storage rituals:config soul_xp_interval set value <ticks>` then `/function rituals:config/soul_xp/set_interval`
 
 ---
 
@@ -143,8 +185,8 @@ Commands are registered using Fabric's Command API v2, which ensures they work i
 
 ### Permission Levels
 
-- **Level 0 (Default):** All basic commands (help, get, give, guidebook, config)
-- **Level 2 (Operator):** All admin commands
+- **Level 0 (Default):** Basic commands (help, get, give, guidebook, soul info/rename)
+- **Level 2 (Operator):** Admin commands AND config commands (reload, xp_interval)
 
 ### Singleplayer Support
 
@@ -281,7 +323,7 @@ This ensures proper context (player, position, permissions) is maintained.
 
 ---
 
-*Last Updated: November 4, 2025*
-*Mod Version: 1.1.0*
-*Minecraft Version: 1.21*
+*Last Updated: February 2026*
+*Mod Version: 1.4.5*
+*Minecraft Version: 1.21.11*
 

@@ -127,6 +127,115 @@ After modifying, reload the configuration:
 
 ---
 
+### Soul XP System (Passive Growth)
+
+The soul weapon system uses **passive, time-based XP**. Having a soul-embodied item in your hotbar causes the soul to gain XP on a timer. Offhand items act as multiplier catalysts. All settings are admin-only (OP level 2+).
+
+#### XP Rate Presets
+
+```mermaid
+gantt
+    title Time to Max Level (57,683 XP) — No Catalyst
+    dateFormat X
+    axisFormat %s hours
+    
+    section Fast
+    Trivial (10s)     :0, 160
+    Easy (30s)        :0, 481
+    
+    section Medium
+    Moderate (1m)     :0, 961
+    Standard (2m)     :0, 1923
+    Hard - DEFAULT (3m) :0, 2884
+    
+    section Slow
+    Tough (5m)        :0, 4807
+    Grueling (8m)     :0, 7691
+    Brutal (10m)      :0, 9614
+```
+
+| Preset | Ticks | Real Time | Time to Lv 15 | Time to Lv 100 |
+|---|---|---|---|---|
+| Trivial | 200 | 10s | ~11h | ~160h |
+| Easy | 600 | 30s | ~34h | ~481h |
+| Moderate | 1,200 | 1m | ~67h | ~961h |
+| Standard | 2,400 | 2m | ~135h | ~1,923h |
+| **Hard (default)** | **3,600** | **3m** | **~202h** | **~2,884h** |
+| Tough | 6,000 | 5m | ~337h | ~4,807h |
+| Grueling | 9,600 | 8m | ~539h | ~7,691h |
+| Brutal | 12,000 | 10m | ~674h | ~9,614h |
+| Punishing | 18,000 | 15m | ~1,010h | ~14,421h |
+| Extreme | 24,000 | 20m | ~1,347h | ~19,228h |
+| Insane | 36,000 | 30m | ~2,021h | ~28,842h |
+| Nightmare | 54,000 | 45m | ~3,031h | ~43,262h |
+| Impossible | 72,000 | 60m | ~4,041h | ~57,683h |
+| Custom | user-set | user-set | varies | varies |
+
+> With a **Nether Star** offhand (5x multiplier), divide all times by 5.
+
+#### Setting the XP Rate
+
+**With the mod (in-game command, OP required):**
+```mcfunction
+/rituals config xp_interval easy        # 30 seconds
+/rituals config xp_interval hard        # 3 minutes (default)
+/rituals config xp_interval brutal      # 10 minutes
+/rituals config xp_interval 100         # custom: 5 seconds
+```
+
+**Datapack-only (OP required):**
+```mcfunction
+# Use preset functions:
+/function rituals:config/soul_xp/set_trivial
+/function rituals:config/soul_xp/set_easy
+/function rituals:config/soul_xp/set_moderate
+/function rituals:config/soul_xp/set_standard
+/function rituals:config/soul_xp/set_hard
+/function rituals:config/soul_xp/set_tough
+/function rituals:config/soul_xp/set_grueling
+/function rituals:config/soul_xp/set_brutal
+/function rituals:config/soul_xp/set_punishing
+/function rituals:config/soul_xp/set_extreme
+/function rituals:config/soul_xp/set_insane
+/function rituals:config/soul_xp/set_nightmare
+/function rituals:config/soul_xp/set_impossible
+
+# Or set a custom interval:
+/data modify storage rituals:config soul_xp_interval set value 100
+/function rituals:config/soul_xp/set_interval
+```
+
+**TOML config file** (`config/rituals.toml`):
+```toml
+[soulXp]
+rate = "hard"            # Preset name (case-insensitive)
+baseRate = 1             # XP per award cycle
+customInterval = 600     # Only used when rate = "custom"
+countdown = false        # Debug: show countdown in chat
+```
+
+After editing the TOML, reload in-game: `/rituals config reload`
+
+#### Offhand Catalyst Rates
+
+Default catalyst multipliers (all configurable in TOML `[offhandRates]`):
+
+| Item | Default Rate | Multiplier |
+|---|---|---|
+| `minecraft:soul_sand` | 150 | 1.5x |
+| `minecraft:soul_soil` | 150 | 1.5x |
+| `minecraft:amethyst_shard` | 175 | 1.75x |
+| `minecraft:ender_pearl` | 200 | 2.0x |
+| `minecraft:ender_eye` | 250 | 2.5x |
+| `minecraft:experience_bottle` | 300 | 3.0x |
+| `minecraft:nether_star` | 500 | 5.0x |
+
+#### Debug Countdown
+
+Enable via ModMenu or TOML (`soulXp.countdown = true`) to show a 1/second countdown in chat: `[Soul XP] Timer: 47 / 3600 ticks | 177s until XP`. Useful for verifying the system is working.
+
+---
+
 ### Tier-Based Range Settings
 
 Each tier has its own horizontal and vertical range values:

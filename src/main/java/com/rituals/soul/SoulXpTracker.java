@@ -2,6 +2,7 @@ package com.rituals.soul;
 
 import com.rituals.RitualsMod;
 import com.rituals.config.RitualsConfig;
+import com.rituals.config.SoulXpRate;
 
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
 import net.minecraft.server.MinecraftServer;
@@ -12,22 +13,23 @@ import java.util.Map;
 /**
  * Soul XP Config Pusher.
  *
- * <p>This class does NOT track XP itself. The datapack handles ALL tracking
- * via {@code minecraft.mined:*} and {@code minecraft.killed:*} scoreboards
- * combined with the enumerated block/kill XP config lists.</p>
+ * <p>Pushes TOML config values to the datapack's {@code rituals:config} storage
+ * and {@code rituals.config} scoreboard, overriding the datapack defaults.
+ * This allows ModMenu edits to take effect seamlessly.</p>
  *
- * <p>What this class DOES:</p>
+ * <h3>What this class pushes:</h3>
  * <ol>
- *   <li>On server start, reads the TOML config (block XP map, kill XP map).</li>
- *   <li>Pushes those values to the SAME {@code rituals.config} scoreboard
- *       constants that the datapack's enumerated lists use.</li>
- *   <li>This means ModMenu edits override the datapack defaults seamlessly.</li>
+ *   <li>{@code soul_xp_base_rate} and {@code soul_xp_interval} (resolved from
+ *       the rate preset) to {@code rituals:config} storage.</li>
+ *   <li>{@code soul_level_base} and {@code soul_level_scaling} to
+ *       {@code rituals:config} storage (level curve).</li>
+ *   <li>Offhand rate multipliers ({@code #offhand_<item>}) to the
+ *       {@code rituals.config} scoreboard.</li>
  * </ol>
  *
- * <p>The datapack's tracking functions ({@code soul/track_blocks/*.mcfunction}
- * and {@code soul/track_kills/*.mcfunction}) read from these scoreboard
- * constants at runtime. By pushing config values here, the Java mod
- * extends/overrides those constants without changing the tracking method.</p>
+ * <p>The datapack defines defaults in {@code config/soul_xp/load.mcfunction}
+ * and {@code config/soul_xp/offhand_rates.mcfunction}. This class overwrites
+ * those same keys from TOML on server start and after every {@code /reload}.</p>
  */
 public final class SoulXpTracker {
 
@@ -39,7 +41,7 @@ public final class SoulXpTracker {
      */
     public static void initialize() {
         // Push TOML values after server starts (overrides datapack defaults)
-        ServerLifecycleEvents.SERVER_STARTED.register(SoulXpTracker::pushConfigToScoreboards);
+        ServerLifecycleEvents.SERVER_STARTED.register(SoulXpTracker::pushAllToScoreboards);
 
         // Re-push after every /reload so datapack defaults don't overwrite TOML values
         ServerLifecycleEvents.END_DATA_PACK_RELOAD.register((server, resourceManager, success) -> {
@@ -49,7 +51,7 @@ public final class SoulXpTracker {
             }
         });
 
-        RitualsMod.LOGGER.info("[Soul Embodiment] Config pusher registered (datapack handles tracking)");
+        RitualsMod.LOGGER.info("[Soul Embodiment] Config pusher registered (time-based passive XP)");
     }
 
     /**
@@ -61,33 +63,29 @@ public final class SoulXpTracker {
     public static void repushConfig(MinecraftServer server) {
         // Snapshot old values before reload
         RitualsConfig oldConfig = RitualsConfig.get();
-        Map<String, Integer> oldBlocks = new HashMap<>(oldConfig.blockXpValues);
-        Map<String, Integer> oldKills = new HashMap<>(oldConfig.killXpValues);
+        Map<String, Integer> oldRates = new HashMap<>(oldConfig.offhandRates);
+        int oldBaseRate = oldConfig.soulXpBaseRate;
+        int oldResolvedInterval = oldConfig.getResolvedInterval();
+        SoulXpRate oldPreset = oldConfig.soulXpRate;
         int oldLevelBase = oldConfig.levelBase;
         int oldLevelScaling = oldConfig.levelScaling;
 
-        // Push all values to scoreboards (ensures everything is in sync)
+        // Push all values (ensures everything is in sync)
         pushAllToScoreboards(server);
 
         // Log only what changed
         RitualsConfig newConfig = RitualsConfig.get();
         int changed = 0;
 
-        for (Map.Entry<String, Integer> entry : newConfig.blockXpValues.entrySet()) {
-            int oldVal = oldBlocks.getOrDefault(entry.getKey(), 0);
-            if (oldVal != entry.getValue()) {
-                RitualsMod.LOGGER.info("[Soul XP] {} : {} -> {}",
-                        entry.getKey(), oldVal, entry.getValue());
-                changed++;
-            }
+        if (newConfig.soulXpBaseRate != oldBaseRate) {
+            RitualsMod.LOGGER.info("[Soul XP] baseRate : {} -> {}", oldBaseRate, newConfig.soulXpBaseRate);
+            changed++;
         }
-        for (Map.Entry<String, Integer> entry : newConfig.killXpValues.entrySet()) {
-            int oldVal = oldKills.getOrDefault(entry.getKey(), 0);
-            if (oldVal != entry.getValue()) {
-                RitualsMod.LOGGER.info("[Soul XP] {} : {} -> {}",
-                        entry.getKey(), oldVal, entry.getValue());
-                changed++;
-            }
+        if (newConfig.soulXpRate != oldPreset || newConfig.getResolvedInterval() != oldResolvedInterval) {
+            RitualsMod.LOGGER.info("[Soul XP] rate : {}/{} -> {}/{}",
+                    oldPreset.name(), SoulXpRate.formatTicks(oldResolvedInterval),
+                    newConfig.soulXpRate.name(), SoulXpRate.formatTicks(newConfig.getResolvedInterval()));
+            changed++;
         }
         if (newConfig.levelBase != oldLevelBase) {
             RitualsMod.LOGGER.info("[Soul XP] levelBase : {} -> {}", oldLevelBase, newConfig.levelBase);
@@ -96,6 +94,14 @@ public final class SoulXpTracker {
         if (newConfig.levelScaling != oldLevelScaling) {
             RitualsMod.LOGGER.info("[Soul XP] levelScaling : {} -> {}", oldLevelScaling, newConfig.levelScaling);
             changed++;
+        }
+        for (Map.Entry<String, Integer> entry : newConfig.offhandRates.entrySet()) {
+            int oldVal = oldRates.getOrDefault(entry.getKey(), 100);
+            if (oldVal != entry.getValue()) {
+                RitualsMod.LOGGER.info("[Soul XP] {} : {} -> {}",
+                        entry.getKey(), oldVal, entry.getValue());
+                changed++;
+            }
         }
 
         if (changed == 0) {
@@ -106,90 +112,64 @@ public final class SoulXpTracker {
     }
 
     /**
-     * Pushes ALL config values to the {@code rituals.config} scoreboard.
-     * Used on server start and as the underlying push for repushConfig.
+     * Pushes ALL config values to storage and scoreboards.
+     * Used on server start and after every /reload.
      *
      * @param server the server instance
      */
     private static void pushAllToScoreboards(MinecraftServer server) {
         RitualsConfig config = RitualsConfig.get();
+        int resolvedInterval = config.getResolvedInterval();
 
         runCommand(server, "scoreboard objectives add rituals.config dummy");
 
-        int blockCount = 0;
-        int killCount = 0;
+        // === PASSIVE XP SETTINGS (storage) ===
+        runCommand(server,
+                "data modify storage rituals:config soul_xp_base_rate set value " + config.soulXpBaseRate);
+        runCommand(server,
+                "data modify storage rituals:config soul_xp_interval set value " + resolvedInterval);
 
-        for (Map.Entry<String, Integer> entry : config.blockXpValues.entrySet()) {
-            String scoreboardName = toBlockScoreboardName(entry.getKey());
-            runCommand(server,
-                    "scoreboard players set " + scoreboardName + " rituals.config " + entry.getValue());
-            blockCount++;
-        }
-
-        for (Map.Entry<String, Integer> entry : config.killXpValues.entrySet()) {
-            String scoreboardName = toKillScoreboardName(entry.getKey());
-            runCommand(server,
-                    "scoreboard players set " + scoreboardName + " rituals.config " + entry.getValue());
-            killCount++;
-        }
-
+        // === LEVEL CURVE (storage) ===
         runCommand(server,
                 "data modify storage rituals:config soul_level_base set value " + config.levelBase);
         runCommand(server,
                 "data modify storage rituals:config soul_level_scaling set value " + config.levelScaling);
 
-        // Recalibrate block/kill tracking so config changes don't cause phantom XP.
-        // Removing these tags forces the datapack to re-snapshot prev_blocks/prev_kills
-        // on the next tick using the NEW weighted totals, so the delta stays zero.
-        runCommand(server, "tag @a remove rituals.blocks_initialized");
-        runCommand(server, "tag @a remove rituals.kills_initialized");
+        // === XP COUNTDOWN DEBUG FLAG (scoreboard) ===
+        runCommand(server,
+                "scoreboard players set #xp_countdown rituals.config " + (config.soulXpCountdown ? 1 : 0));
+
+        // === OFFHAND RATE MODIFIERS (scoreboard) ===
+        int offhandCount = 0;
+        for (Map.Entry<String, Integer> entry : config.offhandRates.entrySet()) {
+            String scoreboardName = toOffhandScoreboardName(entry.getKey());
+            runCommand(server,
+                    "scoreboard players set " + scoreboardName + " rituals.config " + entry.getValue());
+            offhandCount++;
+        }
 
         RitualsMod.LOGGER.info(
-                "[Soul Embodiment] Pushed {} block + {} kill XP values to scoreboards",
-                blockCount, killCount);
+                "[Soul Embodiment] Pushed passive XP config (rate={}/{}, baseRate={}) + {} offhand rates",
+                config.soulXpRate.name(), SoulXpRate.formatTicks(resolvedInterval),
+                config.soulXpBaseRate, offhandCount);
     }
 
     /**
-     * Initial push on server start. Logs total count only.
-     */
-    private static void pushConfigToScoreboards(MinecraftServer server) {
-        pushAllToScoreboards(server);
-    }
-
-    /**
-     * Converts a namespaced block ID to the scoreboard constant name.
-     * Example: "minecraft:stone" -> "#xp_stone"
-     * Example: "mymod:cool_ore" -> "#xp_cool_ore"
+     * Converts a namespaced item ID to the offhand scoreboard constant name.
+     * Example: "minecraft:soul_sand" -> "#offhand_soul_sand"
+     * Example: "mymod:cool_gem" -> "#offhand_cool_gem"
      *
-     * @param blockId the namespaced block ID
+     * @param itemId the namespaced item ID
      * @return the scoreboard constant name
      */
-    private static String toBlockScoreboardName(String blockId) {
-        String name = blockId;
+    private static String toOffhandScoreboardName(String itemId) {
+        String name = itemId;
         // Strip namespace prefix
         int colonIdx = name.indexOf(':');
         if (colonIdx >= 0) {
             name = name.substring(colonIdx + 1);
         }
-        return "#xp_" + name;
-    }
-
-    /**
-     * Converts a namespaced entity ID to the scoreboard constant name.
-     * Example: "minecraft:zombie" -> "#kxp_zombie"
-     * Example: "mymod:custom_boss" -> "#kxp_custom_boss"
-     *
-     * @param entityId the namespaced entity ID
-     * @return the scoreboard constant name
-     */
-    private static String toKillScoreboardName(String entityId) {
-        String name = entityId;
-        // Strip namespace prefix
-        int colonIdx = name.indexOf(':');
-        if (colonIdx >= 0) {
-            name = name.substring(colonIdx + 1);
-        }
-        return "#kxp_" + name;
+        return "#offhand_" + name;
     }
 
     /**

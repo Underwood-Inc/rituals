@@ -112,11 +112,18 @@ public class RitualsMod implements ModInitializer {
                             .executes(com.rituals.commands.SoulCommands::rename)));
             ritualsCommand.then(soulCommand);
 
-            // /rituals config subcommands
-            LiteralArgumentBuilder<ServerCommandSource> configCommand = CommandManager.literal("config");
+            // /rituals config subcommands (OP required — XP rate settings are admin-only)
+            LiteralArgumentBuilder<ServerCommandSource> configCommand = CommandManager.literal("config")
+                    .requires(source -> {
+                        var perms = source.getPermissions();
+                        if (perms instanceof net.minecraft.command.permission.LeveledPermissionPredicate lpp) {
+                            return lpp.getLevel().compareTo(
+                                    net.minecraft.command.permission.LeveledPermissionPredicate.GAMEMASTERS.getLevel()) >= 0;
+                        }
+                        return false;
+                    });
             configCommand.then(CommandManager.literal("reload").executes(ctx -> {
                 com.rituals.config.RitualsConfig.reload();
-                // Re-push config values to the same scoreboard constants
                 com.rituals.soul.SoulXpTracker.repushConfig(ctx.getSource().getServer());
                 ctx.getSource().sendFeedback(
                         () -> Text.literal("[Rituals] ").formatted(Formatting.GOLD).formatted(Formatting.BOLD)
@@ -124,6 +131,70 @@ public class RitualsMod implements ModInitializer {
                         false);
                 return Command.SINGLE_SUCCESS;
             }));
+
+            // /rituals config xp_interval <easy|medium|hard|NUMBER>
+            // Sets the soul XP cycle interval — accepts a preset name or a custom tick count.
+            configCommand.then(CommandManager.literal("xp_interval")
+                    .then(CommandManager.argument("value", com.mojang.brigadier.arguments.StringArgumentType.word())
+                            .executes(ctx -> {
+                                String input = com.mojang.brigadier.arguments.StringArgumentType.getString(ctx, "value");
+                                com.rituals.config.RitualsConfig config = com.rituals.config.RitualsConfig.get();
+
+                                // Try preset name first
+                                com.rituals.config.SoulXpRate preset = null;
+                                for (com.rituals.config.SoulXpRate r : com.rituals.config.SoulXpRate.values()) {
+                                    if (r != com.rituals.config.SoulXpRate.CUSTOM
+                                            && r.name().equalsIgnoreCase(input)) {
+                                        preset = r;
+                                        break;
+                                    }
+                                }
+
+                                int resolvedInterval;
+                                String label;
+
+                                if (preset != null) {
+                                    config.soulXpRate = preset;
+                                    resolvedInterval = preset.ticks;
+                                    label = preset.label;
+                                } else {
+                                    // Try parsing as tick count
+                                    int ticks;
+                                    try {
+                                        ticks = Integer.parseInt(input);
+                                    } catch (NumberFormatException e) {
+                                        ctx.getSource().sendError(Text.literal("[Rituals] ")
+                                                .formatted(Formatting.RED)
+                                                .append(Text.literal("Invalid value: \"" + input + "\". Use easy, medium, hard, or a tick number (20+).")
+                                                        .formatted(Formatting.YELLOW)));
+                                        return 0;
+                                    }
+                                    if (ticks < 20) {
+                                        ctx.getSource().sendError(Text.literal("[Rituals] ")
+                                                .formatted(Formatting.RED)
+                                                .append(Text.literal("Minimum interval is 20 ticks (1 second).")
+                                                        .formatted(Formatting.YELLOW)));
+                                        return 0;
+                                    }
+                                    config.soulXpRate = com.rituals.config.SoulXpRate.CUSTOM;
+                                    config.soulXpCustomInterval = ticks;
+                                    resolvedInterval = ticks;
+                                    label = "Custom";
+                                }
+
+                                com.rituals.config.RitualsConfig.save();
+                                com.rituals.soul.SoulXpTracker.repushConfig(ctx.getSource().getServer());
+
+                                String timeStr = com.rituals.config.SoulXpRate.formatTicks(resolvedInterval);
+                                ctx.getSource().sendFeedback(
+                                        () -> Text.literal("[Rituals] ").formatted(Formatting.GOLD)
+                                                .append(Text.literal("XP interval set to ").formatted(Formatting.GREEN))
+                                                .append(Text.literal(label + " (" + timeStr + ")").formatted(Formatting.AQUA))
+                                                .append(Text.literal(" — saved & applied.").formatted(Formatting.GREEN)),
+                                        true);
+                                return Command.SINGLE_SUCCESS;
+                            })));
+
             ritualsCommand.then(configCommand);
 
             // /rituals badges subcommands
@@ -197,10 +268,10 @@ public class RitualsMod implements ModInitializer {
                     "Pattern Rituals\n\nSome rituals need multiple totems with specific items!\n\nDiamond Hoe + 4 totems\nAuto-Harvest farms\n\nWheat + 4 totems\nAuto-Breeding animals\n\nUse redstone near totems to see patterns!",
                     // Soul Embodiment pages
                     "Soul Embodiment\n\nAwaken your weapons with a LIVING SOUL!\n\nPlace any tool on central totem with:\n- N: Soul Sand\n- E: Ender Pearl\n- S: Glowstone Dust\n- W: Amethyst Shard\n\nLight fire to awaken!",
-                    "The Soul Bond\n\nWhen you awaken a weapon, your soul becomes linked to it.\n\nAs you fight, mine, and conquer, YOUR soul absorbs experience from your deeds.\n\nThis energy stays within YOU until channeled into the weapon.",
-                    "Channeling Energy\n\nThe totem is a conduit!\n\n1. Use soul weapon (mine, kill)\n2. Your soul absorbs XP\n3. Place weapon on ANY totem\n4. Totem channels energy into weapon\n5. Weapon levels up!\n\nOr use a Scrying Glass for portable syncing!",
+                    "The Soul Bond\n\nWhen you awaken a weapon, your soul becomes linked to it.\n\nThe soul grows PASSIVELY just by being in your hotbar. No actions needed!\n\nOffhand catalysts boost XP:\nNether Star = 5x rate!",
+                    "Channeling Energy\n\nThe totem is a conduit!\n\n1. Keep soul item in hotbar\n2. Soul passively absorbs XP\n3. Place weapon on ANY totem\n4. Totem channels energy into weapon\n5. Weapon levels up!\n\nOr use a Scrying Glass for portable syncing!",
                     "Soul Leveling\n\nLevel cap starts at 15.\nEach level = stronger bond.\nRandom buffs (and risks!) per level.\n\nMax level (15) reached?\nRepeat the awakening ritual to ASCEND!\n\n+5 level cap per ascension.\n18 ascensions to reach 100!",
-                    "Foolish Awakenings\n\nFair warning: the ritual accepts ANY item.\n\nYes. Even dirt. Even a potato.\n\nYou CAN technically level it up (hand-mine dirt while holding it...) but at hand speed, 1 XP per block, you will question every life choice.\n\nStick to tools and weapons.",
+                    "Foolish Awakenings\n\nFair warning: the ritual accepts ANY item.\n\nYes. Even dirt. Even a potato.\n\nIt WILL level up (same passive rate as any soul item!) but buffs on a potato are... spiritually inadvisable.\n\nStick to tools and weapons.",
                     "Ascension Ritual\n\nWhen your soul weapon hits its level cap:\n\n1. Place it on totem\n2. Same pattern items\n3. Light fire\n4. +5 level cap!\n5. 50% chance for bonus enchant!\n\nRepeat until level 100!",
                     "Soul Commands\n\n/rituals soul info\nShow weapon stats\n\n/rituals soul rename <name>\nRename your soul weapon\n\nSee docs/ for:\nSOUL_EMBODIMENT_PLAYER_GUIDE.md",
                     "Crafting: Wood Totem\n\n    [S]\n [S][P][S]\n    [P]\n\nS = Stick\nP = Oak Planks\n\nResult:\n1 Wood Totem\n\nShort: Skip top row",
@@ -208,7 +279,7 @@ public class RitualsMod implements ModInitializer {
                     "Range Display\n\nPower totem with redstone to see range!\n\nRed particles = tier range\nColored particles = pattern positions\n\nWorks with lever, torch, redstone block, button",
                     "Helpful Commands\n\n/rituals help\nShows help menu\n\n/rituals get\nGet all items\n\n/rituals give guidebook\nGet another book\n\n/rituals soul info\nSoul weapon stats",
                     "Advanced Tips\n\n- Pattern rituals need exact item per totem\n- Regular rituals work with same item on all totems\n- Fire sacrifice required by default\n- Can disable with Kiwi Mode\n- See docs/ folder for more!",
-                    "Configuration\n\nCustomize settings:\n\n/data get storage rituals:config\n\nKey settings:\nrequire_fire_sacrifice\nmin_totems_required\nritual_duration\nkiwi_mode",
+                    "Configuration\n\nCustomize settings:\n\n/rituals config xp_interval <preset>\nSet XP rate (OP only)\n\nPresets: trivial, easy, moderate,\nstandard, hard (default), tough,\ngrueling, brutal, punishing,\nextreme, insane, nightmare,\nimpossible, or a tick number",
                     "Happy Ritualing!\n\nMay your totems shine bright!\n\nFor detailed guides see docs/ folder:\n- PATTERN_RITUALS_GUIDE.md\n- FIRE_SACRIFICE_GUIDE.md\n- CRAFTING_RECIPES.md\n- SOUL_EMBODIMENT_PLAYER_GUIDE.md\n\n- Ancient Ritualist"
             };
 

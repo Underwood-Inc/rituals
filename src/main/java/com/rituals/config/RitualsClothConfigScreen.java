@@ -18,11 +18,17 @@ import java.util.stream.Collectors;
  * Cloth Config-based config screen for Rituals.
  * Only loaded if Cloth Config is available.
  *
- * <p>Block and Kill XP entries are shown as individual integer fields,
- * one per block/mob. This makes Cloth Config's built-in search bar
- * functional (it filters entries by name, so searching "diamond" will
- * find "minecraft:diamond_ore"). Users can only CHANGE values, not
- * add or remove entries -- that requires datapack changes.</p>
+ * <p>Soul XP is now time-based and passive. The soul grows through
+ * observation and existence while in the player's hotbar. Offhand
+ * items act as catalysts that modify the growth rate.</p>
+ *
+ * <p>XP rate presets (Easy/Medium/Hard/Custom) control how frequently
+ * XP is awarded. Custom mode allows fine-grained tick interval control.</p>
+ *
+ * <p>Offhand rate entries are shown as individual integer fields,
+ * one per item. This makes Cloth Config's built-in search bar
+ * functional. Users can only CHANGE rate values, not add or remove
+ * catalyst items -- that requires datapack changes.</p>
  */
 public class RitualsClothConfigScreen {
 
@@ -33,11 +39,9 @@ public class RitualsClothConfigScreen {
     public static Screen create(Screen parent) {
         RitualsConfig config = RitualsConfig.get();
 
-        // Capture default maps for setDefaultValue() on each entry
-        Map<String, Integer> defaultBlockXp = new HashMap<>();
-        RitualsConfig.populateDefaultBlockXp(defaultBlockXp);
-        Map<String, Integer> defaultKillXp = new HashMap<>();
-        RitualsConfig.populateDefaultKillXp(defaultKillXp);
+        // Capture default offhand rates for setDefaultValue() on each entry
+        Map<String, Integer> defaultOffhandRates = new HashMap<>();
+        RitualsConfig.populateDefaultOffhandRates(defaultOffhandRates);
 
         ConfigBuilder builder = ConfigBuilder.create()
                 .setParentScreen(parent)
@@ -98,60 +102,96 @@ public class RitualsClothConfigScreen {
                 .setSaveConsumer(val -> config.levelScaling = val)
                 .build());
 
-        // === BLOCK XP CATEGORY ===
-        // Each block gets its own integer field. Search bar works on entry names.
-        // Users can change values but NOT add/remove blocks (requires datapack changes).
-        ConfigCategory blockXp = builder.getOrCreateCategory(Text.literal("Block XP"));
+        // === SOUL XP CATEGORY ===
+        // Time-based passive XP accrual settings with rate presets.
+        ConfigCategory soulXp = builder.getOrCreateCategory(Text.literal("Soul XP"));
 
-        blockXp.addEntry(entryBuilder.startTextDescription(
-                Text.literal("§7XP granted per block mined with a soul weapon.\n"
-                        + "§7Use the search bar above to find specific blocks.\n"
-                        + "§7Adding new blocks requires datapack changes."))
+        // Dynamic description showing current rate in human-readable form
+        int resolvedInterval = config.getResolvedInterval();
+        String timeStr = SoulXpRate.formatTicks(resolvedInterval);
+        // Calculate time-to-max for display
+        long cyclesToMax = 57683L / Math.max(1, config.soulXpBaseRate);
+        long secondsToMax = cyclesToMax * (resolvedInterval / 20);
+        long hoursToMax = secondsToMax / 3600;
+
+        soulXp.addEntry(entryBuilder.startTextDescription(
+                Text.literal("§7The soul grows through observation and existence.\n"
+                        + "§7Keep a soul weapon in your hotbar to passively gain XP.\n"
+                        + "§7Offhand catalysts multiply the rate (Nether Star = 5x).\n"
+                        + "\n"
+                        + "§fCurrent rate: §a" + config.soulXpBaseRate + " XP every " + timeStr
+                        + " §7(" + config.soulXpRate.name() + ")\n"
+                        + "§fTime to max level (Lv 100): §e~" + hoursToMax + " hours §7(no catalyst)"))
                 .build());
 
-        for (Map.Entry<String, Integer> entry : config.blockXpValues.entrySet().stream()
-                .sorted(Map.Entry.comparingByKey())
-                .collect(Collectors.toList())) {
-            String blockId = entry.getKey();
-            int currentValue = entry.getValue();
-            int defaultValue = defaultBlockXp.getOrDefault(blockId, 0);
-
-            blockXp.addEntry(entryBuilder.startIntField(
-                    Text.literal(blockId),
-                    currentValue)
-                    .setDefaultValue(defaultValue)
-                    .setMin(0)
-                    .setMax(1000)
-                    .setTooltip(Text.literal("XP per " + blockId.replace("minecraft:", "") + " mined"))
-                    .setSaveConsumer(val -> config.blockXpValues.put(blockId, val))
-                    .build());
-        }
-
-        // === KILL XP CATEGORY ===
-        // Same approach: one integer field per mob.
-        ConfigCategory killXp = builder.getOrCreateCategory(Text.literal("Kill XP"));
-
-        killXp.addEntry(entryBuilder.startTextDescription(
-                Text.literal("§7XP granted per mob killed with a soul weapon.\n"
-                        + "§7Use the search bar above to find specific mobs.\n"
-                        + "§7Adding new mobs requires datapack changes."))
+        // Rate preset selector (enum dropdown)
+        soulXp.addEntry(entryBuilder.startEnumSelector(
+                Text.literal("XP Rate"),
+                SoulXpRate.class,
+                config.soulXpRate)
+                .setDefaultValue(SoulXpRate.HARD)
+                .setTooltip(Text.literal("13 presets from 10s to 60m. Default: Hard (3m).\nSet to Custom to use your own tick interval."))
+                .setSaveConsumer(val -> config.soulXpRate = val)
                 .build());
 
-        for (Map.Entry<String, Integer> entry : config.killXpValues.entrySet().stream()
+        // Base rate
+        soulXp.addEntry(entryBuilder.startIntField(
+                Text.literal("Base Rate"),
+                config.soulXpBaseRate)
+                .setDefaultValue(1)
+                .setMin(1)
+                .setMax(100)
+                .setTooltip(Text.literal("Base XP gained per award cycle (1-100)."))
+                .setSaveConsumer(val -> config.soulXpBaseRate = val)
+                .build());
+
+        // Custom interval (only meaningful when rate = CUSTOM)
+        soulXp.addEntry(entryBuilder.startIntField(
+                Text.literal("Custom Interval (ticks)"),
+                config.soulXpCustomInterval)
+                .setDefaultValue(600)
+                .setMin(20)
+                .setMax(72000)
+                .setTooltip(Text.literal("Only used when XP Rate is set to Custom.\n"
+                        + "Ticks between XP awards. 20 = 1 second, 1200 = 1 minute.\n"
+                        + "Current: " + SoulXpRate.formatTicks(config.soulXpCustomInterval)))
+                .setSaveConsumer(val -> config.soulXpCustomInterval = val)
+                .build());
+
+        // XP countdown debug toggle
+        soulXp.addEntry(entryBuilder.startBooleanToggle(
+                Text.literal("XP Countdown Log"),
+                config.soulXpCountdown)
+                .setDefaultValue(false)
+                .setTooltip(Text.literal("Show a 1/second countdown in chat until next XP award.\nUseful for debugging whether passive XP is working."))
+                .setSaveConsumer(val -> config.soulXpCountdown = val)
+                .build());
+
+        // === OFFHAND RATES CATEGORY ===
+        // Each catalyst item gets its own integer field.
+        ConfigCategory offhandRates = builder.getOrCreateCategory(Text.literal("Offhand Catalysts"));
+
+        offhandRates.addEntry(entryBuilder.startTextDescription(
+                Text.literal("§7Holding certain items in your offhand influences\n"
+                        + "§7the soul's growth rate. Values are percentages:\n"
+                        + "§7100 = normal, 150 = 1.5x, 200 = 2x, 500 = 5x"))
+                .build());
+
+        for (Map.Entry<String, Integer> entry : config.offhandRates.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey())
                 .collect(Collectors.toList())) {
-            String mobId = entry.getKey();
+            String itemId = entry.getKey();
             int currentValue = entry.getValue();
-            int defaultValue = defaultKillXp.getOrDefault(mobId, 0);
+            int defaultValue = defaultOffhandRates.getOrDefault(itemId, 100);
 
-            killXp.addEntry(entryBuilder.startIntField(
-                    Text.literal(mobId),
+            offhandRates.addEntry(entryBuilder.startIntField(
+                    Text.literal(itemId),
                     currentValue)
                     .setDefaultValue(defaultValue)
-                    .setMin(0)
+                    .setMin(100)
                     .setMax(10000)
-                    .setTooltip(Text.literal("XP per " + mobId.replace("minecraft:", "") + " killed"))
-                    .setSaveConsumer(val -> config.killXpValues.put(mobId, val))
+                    .setTooltip(Text.literal("Rate modifier for " + itemId.replace("minecraft:", "") + " (%)"))
+                    .setSaveConsumer(val -> config.offhandRates.put(itemId, val))
                     .build());
         }
 
