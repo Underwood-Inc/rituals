@@ -3,7 +3,7 @@
 # ========================================
 # Runs as and at the totem being broken/sacrificed
 # Used for pattern ritual supplemental totems - items are consumed as sacrifice
-# Player UUID in rituals:temp interacting_uuid (macro)
+# No longer a macro function — called plain from ritual activations
 
 # Mark as broken to prevent double-breaking
 tag @s add rituals.broken
@@ -32,7 +32,7 @@ kill @e[type=item_display,tag=rituals.totem_display,distance=..0.1]
 particle block{block_state:"minecraft:cobblestone"} ~ ~1 ~ 0.3 0.5 0.3 0 20
 playsound block.stone.break block @a ~ ~ ~ 1.0 0.8
 
-$tellraw @a[nbt={UUID:$(interacting_uuid)}] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Totem sacrificed!","color":"red","bold":false}]
+tellraw @a[distance=..10] [{"text":"[Rituals] ","color":"gold","bold":true},{"text":"Totem sacrificed!","color":"red","bold":false}]
 
 # Kill self last
 kill @s
