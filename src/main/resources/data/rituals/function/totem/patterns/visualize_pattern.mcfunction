@@ -13,15 +13,12 @@ execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.i
 
 # Visualize Square Pattern - Auto-Farming (4 corners)
 execute if data storage rituals:temp {pattern_item:"minecraft:diamond_hoe"} at @s run function rituals:totem/patterns/visualize_square
-execute if data storage rituals:temp {pattern_item:"minecraft:diamond_hoe"} run return 0
 
 # Visualize Star Pattern - Auto-Breeding (4 cardinals)
 execute if data storage rituals:temp {pattern_item:"minecraft:wheat"} at @s run function rituals:totem/patterns/visualize_star
-execute if data storage rituals:temp {pattern_item:"minecraft:wheat"} run return 0
 
 # Visualize Soul Star Pattern - Soul Embodiment (4 cardinals, any item)
 execute at @s run function rituals:totem/patterns/visualize_soul_star
 
 # Clear temp storage
 data remove storage rituals:temp pattern_item
-
