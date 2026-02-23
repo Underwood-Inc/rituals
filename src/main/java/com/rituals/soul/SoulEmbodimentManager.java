@@ -202,9 +202,6 @@ public class SoulEmbodimentManager {
         int bonusEnchants = getNbtInt(nbt, "soul_bonus_enchants", 0);
         boolean readyAscend = getNbtBool(nbt, "soul_ready_ascend");
         boolean fractured = getNbtBool(nbt, "soul_fractured");
-        String type = getNbtString(nbt, "soul_type", "generic");
-        int kills = getNbtInt(nbt, "soul_kills", 0);
-        int blocks = getNbtInt(nbt, "soul_blocks_broken", 0);
         int xpTotal = getNbtInt(nbt, "soul_xp_total", 0);
 
         // ── XP calculations ──
@@ -264,19 +261,6 @@ public class SoulEmbodimentManager {
             loreLines.add(noItalic(
                 Text.literal("✧ Enchants: ").styled(s -> s.withColor(LABEL_COLOR))
                     .append(Text.literal("+" + bonusEnchants).styled(s -> s.withColor(BONUS_COLOR).withBold(true).withItalic(false)))
-            ));
-        }
-
-        // ── Stats (type-appropriate) ──
-        if (type.equals("sword") || type.equals("axe")) {
-            loreLines.add(noItalic(
-                Text.literal("⬥ Kills: ").styled(s -> s.withColor(LABEL_COLOR))
-                    .append(Text.literal(String.format("%,d", kills)).styled(s -> s.withColor(Formatting.RED).withItalic(false)))
-            ));
-        } else {
-            loreLines.add(noItalic(
-                Text.literal("⬥ Blocks: ").styled(s -> s.withColor(LABEL_COLOR))
-                    .append(Text.literal(String.format("%,d", blocks)).styled(s -> s.withColor(Formatting.AQUA).withItalic(false)))
             ));
         }
 

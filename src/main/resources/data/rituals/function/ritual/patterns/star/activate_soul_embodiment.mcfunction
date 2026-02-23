@@ -2,7 +2,7 @@
 # Activate Soul Embodiment Ritual
 # ========================================
 # Called when star pattern is detected with all correct soul items
-# This awakens the central tool with a living soul
+# This awakens the central item with a living soul
 
 # Mark ritual as active (prevents re-triggering)
 tag @s add rituals.active_ritual
@@ -59,8 +59,8 @@ playsound minecraft:block.enchantment_table.use master @a ~ ~ ~ 2.0 1.0
 
 # === SUCCESS MESSAGE ===
 tellraw @a[distance=..32] [{"text":""},{"text":"✦ ","color":"dark_purple","bold":true},{"text":"SOUL EMBODIMENT","color":"light_purple","bold":true},{"text":" ✦","color":"dark_purple","bold":true}]
-tellraw @a[distance=..32] [{"text":"   Your weapon has been granted a ","color":"gray"},{"text":"living soul","color":"aqua","bold":true},{"text":"!","color":"gray"}]
-tellraw @a[distance=..32] [{"text":"   Your soul is now bound to it. Use it well.","color":"gray"}]
+tellraw @a[distance=..32] [{"text":"   Your item has been granted a ","color":"gray"},{"text":"living soul","color":"aqua","bold":true},{"text":"!","color":"gray"}]
+tellraw @a[distance=..32] [{"text":"   A soul is now bound to it. Use it well.","color":"gray"}]
 tellraw @a[distance=..32] [{"text":"   ","color":"gray"},{"text":"Level Cap: 15","color":"yellow"},{"text":" | Perform ritual again to ascend!","color":"gray"}]
 
 # Mark ritual as completed for badges
@@ -134,5 +134,5 @@ execute if block ~ ~-1 ~ minecraft:soul_fire run setblock ~ ~-1 ~ minecraft:air
 # Player must be able to take their awakened weapon!
 tag @s remove rituals.active_ritual
 tag @s remove rituals.soul_embodiment
-tellraw @a[distance=..10] [{"text":"   ","color":"gray"},{"text":"✦ Right-click the totem to claim your awakened weapon!","color":"green"}]
+tellraw @a[distance=..10] [{"text":"   ","color":"gray"},{"text":"✦ Right-click the totem to claim your awakened item!","color":"green"}]
 
