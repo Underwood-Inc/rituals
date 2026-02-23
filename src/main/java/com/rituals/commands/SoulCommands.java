@@ -20,7 +20,7 @@ import net.minecraft.util.Formatting;
 public class SoulCommands {
 
     /**
-     * /rituals soul info - Display detailed info about held soul weapon
+     * /rituals soul info - Display detailed info about held soul-embodied item
      */
     public static int showInfo(CommandContext<ServerCommandSource> ctx) {
         ServerCommandSource source = ctx.getSource();
@@ -29,7 +29,7 @@ public class SoulCommands {
             ItemStack held = player.getMainHandStack();
             
             if (!SoulEmbodimentManager.isSoulWeapon(held)) {
-                source.sendError(Text.literal("You must hold a soul-embodied weapon to use this command!"));
+                source.sendError(Text.literal("You must hold a soul-embodied item to use this command!"));
                 return 0;
             }
             
@@ -50,8 +50,6 @@ public class SoulCommands {
             int tier = getNbtInt(nbt, "soul_ascension_tier", 1);
             int bonuses = getNbtInt(nbt, "soul_bonus_enchants", 0);
             String type = getNbtString(nbt, "soul_type", "generic");
-            int kills = getNbtInt(nbt, "soul_kills", 0);
-            int blocks = getNbtInt(nbt, "soul_blocks_broken", 0);
             boolean readyAscend = getNbtBool(nbt, "soul_ready_ascend");
             
             int xpForNext = SoulEmbodimentManager.calculateXpForLevel(level + 1);
@@ -109,17 +107,6 @@ public class SoulCommands {
             source.sendFeedback(() -> Text.literal("  Bonus Enchants: ").formatted(Formatting.GRAY)
                 .append(Text.literal("+" + fBonuses).formatted(fBonuses > 0 ? Formatting.LIGHT_PURPLE : Formatting.DARK_GRAY)), false);
             
-            // Stats
-            final int fKills = kills;
-            final int fBlocks = blocks;
-            if (type.equals("sword") || type.equals("axe")) {
-                source.sendFeedback(() -> Text.literal("  Kills: ").formatted(Formatting.GRAY)
-                    .append(Text.literal(String.format("%,d", fKills)).formatted(Formatting.RED)), false);
-            } else {
-                source.sendFeedback(() -> Text.literal("  Blocks Broken: ").formatted(Formatting.GRAY)
-                    .append(Text.literal(String.format("%,d", fBlocks)).formatted(Formatting.AQUA)), false);
-            }
-            
             // Ascension progress
             int ascensionsRemaining = 18 - tier;
             final int fRemaining = ascensionsRemaining;
@@ -132,13 +119,13 @@ public class SoulCommands {
             
             return Command.SINGLE_SUCCESS;
         } catch (Exception e) {
-            source.sendError(Text.literal("This command must be run by a player holding a soul weapon!"));
+            source.sendError(Text.literal("This command must be run by a player holding a soul-embodied item!"));
             return 0;
         }
     }
 
     /**
-     * /rituals soul rename <name> - Rename your soul weapon
+     * /rituals soul rename <name> - Rename your soul-embodied item
      */
     public static int rename(CommandContext<ServerCommandSource> ctx) {
         ServerCommandSource source = ctx.getSource();
@@ -147,7 +134,7 @@ public class SoulCommands {
             ItemStack held = player.getMainHandStack();
             
             if (!SoulEmbodimentManager.isSoulWeapon(held)) {
-                source.sendError(Text.literal("You must hold a soul-embodied weapon to rename it!"));
+                source.sendError(Text.literal("You must hold a soul-embodied item to rename it!"));
                 return 0;
             }
             

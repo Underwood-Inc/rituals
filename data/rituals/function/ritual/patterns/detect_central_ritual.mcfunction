@@ -3,27 +3,20 @@
 # ========================================
 # Runs when checking for pattern-based rituals
 # Determines which pattern to check based on central totem's displayed item
+# Pattern validation in each sub-function ensures only the correct ritual activates
 
 # Get the item displayed on this totem
 scoreboard players operation #central_totem_id rituals.temp = @s rituals.id
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #central_totem_id rituals.temp run data modify storage rituals:temp central_item set from entity @s item.id
 
 # PATTERN-BASED AREA EFFECT RITUALS
-# Just check the patterns and activate if valid - that's it!
+# Each detector validates its own surrounding pattern — wrong pattern = no activation
 
 # Auto-Farming - Square pattern (4 corners)
 execute if data storage rituals:temp {central_item:"minecraft:diamond_hoe"} run function rituals:ritual/patterns/square/detect_auto_farming
 
 # Auto-Breeding - Star pattern (4 cardinals)
 execute if data storage rituals:temp {central_item:"minecraft:wheat"} run function rituals:ritual/patterns/star/detect_auto_breeding
-
-# Soul Embodiment / Ascension - Star pattern (4 cardinals) - Any awakeable tool
-# Check if central item is an awakeable tool using tag
-scoreboard players set #is_soul_tool rituals.temp 0
-execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #central_totem_id rituals.temp if items entity @s contents #rituals:awakeable_tools run scoreboard players set #is_soul_tool rituals.temp 1
-
-# If it's an awakeable tool, determine if it needs awakening or ascension
-execute if score #is_soul_tool rituals.temp matches 1 run function rituals:ritual/patterns/star/route_soul_ritual
 
 # Flight Zone - Septagon pattern (7 around) - NOT IMPLEMENTED YET
 # execute if data storage rituals:temp {central_item:"minecraft:elytra"} run function rituals:ritual/patterns/septagon/detect_flight_zone
@@ -40,4 +33,5 @@ execute if score #is_soul_tool rituals.temp matches 1 run function rituals:ritua
 # Time Warp - Nonagon pattern (9 around) - NOT IMPLEMENTED YET
 # execute if data storage rituals:temp {central_item:"minecraft:clock"} run function rituals:ritual/patterns/nonagon/detect_time_warp
 
-
+# Soul Embodiment / Ascension - Star pattern (4 cardinals) - ANY item
+function rituals:ritual/patterns/star/route_soul_ritual

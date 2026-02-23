@@ -1,7 +1,7 @@
 # ========================================
 # Detect Soul Embodiment Pattern (Star - 4 Cardinals)
 # ========================================
-# Central Item: Any awakeable tool (uses #rituals:awakeable_tools tag)
+# Central Item: Any item (soul embodiment is universal)
 # Pattern: 4 totems in cardinal directions (N/E/S/W) at 5 blocks distance
 # Required Items:
 #   North (0, +5): Soul Sand
@@ -18,13 +18,6 @@ scoreboard players operation #check_soul_id rituals.temp = @s rituals.id
 # Skip if the central item is already soul-embodied
 execute store result score #is_soul_item rituals.temp run execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #check_soul_id rituals.temp if data entity @s item.components."minecraft:custom_data".soul_embodied
 execute if score #is_soul_item rituals.temp matches 1.. run return 0
-
-# Check if central item is an awakeable tool using ITEM TAG (not hardcoded!)
-scoreboard players set #is_awakeable rituals.temp 0
-execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #check_soul_id rituals.temp if items entity @s contents #rituals:awakeable_tools run scoreboard players set #is_awakeable rituals.temp 1
-
-# If not awakeable, exit
-execute if score #is_awakeable rituals.temp matches 0 run return 0
 
 # Show setup help message (only once per totem)
 execute unless entity @s[tag=rituals.soul_help_shown] run tellraw @a[distance=..10] [{"text":"✦ ","color":"light_purple"},{"text":"Soul Embodiment Pattern Setup:","bold":true,"color":"dark_purple"}]

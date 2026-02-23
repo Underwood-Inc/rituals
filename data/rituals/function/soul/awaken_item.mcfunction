@@ -1,14 +1,14 @@
 # ========================================
 # Awaken Item - Soul Embodiment Ritual
 # ========================================
-# Transforms a tool into a living soul weapon
+# Transforms any item into a living soul vessel
 # Called AS the item_display entity by activate_soul_embodiment.mcfunction
 
 # Generate a random soul name based on type (soul_type already set by activate_soul_embodiment)
 function rituals:soul/names/generate
 
 # Create the soul data compound
-data modify storage rituals:temp soul_data set value {soul_embodied:1b,soul_level:1,soul_xp:0,soul_xp_total:0,soul_level_cap:15,soul_ascension_tier:1,soul_bonus_enchants:0,soul_ready_ascend:0b,soul_kills:0,soul_blocks_broken:0}
+data modify storage rituals:temp soul_data set value {soul_embodied:1b,soul_level:1,soul_xp:0,soul_xp_total:0,soul_level_cap:15,soul_ascension_tier:1,soul_bonus_enchants:0,soul_ready_ascend:0b}
 
 # Add soul name from storage (the lore/identity name like "Vexbane")
 data modify storage rituals:temp soul_data.soul_name set from storage rituals:temp soul_name
@@ -39,7 +39,7 @@ function rituals:soul/name/apply_display with storage rituals:temp
 data modify entity @s item set from storage rituals:temp item
 
 # === APPLY LORE (Initial values: Level 1, XP 0, Cap 15) ===
-data modify entity @s item.components."minecraft:lore" set value [{"text":"━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"},{"text":"Soul Level: 1/15","color":"gray"},{"text":"Soul XP: 0/10","color":"gray"},{"text":"━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"},{"text":"\"I awaken...\"","color":"gray","italic":true},{"text":"✦ Soul-Bound Weapon ✦","color":"light_purple"}]
+data modify entity @s item.components."minecraft:lore" set value [{"text":"━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"},{"text":"Soul Level: 1/15","color":"gray"},{"text":"Soul XP: 0/10","color":"gray"},{"text":"━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"},{"text":"\"I awaken...\"","color":"gray","italic":true},{"text":"✦ Soul Embodied ✦","color":"light_purple"}]
 
 # Cleanup temp values
 data remove storage rituals:temp soul_data

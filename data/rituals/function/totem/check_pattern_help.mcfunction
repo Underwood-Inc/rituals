@@ -15,8 +15,7 @@ execute if data storage rituals:temp {placed_item:"minecraft:diamond_hoe"} unles
 # === AUTO-BREEDING (Wheat) ===
 execute if data storage rituals:temp {placed_item:"minecraft:wheat"} unless entity @s[tag=rituals.pattern_help_shown] run function rituals:totem/pattern_help/auto_breeding
 
-# === SOUL EMBODIMENT (Any Awakeable Tool) ===
-# Check if item is a tool that can be awakened - uses item tags
+# === SOUL EMBODIMENT (Any Item) ===
 execute unless entity @s[tag=rituals.soul_help_shown] run function rituals:totem/pattern_help/check_soul_item
 
 # Clear temp storage

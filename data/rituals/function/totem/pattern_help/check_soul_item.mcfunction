@@ -1,15 +1,15 @@
 # ========================================
-# Check if placed item is awakeable for Soul Embodiment
+# Check if placed item can be Soul Embodied
 # ========================================
-# Uses ITEM TAGS to check if item can be awakened
+# Any item can be soul-embodied
 # Runs AS the totem (interaction entity)
 
 # Get this totem's matching item_display
 scoreboard players operation #soul_check_id rituals.temp = @s rituals.id
 
-# Check using the awakeable_tools tag (contains #minecraft:swords, #minecraft:pickaxes, etc.)
-scoreboard players set #is_awakeable rituals.temp 0
-execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #soul_check_id rituals.temp if items entity @s contents #rituals:awakeable_tools run scoreboard players set #is_awakeable rituals.temp 1
+# Skip items already soul-embodied (those go to ascension, not embodiment help)
+execute store result score #is_already_soul rituals.temp run execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #soul_check_id rituals.temp if data entity @s item.components."minecraft:custom_data".soul_embodied
+execute if score #is_already_soul rituals.temp matches 1.. run return 0
 
-# If awakeable, show the soul embodiment help
-execute if score #is_awakeable rituals.temp matches 1 run function rituals:totem/pattern_help/soul_embodiment
+# Show soul embodiment help for all items
+function rituals:totem/pattern_help/soul_embodiment
