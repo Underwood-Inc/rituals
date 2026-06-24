@@ -126,7 +126,7 @@ See `SECURITY.md` for:
 1. Checks out the code
 2. Sets up JDK 21
 3. Builds with Gradle
-4. Uploads artifacts (mod JAR, datapack ZIP, resourcepack ZIP)
+4. Uploads artifacts (datapack ZIP; optional legacy mod JAR)
 5. Validates JSON files
 
 **Purpose**: Ensures all commits build successfully and JSON is valid

@@ -68,7 +68,7 @@ See [docs/BUILD_GUIDE.md](docs/BUILD_GUIDE.md) for detailed build instructions.
 
 ```
 rituals/
-├── data/                       # Datapack files (.mcfunction, JSON)
+├── data/                       # Datapack files (source of truth)
 │   ├── rituals/
 │   │   ├── function/          # Minecraft functions
 │   │   ├── advancement/       # Achievement system
@@ -76,12 +76,9 @@ rituals/
 │   │   └── tags/             # Custom tags
 │   └── minecraft/
 │       └── tags/function/    # Load/tick hooks
-├── resourcepack/              # Custom textures and models
-│   └── assets/
-│       ├── rituals/          # Custom models
-│       └── minecraft/        # Model overrides
-├── src/main/java/            # Fabric mod code (commands, config)
-│   └── com/rituals/
+├── pack.mcmeta                # Datapack metadata (Minecraft 26.2)
+├── plugin/                    # Optional Spigot plugin (permissions, GUI, integrations)
+│   └── src/main/java/         # Plugin Java sources
 ├── docs/                      # Documentation
 ├── images/                    # README images
 └── build.gradle              # Build configuration
@@ -134,10 +131,9 @@ Before submitting a PR, test thoroughly:
 - Verify no memory leaks over extended play
 
 ### Compatibility Testing
-- Test with Fabric API only (minimal setup)
-- Test with common mod combinations
-- Ensure no conflicts with vanilla mechanics
-- Verify backwards compatibility with existing worlds
+- Test on **Minecraft 26.2** (vanilla or Spigot)
+- Verify no conflicts with vanilla mechanics
+- Verify backwards compatibility with existing worlds (soul item `custom_data`)
 
 ## 🎨 Adding New Rituals
 

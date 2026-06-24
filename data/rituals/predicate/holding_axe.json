@@ -2,8 +2,8 @@
   "condition": "minecraft:entity_properties",
   "entity": "this",
   "predicate": {
-    "equipment": {
-      "mainhand": {
+    "minecraft:equipment": {
+      "minecraft:mainhand": {
         "items": [
           "minecraft:wooden_axe",
           "minecraft:stone_axe",
@@ -16,4 +16,3 @@
     }
   }
 }
-

@@ -1,130 +1,32 @@
 plugins {
-    id 'net.fabricmc.fabric-loom-remap' version "${loom_version}"
-    id 'maven-publish'
+    id 'base'
 }
 
-version = project.mod_version
-group = project.maven_group
+def props = new Properties()
+file('gradle.properties').withInputStream { props.load(it) }
 
-base {
-    archivesName = project.archives_base_name
+version = props.getProperty('datapack_version', '2.0.0')
+group = 'com.rituals'
+
+allprojects {
+    version = rootProject.version
+    group = rootProject.group
 }
 
-repositories {
-    // ModMenu
-    maven { url "https://maven.terraformersmc.com/releases/" }
-    // Cloth Config
-    maven { url "https://maven.shedaniel.me/" }
-}
+tasks.register('packageDatapack', Zip) {
+    description = 'Creates the standalone Rituals datapack zip for Minecraft 26.2'
+    group = 'build'
 
-dependencies {
-    // To change the versions see the gradle.properties file
-    minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings "net.fabricmc:yarn:${project.yarn_mappings}:v2"
-    modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
-    
-    // Fabric API for command registration
-    modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
-    
-    // TOML parser for config files (supports comments!)
-    implementation "com.moandjiezana.toml:toml4j:0.7.2"
-    include "com.moandjiezana.toml:toml4j:0.7.2"
-    
-    // Optional: ModMenu integration (config screen)
-    modCompileOnly("com.terraformersmc:modmenu:13.0.0-beta.1") {
-        transitive = false
-    }
-    
-    // Optional: Cloth Config (fancy config screen)
-    modCompileOnly("me.shedaniel.cloth:cloth-config-fabric:17.0.144") {
-        exclude(group: "net.fabricmc.fabric-api")
-    }
-}
+    archiveBaseName = "${props.getProperty('archives_base_name', 'rituals')}-datapack"
+    archiveVersion = version
+    destinationDirectory = layout.buildDirectory.dir('datapacks')
 
-// Task to sync datapack/resourcepack to mod resources before building
-task syncDatapack(type: Copy) {
-    description = 'Syncs datapack and resourcepack to mod resources folder'
-    from('data') {
-        into 'data'
-        // Exclude load.mcfunction - mod variant has custom commands
-        exclude 'rituals/function/load.mcfunction'
-    }
-    from('resourcepack') {
-        into '.'
-        exclude 'pack.mcmeta' // Use the mod's pack.mcmeta instead
-    }
-    into 'src/main/resources'
-}
-
-// Make sure syncDatapack runs before processing resources
-processResources.dependsOn syncDatapack
-
-processResources {
-    inputs.property "version", project.version
-
-    filesMatching("fabric.mod.json") {
-        expand "version": project.version
-    }
-    
-    // Ensure datapack pack.mcmeta is NOT overwritten by root one
-    exclude 'pack.mcmeta.datapack'
-}
-
-tasks.withType(JavaCompile).configureEach {
-	it.options.release = 21
-}
-
-java {
-    withSourcesJar()
-    sourceCompatibility = JavaVersion.VERSION_21
-    targetCompatibility = JavaVersion.VERSION_21
-}
-
-// Configure sourcesJar after it's created
-tasks.named('sourcesJar') {
-    dependsOn syncDatapack
-}
-
-jar {
-    from("LICENSE") {
-        rename { "${it}_${project.base.archivesName.get()}"}
-    }
-}
-
-// Task to package standalone datapack (without mod code)
-task packageDatapack(type: Zip) {
-    description = 'Creates a standalone datapack zip'
-    archiveBaseName = "${project.archives_base_name}-datapack"
-    archiveVersion = project.mod_version
-    destinationDirectory = file("${buildDir}/datapacks")
-    
     from('data') {
         into 'data'
     }
     from('pack.mcmeta')
 }
 
-// Task to package standalone resourcepack
-task packageResourcepack(type: Zip) {
-    description = 'Creates a standalone resourcepack zip'
-    archiveBaseName = "${project.archives_base_name}-resourcepack"
-    archiveVersion = project.mod_version
-    destinationDirectory = file("${buildDir}/resourcepacks")
-    
-    from('resourcepack')
-}
-
-// Add tasks to build
-build.dependsOn packageDatapack, packageResourcepack
-
-// configure the maven publication
-publishing {
-    publications {
-        mavenJava(MavenPublication) {
-            from components.java
-        }
-    }
-    repositories {
-        // Add repositories to publish to here.
-    }
+tasks.named('build') {
+    dependsOn 'packageDatapack', ':plugin:build'
 }

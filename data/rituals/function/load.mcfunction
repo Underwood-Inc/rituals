@@ -110,7 +110,7 @@ execute as @a run function rituals:badges/calculate_badge
 
 tellraw @a [{"text":""}]
 tellraw @a [{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"}]
-tellraw @a [{"text":"│","color":"dark_purple"},{"text":"          🔮 ","color":"light_purple"},{"text":"Rituals","color":"white"},{"text":" - Fire Sacrifice Edition","color":"gray"}]
+tellraw @a [{"text":"│","color":"dark_purple"},{"text":"          🔮 ","color":"light_purple"},{"text":"Rituals","color":"white"},{"text":" - Fire Sacrifice Edition (26.2)","color":"gray"}]
 tellraw @a [{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"}]
 tellraw @a [{"text":"│","color":"dark_purple"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"  Press ","color":"gray"},{"text":"L","color":"aqua"},{"text":" to open the Advancement Guide","color":"gray"}]

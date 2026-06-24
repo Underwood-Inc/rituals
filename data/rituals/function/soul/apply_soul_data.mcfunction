@@ -19,6 +19,8 @@ execute if score @s rituals.soul_temp matches 1 run data modify storage rituals:
 execute if score @s rituals.soul_temp matches 1 run data modify storage rituals:temp existing_data merge from storage rituals:temp soul_data
 execute if score @s rituals.soul_temp matches 1 run data modify storage rituals:temp soul_data set from storage rituals:temp existing_data
 
-# Apply the custom data using item modify
-item modify entity @s weapon.mainhand rituals:inject_soul_data
+# Apply the custom data to the held item
+execute store success score @s rituals.soul_temp run data get entity @s weapon.mainhand.components."minecraft:custom_data"
+execute if score @s rituals.soul_temp matches 1 run data modify entity @s weapon.mainhand.components."minecraft:custom_data" merge from storage rituals:temp soul_data
+execute if score @s rituals.soul_temp matches 0 run data modify entity @s weapon.mainhand.components."minecraft:custom_data" set from storage rituals:temp soul_data
 

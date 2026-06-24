@@ -1,0 +1,61 @@
+name: Rituals
+version: '${version}'
+main: com.rituals.plugin.RitualsPlugin
+api-version: '26.2'
+description: Server integrations for the Rituals datapack (permissions, config GUI, optional Vault & PlaceholderAPI)
+author: strixun
+website: https://github.com/Underwood-Inc/rituals
+
+# Soft dependencies — core gameplay is the bundled datapack; these only add integrations.
+softdepend:
+  - Vault
+  - PlaceholderAPI
+
+commands:
+  rituals:
+    description: Rituals admin and player commands
+    usage: /<command> [help|config|reload|give|soul|admin]
+    aliases: [ritual]
+
+permissions:
+  rituals.*:
+    description: All Rituals permissions
+    default: op
+    children:
+      rituals.use: true
+      rituals.admin: true
+      rituals.config: true
+      rituals.give: true
+      rituals.soul: true
+      rituals.soul.rename: true
+      rituals.bypass.fire: true
+
+  rituals.use:
+    description: Use Rituals commands and open the config menu (if granted)
+    default: true
+
+  rituals.admin:
+    description: Admin utilities (kiwi mode, debug, reset)
+    default: op
+
+  rituals.config:
+    description: Open the chest config GUI and reload datapack config
+    default: op
+
+  rituals.give:
+    description: Receive totems and guidebook via /rituals give
+    default: op
+
+  rituals.soul:
+    description: Soul weapon info commands
+    default: true
+    children:
+      rituals.soul.rename: true
+
+  rituals.soul.rename:
+    description: Rename a soul-embodied item via /rituals soul rename
+    default: true
+
+  rituals.bypass.fire:
+    description: Reserved for future fire-sacrifice bypass hooks (datapack kiwi mode remains the primary toggle)
+    default: op

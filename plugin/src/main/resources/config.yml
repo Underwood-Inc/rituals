@@ -1,0 +1,26 @@
+# Rituals Spigot plugin — server integration only.
+# Gameplay lives in the datapack. Installing the datapack alone still works on any 26.2 server.
+
+datapack:
+  # Copy bundled datapack zip into world/datapacks/ during plugin onLoad (before worlds start).
+  auto-install: true
+  # Filename inside world/datapacks/ (same as dropping the zip manually).
+  zip-file: rituals.zip
+
+integrations:
+  # When true and Vault is installed, optional economy hooks below can charge players.
+  vault-enabled: false
+  placeholderapi-enabled: true
+
+economy:
+  # Costs use Vault when vault-enabled is true and Vault is present. 0 = free.
+  give-totem-set-cost: 0.0
+  soul-rename-cost: 0.0
+
+messages:
+  # Use standard & color codes (e.g. &5 purple, &c red, &a green, &6 gold, &r reset)
+  prefix: "&5[Rituals]&r "
+  no-permission: "&cYou do not have permission."
+  vault-missing: "&eVault is not installed — economy features are disabled."
+  vault-charged: "&aCharged &6{amount}&a."
+  vault-insufficient: "&cInsufficient funds (need &6{amount}&c)."
