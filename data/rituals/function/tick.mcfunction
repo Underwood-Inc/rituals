@@ -3,6 +3,10 @@
 # ========================================
 # This function runs every game tick (20 times per second)
 
+# Detect player joins (tag cleared when they disconnect; restored each login)
+execute as @a[tag=!rituals.session_seen] run function rituals:player/on_join
+tag @a add rituals.session_seen
+
 # Reduce placement cooldown
 scoreboard players remove @a[scores={rituals.temp=1..}] rituals.temp 1
 

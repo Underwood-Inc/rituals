@@ -1,24 +1,16 @@
 package com.rituals.plugin.datapack;
 
 import com.rituals.plugin.RitualsPlugin;
+import org.bukkit.World;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
+import java.io.File;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
-import java.util.jar.JarEntry;
-import java.util.jar.JarFile;
-import java.util.zip.ZipFile;
+import java.util.ArrayList;
+import java.util.LinkedHashSet;
+import java.util.List;
+import java.util.Set;
 
-/**
- * Copies the bundled datapack zip into the default world's datapacks folder during {@code onLoad()},
- * before Minecraft loads worlds (and their datapacks).
- */
 public final class DatapackInstaller {
-
-    static final String BUNDLED_ZIP = "rituals-datapack.zip";
-    private static final long MIN_ZIP_BYTES = 200_000L;
 
     private final RitualsPlugin plugin;
 
@@ -26,130 +18,64 @@ public final class DatapackInstaller {
         this.plugin = plugin;
     }
 
-    /**
-     * Must run from {@link RitualsPlugin#onLoad()} — worlds are not loaded yet.
-     */
     public void installBeforeWorldsLoad() {
+        install(false);
+    }
+
+    /** Retry after worlds exist (e.g. if {@code onLoad} ran before paths were valid). */
+    public void installAfterEnable() {
+        install(true);
+    }
+
+    private void install(boolean worldAlreadyLoaded) {
         if (!plugin.getConfig().getBoolean("datapack.auto-install", true)) {
             return;
         }
 
-        String zipFileName = plugin.getConfig().getString("datapack.zip-file", "rituals.zip");
-        Path targetZip = defaultWorldDatapacksDir().resolve(zipFileName);
+        String zipFileName = plugin.getConfig().getString("datapack.zip-file", DatapackFiles.DEFAULT_ZIP_NAME);
+        String folderName = plugin.getConfig().getString("datapack.folder-name", DatapackFiles.DEFAULT_FOLDER_NAME);
+        Path serverRoot = ServerPaths.serverRoot(plugin);
+        Path defaultWorld = ServerPaths.defaultWorld(plugin);
+        File pluginJar = plugin.getPluginJar();
 
-        try {
-            if (isValidZip(targetZip)) {
-                return;
+        plugin.getLogger().info("Rituals datapack install — server root: " + serverRoot
+                + ", default world: " + defaultWorld);
+
+        Set<Path> installed = new LinkedHashSet<>();
+
+        if (worldAlreadyLoaded && plugin.getServer() != null) {
+            for (World world : plugin.getServer().getWorlds()) {
+                installed.addAll(DatapackFiles.installToWorld(
+                        world.getWorldFolder().toPath(), zipFileName, folderName, RitualsPlugin.class, pluginJar));
             }
+        }
 
-            Files.createDirectories(targetZip.getParent());
+        installed.addAll(DatapackFiles.installToWorld(
+                defaultWorld, zipFileName, folderName, RitualsPlugin.class, pluginJar));
+        installed.addAll(DatapackFiles.installAllWorlds(
+                serverRoot, zipFileName, folderName, RitualsPlugin.class, pluginJar));
 
-            try (InputStream in = openBundledZipStream()) {
-                if (in == null) {
-                    plugin.getLogger().severe("Bundled " + BUNDLED_ZIP + " is missing from the plugin JAR.");
-                    return;
-                }
-                Files.copy(in, targetZip, StandardCopyOption.REPLACE_EXISTING);
-            }
+        for (Path path : installed) {
+            plugin.getLogger().info("Rituals datapack ready at " + path.toAbsolutePath());
+        }
 
-            if (!isValidZip(targetZip)) {
-                plugin.getLogger().severe("Failed to install Rituals datapack zip at " + targetZip);
-                return;
-            }
+        if (!isInstalled()) {
+            Path expected = defaultWorld.resolve("datapacks").resolve(zipFileName);
+            plugin.getLogger().severe("Rituals datapack NOT at " + expected.toAbsolutePath());
+            plugin.getLogger().severe("Upload build/server-deploy/world/datapacks/rituals.zip manually, then restart.");
+            return;
+        }
 
-            plugin.getLogger().info("Installed Rituals datapack zip -> " + targetZip + " (" + Files.size(targetZip) + " bytes)");
-        } catch (IOException ex) {
-            plugin.getLogger().severe("Failed to install Rituals datapack: " + ex.getMessage());
-            ex.printStackTrace();
+        if (worldAlreadyLoaded && !installed.isEmpty() && plugin.getDatapackBridge() != null) {
+            plugin.getLogger().info("Reloading datapacks so Rituals appears in /datapack list...");
+            plugin.getDatapackBridge().reloadDatapacks();
         }
     }
 
     public boolean isInstalled() {
-        String zipFileName = plugin.getConfig().getString("datapack.zip-file", "rituals.zip");
-        return isValidZip(defaultWorldDatapacksDir().resolve(zipFileName));
-    }
-
-    private static boolean isValidZip(Path zip) {
-        try {
-            if (!Files.isRegularFile(zip) || Files.size(zip) < MIN_ZIP_BYTES) {
-                return false;
-            }
-            try (ZipFile file = new ZipFile(zip.toFile())) {
-                return file.getEntry("pack.mcmeta") != null
-                        && file.getEntry("data/minecraft/tags/function/load.json") != null
-                        && file.getEntry("data/rituals/function/load.mcfunction") != null;
-            }
-        } catch (IOException ex) {
-            return false;
-        }
-    }
-
-    private Path defaultWorldDatapacksDir() {
-        return plugin.getServer().getWorldContainer().toPath()
-                .resolve(readLevelName())
-                .resolve("datapacks");
-    }
-
-    private String readLevelName() {
-        try {
-            Path propsFile = plugin.getServer().getWorldContainer().toPath().resolve("server.properties");
-            for (String line : Files.readAllLines(propsFile)) {
-                if (line.startsWith("level-name=")) {
-                    return line.substring("level-name=".length()).trim();
-                }
-            }
-        } catch (IOException ignored) {
-            // default below
-        }
-        return "world";
-    }
-
-    private InputStream openBundledZipStream() throws IOException {
-        InputStream resource = RitualsPlugin.class.getResourceAsStream("/" + BUNDLED_ZIP);
-        if (resource != null) {
-            return resource;
-        }
-
-        java.io.File jarFile = plugin.getPluginJar();
-        if (!jarFile.isFile()) {
-            return null;
-        }
-
-        JarFile jar = new JarFile(jarFile);
-        JarEntry entry = jar.getJarEntry(BUNDLED_ZIP);
-        if (entry == null) {
-            jar.close();
-            return null;
-        }
-        return new FilterCloseInputStream(jar.getInputStream(entry), jar);
-    }
-
-    private static final class FilterCloseInputStream extends InputStream {
-        private final InputStream delegate;
-        private final JarFile jar;
-
-        private FilterCloseInputStream(InputStream delegate, JarFile jar) {
-            this.delegate = delegate;
-            this.jar = jar;
-        }
-
-        @Override
-        public int read() throws IOException {
-            return delegate.read();
-        }
-
-        @Override
-        public int read(byte[] b, int off, int len) throws IOException {
-            return delegate.read(b, off, len);
-        }
-
-        @Override
-        public void close() throws IOException {
-            try {
-                delegate.close();
-            } finally {
-                jar.close();
-            }
-        }
+        Path world = ServerPaths.defaultWorld(plugin);
+        String zipFileName = plugin.getConfig().getString("datapack.zip-file", DatapackFiles.DEFAULT_ZIP_NAME);
+        String folderName = plugin.getConfig().getString("datapack.folder-name", DatapackFiles.DEFAULT_FOLDER_NAME);
+        return DatapackFiles.isInstalledInWorld(world, zipFileName, folderName);
     }
 }

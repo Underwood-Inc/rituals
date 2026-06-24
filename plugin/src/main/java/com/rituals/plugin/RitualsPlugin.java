@@ -49,6 +49,7 @@ public final class RitualsPlugin extends JavaPlugin {
     public void onLoad() {
         instance = this;
         saveDefaultConfig();
+        reloadConfig();
         datapackInstaller = new DatapackInstaller(this);
         datapackInstaller.installBeforeWorldsLoad();
     }
@@ -59,6 +60,8 @@ public final class RitualsPlugin extends JavaPlugin {
         pluginConfig.reload();
 
         datapackBridge = new DatapackBridge(this);
+
+        datapackInstaller.installAfterEnable();
 
         if (!datapackInstaller.isInstalled()) {
             getLogger().severe("Rituals datapack zip is not in the default world's datapacks folder.");

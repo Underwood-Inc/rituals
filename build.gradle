@@ -17,6 +17,8 @@ tasks.register('packageDatapack', Zip) {
     description = 'Creates the standalone Rituals datapack zip for Minecraft 26.2'
     group = 'build'
 
+    dependsOn 'buildGuidebookLoot'
+
     archiveBaseName = "${props.getProperty('archives_base_name', 'rituals')}-datapack"
     archiveVersion = version
     destinationDirectory = layout.buildDirectory.dir('datapacks')
@@ -27,6 +29,16 @@ tasks.register('packageDatapack', Zip) {
     from('pack.mcmeta')
 }
 
+tasks.register('buildGuidebookLoot', Exec) {
+    description = 'Regenerates guidebook loot table from data/rituals/guidebook/pages.json'
+    group = 'build'
+    commandLine 'python', "${rootDir}/tools/build-guidebook-loot.py"
+    inputs.file("${rootDir}/data/rituals/guidebook/pages.json")
+    inputs.file("${rootDir}/tools/build-guidebook-loot.py")
+    outputs.file("${rootDir}/data/rituals/loot_table/items/guidebook.json")
+    outputs.file("${rootDir}/data/rituals/loot_table/items/guidebook_welcome.json")
+}
+
 tasks.named('build') {
-    dependsOn 'packageDatapack', ':plugin:build'
+    dependsOn 'packageDatapack', ':plugin:build', ':plugin:assembleServerDeploy'
 }

@@ -55,9 +55,34 @@ Outputs:
 ### Datapack + plugin (recommended for networks)
 
 1. Place `rituals-plugin-*.jar` in `plugins/`
-2. Restart (or `/reload` — restart preferred on first install)
-3. Plugin auto-copies bundled datapack to `world/datapacks/rituals/` when `datapack.auto-install: true` in `plugins/Rituals/config.yml`
-4. `/rituals config` — chest GUI (permission `rituals.config`)
+2. **AMP / crash-loop fix:** add JVM argument (server **stopped** → Settings → JVM flags):
+   ```
+   -javaagent:plugins/rituals-plugin-2.0.0.jar
+   ```
+   This copies `rituals.zip` into `world/datapacks/` **before** Minecraft loads the world (required when the world already expects `file/rituals` but the zip was deleted).
+3. Restart the server.
+4. Plugin also installs on `onLoad` when the zip is missing and the server can start. On enable it runs `/minecraft:reload` if the zip was just written.
+5. `/rituals config` — chest GUI (permission `rituals.config`)
+
+**Verify install (console on startup):**
+
+```
+[Rituals] Rituals datapack install — server root: /AMP/Minecraft, default world: /AMP/Minecraft/world
+[Rituals] Installed datapack zip -> /AMP/Minecraft/world/datapacks/rituals.zip (2529734 bytes)
+[Rituals] Reloading datapacks so Rituals appears in /datapack list...
+```
+
+Then in-game: `/datapack list` should show **`file/rituals`** (zip) and/or **`file/rituals`** (folder). If the log says `NOT at ...` the path in that line is where the plugin looked — compare to your AMP file manager.
+
+**Server won't start?** Read the console carefully:
+
+1. **`Missing data pack file/rituals.zip`** — file must be at **`world/datapacks/rituals.zip`** (not `plugins/`, not server-root `datapacks/`). Rename `rituals-datapack-*.zip` → `rituals.zip`.
+
+2. **`Pack declares support for format 61`** (repeated) — **other** datapacks in `world/datapacks/` are broken on 26.2, not Rituals. Remove or update those zips, or start once with **`--safeMode`** in JVM args.
+
+3. **`Overworld settings missing` / `world_gen_settings.dat`** — usually caused by (2) after repeated failed boots. Fix (2), then restore `world` from backup or use `--safeMode` once.
+
+While the server is **stopped**, upload from `build/server-deploy/world/datapacks/rituals.zip` to **`/AMP/Minecraft/world/datapacks/rituals.zip`** (adjust for your host path).
 
 ### Soft dependencies (optional)
 

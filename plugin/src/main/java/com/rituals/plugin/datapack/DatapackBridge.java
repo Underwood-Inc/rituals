@@ -38,6 +38,11 @@ public final class DatapackBridge {
         runFunctionAsConsole("rituals:config/reload");
     }
 
+    /** Reload server datapacks (needed when the zip is copied after the world already loaded). */
+    public void reloadDatapacks() {
+        dispatch("minecraft:reload");
+    }
+
     public void enableKiwiMode() {
         setStorageBoolean("kiwi_mode", true);
         reloadDatapackConfig();

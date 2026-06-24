@@ -53,9 +53,15 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
     }
 
     private void sendHelp(CommandSender sender) {
+        if (sender instanceof Player player) {
+            plugin.getDatapackBridge().runFunction(player, "rituals:help");
+            return;
+        }
         Messages.send(sender, "&d—— Rituals ——");
+        Messages.send(sender, "&b/rituals help &7— guidebook + command list");
         Messages.send(sender, "&b/rituals config &7— chest config GUI (rituals.config)");
         Messages.send(sender, "&b/rituals reload &7— reload plugin + datapack config");
+        Messages.send(sender, "&b/rituals give welcome &7— enchanted guidebook (rituals.admin)");
         Messages.send(sender, "&b/rituals give all &7— totems + guidebook (rituals.give)");
         Messages.send(sender, "&b/rituals soul info &7— soul weapon stats (rituals.soul)");
         Messages.send(sender, "&b/rituals admin <action> &7— kiwi mode, debug (rituals.admin)");
@@ -86,6 +92,25 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
     }
 
     private boolean handleGive(CommandSender sender, String[] args) {
+        if (args.length < 2) {
+            Messages.send(sender, "&eUsage: /rituals give <all|guidebook|welcome|...>");
+            return true;
+        }
+
+        String target = args[1].toLowerCase(Locale.ROOT);
+        if (target.equals("welcome") || target.equals("guidebook_welcome")) {
+            if (!sender.hasPermission("rituals.admin")) {
+                Messages.send(sender, plugin.getPluginConfig().noPermission());
+                return true;
+            }
+            if (!(sender instanceof Player player)) {
+                Messages.send(sender, "&cGive commands are player-only.");
+                return true;
+            }
+            plugin.getDatapackBridge().runFunction(player, "rituals:give/guidebook_welcome");
+            return true;
+        }
+
         if (!sender.hasPermission("rituals.give")) {
             Messages.send(sender, plugin.getPluginConfig().noPermission());
             return true;
@@ -94,17 +119,12 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
             Messages.send(sender, "&cGive commands are player-only.");
             return true;
         }
-        if (args.length < 2) {
-            Messages.send(sender, "&eUsage: /rituals give <all|guidebook|...>");
-            return true;
-        }
 
         double cost = plugin.getPluginConfig().getGiveTotemSetCost();
         if (cost > 0 && !plugin.getVaultHook().charge(player, cost)) {
             return true;
         }
 
-        String target = args[1].toLowerCase(Locale.ROOT);
         if (target.equals("all")) {
             plugin.getDatapackBridge().runFunction(player, "rituals:give/all");
         } else if (target.equals("guidebook")) {
@@ -175,7 +195,7 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
             return filter(ROOT_SUBS, args[0]);
         }
         if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
-            return filter(List.of("all", "guidebook", "basic", "copper", "iron", "gold", "advanced", "netherite"), args[1]);
+            return filter(List.of("all", "guidebook", "welcome", "basic", "copper", "iron", "gold", "advanced", "netherite"), args[1]);
         }
         if (args.length == 2 && args[0].equalsIgnoreCase("soul")) {
             return filter(List.of("info", "rename"), args[1]);

@@ -2,10 +2,12 @@
 # Gameplay lives in the datapack. Installing the datapack alone still works on any 26.2 server.
 
 datapack:
-  # Copy bundled datapack zip into world/datapacks/ during plugin onLoad (before worlds start).
+  # Copy bundled datapack into each world's datapacks/ during plugin onLoad (load: STARTUP).
   auto-install: true
-  # Filename inside world/datapacks/ (same as dropping the zip manually).
+  # Zip filename — world must find this exact name if file/rituals was enabled as a zip.
   zip-file: rituals.zip
+  # Also extract an unzipped copy (world/datapacks/rituals/) for hosts that use folder packs.
+  folder-name: rituals
 
 integrations:
   # When true and Vault is installed, optional economy hooks below can charge players.

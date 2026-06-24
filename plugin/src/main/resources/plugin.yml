@@ -2,6 +2,7 @@ name: Rituals
 version: '${version}'
 main: com.rituals.plugin.RitualsPlugin
 api-version: '26.2'
+load: STARTUP
 description: Server integrations for the Rituals datapack (permissions, config GUI, optional Vault & PlaceholderAPI)
 author: strixun
 website: https://github.com/Underwood-Inc/rituals

@@ -21,6 +21,7 @@ scoreboard objectives add rituals.menu_state dummy
 scoreboard objectives add rituals.badge_tier dummy
 scoreboard objectives add rituals.ritual_count dummy
 scoreboard objectives add rituals.join_detect minecraft.custom:minecraft.leave_game
+scoreboard objectives add rituals.guidebook dummy
 
 # Ritual completion tracking (one for each ritual type)
 scoreboard objectives add rituals.growth_done dummy

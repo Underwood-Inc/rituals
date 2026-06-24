@@ -175,6 +175,9 @@ data modify storage rituals:config breeding_tier6_frequency set value 600
 # If false, runs silently (default for normal gameplay)
 data modify storage rituals:config debug_mode set value false
 
+# Give the Rituals Guidebook automatically on a player's first join
+data modify storage rituals:config give_guidebook_on_join set value true
+
 # ==================== SOUL EMBODIMENT XP SETTINGS ====================
 # Complete block-to-XP mappings loaded from separate files for performance
 # Edit individual files in: data/rituals/function/config/soul_xp/

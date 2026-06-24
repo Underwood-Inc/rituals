@@ -1,0 +1,537 @@
+{
+  "type": "minecraft:generic",
+  "pools": [
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "minecraft:written_book",
+          "functions": [
+            {
+              "function": "minecraft:set_components",
+              "components": {
+                "minecraft:written_book_content": {
+                  "title": "Rituals Guide",
+                  "author": "Ancient Ritualist",
+                  "generation": 0,
+                  "pages": [
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "RITUALS GUIDE",
+                            "color": "dark_purple",
+                            "bold": true
+                          },
+                          "\n\n",
+                          {
+                            "text": "Welcome Ritualist!",
+                            "color": "gold"
+                          },
+                          "\n\nThis guide teaches the ancient art of ritual magic.\n\n",
+                          {
+                            "text": "Press L",
+                            "color": "yellow"
+                          },
+                          {
+                            "text": " for Advancements!",
+                            "color": "gray"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "GETTING STARTED",
+                            "color": "gold",
+                            "bold": true
+                          },
+                          "\n\n1. Craft a totem\n2. Right-click to place\n3. Add item on top\n4. Drop 4 catalysts (N/S/E/W)\n5. Light fire at base\n6. Ritual activates!\n\n",
+                          {
+                            "text": "Single totem works!",
+                            "color": "green"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "FIRE SACRIFICE",
+                            "color": "red",
+                            "bold": true
+                          },
+                          "\n\nRituals need fire!\n\n1. Place totem + item\n2. Drop 4 catalysts around\n3. Light fire at base\n4. Offerings consumed\n5. Magic begins!\n\n",
+                          {
+                            "text": "Use Kiwi Mode to skip fire.",
+                            "color": "gray",
+                            "italic": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "CATALYST COSTS",
+                            "color": "aqua",
+                            "bold": true
+                          },
+                          "\n\nBy Totem Tier:\n\n",
+                          {
+                            "text": "Wood:",
+                            "color": "green"
+                          },
+                          " 4 Coal\n",
+                          {
+                            "text": "Copper:",
+                            "color": "gold"
+                          },
+                          " 4 Copper\n",
+                          {
+                            "text": "Iron:",
+                            "color": "gray"
+                          },
+                          " 4 Iron\n",
+                          {
+                            "text": "Gold:",
+                            "color": "yellow"
+                          },
+                          " 4 Gold\n",
+                          {
+                            "text": "Diamond:",
+                            "color": "aqua"
+                          },
+                          " 4 Diamond\n",
+                          {
+                            "text": "Netherite:",
+                            "color": "dark_red"
+                          },
+                          " 4 Netherite"
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "TOTEM TIERS",
+                            "color": "light_purple",
+                            "bold": true
+                          },
+                          "\n\n",
+                          {
+                            "text": "1. Wood",
+                            "color": "green"
+                          },
+                          " - 2x2x6\n",
+                          {
+                            "text": "2. Copper",
+                            "color": "gold"
+                          },
+                          " - 3x3x8\n",
+                          {
+                            "text": "3. Iron",
+                            "color": "gray"
+                          },
+                          " - 4x4x10\n",
+                          {
+                            "text": "4. Gold",
+                            "color": "yellow"
+                          },
+                          " - 5x5x12\n",
+                          {
+                            "text": "5. Diamond",
+                            "color": "aqua"
+                          },
+                          " - 6x6x14\n",
+                          {
+                            "text": "6. Netherite",
+                            "color": "dark_red"
+                          },
+                          " - 7x7x16\n\nHigher = stronger!"
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "AREA EFFECTS",
+                            "color": "green",
+                            "bold": true
+                          },
+                          "\n\n",
+                          {
+                            "text": "Emerald",
+                            "color": "green"
+                          },
+                          " - Crops grow\n",
+                          {
+                            "text": "Diamond",
+                            "color": "aqua"
+                          },
+                          " - Strength buff\n",
+                          {
+                            "text": "Nether Block",
+                            "color": "dark_red"
+                          },
+                          " - Prosperity\n",
+                          {
+                            "text": "Iron Ingot",
+                            "color": "gray"
+                          },
+                          " - Damage mobs\n",
+                          {
+                            "text": "Nether Star",
+                            "color": "yellow"
+                          },
+                          " - Healing\n",
+                          {
+                            "text": "Arrow",
+                            "color": "white"
+                          },
+                          " - Auto-turret"
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "ΓÜö∩╕Å SOUL EMBODIMENT ΓÜö∩╕Å",
+                            "color": "dark_purple",
+                            "bold": true
+                          },
+                          "\n\n",
+                          {
+                            "text": "Transform tools into",
+                            "color": "gray"
+                          },
+                          "\n",
+                          {
+                            "text": "LIVING WEAPONS!",
+                            "color": "light_purple",
+                            "bold": true
+                          },
+                          "\n\nYour weapon gains:\nΓÇó A unique soul name\nΓÇó Passive XP (just exist!)\nΓÇó Levels 1-100\nΓÇó Random buffs!\nΓÇó Personality quotes!"
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "SOUL RITUAL SETUP",
+                            "color": "light_purple",
+                            "bold": true
+                          },
+                          "\n\n    [N] Soul Sand\n         |\nAmethyst-[ΓÜö∩╕Å]-Ender Pearl\n         |\n    [S] Glowstone\n\n5 blocks from center.\nPlace tool on center.\nLight fire to awaken!"
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "SOUL LEVELING",
+                            "color": "gold",
+                            "bold": true
+                          },
+                          "\n\nΓÇó Soul grows PASSIVELY\nΓÇó Just keep it in your hotbar!\nΓÇó Offhand items boost XP rate\nΓÇó Totem channels energy into weapon\n\n",
+                          {
+                            "text": "Nether Star offhand = 5x XP!",
+                            "color": "aqua"
+                          },
+                          "\n",
+                          {
+                            "text": "Default: 1 XP every 3 min",
+                            "color": "gray"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "SOUL ASCENSION",
+                            "color": "yellow",
+                            "bold": true
+                          },
+                          "\n\nAt max level (15, 20, 25...):\nΓÇó Repeat the ritual\nΓÇó Level cap increases +5\nΓÇó 50% ANY random enchant!\n\nThe gamble: could be gold,\ncould be garbage. You earn it,\nyou keep it!\n\n",
+                          {
+                            "text": "Max level: 100",
+                            "color": "green"
+                          },
+                          "\n",
+                          {
+                            "text": "18 ascensions total",
+                            "color": "green"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "ΓÜá∩╕Å FOOLISH AWAKENINGS ΓÜá∩╕Å",
+                            "color": "yellow",
+                            "bold": true
+                          },
+                          "\n\n",
+                          {
+                            "text": "The ritual accepts ANY item.",
+                            "color": "gray"
+                          },
+                          "\nYes, even dirt.\n\n",
+                          {
+                            "text": "But just because you CAN",
+                            "color": "gold"
+                          },
+                          "\n",
+                          {
+                            "text": "doesn't mean you SHOULD.",
+                            "color": "red"
+                          },
+                          "\n\nA soul-bound potato CAN\nlevel up (hand-mine dirt...)\nbut at what cost?\n\n",
+                          {
+                            "text": "You've been warned.",
+                            "color": "dark_red",
+                            "italic": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "ΓÜá∩╕Å SOUL RISKS ΓÜá∩╕Å",
+                            "color": "red",
+                            "bold": true
+                          },
+                          "\n\nEach level up:\n\n",
+                          {
+                            "text": "ΓÇó 30% debuff chance",
+                            "color": "gold"
+                          },
+                          "\n",
+                          {
+                            "text": "ΓÇó 10% FRACTURE chance!",
+                            "color": "red"
+                          },
+                          "\n\n",
+                          {
+                            "text": "Fractured souls can",
+                            "color": "gray"
+                          },
+                          "\n",
+                          {
+                            "text": "NEVER ascend again!",
+                            "color": "dark_red",
+                            "bold": true
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "ΓÜí BUFFS STACK! ΓÜí",
+                            "color": "green",
+                            "bold": true
+                          },
+                          "\n\nGet same buff twice?\n",
+                          {
+                            "text": "IT UPGRADES!",
+                            "color": "yellow",
+                            "bold": true
+                          },
+                          "\n\nPossible combos:\nΓÇó Speed III + Strength V\nΓÇó Haste V + Luck III\nΓÇó Magnetic II + Mend V\n\n",
+                          {
+                            "text": "WACKY BUILDS!",
+                            "color": "light_purple"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "≡ƒöº ENCHANTS OK! ≡ƒöº",
+                            "color": "aqua",
+                            "bold": true
+                          },
+                          "\n\nSoul weapons work with\nVANILLA ENCHANTS!\n\nΓ£ô Enchant table\nΓ£ô Anvil + books\nΓ£ô Repairs work\nΓ£ô Grindstone safe\n\n",
+                          {
+                            "text": "Soul + Enchants = MAX POWER!",
+                            "color": "gold"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "≡ƒö« SCRYING GLASS ≡ƒö«",
+                            "color": "light_purple",
+                            "bold": true
+                          },
+                          "\n\nPortable conduit!\n\nCraft: Spyglass + 4 Amethyst\n\nUse:\n1. Soul weapon in offhand\n2. Look through glass\n3. Energy channels in!\n\n",
+                          {
+                            "text": "5 uses per glass",
+                            "color": "aqua"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "HELPFUL COMMANDS",
+                            "color": "yellow",
+                            "bold": true
+                          },
+                          "\n\n",
+                          {
+                            "text": "/rituals help",
+                            "color": "aqua"
+                          },
+                          "\nShows help menu\n\n",
+                          {
+                            "text": "/rituals soul info",
+                            "color": "aqua"
+                          },
+                          "\nSoul weapon stats\n\n",
+                          {
+                            "text": "/rituals config xp_interval",
+                            "color": "aqua"
+                          },
+                          "\nSet XP rate (OP)\n\n",
+                          {
+                            "text": "/rituals give guidebook",
+                            "color": "aqua"
+                          },
+                          "\nGet another book"
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "PATTERN RITUALS",
+                            "color": "green",
+                            "bold": true
+                          },
+                          "\n\nSome rituals need 5 totems in specific patterns!\n\n",
+                          {
+                            "text": "Diamond Hoe",
+                            "color": "aqua"
+                          },
+                          " + 4 totems\nΓåÆ Auto-Harvest farms\n\n",
+                          {
+                            "text": "Wheat",
+                            "color": "yellow"
+                          },
+                          " + 4 totems\nΓåÆ Auto-Breeding\n\nUse redstone to see patterns!"
+                        ]
+                      }
+                    },
+                    {
+                      "raw": {
+                        "text": "",
+                        "extra": [
+                          {
+                            "text": "HAPPY RITUALING!",
+                            "color": "gold",
+                            "bold": true
+                          },
+                          "\n\nMay your totems shine bright!\n\nFor detailed guides see\n",
+                          {
+                            "text": "docs/",
+                            "color": "aqua"
+                          },
+                          " folder:\n\nΓÇó SOUL_EMBODIMENT_PLAYER_GUIDE.md\nΓÇó PATTERN_RITUALS_GUIDE.md\nΓÇó CRAFTING_RECIPES.md\n\n",
+                          {
+                            "text": "- Ancient Ritualist",
+                            "color": "gray",
+                            "italic": true
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                },
+                "minecraft:enchantments": {
+                  "minecraft:fortune": 3
+                },
+                "minecraft:attribute_modifiers": [
+                  {
+                    "type": "minecraft:luck",
+                    "id": "rituals:welcome_guidebook_luck_mainhand",
+                    "amount": 2.0,
+                    "operation": "add_value",
+                    "slot": "mainhand"
+                  },
+                  {
+                    "type": "minecraft:luck",
+                    "id": "rituals:welcome_guidebook_luck_offhand",
+                    "amount": 2.0,
+                    "operation": "add_value",
+                    "slot": "offhand"
+                  }
+                ],
+                "minecraft:custom_name": {
+                  "text": "Rituals Guide",
+                  "color": "light_purple",
+                  "italic": false
+                },
+                "minecraft:lore": [
+                  {
+                    "text": "Ritualist's Blessing",
+                    "color": "gold",
+                    "italic": true
+                  },
+                  {
+                    "text": "Hold for +2 Luck while you read.",
+                    "color": "gray",
+                    "italic": true
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
