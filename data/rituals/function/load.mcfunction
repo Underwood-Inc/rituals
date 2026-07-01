@@ -11,6 +11,7 @@ scoreboard objectives add rituals.tier dummy
 scoreboard objectives add rituals.effect dummy
 scoreboard objectives add rituals.temp dummy
 scoreboard objectives add rituals.id dummy
+scoreboard objectives add rituals.redstone_cd dummy
 scoreboard objectives add rituals.use_count minecraft.used:minecraft.warped_fungus_on_a_stick
 
 # Menu system scoreboards
@@ -95,10 +96,12 @@ scoreboard players set #tier3_power rituals.data 3
 
 # Constants
 scoreboard players set #check_interval rituals.data 20
+scoreboard players set #illegal_totem_tick rituals.data 0
 
 # System constants
 scoreboard players set #-1 rituals.data -1
 scoreboard players set #2 rituals.data 2
+scoreboard players set #5 rituals.data 5
 scoreboard players set #10 rituals.data 10
 scoreboard players set #20 rituals.data 20
 scoreboard players set #100 rituals.data 100

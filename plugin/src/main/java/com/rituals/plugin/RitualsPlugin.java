@@ -1,8 +1,10 @@
 package com.rituals.plugin;
 
+import com.rituals.plugin.admin.AdminMenuListener;
 import com.rituals.plugin.command.RitualsCommand;
 import com.rituals.plugin.config.ConfigMenuListener;
 import com.rituals.plugin.config.PluginConfig;
+import com.rituals.plugin.gui.GuideMenuListener;
 import com.rituals.plugin.datapack.DatapackBridge;
 import com.rituals.plugin.datapack.DatapackInstaller;
 import com.rituals.plugin.integration.PlaceholderHook;
@@ -24,6 +26,8 @@ public final class RitualsPlugin extends JavaPlugin {
     private VaultHook vaultHook;
     private PlaceholderHook placeholderHook;
     private ConfigMenuListener configMenuListener;
+    private GuideMenuListener guideMenuListener;
+    private AdminMenuListener adminMenuListener;
 
     public static RitualsPlugin getInstance() {
         return instance;
@@ -80,6 +84,12 @@ public final class RitualsPlugin extends JavaPlugin {
         configMenuListener = new ConfigMenuListener(this);
         getServer().getPluginManager().registerEvents(configMenuListener, this);
 
+        guideMenuListener = new GuideMenuListener(this);
+        getServer().getPluginManager().registerEvents(guideMenuListener, this);
+
+        adminMenuListener = new AdminMenuListener(this);
+        getServer().getPluginManager().registerEvents(adminMenuListener, this);
+
         vaultHook = new VaultHook(this);
         vaultHook.tryHook();
 
@@ -99,6 +109,12 @@ public final class RitualsPlugin extends JavaPlugin {
     public void onDisable() {
         if (configMenuListener != null) {
             HandlerList.unregisterAll(configMenuListener);
+        }
+        if (guideMenuListener != null) {
+            HandlerList.unregisterAll(guideMenuListener);
+        }
+        if (adminMenuListener != null) {
+            HandlerList.unregisterAll(adminMenuListener);
         }
         if (placeholderHook != null) {
             placeholderHook.unregister();

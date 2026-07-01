@@ -18,7 +18,7 @@ Built with care for the Minecraft community—open source, tweakable, and ready 
 ## Version Information
 
 - **Minecraft Version**: 26.2 (pack format 107.1)
-- **Datapack Version**: 2.0.0
+- **Datapack Version**: 2.1.0
 - **Author**: Created with care for the Minecraft community by [strixun](https://www.twitch.tv/strixun)
 
 ## Table of Contents

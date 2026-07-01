@@ -1,8 +1,11 @@
 package com.rituals.plugin.command;
 
 import com.rituals.plugin.RitualsPlugin;
+import com.rituals.plugin.admin.AdminHubMenu;
 import com.rituals.plugin.config.ConfigMenu;
 import com.rituals.plugin.config.Messages;
+import com.rituals.plugin.guide.RecipeChatGuide;
+import com.rituals.plugin.gui.GuideHubMenu;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -21,7 +24,7 @@ import java.util.stream.Collectors;
 public final class RitualsCommand implements CommandExecutor, TabCompleter {
 
     private static final List<String> ROOT_SUBS = List.of(
-            "help", "config", "reload", "give", "soul", "admin"
+            "help", "config", "reload", "give", "soul", "admin", "guide"
     );
 
     private final RitualsPlugin plugin;
@@ -44,6 +47,7 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
             case "reload" -> handleReload(sender);
             case "give" -> handleGive(sender, args);
             case "soul" -> handleSoul(sender, args);
+            case "guide" -> handleGuide(sender, args);
             case "admin" -> handleAdmin(sender, args);
             default -> {
                 Messages.send(sender, "&cUnknown subcommand. Use /rituals help");
@@ -64,7 +68,8 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
         Messages.send(sender, "&b/rituals give welcome &7— enchanted guidebook (rituals.admin)");
         Messages.send(sender, "&b/rituals give all &7— totems + guidebook (rituals.give)");
         Messages.send(sender, "&b/rituals soul info &7— soul weapon stats (rituals.soul)");
-        Messages.send(sender, "&b/rituals admin <action> &7— kiwi mode, debug (rituals.admin)");
+        Messages.send(sender, "&b/rituals guide &7— crafting chest GUI + chat recipes");
+        Messages.send(sender, "&b/rituals admin &7— admin hub GUI (rituals.admin)");
         Messages.send(sender, "&8Gameplay requires the Rituals datapack (bundled or manual).");
     }
 
@@ -173,13 +178,63 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
         return true;
     }
 
+    private boolean handleGuide(CommandSender sender, String[] args) {
+        if (!sender.hasPermission("rituals.use")) {
+            Messages.send(sender, plugin.getPluginConfig().noPermission());
+            return true;
+        }
+        if (args.length < 2) {
+            if (sender instanceof Player player) {
+                GuideHubMenu.open(plugin, player);
+            } else {
+                RecipeChatGuide.sendHub(sender);
+            }
+            return true;
+        }
+        String topic = args[1].toLowerCase(Locale.ROOT);
+        return switch (topic) {
+            case "recipes", "recipe", "gui" -> {
+                if (sender instanceof Player player) {
+                    GuideHubMenu.open(plugin, player);
+                } else {
+                    RecipeChatGuide.sendHub(sender);
+                }
+                yield true;
+            }
+            case "totem" -> {
+                if (args.length < 3) {
+                    Messages.send(sender, "&eUsage: /rituals guide totem <wood|copper|iron|gold|diamond|netherite>");
+                } else {
+                    RecipeChatGuide.sendTotemTier(sender, args[2]);
+                }
+                yield true;
+            }
+            case "scrying", "glass" -> {
+                RecipeChatGuide.sendRecipe(sender, com.rituals.plugin.recipe.RitualRecipeCatalog.scryingGlass());
+                yield true;
+            }
+            case "play", "help" -> {
+                RecipeChatGuide.sendPlayGuide(sender);
+                yield true;
+            }
+            default -> {
+                RecipeChatGuide.sendHub(sender);
+                yield true;
+            }
+        };
+    }
+
     private boolean handleAdmin(CommandSender sender, String[] args) {
         if (!sender.hasPermission("rituals.admin")) {
             Messages.send(sender, plugin.getPluginConfig().noPermission());
             return true;
         }
-        if (args.length < 2) {
-            Messages.send(sender, "&eUsage: /rituals admin <enable_kiwi_mode|disable_kiwi_mode|...>");
+        if (args.length < 2 || args[1].equalsIgnoreCase("gui") || args[1].equalsIgnoreCase("menu")) {
+            if (sender instanceof Player player) {
+                AdminHubMenu.open(plugin, player);
+            } else {
+                Messages.send(sender, "&cAdmin GUI is player-only.");
+            }
             return true;
         }
         String action = String.join("_", Arrays.copyOfRange(args, 1, args.length)).toLowerCase(Locale.ROOT);
@@ -194,6 +249,12 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
         if (args.length == 1) {
             return filter(ROOT_SUBS, args[0]);
         }
+        if (args.length == 2 && args[0].equalsIgnoreCase("guide")) {
+            return filter(List.of("recipes", "totem", "scrying", "play"), args[1]);
+        }
+        if (args.length == 3 && args[0].equalsIgnoreCase("guide") && args[1].equalsIgnoreCase("totem")) {
+            return filter(List.of("wood", "copper", "iron", "gold", "diamond", "netherite"), args[2]);
+        }
         if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
             return filter(List.of("all", "guidebook", "welcome", "basic", "copper", "iron", "gold", "advanced", "netherite"), args[1]);
         }
@@ -201,7 +262,7 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
             return filter(List.of("info", "rename"), args[1]);
         }
         if (args.length >= 2 && args[0].equalsIgnoreCase("admin")) {
-            return filter(List.of("enable_kiwi_mode", "disable_kiwi_mode", "enable_debug_mode", "disable_debug_mode"), args[1]);
+            return filter(List.of("gui", "menu", "enable_kiwi_mode", "disable_kiwi_mode", "enable_debug_mode", "disable_debug_mode"), args[1]);
         }
         return Collections.emptyList();
     }

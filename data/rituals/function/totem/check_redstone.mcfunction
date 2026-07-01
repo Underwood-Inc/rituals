@@ -1,4 +1,9 @@
 # Check if totem is receiving redstone power
+# Throttle: every 5 ticks per totem (redstone state is stable; avoids ~80 block probes every tick)
+scoreboard players add @s rituals.redstone_cd 1
+execute unless score @s rituals.redstone_cd matches 5.. run return 0
+scoreboard players set @s rituals.redstone_cd 0
+
 # Use a temporary tag for detection to avoid interference from other mods
 tag @s remove rituals.redstone_check
 

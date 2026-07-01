@@ -18,6 +18,7 @@ scoreboard objectives remove rituals.tier
 scoreboard objectives remove rituals.effect
 scoreboard objectives remove rituals.temp
 scoreboard objectives remove rituals.id
+scoreboard objectives remove rituals.redstone_cd
 
 # Clear storage
 data remove storage rituals:temp item

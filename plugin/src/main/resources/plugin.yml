@@ -15,7 +15,7 @@ softdepend:
 commands:
   rituals:
     description: Rituals admin and player commands
-    usage: /<command> [help|config|reload|give|soul|admin]
+    usage: /<command> [help|config|reload|give|soul|guide|admin]
     aliases: [ritual]
 
 permissions:

@@ -19,7 +19,11 @@ execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_to
 execute as @a at @s if data entity @s SelectedItem.components."minecraft:custom_data".rituals_scrying_glass run function rituals:soul/check_scrying_use
 
 # Check for illegally crafted totems (recipe progression enforcement)
-execute as @a run function rituals:player/check_illegal_totem
+# Throttled: every 20 ticks, only players carrying a totem item (no chunk load; no per-tick full-server scan)
+scoreboard players add #illegal_totem_tick rituals.data 1
+execute if score #illegal_totem_tick rituals.data matches 20.. as @a[nbt={Inventory:[{components:{"minecraft:custom_data":{rituals_totem:1}}}]}] run function rituals:player/check_illegal_totem
+execute if score #illegal_totem_tick rituals.data matches 20.. as @a[nbt={Inventory:[{components:{"minecraft:custom_data":{rituals_totem:1b}}}]}] run function rituals:player/check_illegal_totem
+execute if score #illegal_totem_tick rituals.data matches 20.. run scoreboard players set #illegal_totem_tick rituals.data 0
 
 # Update all active totems
 execute as @e[type=interaction,tag=rituals.totem] at @s run function rituals:totem/update
@@ -41,6 +45,8 @@ function rituals:soul/tick
 # Handle menu triggers
 function rituals:menu/handler
 
-# Show kiwi mode indicator
-execute if score #kiwi_mode rituals.data matches 1 run title @a actionbar [{"text":"🥝 ","color":"green"},{"text":"Kiwi Mode Active","color":"yellow"}]
+# Show kiwi mode indicator (every 20 ticks — not every tick)
+scoreboard players add #kiwi_title_tick rituals.data 1
+execute if score #kiwi_mode rituals.data matches 1 if score #kiwi_title_tick rituals.data matches 20.. run title @a actionbar [{"text":"🥝 ","color":"green"},{"text":"Kiwi Mode Active","color":"yellow"}]
+execute if score #kiwi_title_tick rituals.data matches 20.. run scoreboard players set #kiwi_title_tick rituals.data 0
 
