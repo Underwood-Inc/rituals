@@ -3,8 +3,7 @@
 # ========================================
 # Automatically harvests and replants fully grown crops
 
-# Ambient particles (show every 10 ticks to reduce spam)
-particle minecraft:composter ~ ~2.5 ~ 0.5 0.5 0.5 0 3
+function rituals:ritual/effects/only_cluster_leader
 
 # Get tier-based range settings
 function rituals:ritual/get_tier_settings
@@ -28,6 +27,11 @@ execute if score #rituals_debug_mode rituals.data matches 1 if score #rituals_ti
 
 execute if score @s rituals.data < #current_freq rituals.temp run return 0
 scoreboard players set @s rituals.data 0
+
+# Ambient particles every 10 ticks on farming pulses only
+scoreboard players operation #farm_particle rituals.temp = @s rituals.timer
+scoreboard players operation #farm_particle rituals.temp %= #10 rituals.data
+execute if score #farm_particle rituals.temp matches 0 run particle minecraft:composter ~ ~2.5 ~ 0.5 0.5 0.5 0 3
 
 # DEBUG: Farming attempt happening - only if debug enabled
 execute if score #rituals_debug_mode rituals.data matches 1 run tellraw @a[distance=..10] [{"text":"[DEBUG FARM] Farming attempt now!","color":"green","bold":true}]

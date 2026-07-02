@@ -1,160 +1,116 @@
-# Build Guide - Rituals
+# Build Guide — Rituals (Datapack + Spigot Plugin)
 
-This project supports **dual distribution**: both as a **Fabric mod** AND as a **standalone datapack**.
+**Minecraft 26.2** · datapack format **107.1**
 
----
+| Artifact | Purpose |
+|----------|---------|
+| `rituals-datapack-*.zip` | Core gameplay — vanilla, Spigot, or any host with datapacks |
+| `rituals-plugin-*.jar` | Optional Spigot plugin — permissions, config GUI, Vault, PlaceholderAPI |
 
-## Project Structure
-
-```
-rituals/
-├── data/                          ← Datapack files (source of truth)
-│   └── rituals/
-├── src/main/
-│   ├── java/                      ← Mod code (minimal wrapper)
-│   └── resources/                 ← Auto-synced from data/
-├── build.gradle                   ← Build configuration
-└── gradle.properties              ← Version info
-```
-
-**Important**: Always edit files in `data/` folder, NOT in `src/main/resources/`. The build system automatically syncs them.
+The datapack works **without** the plugin. The plugin bundles the same datapack and adds server integrations only.
 
 ---
 
-## Building
+## Prerequisites
 
-> ⚠️ When editing code, edit the code in the data directory. The build command will automatically copy files from the data/ directory into src/ directory for the Java mod file.
+- **JDK 25** (Minecraft 26.2 / Spigot API; Gradle wrapper uses the toolchain)
+- **Gradle** — use the included wrapper: `gradlew` / `gradlew.bat`
+- **Minecraft 26.2 Spigot** server to test the plugin
 
-### Prerequisites
+---
 
-- Java 21 or higher
-- No need to install Gradle (uses wrapper)
+## Build everything
 
-### Build All Distributions
+```powershell
+# Windows (repo root)
+.\gradlew.bat build
+```
 
 ```bash
-# Windows
-.\gradlew build
-
-# Linux/Mac
+# Linux / macOS
 ./gradlew build
 ```
 
-This creates:
-- **Mod**: `build/libs/rituals-2.0.0.jar` (Fabric mod)
-- **Datapack**: `build/datapacks/rituals-datapack-2.0.0.zip`
+Outputs:
 
-### Build Specific Distributions
+- `build/datapacks/rituals-datapack-2.0.0.zip`
+- `plugin/build/libs/rituals-plugin-2.0.0.jar`
 
-```bash
-# Just the mod
-.\gradlew jar
+### Build only one artifact
 
-# Just the datapack
-.\gradlew packageDatapack
-
+```powershell
+.\gradlew.bat packageDatapack    # datapack zip only
+.\gradlew.bat :plugin:build       # Spigot plugin JAR only
 ```
 
 ---
 
-## Development Workflow
+## Server install (Spigot 26.2)
 
-### For Datapack/Function Development
+### Datapack only
 
-1. Edit files in `data/rituals/function/`
-2. Test in vanilla Minecraft (load datapack manually)
-3. When ready to build mod, run `.\gradlew build`
+1. Copy `rituals-datapack-*.zip` → `world/datapacks/`
+2. `/reload`
 
-### For Mod Development
+### Datapack + plugin (recommended for networks)
 
-1. Edit `src/main/java/com/rituals/TotemRitualsMod.java`
-2. Run `.\gradlew runClient` to test in development
-3. Build with `.\gradlew build`
+1. Place `rituals-plugin-*.jar` in `plugins/`
+2. **AMP / crash-loop fix:** add JVM argument (server **stopped** → Settings → JVM flags):
+   ```
+   -javaagent:plugins/rituals-plugin-2.0.0.jar
+   ```
+   This copies `rituals.zip` into `world/datapacks/` **before** Minecraft loads the world (required when the world already expects `file/rituals` but the zip was deleted).
+3. Restart the server.
+4. Plugin also installs on `onLoad` when the zip is missing and the server can start. On enable it runs `/minecraft:reload` if the zip was just written.
+5. `/rituals config` — chest GUI (permission `rituals.config`)
 
-### Running Development Client
+**Verify install (console on startup):**
 
-```bash
-# Launch Minecraft with the mod loaded
-.\gradlew runClient
+```
+[Rituals] Rituals datapack install — server root: /AMP/Minecraft, default world: /AMP/Minecraft/world
+[Rituals] Installed datapack zip -> /AMP/Minecraft/world/datapacks/rituals.zip (2529734 bytes)
+[Rituals] Reloading datapacks so Rituals appears in /datapack list...
 ```
 
+Then in-game: `/datapack list` should show **`file/rituals`** (zip) and/or **`file/rituals`** (folder). If the log says `NOT at ...` the path in that line is where the plugin looked — compare to your AMP file manager.
+
+**Server won't start?** Read the console carefully:
+
+1. **`Missing data pack file/rituals.zip`** — file must be at **`world/datapacks/rituals.zip`** (not `plugins/`, not server-root `datapacks/`). Rename `rituals-datapack-*.zip` → `rituals.zip`.
+
+2. **`Pack declares support for format 61`** (repeated) — **other** datapacks in `world/datapacks/` are broken on 26.2, not Rituals. Remove or update those zips, or start once with **`--safeMode`** in JVM args.
+
+3. **`Overworld settings missing` / `world_gen_settings.dat`** — usually caused by (2) after repeated failed boots. Fix (2), then restore `world` from backup or use `--safeMode` once.
+
+While the server is **stopped**, upload from `build/server-deploy/world/datapacks/rituals.zip` to **`/AMP/Minecraft/world/datapacks/rituals.zip`** (adjust for your host path).
+
+### Soft dependencies (optional)
+
+| Plugin | Purpose | Required? |
+|--------|---------|-------------|
+| **Vault** + economy plugin | Charge for `/rituals give` / rename when enabled in config | No |
+| **PlaceholderAPI** | `%rituals_version%`, `%rituals_vault%`, etc. | No |
+| **LuckPerms** | Uses normal Bukkit permission nodes — no hard dependency | No |
+
 ---
 
-## Distribution
+## Development
 
-### For Mod Users
-Give them: `build/libs/rituals-2.0.0.jar`
-- Requires Fabric Loader
-- Auto-installs datapack
-- Works for any world
+- Edit gameplay in **`data/`** (source of truth)
+- Edit integrations in **`plugin/src/main/java/`**
+- Plugin build syncs `data/` + `pack.mcmeta` into the JAR automatically (`syncDatapackIntoResources`)
+- Compile dependency: `org.spigotmc:spigot-api:26.2-R0.1-SNAPSHOT` (see `gradle.properties`)
 
-### For Datapack-Only Users
-Give them: `build/datapacks/rituals-datapack-2.0.0.zip`
-- No mods required
-- Manual installation to world/datapacks folder
-- Uses vanilla totem of undying texture
+Version: `gradle.properties` → `datapack_version=2.0.0`
 
 ---
 
-## Version Management
+## No Java? (datapack zip only)
 
-Edit `gradle.properties`:
-```properties
-mod_version=2.0.0        ← Change this for new releases
-minecraft_version=1.21   ← Update for new MC versions
+Zip manually from repo root:
+
+```powershell
+Compress-Archive -Path pack.mcmeta, data -DestinationPath build/datapacks/rituals-datapack-2.0.0.zip -Force
 ```
 
----
-
-## Cleaning Build Files
-
-```bash
-.\gradlew clean
-```
-
-This removes `build/` and `src/main/resources/` (auto-synced files).
-
----
-
-## Troubleshooting
-
-### "Files out of sync in src/main/resources"
-Run `.\gradlew syncDatapack` to manually sync.
-
-### "Task 'runClient' not found"
-Make sure you have Fabric Loom plugin installed. Run `.\gradlew --refresh-dependencies`.
-
-### "Java version mismatch"
-Ensure you have Java 21+:
-```bash
-java -version
-```
-
----
-
-## CI/CD Integration
-
-For GitHub Actions:
-
-```yaml
-- name: Build distributions
-  run: ./gradlew build
-  
-- name: Upload mod artifact
-  uses: actions/upload-artifact@v3
-  with:
-    name: rituals-mod
-    path: build/libs/*.jar
-    
-- name: Upload datapack artifact
-  uses: actions/upload-artifact@v3
-  with:
-    name: rituals-datapack
-    path: build/datapacks/*.zip
-```
-
----
-
-**May your builds be swift and your rituals be powerful!** 🔥✨
-
-
+The Spigot plugin **requires** JDK 25 + Gradle to compile.

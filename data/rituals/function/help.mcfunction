@@ -1,7 +1,9 @@
 # ========================================
 # Rituals - Help Command
 # ========================================
-# Shows all available commands
+# Shows commands and gives a fresh guidebook copy.
+
+function rituals:give/guidebook
 
 tellraw @s [{"text":"\n=== Rituals Commands ===","color":"gold","bold":true}]
 tellraw @s [{"text":"","color":"yellow"}]
@@ -11,6 +13,7 @@ tellraw @s [{"text":"  /function rituals:guidebook","color":"aqua","underlined":
 tellraw @s [{"text":"  /function rituals:badges/check_status","color":"aqua","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:badges/check_status"},"hover_event":{"action":"show_text","value":[{"text":"View your ritual progress","color":"yellow"}]}},{"text":" - View ritual progress","color":"white"}]
 tellraw @s [{"text":"","color":"yellow"}]
 tellraw @s [{"text":"Admin Commands:","color":"red","bold":true}]
+tellraw @s [{"text":"  /function rituals:give/guidebook_welcome","color":"dark_red","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:give/guidebook_welcome"},"hover_event":{"action":"show_text","value":[{"text":"Enchanted copy (Fortune III + Luck)","color":"light_purple"}]}},{"text":" - Enchanted guidebook (OP)","color":"gray"}]
 tellraw @s [{"text":"  /function rituals:get","color":"dark_red","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:get"},"hover_event":{"action":"show_text","value":[{"text":"Click to get all items","color":"gold"}]}},{"text":" - Get all ritual items","color":"gray"}]
 tellraw @s [{"text":"  /function rituals:admin/unlock_all_recipes","color":"dark_red","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:admin/unlock_all_recipes"},"hover_event":{"action":"show_text","value":[{"text":"Click to unlock all recipes","color":"gold"}]}},{"text":" - Unlock all recipes","color":"gray"}]
 tellraw @s [{"text":"  /function rituals:admin/list_totems","color":"dark_red","underlined":true,"click_event":{"action":"run_command","command":"/function rituals:admin/list_totems"},"hover_event":{"action":"show_text","value":[{"text":"Click to list nearby totems","color":"gold"}]}},{"text":" - List nearby totems","color":"gray"}]

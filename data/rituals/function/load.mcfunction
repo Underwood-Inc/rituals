@@ -11,6 +11,7 @@ scoreboard objectives add rituals.tier dummy
 scoreboard objectives add rituals.effect dummy
 scoreboard objectives add rituals.temp dummy
 scoreboard objectives add rituals.id dummy
+scoreboard objectives add rituals.redstone_cd dummy
 scoreboard objectives add rituals.use_count minecraft.used:minecraft.warped_fungus_on_a_stick
 
 # Menu system scoreboards
@@ -21,6 +22,7 @@ scoreboard objectives add rituals.menu_state dummy
 scoreboard objectives add rituals.badge_tier dummy
 scoreboard objectives add rituals.ritual_count dummy
 scoreboard objectives add rituals.join_detect minecraft.custom:minecraft.leave_game
+scoreboard objectives add rituals.guidebook dummy
 
 # Ritual completion tracking (one for each ritual type)
 scoreboard objectives add rituals.growth_done dummy
@@ -94,10 +96,12 @@ scoreboard players set #tier3_power rituals.data 3
 
 # Constants
 scoreboard players set #check_interval rituals.data 20
+scoreboard players set #illegal_totem_tick rituals.data 0
 
 # System constants
 scoreboard players set #-1 rituals.data -1
 scoreboard players set #2 rituals.data 2
+scoreboard players set #5 rituals.data 5
 scoreboard players set #10 rituals.data 10
 scoreboard players set #20 rituals.data 20
 scoreboard players set #100 rituals.data 100
@@ -110,7 +114,7 @@ execute as @a run function rituals:badges/calculate_badge
 
 tellraw @a [{"text":""}]
 tellraw @a [{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"}]
-tellraw @a [{"text":"│","color":"dark_purple"},{"text":"          🔮 ","color":"light_purple"},{"text":"Rituals","color":"white"},{"text":" - Fire Sacrifice Edition","color":"gray"}]
+tellraw @a [{"text":"│","color":"dark_purple"},{"text":"          🔮 ","color":"light_purple"},{"text":"Rituals","color":"white"},{"text":" - Fire Sacrifice Edition (26.2)","color":"gray"}]
 tellraw @a [{"text":"━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━","color":"dark_purple"}]
 tellraw @a [{"text":"│","color":"dark_purple"}]
 tellraw @a [{"text":"│","color":"dark_purple"},{"text":"  Press ","color":"gray"},{"text":"L","color":"aqua"},{"text":" to open the Advancement Guide","color":"gray"}]

@@ -31,7 +31,6 @@ data modify storage rituals:temp lore append value '{"text":""}'
 # Line 5: Soul Embodied marker
 data modify storage rituals:temp lore append value '{"text":"Soul Embodied","color":"dark_purple","italic":false}'
 
-# Apply lore to the item
-# Note: In 1.21+ we use the lore component
-item modify entity @s weapon.mainhand rituals:apply_soul_lore
+# Apply lore to the item from storage (built above)
+data modify entity @s weapon.mainhand.components."minecraft:lore" set from storage rituals:temp lore
 

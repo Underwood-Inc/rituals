@@ -49,7 +49,7 @@ This document provides a quick overview of all GitHub templates created for the 
 
 8. **Build Workflow** (`workflows/build.yml`)
    - Runs on push/PR to main/develop
-   - Builds mod, datapack, and resourcepack
+   - Builds datapack zip (and legacy Fabric mod JAR)
    - Validates all JSON files
    - Uploads artifacts
    - Build summary in GitHub Actions

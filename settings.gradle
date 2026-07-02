@@ -1,10 +1,9 @@
 pluginManagement {
-	repositories {
-		maven {
-			name = 'Fabric'
-			url = 'https://maven.fabricmc.net/'
-		}
-		mavenCentral()
-		gradlePluginPortal()
-	}
+    repositories {
+        gradlePluginPortal()
+        mavenCentral()
+    }
 }
+
+rootProject.name = 'rituals'
+include 'plugin'

@@ -44,3 +44,6 @@ desktop.ini
 minecraft_server.jar
 server.properties
 server.jar
+
+# Generated plugin datapack copy (bundled as zip in JAR at build time)
+plugin/src/main/resources/datapack/

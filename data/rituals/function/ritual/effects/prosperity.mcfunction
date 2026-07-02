@@ -3,6 +3,8 @@
 # ========================================
 # Attracts items and grants Luck effect to players
 
+function rituals:ritual/effects/only_cluster_leader
+
 # Get tier-based range settings
 function rituals:ritual/get_tier_settings
 

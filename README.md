@@ -1,7 +1,6 @@
-![Minecraft 1.21.10](https://img.shields.io/badge/Minecraft-1.21.10-db1f29?style=for-the-badge&logo=minecraft)
-![Minecraft 1.21.11](https://img.shields.io/badge/Minecraft-1.21.11-ff5900?style=for-the-badge&logo=minecraft)
+![Minecraft 26.2](https://img.shields.io/badge/Minecraft-26.2-db1f29?style=for-the-badge&logo=minecraft)
 
-# Rituals Datapack/Mod
+# Rituals Datapack
 
 ![Rituals Banner](images/banner.png)
 
@@ -11,15 +10,15 @@ Introducing Rituals—a datapack that brings mystical totems and ritual magic in
 • Unique totem tiers with visual item displays  
 • Automatic ritual activation based on placement  
 • **Progress tracking** - View your ritual mastery with simple command  
-• Custom textures, animations, and guidebook integration  
+• Totem items use vanilla warped fungus on a stick (no resource pack needed)  
 • Fully configurable and ready for expansion  
   
 Built with care for the Minecraft community—open source, tweakable, and ready to enchant your next adventure.
 
 ## Version Information
 
-- **Minecraft Version**: 1.21+ (Pack Format 48)
-- **Datapack Version**: 1.0.0
+- **Minecraft Version**: 26.2 (pack format 107.1)
+- **Datapack Version**: 2.1.0
 - **Author**: Created with care for the Minecraft community by [strixun](https://www.twitch.tv/strixun)
 
 ## Table of Contents
@@ -722,12 +721,7 @@ See `RANGE_DIAGRAM.md` for detailed range specifications!
 - Type `/reload` in chat
 - Check that the datapack is in the correct folder (world/datapacks/)
 - Ensure the folder structure is correct (pack.mcmeta should be at the root)
-- Make sure you're using Minecraft 1.21 or later
-
-### Resource Pack Issues:
-- The resource pack is **optional** but provides custom textures
-- Place it in your `resourcepacks` folder and enable it in-game
-- If textures don't appear, make sure the pack is above other resource packs in the list
+- Ensure you're using **Minecraft 26.2**
 
 </details>
 
@@ -768,7 +762,7 @@ This datapack is provided as-is for use in Minecraft worlds. Feel free to modify
 - **[📚 Full Documentation](docs/README.md)** - Complete documentation index with all guides
 
 ### Essential Guides
-- **[📦 Installation](docs/INSTALLATION.md)** - Setup instructions for datapack and resourcepack
+- **[📦 Installation](docs/INSTALLATION.md)** - Setup instructions for the datapack
 - **[🔥 Fire Sacrifice System](docs/FIRE_SACRIFICE_GUIDE.md)** - How to activate rituals
 - **[⚙️ Configuration](docs/CONFIG_GUIDE.md)** - Customize ranges, costs, and ritual behavior
 - **[🎨 Crafting Recipes](docs/CRAFTING_RECIPES.md)** - All totem crafting recipes with images
@@ -780,9 +774,8 @@ This datapack is provided as-is for use in Minecraft worlds. Feel free to modify
 - **[📖 In-Game Guidebook](docs/GUIDEBOOK_CONTENT.md)** - Complete guidebook reference
 
 ### Resources
-- **[🎨 Resource Pack](resourcepack/README.md)** - Custom textures and models
 - **[📝 Changelog](docs/CHANGELOG.md)** - Version history and updates
-- **[🏗️ Build Guide](docs/BUILD_GUIDE.md)** - Compile the Fabric mod version
+- **[🏗️ Build Guide](docs/BUILD_GUIDE.md)** - Package the datapack zip
 - **[🌱 Growth Ritual Guide](docs/GROWTH_RITUAL_GUIDE.md)** - How to add new crops/plants
 
 ---

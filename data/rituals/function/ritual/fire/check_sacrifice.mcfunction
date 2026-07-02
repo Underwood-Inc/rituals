@@ -7,6 +7,11 @@
 # Skip if already performing a ritual
 execute if entity @s[tag=rituals.active_ritual] run return 0
 
+# Only check every 20 ticks (matches auto activation interval)
+scoreboard players add @s rituals.timer 1
+execute unless score @s rituals.timer matches 20.. run return 0
+scoreboard players reset @s rituals.timer
+
 # Check if there's fire at the totem base (check multiple positions)
 scoreboard players set #has_fire rituals.temp 0
 
