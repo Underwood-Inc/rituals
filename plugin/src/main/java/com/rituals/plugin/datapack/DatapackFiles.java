@@ -83,8 +83,7 @@ public final class DatapackFiles {
         Path target = worldRoot.resolve("datapacks").resolve(zipFileName);
         try {
             if (isValidZip(target)) {
-                System.out.println("[Rituals] Datapack zip already present: " + target.toAbsolutePath());
-                return target;
+                return null;
             }
 
             Files.createDirectories(target.getParent());
@@ -116,7 +115,7 @@ public final class DatapackFiles {
     static Path extractZipToFolder(Path zipFile, Path folder) {
         try {
             if (isValidFolder(folder)) {
-                return folder;
+                return null;
             }
             if (Files.exists(folder)) {
                 deleteRecursive(folder);

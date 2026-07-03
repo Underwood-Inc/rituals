@@ -67,7 +67,7 @@ public final class DatapackInstaller {
         }
 
         if (worldAlreadyLoaded && !installed.isEmpty() && plugin.getDatapackBridge() != null) {
-            plugin.getLogger().info("Reloading datapacks so Rituals appears in /datapack list...");
+            plugin.getLogger().info("New Rituals datapack files installed — reloading datapacks (plugin crafting recipes may need a server restart).");
             plugin.getDatapackBridge().reloadDatapacks();
         }
     }

@@ -11,13 +11,13 @@ java {
 
 repositories {
     mavenCentral()
-    maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
+    maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://jitpack.io")
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:${property("spigot_api_version")}")
+    compileOnly("io.papermc.paper:paper-api:${property("paper_api_version")}")
     compileOnly("org.jetbrains:annotations:26.0.2")
     compileOnly("com.github.MilkBowl:VaultAPI:1.7.1")
     compileOnly("me.clip:placeholderapi:2.11.6")
@@ -26,6 +26,7 @@ dependencies {
 tasks.register<Copy>("syncDatapackZip") {
     description = "Copy packaged datapack zip into plugin resources for the JAR"
     dependsOn(rootProject.tasks.named("packageDatapack"))
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     from(rootProject.layout.buildDirectory.dir("datapacks")) {
         include("rituals-datapack-*.zip")
         rename { "rituals-datapack.zip" }
