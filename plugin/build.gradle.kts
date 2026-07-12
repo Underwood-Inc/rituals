@@ -77,7 +77,21 @@ tasks.register<Copy>("copyPluginToDeploy") {
     into(rootProject.layout.buildDirectory.dir("server-deploy/plugins"))
 }
 
+tasks.register<Copy>("stageServerResourcePack") {
+    description = "Copy Rituals-ResourcePack.zip for manual deploy to resourcepacks/"
+    dependsOn(rootProject.tasks.named("packageResourcePack"))
+    from(rootProject.layout.buildDirectory.dir("resourcepacks")) {
+        include("rituals-resourcepack-${rootProject.version}.zip")
+        rename { "Rituals-ResourcePack.zip" }
+    }
+    into(rootProject.layout.buildDirectory.dir("server-deploy/resourcepacks"))
+}
+
 tasks.register("assembleServerDeploy") {
-    description = "Plugin JAR + world/datapacks/rituals.zip for upload while server is stopped"
-    dependsOn(tasks.named("stageServerDatapack"), tasks.named("copyPluginToDeploy"))
+    description = "Plugin JAR + world/datapacks/rituals.zip + totem resource pack"
+    dependsOn(
+        tasks.named("stageServerDatapack"),
+        tasks.named("stageServerResourcePack"),
+        tasks.named("copyPluginToDeploy")
+    )
 }

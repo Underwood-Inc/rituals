@@ -1,4 +1,6 @@
-# Spawn Diamond Totem visual (short variant)
+# ========================================
+# Spawn visual for Tier 5 (Diamond) totem — short
+# ========================================
 # 3-part totem: wider base, slim middle, wider top
 
 # Base (wider, at bottom)

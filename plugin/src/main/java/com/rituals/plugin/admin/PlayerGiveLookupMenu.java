@@ -83,10 +83,10 @@ public final class PlayerGiveLookupMenu implements AdminMenus.AdminScreen {
         }
 
         if (page > 0) {
-            inventory.setItem(45, AdminMenus.button(plugin, Material.ARROW, "&ePrevious", List.of(), "prev", null));
+            inventory.setItem(45, AdminMenus.previousPage(plugin, "&ePrevious", List.of(), "prev"));
         }
         if (end < rows.size()) {
-            inventory.setItem(53, AdminMenus.button(plugin, Material.ARROW, "&eNext", List.of(), "next", null));
+            inventory.setItem(53, AdminMenus.nextPage(plugin, "&eNext", List.of(), "next"));
         }
 
         inventory.setItem(AdminMenus.SLOT_BACK, AdminMenus.back(plugin));

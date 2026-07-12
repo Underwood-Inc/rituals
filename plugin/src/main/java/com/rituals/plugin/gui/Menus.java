@@ -54,6 +54,31 @@ public final class Menus {
         return stack;
     }
 
+    public static ItemStack button(RitualsPlugin plugin, ItemStack template, String name, List<String> lore,
+                                   String action, String payload) {
+        ItemStack stack = template.clone();
+        stack.setAmount(1);
+        ItemMeta meta = stack.getItemMeta();
+        if (meta == null) {
+            return stack;
+        }
+        meta.setDisplayName(Messages.colorize(name));
+        if (lore != null && !lore.isEmpty()) {
+            List<String> colored = new ArrayList<>();
+            for (String line : lore) {
+                colored.add(Messages.colorize(line));
+            }
+            meta.setLore(colored);
+        }
+        var pdc = meta.getPersistentDataContainer();
+        pdc.set(actionKey(plugin), PersistentDataType.STRING, action);
+        if (payload != null) {
+            pdc.set(payloadKey(plugin), PersistentDataType.STRING, payload);
+        }
+        stack.setItemMeta(meta);
+        return stack;
+    }
+
     public static String action(RitualsPlugin plugin, ItemStack item) {
         if (item == null || !item.hasItemMeta()) {
             return null;

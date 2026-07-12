@@ -1,5 +1,5 @@
 # ========================================
-# Spawn visual for Short Tier 1 (Wood) totem
+# Spawn visual for Tier 1 (Wood) totem — short
 # ========================================
 # 3-part totem: wider base, slim middle, wider top
 

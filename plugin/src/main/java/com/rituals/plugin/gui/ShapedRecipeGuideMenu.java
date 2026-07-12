@@ -2,13 +2,13 @@ package com.rituals.plugin.gui;
 
 import com.rituals.plugin.RitualsPlugin;
 import com.rituals.plugin.gui.recipe.RecipeGuideRenderer;
+import com.rituals.plugin.item.TotemItemStacks;
 import com.rituals.plugin.recipe.RitualRecipeCatalog;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
@@ -34,12 +34,7 @@ public final class ShapedRecipeGuideMenu implements Menus.RitualsScreen {
     private void build(RitualsPlugin plugin, RitualRecipeCatalog.ShapedRecipeSpec spec) {
         RecipeGuideRenderer.paintFrame(plugin, inventory);
 
-        ItemStack result = new ItemStack(spec.resultIcon());
-        ItemMeta meta = result.getItemMeta();
-        if (meta != null) {
-            meta.setDisplayName(com.rituals.plugin.config.Messages.colorize(spec.resultName()));
-            result.setItemMeta(meta);
-        }
+        ItemStack result = TotemItemStacks.recipeResult(spec);
 
         inventory.setItem(Menus.SLOT_HEADER, Menus.button(
                 plugin,

@@ -2,6 +2,7 @@ package com.rituals.plugin.command;
 
 import com.rituals.plugin.RitualsPlugin;
 import com.rituals.plugin.admin.AdminHubMenu;
+import com.rituals.plugin.admin.TotemArtifactCleanup;
 import com.rituals.plugin.config.ConfigMenu;
 import com.rituals.plugin.config.Messages;
 import com.rituals.plugin.guide.RecipeChatGuide;
@@ -238,7 +239,28 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
             return true;
         }
         String action = String.join("_", Arrays.copyOfRange(args, 1, args.length)).toLowerCase(Locale.ROOT);
-        plugin.getDatapackBridge().runFunctionAsConsole("rituals:admin/" + action);
+        if (action.equals("cleanup_totem_artifacts")) {
+            int removed = TotemArtifactCleanup.cleanupOrphanDisplays();
+            Messages.send(sender, plugin.getPluginConfig().prefix(
+                    "&aRemoved &f" + removed + " &aorphaned totem display entit"
+                            + (removed == 1 ? "y" : "ies")
+                            + "&a. Break and re-place any totem that still looks wrong."));
+            return true;
+        }
+        if (action.equals("refresh_totem_visuals")) {
+            if (sender instanceof Player player) {
+                plugin.getDatapackBridge().runFunction(player, "rituals:admin/refresh_totem_visuals");
+            } else {
+                plugin.getDatapackBridge().runFunctionAsConsole("rituals:admin/refresh_totem_visuals");
+            }
+            Messages.send(sender, plugin.getPluginConfig().prefix("&aRan refresh_totem_visuals."));
+            return true;
+        }
+        if (sender instanceof Player player) {
+            plugin.getDatapackBridge().runFunction(player, "rituals:admin/" + action);
+        } else {
+            plugin.getDatapackBridge().runFunctionAsConsole("rituals:admin/" + action);
+        }
         Messages.send(sender, plugin.getPluginConfig().prefix("&aRan rituals:admin/" + action));
         return true;
     }
@@ -262,7 +284,12 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
             return filter(List.of("info", "rename"), args[1]);
         }
         if (args.length >= 2 && args[0].equalsIgnoreCase("admin")) {
-            return filter(List.of("gui", "menu", "enable_kiwi_mode", "disable_kiwi_mode", "enable_debug_mode", "disable_debug_mode"), args[1]);
+            return filter(List.of(
+                    "gui", "menu",
+                    "cleanup_totem_artifacts", "refresh_totem_visuals",
+                    "enable_kiwi_mode", "disable_kiwi_mode",
+                    "enable_debug_mode", "disable_debug_mode"
+            ), args[1]);
         }
         return Collections.emptyList();
     }

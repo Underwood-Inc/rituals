@@ -1,4 +1,6 @@
-# Spawn Netherite Totem visual (tall variant)
+# ========================================
+# Spawn visual for Tier 6 (Netherite) totem
+# ========================================
 # 3-part totem: wider base, slim middle, wider top
 
 # Base (wider, at bottom)

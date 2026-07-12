@@ -31,6 +31,8 @@ execute if entity @s[tag=rituals.has_item] run function rituals:totem/drop_displ
 
 # Remove all associated entities with matching ID
 execute as @e[type=block_display,tag=rituals.totem_visual] if score @s rituals.id = #break_id rituals.temp run kill @s
+execute as @e[type=item_display,tag=rituals.totem_visual] if score @s rituals.id = #break_id rituals.temp run kill @s
+execute as @e[type=item_display,tag=rituals.totem_visual_rp] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=item_display,tag=rituals.totem_display] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=block_display,tag=rituals.totem_barrier] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=area_effect_cloud,tag=rituals.range_marker] if score @s rituals.id = #break_id rituals.temp run kill @s
@@ -43,6 +45,8 @@ execute if entity @s[tag=!rituals.short_totem] run setblock ~ ~1 ~ air
 
 # Also kill any entities at this exact location (failsafe)
 kill @e[type=block_display,tag=rituals.totem_visual,distance=..0.1]
+kill @e[type=item_display,tag=rituals.totem_visual,distance=..0.1]
+kill @e[type=item_display,tag=rituals.totem_visual_rp,distance=..0.1]
 kill @e[type=item_display,tag=rituals.totem_display,distance=..0.1]
 
 # Visual and sound feedback

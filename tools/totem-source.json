@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "_note": "Inventory icons: static PNGs in resourcepack/assets/rituals/textures/item/. Placed totems: 3-part block_display in datapack.",
+  "totems": [
+    {
+      "id": "wood",
+      "tier": 1,
+      "block_texture": "assets/minecraft/textures/block/oak_log.png",
+      "variants": [
+        { "recipe": "totem_base_wood", "give": "totem_basic" },
+        { "recipe": "totem_base_wood_short", "give": "totem_basic_short", "short": true }
+      ]
+    },
+    {
+      "id": "copper",
+      "tier": 2,
+      "block_texture": "assets/minecraft/textures/block/cut_copper.png",
+      "variants": [
+        { "recipe": "totem_base_copper", "give": "totem_copper" },
+        { "recipe": "totem_base_copper_short", "give": "totem_copper_short", "short": true }
+      ]
+    },
+    {
+      "id": "iron",
+      "tier": 3,
+      "block_texture": "assets/minecraft/textures/block/iron_block.png",
+      "variants": [
+        { "recipe": "totem_base_iron", "give": "totem_advanced" },
+        { "recipe": "totem_base_iron_short", "give": "totem_advanced_short", "short": true }
+      ]
+    },
+    {
+      "id": "gold",
+      "tier": 4,
+      "block_texture": "assets/minecraft/textures/block/gold_block.png",
+      "variants": [
+        { "recipe": "totem_base_gold", "give": "totem_gold" },
+        { "recipe": "totem_base_gold_short", "give": "totem_gold_short", "short": true }
+      ]
+    },
+    {
+      "id": "diamond",
+      "tier": 5,
+      "block_texture": "assets/minecraft/textures/block/diamond_block.png",
+      "variants": [
+        { "recipe": "totem_base_diamond", "give": "totem_master" },
+        { "recipe": "totem_base_diamond_short", "give": "totem_master_short", "short": true }
+      ]
+    },
+    {
+      "id": "netherite",
+      "tier": 6,
+      "block_texture": "assets/minecraft/textures/block/netherite_block.png",
+      "variants": [
+        { "recipe": "totem_base_netherite", "give": "totem_netherite" },
+        { "recipe": "totem_base_netherite_short", "give": "totem_netherite_short", "short": true }
+      ]
+    }
+  ]
+}

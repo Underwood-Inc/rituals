@@ -71,6 +71,14 @@ public final class AdminMenus {
         return button(plugin, Material.ARROW, "&eBack", List.of(), "back", null);
     }
 
+    public static ItemStack previousPage(RitualsPlugin plugin, String name, List<String> lore, String action) {
+        return button(plugin, Material.SOUL_TORCH, name, lore, action, null);
+    }
+
+    public static ItemStack nextPage(RitualsPlugin plugin, String name, List<String> lore, String action) {
+        return button(plugin, Material.REDSTONE_TORCH, name, lore, action, null);
+    }
+
     public static NamespacedKey actionKey(RitualsPlugin plugin) {
         return new NamespacedKey(plugin, "admin_action");
     }

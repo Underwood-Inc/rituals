@@ -1,4 +1,6 @@
-# Spawn Copper Totem visual (short variant)
+# ========================================
+# Spawn visual for Tier 2 (Copper) totem — short
+# ========================================
 # 3-part totem: wider base, slim middle, wider top
 
 # Base (wider, at bottom)
@@ -17,3 +19,4 @@ tag @e[type=block_display,tag=rituals.new_visual,limit=1,sort=nearest] remove ri
 summon block_display ~ ~ ~ {Tags:["rituals.totem_visual","rituals.new_visual"],block_state:{Name:"minecraft:cut_copper"},transformation:{left_rotation:[0f,0f,0f,1f],right_rotation:[0f,0f,0f,1f],translation:[-0.4f,0.8f,-0.4f],scale:[0.8f,0.2f,0.8f]}}
 scoreboard players operation @e[type=block_display,tag=rituals.new_visual,limit=1,sort=nearest] rituals.id = @s rituals.id
 tag @e[type=block_display,tag=rituals.new_visual,limit=1,sort=nearest] remove rituals.new_visual
+

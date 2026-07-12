@@ -1,13 +1,13 @@
 package com.rituals.plugin.gui;
 
 import com.rituals.plugin.RitualsPlugin;
+import com.rituals.plugin.item.TotemItemStacks;
 import com.rituals.plugin.recipe.RitualRecipeCatalog;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
 
 import java.util.List;
 
@@ -54,9 +54,10 @@ public final class GuideHubMenu implements Menus.RitualsScreen {
             if (slot > 34) {
                 break;
             }
+            ItemStack icon = TotemItemStacks.hubIcon(tier);
             inventory.setItem(slot++, Menus.button(
                     plugin,
-                    tier.icon(),
+                    icon,
                     tier.title(),
                     List.of(" ", "&7Totem tier " + tier.tier() + ".", " ", "&eClick » View"),
                     "guide_totem",

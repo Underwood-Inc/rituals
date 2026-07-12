@@ -2,6 +2,8 @@ package com.rituals.plugin.admin;
 
 import com.rituals.plugin.RitualsPlugin;
 import com.rituals.plugin.config.Messages;
+import com.rituals.plugin.gui.Menus;
+import com.rituals.plugin.item.TotemItemStacks;
 import com.rituals.plugin.recipe.RitualRecipeCatalog;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -95,9 +97,9 @@ public final class PlayerGiveActionsMenu implements AdminMenus.AdminScreen {
             if (slot > 34) {
                 break;
             }
-            inventory.setItem(slot++, AdminMenus.button(
+            inventory.setItem(slot++, Menus.button(
                     plugin,
-                    tier.icon(),
+                    TotemItemStacks.hubIcon(tier),
                     tier.title(),
                     List.of(" ", "&7Single totem tier.", " ", "&eClick » Give"),
                     "give_totem",

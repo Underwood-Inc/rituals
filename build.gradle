@@ -39,6 +39,41 @@ tasks.register('buildGuidebookLoot', Exec) {
     outputs.file("${rootDir}/data/rituals/loot_table/items/guidebook_welcome.json")
 }
 
+tasks.register('syncPlacedTotemVisuals', Exec) {
+    description = 'Regenerates totem tier visual mcfunctions from tools/totem-source.json'
+    group = 'build'
+    commandLine 'node', "${rootDir}/tools/_sync-placed-totem-visuals.mjs"
+    inputs.file("${rootDir}/tools/totem-source.json")
+    inputs.file("${rootDir}/tools/_sync-placed-totem-visuals.mjs")
+    outputs.dir("${rootDir}/data/rituals/function/totem/visuals")
+}
+
+tasks.register('syncTotemItemModels', Exec) {
+    description = 'Adds minecraft:item_model to totem recipes and give functions'
+    group = 'build'
+    commandLine 'node', "${rootDir}/tools/_sync-totem-item-models.mjs"
+    inputs.file("${rootDir}/tools/totem-source.json")
+    inputs.file("${rootDir}/tools/_sync-totem-item-models.mjs")
+    outputs.dir("${rootDir}/data/rituals/recipe")
+}
+
+tasks.register('packageResourcePack', Zip) {
+    description = 'Creates the Rituals totem icon resource pack zip for Minecraft 26.2'
+    group = 'build'
+
+    archiveBaseName = "${props.getProperty('archives_base_name', 'rituals')}-resourcepack"
+    archiveVersion = version
+    destinationDirectory = layout.buildDirectory.dir('resourcepacks')
+
+    from('resourcepack') {
+        include 'pack.mcmeta', 'pack.png', 'assets/**'
+    }
+}
+
+tasks.named('packageDatapack') {
+    dependsOn 'syncTotemItemModels', 'syncPlacedTotemVisuals'
+}
+
 tasks.named('build') {
-    dependsOn 'packageDatapack', ':plugin:build', ':plugin:assembleServerDeploy'
+    dependsOn 'packageDatapack', 'packageResourcePack', ':plugin:build', ':plugin:assembleServerDeploy'
 }
