@@ -19,7 +19,7 @@ public final class DatapackBridge {
     public void runFunction(CommandSender as, String functionPath) {
         String path = functionPath.startsWith("rituals:") ? functionPath : "rituals:" + functionPath;
         if (as instanceof Player player) {
-            dispatch("execute as " + player.getName() + " run function " + path);
+            dispatch("execute as " + player.getUniqueId() + " run function " + path);
         } else {
             dispatch("function " + path);
         }

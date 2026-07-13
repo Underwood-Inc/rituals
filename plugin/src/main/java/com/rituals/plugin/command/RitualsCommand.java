@@ -239,12 +239,26 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
             return true;
         }
         String action = String.join("_", Arrays.copyOfRange(args, 1, args.length)).toLowerCase(Locale.ROOT);
-        if (action.equals("cleanup_totem_artifacts")) {
-            int removed = TotemArtifactCleanup.cleanupOrphanDisplays();
+        if (action.equals("cleanup_totem_artifacts") || action.equals("purgegarbage") || action.equals("purge_garbage")) {
+            TotemArtifactCleanup.Result result = TotemArtifactCleanup.purge();
             Messages.send(sender, plugin.getPluginConfig().prefix(
-                    "&aRemoved &f" + removed + " &aorphaned totem display entit"
-                            + (removed == 1 ? "y" : "ies")
-                            + "&a. Break and re-place any totem that still looks wrong."));
+                    "&aPurged &f" + result.total() + " &amagenta display entit"
+                            + (result.total() == 1 ? "y" : "ies")
+                            + " &7(item_visual=" + result.itemVisual()
+                            + ", rp=" + result.itemVisualRp()
+                            + ", fungus=" + result.itemFungus()
+                            + ", new_visual=" + result.itemNewVisual()
+                            + ", rituals.id=" + result.itemRitualsId() + ")"));
+            if (result.total() == 0) {
+                Messages.send(sender, plugin.getPluginConfig().prefix(
+                        "&eNo matching orphans found. If pink cubes remain, your server may still be running the old datapack that spawns them — replace rituals.zip and restart."));
+            }
+            return true;
+        }
+        if (action.equals("count_totem_garbage")) {
+            var counts = TotemArtifactCleanup.countOrphans();
+            int total = counts.values().stream().mapToInt(Integer::intValue).sum();
+            Messages.send(sender, plugin.getPluginConfig().prefix("&fOrphan scan: &e" + total + " &7" + counts));
             return true;
         }
         if (action.equals("refresh_totem_visuals")) {
@@ -286,7 +300,8 @@ public final class RitualsCommand implements CommandExecutor, TabCompleter {
         if (args.length >= 2 && args[0].equalsIgnoreCase("admin")) {
             return filter(List.of(
                     "gui", "menu",
-                    "cleanup_totem_artifacts", "refresh_totem_visuals",
+                    "cleanup_totem_artifacts", "purgegarbage", "purge_garbage", "count_totem_garbage",
+                    "refresh_totem_visuals",
                     "enable_kiwi_mode", "disable_kiwi_mode",
                     "enable_debug_mode", "disable_debug_mode"
             ), args[1]);
