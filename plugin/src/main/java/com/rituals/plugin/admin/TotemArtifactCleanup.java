@@ -8,6 +8,7 @@ import org.bukkit.entity.Entity;
 import org.bukkit.entity.ItemDisplay;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.scoreboard.Objective;
+import org.bukkit.scoreboard.Score;
 import org.bukkit.scoreboard.Scoreboard;
 
 import java.util.HashMap;
@@ -89,10 +90,8 @@ public final class TotemArtifactCleanup {
             return false;
         }
         String holder = display.getUniqueId().toString();
-        if (!ritualsId.isScoreHolder(holder)) {
-            return false;
-        }
-        return ritualsId.getScore(holder).getScore() > 0;
+        Score score = ritualsId.getScore(holder);
+        return score.isScoreSet() && score.getScore() > 0;
     }
 
     private static boolean isWarpedFungusStick(ItemDisplay display) {

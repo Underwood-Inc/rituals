@@ -3,7 +3,6 @@ package com.rituals.plugin.datapack;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.nio.file.FileVisitResult;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,13 +10,16 @@ import java.nio.file.Paths;
 import java.nio.file.SimpleFileVisitor;
 import java.nio.file.StandardCopyOption;
 import java.nio.file.attribute.BasicFileAttributes;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
+import java.util.HexFormat;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.jar.JarEntry;
 import java.util.jar.JarFile;
-import java.util.zip.ZipEntry;
+import java.util.jar.Manifest;
 import java.util.zip.ZipFile;
 
 /** Copy bundled {@code rituals-datapack.zip} into each world's {@code datapacks/} folder. */
@@ -27,74 +29,79 @@ public final class DatapackFiles {
     private static final long MIN_ZIP_BYTES = 200_000L;
     private static final String DEFAULT_LEVEL = "world";
     static final String DEFAULT_ZIP_NAME = "rituals.zip";
-    static final String DEFAULT_FOLDER_NAME = "rituals";
+    /** Legacy folder extract removed — delete if still present so only the zip loads. */
+    static final String LEGACY_FOLDER_NAME = "rituals";
 
     private DatapackFiles() {
     }
 
     /** Install into one world folder (the path that contains {@code level.dat}). */
-    public static List<Path> installToWorld(Path worldRoot, String zipFileName, String folderName,
-                                            Class<?> anchor, File pluginJar) {
+    public static List<Path> installToWorld(Path worldRoot, String zipFileName, Class<?> anchor, File pluginJar,
+                                            String pluginVersion) {
         List<Path> installed = new ArrayList<>();
-        Path zip = installZipIfMissing(worldRoot, zipFileName, anchor, pluginJar);
+        Path zip = installZipWhenNeeded(worldRoot, zipFileName, anchor, pluginJar, pluginVersion);
         if (zip != null) {
             installed.add(zip);
-            if (folderName != null && !folderName.isBlank()) {
-                Path folder = extractZipToFolder(zip, worldRoot.resolve("datapacks").resolve(folderName));
-                if (folder != null) {
-                    installed.add(folder);
-                }
-            }
         }
         return installed;
     }
 
-    /** Install zip (+ optional folder extract) for every world directory under the server root. */
-    public static List<Path> installAllWorlds(Path serverRoot, String zipFileName, String folderName,
-                                              Class<?> anchor, File pluginJar) {
+    /** Install zip for every world directory under the server root. */
+    public static List<Path> installAllWorlds(Path serverRoot, String zipFileName, Class<?> anchor, File pluginJar,
+                                              String pluginVersion) {
         if (serverRoot == null) {
             return List.of();
         }
         List<Path> installed = new ArrayList<>();
         for (Path worldRoot : findWorldRoots(serverRoot)) {
-            Path zip = installZipIfMissing(worldRoot, zipFileName, anchor, pluginJar);
+            Path zip = installZipWhenNeeded(worldRoot, zipFileName, anchor, pluginJar, pluginVersion);
             if (zip != null) {
                 installed.add(zip);
-                if (folderName != null && !folderName.isBlank()) {
-                    Path folder = extractZipToFolder(zip, worldRoot.resolve("datapacks").resolve(folderName));
-                    if (folder != null) {
-                        installed.add(folder);
-                    }
-                }
             }
         }
         return installed;
     }
 
-    public static Path installIfMissing(Path serverRoot, String levelName, String zipFileName, Class<?> anchor, File pluginJar) {
-        return installZipIfMissing(serverRoot.resolve(levelName), zipFileName, anchor, pluginJar);
+    public static Path installIfMissing(Path serverRoot, String levelName, String zipFileName, Class<?> anchor,
+                                          File pluginJar, String pluginVersion) {
+        return installZipWhenNeeded(serverRoot.resolve(levelName), zipFileName, anchor, pluginJar, pluginVersion);
     }
 
-    public static Path installIfMissing(Path serverRoot, Class<?> anchor, File pluginJar) {
-        return installZipIfMissing(serverRoot.resolve(readLevelName(serverRoot)), DEFAULT_ZIP_NAME, anchor, pluginJar);
+    public static Path installIfMissing(Path serverRoot, Class<?> anchor, File pluginJar, String pluginVersion) {
+        return installZipWhenNeeded(serverRoot.resolve(readLevelName(serverRoot)), DEFAULT_ZIP_NAME, anchor, pluginJar,
+                pluginVersion);
     }
 
-    private static Path installZipIfMissing(Path worldRoot, String zipFileName, Class<?> anchor, File pluginJar) {
+    private static Path installZipWhenNeeded(Path worldRoot, String zipFileName, Class<?> anchor, File pluginJar,
+                                             String pluginVersion) {
         Path target = worldRoot.resolve("datapacks").resolve(zipFileName);
+        Path marker = versionMarkerPath(target);
+        Path temp = null;
         try {
-            if (isValidZip(target)) {
-                return null;
-            }
+            removeLegacyFolderExtract(worldRoot);
 
-            Files.createDirectories(target.getParent());
-
+            temp = Files.createTempFile("rituals-datapack-", ".zip");
             try (InputStream in = openBundledZipStream(anchor, worldRoot, pluginJar)) {
                 if (in == null) {
                     System.err.println("[Rituals] No bundled datapack zip found in plugin JAR.");
                     return null;
                 }
-                Files.copy(in, target, StandardCopyOption.REPLACE_EXISTING);
+                Files.copy(in, temp, StandardCopyOption.REPLACE_EXISTING);
             }
+
+            if (!isValidZip(temp)) {
+                System.err.println("[Rituals] Bundled datapack zip is invalid.");
+                return null;
+            }
+
+            String bundledHash = sha256Hex(temp);
+            if (isValidZip(target) && bundledHash.equals(sha256Hex(target))) {
+                writeVersionMarker(marker, pluginVersion);
+                return null;
+            }
+
+            Files.createDirectories(target.getParent());
+            Files.copy(temp, target, StandardCopyOption.REPLACE_EXISTING);
 
             if (!isValidZip(target)) {
                 Files.deleteIfExists(target);
@@ -102,66 +109,40 @@ public final class DatapackFiles {
                 return null;
             }
 
+            writeVersionMarker(marker, pluginVersion);
             System.out.println("[Rituals] Installed datapack zip -> " + target.toAbsolutePath()
-                    + " (" + Files.size(target) + " bytes)");
+                    + " (" + Files.size(target) + " bytes, plugin v" + pluginVersion + ")");
             return target;
         } catch (IOException ex) {
             System.err.println("[Rituals] Failed to install datapack zip at " + target.toAbsolutePath() + ": " + ex.getMessage());
             ex.printStackTrace();
             return null;
+        } finally {
+            if (temp != null) {
+                try {
+                    Files.deleteIfExists(temp);
+                } catch (IOException ignored) {
+                    // best effort
+                }
+            }
         }
     }
 
-    static Path extractZipToFolder(Path zipFile, Path folder) {
-        try {
-            if (isValidFolder(folder)) {
-                return null;
-            }
-            if (Files.exists(folder)) {
-                deleteRecursive(folder);
-            }
-            Files.createDirectories(folder);
-            try (ZipFile zip = new ZipFile(zipFile.toFile())) {
-                var entries = zip.entries();
-                while (entries.hasMoreElements()) {
-                    ZipEntry entry = entries.nextElement();
-                    Path out = folder.resolve(entry.getName()).normalize();
-                    if (!out.startsWith(folder)) {
-                        throw new IOException("Zip entry escapes target folder: " + entry.getName());
-                    }
-                    if (entry.isDirectory()) {
-                        Files.createDirectories(out);
-                        continue;
-                    }
-                    Files.createDirectories(out.getParent());
-                    try (InputStream in = zip.getInputStream(entry);
-                         OutputStream outStream = Files.newOutputStream(out)) {
-                        in.transferTo(outStream);
-                    }
-                }
-            }
-            if (!isValidFolder(folder)) {
-                deleteRecursive(folder);
-                System.err.println("[Rituals] Folder extract failed validation: " + folder.toAbsolutePath());
-                return null;
-            }
-            System.out.println("[Rituals] Extracted datapack folder -> " + folder.toAbsolutePath());
-            return folder;
-        } catch (IOException ex) {
-            System.err.println("[Rituals] Failed to extract datapack folder: " + ex.getMessage());
-            ex.printStackTrace();
-            return null;
+    static void removeLegacyFolderExtract(Path worldRoot) throws IOException {
+        Path legacy = worldRoot.resolve("datapacks").resolve(LEGACY_FOLDER_NAME);
+        if (!Files.exists(legacy)) {
+            return;
         }
+        deleteRecursive(legacy);
+        System.out.println("[Rituals] Removed legacy extracted datapack folder -> " + legacy.toAbsolutePath());
     }
 
     public static boolean isInstalled(Path serverRoot, String levelName, String zipFileName) {
-        return isInstalledInWorld(serverRoot.resolve(levelName), zipFileName, DEFAULT_FOLDER_NAME);
+        return isInstalledInWorld(serverRoot.resolve(levelName), zipFileName);
     }
 
-    public static boolean isInstalledInWorld(Path worldRoot, String zipFileName, String folderName) {
-        return isValidZip(worldRoot.resolve("datapacks").resolve(zipFileName))
-                || (folderName != null && !folderName.isBlank()
-                && isValidFolder(worldRoot.resolve("datapacks").resolve(folderName)));
+    public static boolean isInstalledInWorld(Path worldRoot, String zipFileName) {
+        return isValidZip(worldRoot.resolve("datapacks").resolve(zipFileName));
     }
 
     static List<Path> findWorldRoots(Path serverRoot) {
@@ -216,6 +197,67 @@ public final class DatapackFiles {
             return Paths.get(agentArgs).toAbsolutePath().normalize();
         }
         return Paths.get(".").toAbsolutePath().normalize();
+    }
+
+    public static String readPluginVersion(File pluginJar) {
+        if (pluginJar == null || !pluginJar.isFile()) {
+            return "unknown";
+        }
+        try (JarFile jar = new JarFile(pluginJar)) {
+            Manifest manifest = jar.getManifest();
+            if (manifest != null) {
+                String version = manifest.getMainAttributes().getValue("Implementation-Version");
+                if (version != null && !version.isBlank()) {
+                    return version.trim();
+                }
+            }
+        } catch (IOException ignored) {
+            // fall through
+        }
+        return "unknown";
+    }
+
+    private static Path versionMarkerPath(Path zipPath) {
+        return zipPath.resolveSibling(zipPath.getFileName().toString() + ".version");
+    }
+
+    private static String readVersionMarker(Path marker) {
+        try {
+            if (!Files.isRegularFile(marker)) {
+                return null;
+            }
+            String text = Files.readString(marker).trim();
+            return text.isEmpty() ? null : text;
+        } catch (IOException ex) {
+            return null;
+        }
+    }
+
+    private static void writeVersionMarker(Path marker, String pluginVersion) throws IOException {
+        if (pluginVersion == null || pluginVersion.isBlank()) {
+            return;
+        }
+        String installed = readVersionMarker(marker);
+        if (pluginVersion.equals(installed)) {
+            return;
+        }
+        Files.writeString(marker, pluginVersion + System.lineSeparator());
+    }
+
+    private static String sha256Hex(Path path) throws IOException {
+        try {
+            MessageDigest digest = MessageDigest.getInstance("SHA-256");
+            try (InputStream in = Files.newInputStream(path)) {
+                byte[] buffer = new byte[8192];
+                int read;
+                while ((read = in.read(buffer)) != -1) {
+                    digest.update(buffer, 0, read);
+                }
+            }
+            return HexFormat.of().formatHex(digest.digest());
+        } catch (NoSuchAlgorithmException ex) {
+            throw new IllegalStateException("SHA-256 not available", ex);
+        }
     }
 
     private static InputStream openBundledZipStream(Class<?> anchor, Path worldRoot, File pluginJar) throws IOException {
@@ -302,12 +344,6 @@ public final class DatapackFiles {
         } catch (IOException ex) {
             return false;
         }
-    }
-
-    static boolean isValidFolder(Path folder) {
-        return Files.isDirectory(folder)
-                && Files.isRegularFile(folder.resolve("pack.mcmeta"))
-                && Files.isRegularFile(folder.resolve("data/rituals/function/load.mcfunction"));
     }
 
     private static void deleteRecursive(Path root) throws IOException {

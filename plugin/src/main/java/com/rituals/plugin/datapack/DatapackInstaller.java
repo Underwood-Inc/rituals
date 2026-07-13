@@ -5,9 +5,7 @@ import org.bukkit.World;
 
 import java.io.File;
 import java.nio.file.Path;
-import java.util.ArrayList;
 import java.util.LinkedHashSet;
-import java.util.List;
 import java.util.Set;
 
 public final class DatapackInstaller {
@@ -33,27 +31,27 @@ public final class DatapackInstaller {
         }
 
         String zipFileName = plugin.getConfig().getString("datapack.zip-file", DatapackFiles.DEFAULT_ZIP_NAME);
-        String folderName = plugin.getConfig().getString("datapack.folder-name", DatapackFiles.DEFAULT_FOLDER_NAME);
+        String pluginVersion = plugin.getPluginMeta().getVersion();
         Path serverRoot = ServerPaths.serverRoot(plugin);
         Path defaultWorld = ServerPaths.defaultWorld(plugin);
         File pluginJar = plugin.getPluginJar();
 
         plugin.getLogger().info("Rituals datapack install — server root: " + serverRoot
-                + ", default world: " + defaultWorld);
+                + ", default world: " + defaultWorld + ", zip: " + zipFileName + ", plugin v" + pluginVersion);
 
         Set<Path> installed = new LinkedHashSet<>();
 
         if (worldAlreadyLoaded && plugin.getServer() != null) {
             for (World world : plugin.getServer().getWorlds()) {
                 installed.addAll(DatapackFiles.installToWorld(
-                        world.getWorldFolder().toPath(), zipFileName, folderName, RitualsPlugin.class, pluginJar));
+                        world.getWorldFolder().toPath(), zipFileName, RitualsPlugin.class, pluginJar, pluginVersion));
             }
         }
 
         installed.addAll(DatapackFiles.installToWorld(
-                defaultWorld, zipFileName, folderName, RitualsPlugin.class, pluginJar));
+                defaultWorld, zipFileName, RitualsPlugin.class, pluginJar, pluginVersion));
         installed.addAll(DatapackFiles.installAllWorlds(
-                serverRoot, zipFileName, folderName, RitualsPlugin.class, pluginJar));
+                serverRoot, zipFileName, RitualsPlugin.class, pluginJar, pluginVersion));
 
         for (Path path : installed) {
             plugin.getLogger().info("Rituals datapack ready at " + path.toAbsolutePath());
@@ -75,7 +73,6 @@ public final class DatapackInstaller {
     public boolean isInstalled() {
         Path world = ServerPaths.defaultWorld(plugin);
         String zipFileName = plugin.getConfig().getString("datapack.zip-file", DatapackFiles.DEFAULT_ZIP_NAME);
-        String folderName = plugin.getConfig().getString("datapack.folder-name", DatapackFiles.DEFAULT_FOLDER_NAME);
-        return DatapackFiles.isInstalledInWorld(world, zipFileName, folderName);
+        return DatapackFiles.isInstalledInWorld(world, zipFileName);
     }
 }

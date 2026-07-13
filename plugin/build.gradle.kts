@@ -63,6 +63,7 @@ tasks.jar {
 tasks.register<Copy>("stageServerDatapack") {
     description = "Copy rituals.zip for manual deploy to world/datapacks/ (crash-loop recovery)"
     dependsOn(rootProject.tasks.named("packageDatapack"))
+    duplicatesStrategy = DuplicatesStrategy.INCLUDE
     from(rootProject.layout.buildDirectory.dir("datapacks")) {
         include("rituals-datapack-*.zip")
         rename { "rituals.zip" }
@@ -73,6 +74,14 @@ tasks.register<Copy>("stageServerDatapack") {
 tasks.register<Copy>("copyPluginToDeploy") {
     description = "Copy plugin JAR into server-deploy bundle"
     dependsOn(tasks.named("jar"))
+    doFirst {
+        val pluginsDir = rootProject.layout.buildDirectory.dir("server-deploy/plugins").get().asFile
+        if (pluginsDir.isDirectory) {
+            pluginsDir.listFiles { file ->
+                file.isFile && file.name.startsWith("rituals-plugin-") && file.name.endsWith(".jar")
+            }?.forEach { it.delete() }
+        }
+    }
     from(tasks.named<Jar>("jar").get().archiveFile)
     into(rootProject.layout.buildDirectory.dir("server-deploy/plugins"))
 }

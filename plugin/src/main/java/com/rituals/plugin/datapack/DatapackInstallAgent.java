@@ -27,13 +27,15 @@ public final class DatapackInstallAgent {
             serverRoot = Paths.get(".").toAbsolutePath().normalize();
         }
         File pluginJar = findPluginJar(serverRoot);
-        System.out.println("[Rituals] Pre-start datapack install (server root: " + serverRoot + ")");
+        String pluginVersion = DatapackFiles.readPluginVersion(pluginJar);
+        System.out.println("[Rituals] Pre-start datapack install (server root: " + serverRoot + ", plugin v"
+                + pluginVersion + ")");
         return DatapackFiles.installAllWorlds(
                 serverRoot,
                 DatapackFiles.DEFAULT_ZIP_NAME,
-                DatapackFiles.DEFAULT_FOLDER_NAME,
                 DatapackInstallAgent.class,
-                pluginJar
+                pluginJar,
+                pluginVersion
         );
     }
 
