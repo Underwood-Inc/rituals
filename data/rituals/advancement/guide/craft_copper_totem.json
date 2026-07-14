@@ -2,7 +2,10 @@
   "parent": "rituals:guide/craft_totem",
   "display": {
     "icon": {
-      "id": "minecraft:copper_ingot"
+      "id": "minecraft:warped_fungus_on_a_stick",
+      "components": {
+        "minecraft:item_model": "rituals:totem_copper"
+      }
     },
     "title": {
       "text": "Copper Totem",

@@ -2,7 +2,10 @@
   "parent": "rituals:guide/master_ritualist",
   "display": {
     "icon": {
-      "id": "minecraft:diamond_hoe"
+      "id": "minecraft:warped_fungus_on_a_stick",
+      "components": {
+        "minecraft:item_model": "rituals:totem_netherite"
+      }
     },
     "title": {
       "text": "§k§l§5Pattern Rituals Preview§r",

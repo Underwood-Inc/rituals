@@ -2,7 +2,10 @@
   "parent": "rituals:guide/craft_gold_totem",
   "display": {
     "icon": {
-      "id": "minecraft:diamond"
+      "id": "minecraft:warped_fungus_on_a_stick",
+      "components": {
+        "minecraft:item_model": "rituals:totem_diamond"
+      }
     },
     "title": {
       "text": "Diamond Totem",
