@@ -3,6 +3,7 @@
 # ========================================
 # Runs as and at the totem being broken/sacrificed
 # Used for pattern ritual supplemental totems - items are consumed as sacrifice
+# Call with: function rituals:totem/break_sacrifice with storage rituals:temp
 # Player UUID in rituals:temp interacting_uuid (macro)
 
 # Mark as broken to prevent double-breaking

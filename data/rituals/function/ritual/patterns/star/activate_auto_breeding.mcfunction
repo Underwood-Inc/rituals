@@ -42,25 +42,29 @@ execute store result storage rituals:temp h_range int 1 run scoreboard players g
 function rituals:ritual/patterns/star/immediate_breed with storage rituals:temp
 
 # Destroy supplemental totems (sacrifice)
+# break_sacrifice is a macro function — must pass interacting_uuid via `with storage`
+data modify storage rituals:temp interacting_uuid set value [I;0,0,0,0]
+data modify storage rituals:temp interacting_uuid set from entity @p[distance=..32] UUID
+
 execute positioned ~ ~ ~5 run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
 execute positioned ~ ~ ~5 run particle minecraft:soul_fire_flame ~ ~1 ~ 0.3 0.5 0.3 0.1 30 force
 execute positioned ~ ~ ~5 run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
-execute positioned ~ ~ ~5 as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1] run function rituals:totem/break_sacrifice
+execute positioned ~ ~ ~5 as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1,sort=nearest] at @s run function rituals:totem/break_sacrifice with storage rituals:temp
 
 execute positioned ~5 ~ ~ run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
 execute positioned ~5 ~ ~ run particle minecraft:soul_fire_flame ~ ~1 ~ 0.3 0.5 0.3 0.1 30 force
 execute positioned ~5 ~ ~ run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
-execute positioned ~5 ~ ~ as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1] run function rituals:totem/break_sacrifice
+execute positioned ~5 ~ ~ as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1,sort=nearest] at @s run function rituals:totem/break_sacrifice with storage rituals:temp
 
 execute positioned ~ ~ ~-5 run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
 execute positioned ~ ~ ~-5 run particle minecraft:soul_fire_flame ~ ~1 ~ 0.3 0.5 0.3 0.1 30 force
 execute positioned ~ ~ ~-5 run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
-execute positioned ~ ~ ~-5 as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1] run function rituals:totem/break_sacrifice
+execute positioned ~ ~ ~-5 as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1,sort=nearest] at @s run function rituals:totem/break_sacrifice with storage rituals:temp
 
 execute positioned ~-5 ~ ~ run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
 execute positioned ~-5 ~ ~ run particle minecraft:soul_fire_flame ~ ~1 ~ 0.3 0.5 0.3 0.1 30 force
 execute positioned ~-5 ~ ~ run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
-execute positioned ~-5 ~ ~ as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1] run function rituals:totem/break_sacrifice
+execute positioned ~-5 ~ ~ as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1,sort=nearest] at @s run function rituals:totem/break_sacrifice with storage rituals:temp
 
 # Mark central item with ritual_active tag (AFTER sacrificing supplementals)
 scoreboard players operation #activate_totem_id rituals.temp = @s rituals.id

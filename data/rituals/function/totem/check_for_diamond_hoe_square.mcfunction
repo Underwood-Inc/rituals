@@ -6,5 +6,6 @@
 
 # Check if there's a diamond hoe at THIS position (potential center)
 # If found, tag ALL totems at corner positions (±5, ±5 from here)
-execute if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5,limit=1] if entity @e[type=item_display,tag=rituals.totem_display,distance=..2,nbt={item:{id:"minecraft:diamond_hoe"}}] run function rituals:totem/tag_square_corners
+# distance=..3 reaches tall totem item displays spawned at ~ ~2.5 ~
+execute if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5,limit=1] if entity @e[type=item_display,tag=rituals.totem_display,distance=..3,nbt={item:{id:"minecraft:diamond_hoe"}}] run function rituals:totem/tag_square_corners
 

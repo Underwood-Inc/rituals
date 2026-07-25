@@ -67,25 +67,29 @@ tellraw @a[distance=..32] [{"text":"   ","color":"gray"},{"text":"Level Cap: 15"
 function rituals:badges/mark_ritual_complete
 
 # Destroy supplemental totems (soul components consumed)
+# break_sacrifice is a macro function — must pass interacting_uuid via `with storage`
+data modify storage rituals:temp interacting_uuid set value [I;0,0,0,0]
+data modify storage rituals:temp interacting_uuid set from entity @p[distance=..32] UUID
+
 execute positioned ~ ~ ~5 run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
 execute positioned ~ ~ ~5 run particle minecraft:soul ~ ~1 ~ 0.3 0.5 0.3 0.05 20 force
 execute positioned ~ ~ ~5 run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
-execute positioned ~ ~ ~5 as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1] run function rituals:totem/break_sacrifice
+execute positioned ~ ~ ~5 as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1,sort=nearest] at @s run function rituals:totem/break_sacrifice with storage rituals:temp
 
 execute positioned ~5 ~ ~ run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
 execute positioned ~5 ~ ~ run particle minecraft:soul ~ ~1 ~ 0.3 0.5 0.3 0.05 20 force
 execute positioned ~5 ~ ~ run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
-execute positioned ~5 ~ ~ as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1] run function rituals:totem/break_sacrifice
+execute positioned ~5 ~ ~ as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1,sort=nearest] at @s run function rituals:totem/break_sacrifice with storage rituals:temp
 
 execute positioned ~ ~ ~-5 run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
 execute positioned ~ ~ ~-5 run particle minecraft:soul ~ ~1 ~ 0.3 0.5 0.3 0.05 20 force
 execute positioned ~ ~ ~-5 run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
-execute positioned ~ ~ ~-5 as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1] run function rituals:totem/break_sacrifice
+execute positioned ~ ~ ~-5 as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1,sort=nearest] at @s run function rituals:totem/break_sacrifice with storage rituals:temp
 
 execute positioned ~-5 ~ ~ run particle minecraft:explosion_emitter ~ ~1 ~ 0 0 0 0 1 force
 execute positioned ~-5 ~ ~ run particle minecraft:soul ~ ~1 ~ 0.3 0.5 0.3 0.05 20 force
 execute positioned ~-5 ~ ~ run playsound minecraft:entity.wither.break_block master @a ~ ~ ~ 1.5 0.8
-execute positioned ~-5 ~ ~ as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1] run function rituals:totem/break_sacrifice
+execute positioned ~-5 ~ ~ as @e[type=interaction,tag=rituals.totem,distance=..1.5,limit=1,sort=nearest] at @s run function rituals:totem/break_sacrifice with storage rituals:temp
 
 # Clear temp storage
 data remove storage rituals:temp awaken_item_id
