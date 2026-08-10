@@ -9,11 +9,8 @@ execute if entity @s[tag=rituals.paused] run return 0
 # Increment timer
 scoreboard players add @s rituals.timer 1
 
-# Check if any totem in the ritual lost its item (breaks the ritual)
-execute store result score #ritual_intact rituals.temp if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,tag=rituals.active_ritual,distance=..32]
-
-# If less than minimum totems, ritual is broken
-execute if score #ritual_intact rituals.temp < #min_totems rituals.data run function rituals:ritual/deactivate
+# Deactivate only this totem if it lost its displayed item
+execute unless entity @s[tag=rituals.has_item] run return run function rituals:ritual/deactivate
 
 # Apply ritual effects based on type
 execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect matches 1 run function rituals:ritual/effects/growth

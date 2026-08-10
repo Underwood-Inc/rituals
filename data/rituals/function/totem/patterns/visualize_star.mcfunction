@@ -5,7 +5,7 @@
 # Color: Green/Yellow (nature/crop colors)
 # Pattern: 4 cardinals at 5 blocks distance
 
-# North (0, 0, +5) - Seeds
+# South (0, 0, +5) - Seeds
 particle dust{color:[0.8,1.0,0.2],scale:1.2} ~ ~ ~5 0.3 0.5 0.3 0 8 force
 particle dust{color:[0.8,1.0,0.2],scale:0.8} ~ ~1 ~5 0.2 0.3 0.2 0 4 force
 particle dust{color:[0.8,1.0,0.2],scale:0.8} ~ ~2 ~5 0.2 0.3 0.2 0 4 force
@@ -15,7 +15,7 @@ particle dust{color:[1.0,0.6,0.2],scale:1.2} ~5 ~ ~ 0.3 0.5 0.3 0 8 force
 particle dust{color:[1.0,0.6,0.2],scale:0.8} ~5 ~1 ~ 0.2 0.3 0.2 0 4 force
 particle dust{color:[1.0,0.6,0.2],scale:0.8} ~5 ~2 ~ 0.2 0.3 0.2 0 4 force
 
-# South (0, 0, -5) - Potato
+# North (0, 0, -5) - Potato
 particle dust{color:[0.9,0.8,0.5],scale:1.2} ~ ~ ~-5 0.3 0.5 0.3 0 8 force
 particle dust{color:[0.9,0.8,0.5],scale:0.8} ~ ~1 ~-5 0.2 0.3 0.2 0 4 force
 particle dust{color:[0.9,0.8,0.5],scale:0.8} ~ ~2 ~-5 0.2 0.3 0.2 0 4 force

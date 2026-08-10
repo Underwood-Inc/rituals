@@ -4,10 +4,10 @@
 # Central Item: Wheat
 # Pattern: 4 totems in cardinal directions (N/E/S/W) at 5 blocks distance
 # Required Items:
-#   North (0, +5): Seeds
-#   East (+5, 0): Carrot
-#   South (0, -5): Potato
-#   West (-5, 0): Beetroot Seeds
+#   South (0, 0, +5): Seeds
+#   East (+5, 0, 0): Carrot
+#   North (0, 0, -5): Potato
+#   West (-5, 0, 0): Beetroot Seeds
 
 # Skip detection if this ritual is already active
 execute if entity @s[tag=rituals.active_ritual] run return 0
@@ -20,9 +20,9 @@ execute if score #has_ritual_tag rituals.temp matches 1.. run return 0
 # Show helpful setup message (only once per totem)
 execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"🌾 ","color":"gold"},{"text":"Auto-Breeding Pattern Setup:","bold":true,"color":"yellow"}]
 execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  Place totems 5 blocks away in cardinal directions:","color":"gray"}]
-execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • North: ","color":"gray"},{"text":"Seeds","color":"green","bold":true},{"text":" (🟢 Green particles)","color":"green"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • South: ","color":"gray"},{"text":"Seeds","color":"green","bold":true},{"text":" (🟢 Green particles)","color":"green"}]
 execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • East: ","color":"gray"},{"text":"Carrot","color":"#FF8C00","bold":true},{"text":" (🟠 Orange particles)","color":"#FF8C00"}]
-execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • South: ","color":"gray"},{"text":"Potato","color":"#CD853F","bold":true},{"text":" (🟤 Brown particles)","color":"#CD853F"}]
+execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • North: ","color":"gray"},{"text":"Potato","color":"#CD853F","bold":true},{"text":" (🟤 Brown particles)","color":"#CD853F"}]
 execute unless entity @s[tag=rituals.pattern_help_shown] run tellraw @a[distance=..10] [{"text":"  • West: ","color":"gray"},{"text":"Beetroot Seeds","color":"red","bold":true},{"text":" (🔴 Red particles)","color":"red"}]
 tag @s add rituals.pattern_help_shown
 
@@ -30,7 +30,7 @@ tag @s add rituals.pattern_help_shown
 scoreboard players set #pattern_valid rituals.temp 0
 scoreboard players set #totems_found rituals.temp 0
 
-# Check North (+0, 0, +5) - Requires Seeds
+# Check South (0, 0, +5) - Requires Seeds
 scoreboard players set #found_n rituals.temp 0
 execute positioned ~ ~ ~5 as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run function rituals:ritual/patterns/star/check_north
 
@@ -38,7 +38,7 @@ execute positioned ~ ~ ~5 as @e[type=interaction,tag=rituals.totem,tag=rituals.h
 scoreboard players set #found_e rituals.temp 0
 execute positioned ~5 ~ ~ as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run function rituals:ritual/patterns/star/check_east
 
-# Check South (0, 0, -5) - Requires Potato
+# Check North (0, 0, -5) - Requires Potato
 scoreboard players set #found_s rituals.temp 0
 execute positioned ~ ~ ~-5 as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run function rituals:ritual/patterns/star/check_south
 

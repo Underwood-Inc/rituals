@@ -25,10 +25,10 @@ execute positioned ~5 ~ ~-5 if entity @e[type=interaction,tag=rituals.totem,tag=
 
 # Check for WHEAT at star pattern center positions
 # If THIS totem is at a cardinal, the center wheat would be at the OPPOSITE cardinal
-# North (+0,+5) -> center at (0,-5) from here
-# East (+5,0) -> center at (-5,0) from here
-# South (0,-5) -> center at (0,+5) from here
-# West (-5,0) -> center at (+5,0) from here
+# South (0, 0, +5) -> center at (0, 0, -5) from here
+# East (+5, 0, 0) -> center at (-5, 0, 0) from here
+# North (0, 0, -5) -> center at (0, 0, +5) from here
+# West (-5, 0, 0) -> center at (+5, 0, 0) from here
 execute positioned ~ ~ ~-5 if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1] run function rituals:totem/check_for_wheat_star
 execute positioned ~-5 ~ ~ if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1] run function rituals:totem/check_for_wheat_star
 execute positioned ~ ~ ~5 if entity @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1] run function rituals:totem/check_for_wheat_star

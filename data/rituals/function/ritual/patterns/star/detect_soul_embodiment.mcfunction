@@ -4,10 +4,10 @@
 # Central Item: Any awakeable tool (uses #rituals:awakeable_tools tag)
 # Pattern: 4 totems in cardinal directions (N/E/S/W) at 5 blocks distance
 # Required Items:
-#   North (0, +5): Soul Sand
-#   East (+5, 0): Ender Pearl
-#   South (0, -5): Glowstone Dust
-#   West (-5, 0): Amethyst Shard
+#   South (0, 0, +5): Soul Sand
+#   East (+5, 0, 0): Ender Pearl
+#   North (0, 0, -5): Glowstone Dust
+#   West (-5, 0, 0): Amethyst Shard
 
 # Skip if already an active ritual
 execute if entity @s[tag=rituals.active_ritual] run return 0
@@ -29,9 +29,9 @@ execute if score #is_awakeable rituals.temp matches 0 run return 0
 # Show setup help message (only once per totem)
 execute unless entity @s[tag=rituals.soul_help_shown] run tellraw @a[distance=..10] [{"text":"✦ ","color":"light_purple"},{"text":"Soul Embodiment Pattern Setup:","bold":true,"color":"dark_purple"}]
 execute unless entity @s[tag=rituals.soul_help_shown] run tellraw @a[distance=..10] [{"text":"  Place totems 5 blocks away in cardinal directions:","color":"gray"}]
-execute unless entity @s[tag=rituals.soul_help_shown] run tellraw @a[distance=..10] [{"text":"  • North: ","color":"gray"},{"text":"Soul Sand","color":"#8B6914","bold":true}]
+execute unless entity @s[tag=rituals.soul_help_shown] run tellraw @a[distance=..10] [{"text":"  • South: ","color":"gray"},{"text":"Soul Sand","color":"#8B6914","bold":true}]
 execute unless entity @s[tag=rituals.soul_help_shown] run tellraw @a[distance=..10] [{"text":"  • East: ","color":"gray"},{"text":"Ender Pearl","color":"#0A7A7A","bold":true}]
-execute unless entity @s[tag=rituals.soul_help_shown] run tellraw @a[distance=..10] [{"text":"  • South: ","color":"gray"},{"text":"Glowstone Dust","color":"#FFCC00","bold":true}]
+execute unless entity @s[tag=rituals.soul_help_shown] run tellraw @a[distance=..10] [{"text":"  • North: ","color":"gray"},{"text":"Glowstone Dust","color":"#FFCC00","bold":true}]
 execute unless entity @s[tag=rituals.soul_help_shown] run tellraw @a[distance=..10] [{"text":"  • West: ","color":"gray"},{"text":"Amethyst Shard","color":"#9966CC","bold":true}]
 tag @s add rituals.soul_help_shown
 
@@ -39,7 +39,7 @@ tag @s add rituals.soul_help_shown
 scoreboard players set #pattern_valid rituals.temp 0
 scoreboard players set #totems_found rituals.temp 0
 
-# Check North (+0, 0, +5) - Requires Soul Sand
+# Check South (0, 0, +5) - Requires Soul Sand
 scoreboard players set #found_n rituals.temp 0
 execute positioned ~ ~ ~5 as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run function rituals:ritual/patterns/star/check_soul_north
 
@@ -47,7 +47,7 @@ execute positioned ~ ~ ~5 as @e[type=interaction,tag=rituals.totem,tag=rituals.h
 scoreboard players set #found_e rituals.temp 0
 execute positioned ~5 ~ ~ as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run function rituals:ritual/patterns/star/check_soul_east
 
-# Check South (0, 0, -5) - Requires Glowstone Dust
+# Check North (0, 0, -5) - Requires Glowstone Dust
 scoreboard players set #found_s rituals.temp 0
 execute positioned ~ ~ ~-5 as @e[type=interaction,tag=rituals.totem,tag=rituals.has_item,distance=..1.5] run function rituals:ritual/patterns/star/check_soul_south
 

@@ -5,22 +5,22 @@
 # Colors: Purple/Cyan/Gold (soul magic colors)
 # Pattern: 4 cardinals at 5 blocks distance
 
-# North (+Z) - Soul Sand (brown/dark orange)
+# South (0, 0, +5) - Soul Sand (brown/dark orange)
 particle dust{color:[0.55,0.41,0.08],scale:1.2} ~ ~ ~5 0.3 0.5 0.3 0 8 force
 particle dust{color:[0.55,0.41,0.08],scale:0.8} ~ ~1 ~5 0.2 0.3 0.2 0 4 force
 particle dust{color:[0.55,0.41,0.08],scale:0.8} ~ ~2 ~5 0.2 0.3 0.2 0 4 force
 
-# East (+X) - Ender Pearl (teal/cyan)
+# East (+5, 0, 0) - Ender Pearl (teal/cyan)
 particle dust{color:[0.04,0.48,0.48],scale:1.2} ~5 ~ ~ 0.3 0.5 0.3 0 8 force
 particle dust{color:[0.04,0.48,0.48],scale:0.8} ~5 ~1 ~ 0.2 0.3 0.2 0 4 force
 particle dust{color:[0.04,0.48,0.48],scale:0.8} ~5 ~2 ~ 0.2 0.3 0.2 0 4 force
 
-# South (-Z) - Glowstone Dust (yellow/gold)
+# North (0, 0, -5) - Glowstone Dust (yellow/gold)
 particle dust{color:[1.0,0.8,0.0],scale:1.2} ~ ~ ~-5 0.3 0.5 0.3 0 8 force
 particle dust{color:[1.0,0.8,0.0],scale:0.8} ~ ~1 ~-5 0.2 0.3 0.2 0 4 force
 particle dust{color:[1.0,0.8,0.0],scale:0.8} ~ ~2 ~-5 0.2 0.3 0.2 0 4 force
 
-# West (-X) - Amethyst Shard (purple)
+# West (-5, 0, 0) - Amethyst Shard (purple)
 particle dust{color:[0.6,0.4,0.8],scale:1.2} ~-5 ~ ~ 0.3 0.5 0.3 0 8 force
 particle dust{color:[0.6,0.4,0.8],scale:0.8} ~-5 ~1 ~ 0.2 0.3 0.2 0 4 force
 particle dust{color:[0.6,0.4,0.8],scale:0.8} ~-5 ~2 ~ 0.2 0.3 0.2 0 4 force

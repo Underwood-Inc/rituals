@@ -13,7 +13,7 @@ execute store result score #decay_timer rituals.temp run data get entity @s data
 execute if score #decay_timer rituals.temp matches 1.. run scoreboard players remove #decay_timer rituals.temp 1
 execute if score #decay_timer rituals.temp matches 1.. run execute store result entity @s data.rituals.mine_decay int 1 run scoreboard players get #decay_timer rituals.temp
 
-# If decay timer reaches 0, reset progress
+# If decay timer reaches 0, reset progress (smoke only if progress was actually lost)
+execute if score #decay_timer rituals.temp matches 0 store result score #mine_progress rituals.temp run data get entity @s data.rituals.mine_progress
+execute if score #decay_timer rituals.temp matches 0 if score #mine_progress rituals.temp matches 1.. run particle smoke ~ ~1 ~ 0.2 0.2 0.2 0.01 5
 execute if score #decay_timer rituals.temp matches 0 run data modify entity @s data.rituals.mine_progress set value 0
-execute if score #decay_timer rituals.temp matches 0 run particle smoke ~ ~1 ~ 0.2 0.2 0.2 0.01 5
-

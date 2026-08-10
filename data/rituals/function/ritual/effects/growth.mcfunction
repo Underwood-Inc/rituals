@@ -3,8 +3,6 @@
 # ========================================
 # Grows crops in tier-based range
 
-function rituals:ritual/effects/only_cluster_leader
-
 # Get tier-based range settings
 function rituals:ritual/get_tier_settings
 
