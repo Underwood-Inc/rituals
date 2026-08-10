@@ -2,7 +2,10 @@
   "parent": "rituals:guide/craft_iron_totem",
   "display": {
     "icon": {
-      "id": "minecraft:gold_ingot"
+      "id": "minecraft:warped_fungus_on_a_stick",
+      "components": {
+        "minecraft:item_model": "rituals:totem_gold"
+      }
     },
     "title": {
       "text": "§k§l§6Gold Totem Mastery§r",
