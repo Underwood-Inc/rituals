@@ -15,10 +15,10 @@ data remove entity @s interaction
 # Creative mode can always instantly break
 execute if entity @p[distance=..6,gamemode=creative] run function rituals:totem/break
 
-# Tier 1 (Wood) - Requires any axe
-execute if entity @s[tag=!rituals.broken] if score @s rituals.tier matches 1 as @p[distance=..6,gamemode=!creative,predicate=rituals:holding_axe] at @s run function rituals:totem/mine_hit
-execute if entity @s[tag=!rituals.broken] if score @s rituals.tier matches 1 as @p[distance=..6,gamemode=!creative,predicate=!rituals:holding_axe] run function rituals:totem/wrong_tool_axe
+# Tier 1 (Wood) - Requires any axe (@s is the totem being mined)
+execute if entity @s[tag=!rituals.broken] if score @s rituals.tier matches 1 if entity @p[distance=..6,gamemode=!creative,predicate=rituals:holding_axe] run function rituals:totem/increment_mine_progress
+execute if entity @s[tag=!rituals.broken] if score @s rituals.tier matches 1 if entity @p[distance=..6,gamemode=!creative,predicate=!rituals:holding_axe] run function rituals:totem/wrong_tool_axe
 
-# Tier 2-6 (Metals) - Require pickaxe
-execute if entity @s[tag=!rituals.broken] if score @s rituals.tier matches 2.. as @p[distance=..6,gamemode=!creative,predicate=rituals:holding_pickaxe] at @s run function rituals:totem/mine_hit
-execute if entity @s[tag=!rituals.broken] if score @s rituals.tier matches 2.. as @p[distance=..6,gamemode=!creative,predicate=!rituals:holding_pickaxe] run function rituals:totem/wrong_tool_pickaxe
+# Tier 2-6 (Metals) - Require pickaxe (@s is the totem being mined)
+execute if entity @s[tag=!rituals.broken] if score @s rituals.tier matches 2.. if entity @p[distance=..6,gamemode=!creative,predicate=rituals:holding_pickaxe] run function rituals:totem/increment_mine_progress
+execute if entity @s[tag=!rituals.broken] if score @s rituals.tier matches 2.. if entity @p[distance=..6,gamemode=!creative,predicate=!rituals:holding_pickaxe] run function rituals:totem/wrong_tool_pickaxe

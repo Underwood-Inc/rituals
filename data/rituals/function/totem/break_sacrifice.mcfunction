@@ -8,6 +8,9 @@
 # Mark as broken to prevent double-breaking
 tag @s add rituals.broken
 
+function rituals:totem/hide_range_barrier
+function rituals:totem/markers/kill
+
 # Store this totem's ID for matching
 scoreboard players operation #break_id rituals.temp = @s rituals.id
 
@@ -21,9 +24,8 @@ execute as @e[type=item_display,tag=rituals.totem_visual_rp] if score @s rituals
 execute as @e[type=block_display,tag=rituals.totem_barrier] if score @s rituals.id = #break_id rituals.temp run kill @s
 execute as @e[type=area_effect_cloud,tag=rituals.range_marker] if score @s rituals.id = #break_id rituals.temp run kill @s
 
-# Remove barrier blocks that provided collision
-setblock ~ ~ ~ air
-execute if entity @s[tag=!rituals.short_totem] run setblock ~ ~1 ~ air
+# Remove collision barrier blocks at this totem's anchor
+function rituals:totem/clear_barrier_blocks
 
 # Also kill any entities at this exact location (failsafe)
 kill @e[type=block_display,tag=rituals.totem_visual,distance=..0.1]
