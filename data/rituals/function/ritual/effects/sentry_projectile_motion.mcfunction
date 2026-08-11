@@ -19,11 +19,10 @@ execute if score #has_target rituals.temp matches 1.. if score @s rituals.tier m
 execute if score #has_target rituals.temp matches 1.. if score @s rituals.tier matches 5 facing entity @e[type=#rituals:hostile_mobs,distance=..30,limit=1,sort=nearest] eyes run tp @s ^ ^ ^0.9
 execute if score #has_target rituals.temp matches 1.. if score @s rituals.tier matches 6 facing entity @e[type=#rituals:hostile_mobs,distance=..30,limit=1,sort=nearest] eyes run tp @s ^ ^ ^1.2
 
-# Visual trail
-execute if score @s rituals.tier matches 1..2 run particle flame ~ ~ ~ 0.05 0.05 0.05 0 1 force
-execute if score @s rituals.tier matches 3..4 run particle flame ~ ~ ~ 0.05 0.05 0.05 0 2 force
-execute if score @s rituals.tier matches 5..6 run particle soul_fire_flame ~ ~ ~ 0.05 0.05 0.05 0 2 force
-particle electric_spark ~ ~ ~ 0.1 0.1 0.1 0 1 force
+# Visual trail (poll slot 16 — motion/collision still every tick)
+execute if score #rituals_global_tick rituals.data matches 16 if score @s rituals.tier matches 1..2 run particle flame ~ ~ ~ 0.05 0.05 0.05 0 1 force
+execute if score #rituals_global_tick rituals.data matches 16 if score @s rituals.tier matches 3..4 run particle flame ~ ~ ~ 0.05 0.05 0.05 0 2 force
+execute if score #rituals_global_tick rituals.data matches 16 if score @s rituals.tier matches 5..6 run particle soul_fire_flame ~ ~ ~ 0.05 0.05 0.05 0 2 force
 
 # Check for collision with hostile mobs (only one at a time)
 execute positioned ~-0.5 ~-0.5 ~-0.5 if entity @e[type=#rituals:hostile_mobs,dx=1,dy=1,dz=1] as @e[type=#rituals:hostile_mobs,dx=1,dy=1,dz=1,limit=1,sort=nearest] run tag @s add rituals.projectile_hit

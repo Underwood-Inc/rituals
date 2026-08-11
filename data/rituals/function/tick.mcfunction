@@ -10,6 +10,15 @@ tag @a add rituals.session_seen
 # Reduce placement cooldown
 scoreboard players remove @a[scores={rituals.temp=1..}] rituals.temp 1
 
+# Global poll phase (0-19). Staggered cosmetic/poll slots — ritual effect counters still tick every tick.
+#   0 = redstone probe + kiwi actionbar
+#   4 = illegal totem inventory scan
+#   8 = pattern preview particles
+#  12 = progress particles (powered active rituals)
+#  16 = sentry projectile trail particles
+scoreboard players add #rituals_global_tick rituals.data 1
+execute if score #rituals_global_tick rituals.data matches 20.. run scoreboard players set #rituals_global_tick rituals.data 0
+
 # Check for totem placement (check for both int and byte for compatibility)
 execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_totem:1}}}}] at @s run function rituals:totem/check_place
 execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_totem:1b}}}}] at @s run function rituals:totem/check_place
@@ -18,8 +27,9 @@ execute as @a[nbt={SelectedItem:{components:{"minecraft:custom_data":{rituals_to
 # Check both formats: true (JSON) and 1b (NBT byte) for compatibility
 execute as @a at @s if data entity @s SelectedItem.components."minecraft:custom_data".rituals_scrying_glass run function rituals:soul/check_scrying_use
 
-# Check for illegally crafted totems (recipe progression enforcement)
-execute as @a run function rituals:player/check_illegal_totem
+# Illegal totem check (slot 4 — players carrying a totem item only)
+execute if score #rituals_global_tick rituals.data matches 4 as @a[nbt={Inventory:[{components:{"minecraft:custom_data":{rituals_totem:1}}}]}] run function rituals:player/check_illegal_totem
+execute if score #rituals_global_tick rituals.data matches 4 as @a[nbt={Inventory:[{components:{"minecraft:custom_data":{rituals_totem:1b}}}]}] run function rituals:player/check_illegal_totem
 
 # Update all active totems
 execute as @e[type=interaction,tag=rituals.totem] at @s run function rituals:totem/update
@@ -41,6 +51,6 @@ function rituals:soul/tick
 # Handle menu triggers
 function rituals:menu/handler
 
-# Show kiwi mode indicator
-execute if score #kiwi_mode rituals.data matches 1 run title @a actionbar [{"text":"🥝 ","color":"green"},{"text":"Kiwi Mode Active","color":"yellow"}]
+# Show kiwi mode indicator (every 20 ticks)
+execute if score #kiwi_mode rituals.data matches 1 if score #rituals_global_tick rituals.data matches 0 run title @a actionbar [{"text":"🥝 ","color":"green"},{"text":"Kiwi Mode Active","color":"yellow"}]
 

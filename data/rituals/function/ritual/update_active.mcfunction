@@ -25,8 +25,8 @@ execute if entity @s[tag=rituals.active_ritual] if score @s rituals.effect match
 # Ambient particles for active rituals
 execute if score @s rituals.timer matches 0..9 run function rituals:ritual/ambient_particles
 
-# Progress particles for powered active rituals (shrinking effect)
-execute if entity @s[tag=rituals.redstone_powered] run function rituals:ritual/progress_particles
+# Progress particles for powered active rituals (poll slot 12 — cosmetic only)
+execute if score #rituals_global_tick rituals.data matches 12 if entity @s[tag=rituals.redstone_powered] run function rituals:ritual/progress_particles
 
 # Rituals run permanently - no auto-deactivation
 # Players must manually break totems or remove items to stop rituals

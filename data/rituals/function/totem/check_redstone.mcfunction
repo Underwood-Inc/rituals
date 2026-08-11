@@ -90,6 +90,3 @@ execute if entity @s[tag=!rituals.redstone_check,tag=rituals.redstone_powered] r
 
 # Clean up temporary check tag
 tag @s remove rituals.redstone_check
-
-# Glow particle at top when powered (subtle indicator)
-execute if entity @s[tag=rituals.redstone_powered] run particle electric_spark ~ ~2 ~ 0.1 0.1 0.1 0 1

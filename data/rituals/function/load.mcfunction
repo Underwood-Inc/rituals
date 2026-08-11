@@ -96,7 +96,7 @@ scoreboard players set #tier3_power rituals.data 3
 
 # Constants
 scoreboard players set #check_interval rituals.data 20
-scoreboard players set #illegal_totem_tick rituals.data 0
+scoreboard players set #rituals_global_tick rituals.data 0
 
 # System constants
 scoreboard players set #-1 rituals.data -1
