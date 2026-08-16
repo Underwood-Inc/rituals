@@ -1,5 +1,4 @@
 {
-  "function": "minecraft:set_count",
   "count": {
     "type": "minecraft:score",
     "target": {
@@ -7,8 +6,8 @@
       "name": "#-1"
     },
     "score": "rituals.data",
-    "scale": 1.0
+    "scale": 1
   },
-  "add": true
+  "add": true,
+  "type": "minecraft:set_count"
 }
-

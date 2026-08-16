@@ -1,5 +1,4 @@
 {
-  "function": "minecraft:copy_custom_data",
   "source": {
     "type": "storage",
     "source": "rituals:temp"
@@ -10,5 +9,6 @@
       "target": "",
       "op": "replace"
     }
-  ]
+  ],
+  "type": "minecraft:copy_custom_data"
 }
