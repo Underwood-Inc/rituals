@@ -9,6 +9,7 @@
           "name": "minecraft:written_book",
           "modifier": [
             {
+              "type": "minecraft:set_components",
               "components": {
                 "minecraft:written_book_content": {
                   "title": "Rituals Guide",
@@ -490,8 +491,7 @@
                     }
                   ]
                 }
-              },
-              "type": "minecraft:set_components"
+              }
             }
           ]
         }

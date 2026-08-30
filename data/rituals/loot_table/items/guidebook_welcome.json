@@ -9,6 +9,7 @@
           "name": "minecraft:written_book",
           "modifier": [
             {
+              "type": "minecraft:set_components",
               "components": {
                 "minecraft:written_book_content": {
                   "title": "Rituals Guide",
@@ -497,14 +498,14 @@
                   {
                     "type": "minecraft:luck",
                     "id": "rituals:welcome_guidebook_luck_mainhand",
-                    "amount": 2,
+                    "amount": 2.0,
                     "operation": "add_value",
                     "slot": "mainhand"
                   },
                   {
                     "type": "minecraft:luck",
                     "id": "rituals:welcome_guidebook_luck_offhand",
-                    "amount": 2,
+                    "amount": 2.0,
                     "operation": "add_value",
                     "slot": "offhand"
                   }
@@ -526,8 +527,7 @@
                     "italic": true
                   }
                 ]
-              },
-              "type": "minecraft:set_components"
+              }
             }
           ]
         }
