@@ -10,5 +10,5 @@
       "op": "merge"
     }
   ],
-  "type": "minecraft:copy_custom_data"
+  "function": "minecraft:copy_custom_data"
 }
