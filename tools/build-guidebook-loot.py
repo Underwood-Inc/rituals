@@ -88,9 +88,9 @@ def build_loot_table(page_sources: list, *, welcome: bool) -> dict:
                     {
                         "type": "minecraft:item",
                         "name": "minecraft:written_book",
-                        "modifier": [
+                        "functions": [
                             {
-                                "type": "minecraft:set_components",
+                                "function": "minecraft:set_components",
                                 "components": components,
                             }
                         ],
