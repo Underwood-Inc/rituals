@@ -1,70 +1,50 @@
 package com.rituals.plugin.admin;
 
 import com.rituals.plugin.RitualsPlugin;
-import com.rituals.plugin.config.Messages;
+import com.shirecraft.bukkit.gui.admin.AdminHubLayoutSlots;
+import com.shirecraft.bukkit.gui.admin.AdminMenuButtonFactory;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.ItemStack;
-import org.bukkit.inventory.meta.ItemMeta;
-import org.bukkit.persistence.PersistentDataType;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public final class AdminMenus {
 
-    public static final int[] CONTENT_28 = {
-            10, 11, 12, 13, 14, 15, 16,
-            19, 20, 21, 22, 23, 24, 25,
-            28, 29, 30, 31, 32, 33, 34,
-            37, 38, 39, 40, 41, 42, 43
-    };
-
-    public static final int SLOT_HEADER = 4;
-    public static final int ROW2_LEFT = 20;
-    public static final int ROW2_CENTER = 22;
-    public static final int ROW2_RIGHT = 24;
-    public static final int SLOT_BACK = 49;
+    public static final int[] CONTENT_28 = AdminHubLayoutSlots.CONTENT_28;
+    public static final int SLOT_HEADER = AdminHubLayoutSlots.SLOT_HEADER;
+    public static final int ROW2_LEFT = AdminHubLayoutSlots.ROW2_LEFT;
+    public static final int ROW2_CENTER = AdminHubLayoutSlots.ROW2_CENTER;
+    public static final int ROW2_RIGHT = AdminHubLayoutSlots.ROW2_RIGHT;
+    public static final int SLOT_BACK = AdminHubLayoutSlots.SLOT_BACK;
 
     private AdminMenus() {
     }
 
-    public static ItemStack button(RitualsPlugin plugin, Material material, String name, List<String> lore,
-                                   String action, String payload) {
-        ItemStack stack = new ItemStack(material);
-        ItemMeta meta = stack.getItemMeta();
-        if (meta == null) {
-            return stack;
-        }
-        meta.setDisplayName(Messages.colorize(name));
-        if (lore != null && !lore.isEmpty()) {
-            List<String> colored = new ArrayList<>();
-            for (String line : lore) {
-                colored.add(Messages.colorize(line));
-            }
-            meta.setLore(colored);
-        }
-        var pdc = meta.getPersistentDataContainer();
-        pdc.set(actionKey(plugin), PersistentDataType.STRING, action);
-        if (payload != null) {
-            pdc.set(payloadKey(plugin), PersistentDataType.STRING, payload);
-        }
-        stack.setItemMeta(meta);
-        return stack;
+    public static ItemStack button(
+            RitualsPlugin plugin,
+            Material material,
+            String name,
+            List<String> lore,
+            String action,
+            String payload
+    ) {
+        return AdminMenuButtonFactory.button(
+                actionKey(plugin),
+                payloadKey(plugin),
+                material,
+                name,
+                lore,
+                action,
+                payload);
     }
 
     public static String action(RitualsPlugin plugin, ItemStack item) {
-        if (item == null || !item.hasItemMeta()) {
-            return null;
-        }
-        return item.getItemMeta().getPersistentDataContainer().get(actionKey(plugin), PersistentDataType.STRING);
+        return AdminMenuButtonFactory.readAction(actionKey(plugin), item);
     }
 
     public static String payload(RitualsPlugin plugin, ItemStack item) {
-        if (item == null || !item.hasItemMeta()) {
-            return null;
-        }
-        return item.getItemMeta().getPersistentDataContainer().get(payloadKey(plugin), PersistentDataType.STRING);
+        return AdminMenuButtonFactory.readPayload(payloadKey(plugin), item);
     }
 
     public static ItemStack back(RitualsPlugin plugin) {
@@ -72,11 +52,21 @@ public final class AdminMenus {
     }
 
     public static ItemStack previousPage(RitualsPlugin plugin, String name, List<String> lore, String action) {
-        return button(plugin, Material.SOUL_TORCH, name, lore, action, null);
+        return AdminMenuButtonFactory.previousPage(
+                actionKey(plugin),
+                payloadKey(plugin),
+                name,
+                lore,
+                action);
     }
 
     public static ItemStack nextPage(RitualsPlugin plugin, String name, List<String> lore, String action) {
-        return button(plugin, Material.REDSTONE_TORCH, name, lore, action, null);
+        return AdminMenuButtonFactory.nextPage(
+                actionKey(plugin),
+                payloadKey(plugin),
+                name,
+                lore,
+                action);
     }
 
     public static NamespacedKey actionKey(RitualsPlugin plugin) {

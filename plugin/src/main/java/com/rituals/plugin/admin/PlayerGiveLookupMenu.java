@@ -1,5 +1,8 @@
 package com.rituals.plugin.admin;
 
+import com.shirecraft.bukkit.chat.CommandFeedback;
+import com.shirecraft.bukkit.chat.LegacyColors;
+
 import com.rituals.plugin.RitualsPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
@@ -17,7 +20,7 @@ public final class PlayerGiveLookupMenu implements AdminMenus.AdminScreen {
     private PlayerGiveLookupMenu(RitualsPlugin plugin, int page, AdminPlayerHeads.LookupScope scope) {
         this.page = page;
         this.scope = scope;
-        this.inventory = Bukkit.createInventory(this, 54, com.rituals.plugin.config.Messages.colorize("&8Give Rituals Items"));
+        this.inventory = Bukkit.createInventory(this, 54, com.shirecraft.bukkit.chat.LegacyColors.colorize("&8Give Rituals Items"));
         build(plugin);
     }
 

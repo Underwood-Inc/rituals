@@ -1,6 +1,7 @@
 package com.rituals.plugin.config;
 
 import com.rituals.plugin.RitualsPlugin;
+import com.shirecraft.bukkit.chat.LegacyColors;
 
 public final class PluginConfig {
 
@@ -66,7 +67,11 @@ public final class PluginConfig {
     }
 
     public String prefix(String body) {
-        return Messages.join(messagePrefix, body);
+        return LegacyColors.join(messagePrefix, body);
+    }
+
+    public String messagePrefix() {
+        return messagePrefix;
     }
 
     public String noPermission() {

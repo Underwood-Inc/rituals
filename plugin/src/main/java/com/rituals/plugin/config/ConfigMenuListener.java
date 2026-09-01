@@ -1,6 +1,7 @@
 package com.rituals.plugin.config;
 
 import com.rituals.plugin.RitualsPlugin;
+import com.shirecraft.bukkit.chat.CommandFeedback;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -25,7 +26,7 @@ public final class ConfigMenuListener implements Listener {
         }
         event.setCancelled(true);
         if (!player.hasPermission("rituals.config")) {
-            Messages.send(player, plugin.getPluginConfig().noPermission());
+            CommandFeedback.send(player, plugin.getPluginConfig().noPermission());
             player.closeInventory();
             return;
         }
@@ -48,7 +49,7 @@ public final class ConfigMenuListener implements Listener {
         }
 
         if (action != ConfigMenu.Action.CLOSE) {
-            Messages.send(player, plugin.getPluginConfig().prefix("&aApplied: " + action.name()));
+            CommandFeedback.send(player, plugin.getPluginConfig().prefix("&aApplied: " + action.name()));
         }
     }
 

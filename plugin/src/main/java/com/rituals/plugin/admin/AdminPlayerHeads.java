@@ -1,7 +1,9 @@
 package com.rituals.plugin.admin;
 
+import com.shirecraft.bukkit.chat.CommandFeedback;
+import com.shirecraft.bukkit.chat.LegacyColors;
+
 import com.rituals.plugin.RitualsPlugin;
-import com.rituals.plugin.config.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -44,11 +46,11 @@ public final class AdminPlayerHeads {
             return stack;
         }
         meta.setOwningPlayer(Bukkit.getOfflinePlayer(uuid));
-        meta.setDisplayName(Messages.colorize(displayName));
+        meta.setDisplayName(LegacyColors.colorize(displayName));
         if (lore != null && !lore.isEmpty()) {
             List<String> colored = new ArrayList<>();
             for (String line : lore) {
-                colored.add(Messages.colorize(line));
+                colored.add(LegacyColors.colorize(line));
             }
             meta.setLore(colored);
         }

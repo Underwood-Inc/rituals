@@ -1,7 +1,9 @@
 package com.rituals.plugin.admin;
 
+import com.shirecraft.bukkit.chat.CommandFeedback;
+import com.shirecraft.bukkit.chat.LegacyColors;
+
 import com.rituals.plugin.RitualsPlugin;
-import com.rituals.plugin.config.Messages;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
@@ -14,7 +16,7 @@ public final class AdminHubMenu implements AdminMenus.AdminScreen {
     private final Inventory inventory;
 
     private AdminHubMenu(RitualsPlugin plugin) {
-        this.inventory = Bukkit.createInventory(this, 54, Messages.colorize("&5Rituals &8— &7Admin"));
+        this.inventory = Bukkit.createInventory(this, 54, LegacyColors.colorize("&5Rituals &8— &7Admin"));
         build(plugin);
     }
 

@@ -21,6 +21,7 @@ dependencies {
     compileOnly("org.jetbrains:annotations:26.0.2")
     compileOnly("com.github.MilkBowl:VaultAPI:1.7.1")
     compileOnly("me.clip:placeholderapi:2.11.6")
+    implementation("com.shirecraft:shirecraft-bukkit-utils")
 }
 
 tasks.register<Copy>("syncDatapackZip") {
@@ -45,7 +46,15 @@ tasks.processResources {
 }
 
 tasks.jar {
+    dependsOn(gradle.includedBuild("shirecraft-bukkit-utils").task(":jar"))
     archiveBaseName.set("rituals-plugin")
+    duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+
+    from({
+        configurations.runtimeClasspath.get().filter {
+            it.name.contains("shirecraft-bukkit-utils")
+        }.map { if (it.isDirectory) it else zipTree(it) }
+    })
 
     manifest {
         attributes(

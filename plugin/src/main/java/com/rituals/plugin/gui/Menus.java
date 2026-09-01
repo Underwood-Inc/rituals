@@ -1,7 +1,9 @@
 package com.rituals.plugin.gui;
 
+import com.shirecraft.bukkit.chat.CommandFeedback;
+import com.shirecraft.bukkit.chat.LegacyColors;
+
 import com.rituals.plugin.RitualsPlugin;
-import com.rituals.plugin.config.Messages;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.inventory.InventoryHolder;
@@ -37,11 +39,11 @@ public final class Menus {
         if (meta == null) {
             return stack;
         }
-        meta.setDisplayName(Messages.colorize(name));
+        meta.setDisplayName(LegacyColors.colorize(name));
         if (lore != null && !lore.isEmpty()) {
             List<String> colored = new ArrayList<>();
             for (String line : lore) {
-                colored.add(Messages.colorize(line));
+                colored.add(LegacyColors.colorize(line));
             }
             meta.setLore(colored);
         }
@@ -62,11 +64,11 @@ public final class Menus {
         if (meta == null) {
             return stack;
         }
-        meta.setDisplayName(Messages.colorize(name));
+        meta.setDisplayName(LegacyColors.colorize(name));
         if (lore != null && !lore.isEmpty()) {
             List<String> colored = new ArrayList<>();
             for (String line : lore) {
-                colored.add(Messages.colorize(line));
+                colored.add(LegacyColors.colorize(line));
             }
             meta.setLore(colored);
         }
@@ -94,7 +96,7 @@ public final class Menus {
     }
 
     public static String title(String text) {
-        return Messages.colorize(text);
+        return LegacyColors.colorize(text);
     }
 
     public static NamespacedKey actionKey(RitualsPlugin plugin) {

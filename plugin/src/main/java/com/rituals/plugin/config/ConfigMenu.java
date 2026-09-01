@@ -1,6 +1,7 @@
 package com.rituals.plugin.config;
 
 import com.rituals.plugin.RitualsPlugin;
+import com.shirecraft.bukkit.chat.LegacyColors;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -19,7 +20,7 @@ import java.util.List;
  */
 public final class ConfigMenu implements InventoryHolder {
 
-    public static final String TITLE = Messages.colorize("&5Rituals Config");
+    public static final String TITLE = LegacyColors.colorize("&5Rituals Config");
 
     public enum Action {
         KIWI_ON,

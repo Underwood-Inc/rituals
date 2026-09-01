@@ -1,8 +1,10 @@
 package com.rituals.plugin.admin;
 
+import com.shirecraft.bukkit.chat.CommandFeedback;
+import com.shirecraft.bukkit.chat.LegacyColors;
+
 import com.rituals.plugin.RitualsPlugin;
 import com.rituals.plugin.config.ConfigMenu;
-import com.rituals.plugin.config.Messages;
 import com.rituals.plugin.gui.GuideHubMenu;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -32,7 +34,7 @@ public final class AdminMenuListener implements Listener {
         event.setCancelled(true);
 
         if (!player.hasPermission("rituals.admin")) {
-            Messages.send(player, plugin.getPluginConfig().noPermission());
+            CommandFeedback.send(player, plugin.getPluginConfig().noPermission());
             player.closeInventory();
             return;
         }

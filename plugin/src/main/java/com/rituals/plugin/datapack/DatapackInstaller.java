@@ -1,78 +1,54 @@
 package com.rituals.plugin.datapack;
 
 import com.rituals.plugin.RitualsPlugin;
-import org.bukkit.World;
+import com.shirecraft.bukkit.datapack.DatapackInstallerRecipe;
+import com.shirecraft.bukkit.datapack.DatapackSpec;
 
-import java.io.File;
-import java.nio.file.Path;
-import java.util.LinkedHashSet;
-import java.util.Set;
-
+/**
+ * Installs the bundled Rituals datapack zip using shared utils install recipe.
+ */
 public final class DatapackInstaller {
 
+    public static final String DEFAULT_ZIP_NAME = "rituals.zip";
+
+    private static final DatapackSpec SPEC = DatapackSpec.builder("Rituals", "rituals-datapack.zip")
+            .defaultZipName(DEFAULT_ZIP_NAME)
+            .minZipBytes(200_000L)
+            .legacyFolderName("rituals")
+            .build();
+
     private final RitualsPlugin plugin;
+    private final DatapackInstallerRecipe recipe;
 
     public DatapackInstaller(RitualsPlugin plugin) {
         this.plugin = plugin;
+        this.recipe = new DatapackInstallerRecipe(
+                plugin,
+                SPEC,
+                RitualsPlugin.class,
+                plugin::getPluginJar,
+                () -> plugin.getConfig().getBoolean("datapack.auto-install", true),
+                () -> plugin.getConfig().getString("datapack.zip-file", DEFAULT_ZIP_NAME));
     }
 
     public void installBeforeWorldsLoad() {
-        install(false);
+        recipe.installBeforeWorldsLoad();
     }
 
-    /** Retry after worlds exist (e.g. if {@code onLoad} ran before paths were valid). */
     public void installAfterEnable() {
-        install(true);
-    }
-
-    private void install(boolean worldAlreadyLoaded) {
-        if (!plugin.getConfig().getBoolean("datapack.auto-install", true)) {
-            return;
-        }
-
-        String zipFileName = plugin.getConfig().getString("datapack.zip-file", DatapackFiles.DEFAULT_ZIP_NAME);
-        String pluginVersion = plugin.getPluginMeta().getVersion();
-        Path serverRoot = ServerPaths.serverRoot(plugin);
-        Path defaultWorld = ServerPaths.defaultWorld(plugin);
-        File pluginJar = plugin.getPluginJar();
-
-        plugin.getLogger().info("Rituals datapack install — server root: " + serverRoot
-                + ", default world: " + defaultWorld + ", zip: " + zipFileName + ", plugin v" + pluginVersion);
-
-        Set<Path> installed = new LinkedHashSet<>();
-
-        if (worldAlreadyLoaded && plugin.getServer() != null) {
-            for (World world : plugin.getServer().getWorlds()) {
-                installed.addAll(DatapackFiles.installToWorld(
-                        world.getWorldFolder().toPath(), zipFileName, RitualsPlugin.class, pluginJar, pluginVersion));
-            }
-        }
-
-        installed.addAll(DatapackFiles.installToWorld(
-                defaultWorld, zipFileName, RitualsPlugin.class, pluginJar, pluginVersion));
-        installed.addAll(DatapackFiles.installAllWorlds(
-                serverRoot, zipFileName, RitualsPlugin.class, pluginJar, pluginVersion));
-
-        for (Path path : installed) {
-            plugin.getLogger().info("Rituals datapack ready at " + path.toAbsolutePath());
-        }
-
-        if (!isInstalled()) {
-            Path expected = defaultWorld.resolve("datapacks").resolve(zipFileName);
-            plugin.getLogger().severe("Rituals datapack NOT at " + expected.toAbsolutePath());
+        recipe.installAfterEnable();
+        if (!recipe.isInstalled()) {
             plugin.getLogger().severe("Upload build/server-deploy/world/datapacks/rituals.zip manually, then restart.");
             return;
         }
-
-        if (worldAlreadyLoaded && !installed.isEmpty() && plugin.getDatapackBridge() != null) {
-            plugin.getLogger().info("New Rituals datapack files installed — reloading datapacks (plugin crafting recipes may need a server restart).");
+        if (recipe.zipUpdatedThisSession() && plugin.getDatapackBridge() != null) {
+            plugin.getLogger().info(
+                    "New Rituals datapack files installed — reloading datapacks (plugin crafting recipes may need a server restart).");
             plugin.getDatapackBridge().reloadDatapacks();
         }
     }
 
     public boolean isInstalled() {
-        Path world = ServerPaths.defaultWorld(plugin);
-        String zipFileName = plugin.getConfig().getString("datapack.zip-file", DatapackFiles.DEFAULT_ZIP_NAME);
-        return DatapackFiles.isInstalledInWorld(world, zipFileName);
+        return recipe.isInstalled();
     }
 }

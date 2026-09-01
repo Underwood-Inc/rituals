@@ -9,6 +9,10 @@ import com.rituals.plugin.datapack.DatapackBridge;
 import com.rituals.plugin.datapack.DatapackInstaller;
 import com.rituals.plugin.integration.PlaceholderHook;
 import com.rituals.plugin.integration.VaultHook;
+import com.shirecraft.bukkit.bootstrap.PresenceConfig;
+import com.shirecraft.bukkit.bootstrap.PluginTerminalLog;
+import com.shirecraft.bukkit.runtime.RuntimeInstallHandle;
+import com.shirecraft.bukkit.runtime.ShirecraftRuntime;
 import org.bukkit.event.HandlerList;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -28,6 +32,7 @@ public final class RitualsPlugin extends JavaPlugin {
     private ConfigMenuListener configMenuListener;
     private GuideMenuListener guideMenuListener;
     private AdminMenuListener adminMenuListener;
+    private RuntimeInstallHandle runtimeHandle;
 
     public static RitualsPlugin getInstance() {
         return instance;
@@ -60,6 +65,9 @@ public final class RitualsPlugin extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        PluginTerminalLog boot = new PluginTerminalLog(this);
+        boot.enable(getDescription().getVersion());
+
         pluginConfig = new PluginConfig(this);
         pluginConfig.reload();
 
@@ -96,17 +104,20 @@ public final class RitualsPlugin extends JavaPlugin {
         placeholderHook = new PlaceholderHook(this);
         placeholderHook.tryHook();
 
-        getLogger().info("Rituals plugin enabled (v" + getDescription().getVersion() + ").");
-        if (vaultHook.isEnabled()) {
-            getLogger().info("Vault economy integration active.");
-        }
-        if (placeholderHook.isEnabled()) {
-            getLogger().info("PlaceholderAPI expansion registered.");
-        }
+        runtimeHandle = ShirecraftRuntime.shared().install(this, recipe -> recipe
+                .presence(loadPresence())
+                .logIntegrations(true));
+
+        boot.integration("Vault", vaultHook.isEnabled(), "economy");
+        boot.integration("PlaceholderAPI", placeholderHook.isEnabled(), "expansion");
     }
 
     @Override
     public void onDisable() {
+        if (runtimeHandle != null) {
+            runtimeHandle.close();
+            runtimeHandle = null;
+        }
         if (configMenuListener != null) {
             HandlerList.unregisterAll(configMenuListener);
         }
@@ -128,5 +139,21 @@ public final class RitualsPlugin extends JavaPlugin {
         vaultHook.tryHook();
         placeholderHook.tryHook();
         datapackBridge.reloadDatapackConfig();
+        if (runtimeHandle != null) {
+            runtimeHandle.onConfigReload(loadPresence());
+        }
+    }
+
+    private PresenceConfig loadPresence() {
+        return PresenceConfig.load(
+                getConfig().getConfigurationSection("bootstrap.presence"),
+                () -> PresenceConfig.builder()
+                        .theme("dark_purple")
+                        .icon("✦")
+                        .edition("Totems & soul weapons")
+                        .hint("Craft totems, scry, and forge soul-bound gear")
+                        .hint("Type /rituals help for the guidebook and command list")
+                        .quickStart("Rituals help", "/rituals help", "Guidebook and commands")
+                        .quickStart("Recipe guide", "/rituals guide", "Crafting chest and chat recipes"));
     }
 }

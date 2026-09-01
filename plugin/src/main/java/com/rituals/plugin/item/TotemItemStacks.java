@@ -1,6 +1,8 @@
 package com.rituals.plugin.item;
 
-import com.rituals.plugin.config.Messages;
+import com.shirecraft.bukkit.chat.CommandFeedback;
+import com.shirecraft.bukkit.chat.LegacyColors;
+
 import com.rituals.plugin.recipe.RitualRecipeCatalog;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
@@ -28,7 +30,7 @@ public final class TotemItemStacks {
             return stack;
         }
         meta.setItemModel(itemModel(tier.id(), false));
-        meta.setDisplayName(Messages.colorize(tier.title()));
+        meta.setDisplayName(LegacyColors.colorize(tier.title()));
         stack.setItemMeta(meta);
         return stack;
     }
@@ -39,7 +41,7 @@ public final class TotemItemStacks {
         if (meta == null) {
             return stack;
         }
-        meta.setDisplayName(Messages.colorize(spec.resultName()));
+        meta.setDisplayName(LegacyColors.colorize(spec.resultName()));
         parseTotemRecipe(spec.id()).ifPresent(model ->
                 meta.setItemModel(itemModel(model.tierId(), model.shortVariant())));
         stack.setItemMeta(meta);

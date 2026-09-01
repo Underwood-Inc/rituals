@@ -1,7 +1,9 @@
 package com.rituals.plugin.integration;
 
+import com.shirecraft.bukkit.chat.CommandFeedback;
+import com.shirecraft.bukkit.chat.LegacyColors;
+
 import com.rituals.plugin.RitualsPlugin;
-import com.rituals.plugin.config.Messages;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -52,15 +54,15 @@ public final class VaultHook {
             return true;
         }
         if (!isEnabled()) {
-            Messages.send(player, plugin.getPluginConfig().vaultMissing());
+            CommandFeedback.send(player, plugin.getPluginConfig().vaultMissing());
             return false;
         }
         if (!economy.has(player, amount)) {
-            Messages.send(player, plugin.getPluginConfig().vaultInsufficient(amount));
+            CommandFeedback.send(player, plugin.getPluginConfig().vaultInsufficient(amount));
             return false;
         }
         economy.withdrawPlayer(player, amount);
-        Messages.send(player, plugin.getPluginConfig().vaultCharged(amount));
+        CommandFeedback.send(player, plugin.getPluginConfig().vaultCharged(amount));
         return true;
     }
 }

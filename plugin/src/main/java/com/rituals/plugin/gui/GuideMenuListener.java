@@ -1,7 +1,9 @@
 package com.rituals.plugin.gui;
 
+import com.shirecraft.bukkit.chat.CommandFeedback;
+import com.shirecraft.bukkit.chat.LegacyColors;
+
 import com.rituals.plugin.RitualsPlugin;
-import com.rituals.plugin.config.Messages;
 import com.rituals.plugin.guide.RecipeChatGuide;
 import com.rituals.plugin.recipe.RitualRecipeCatalog;
 import org.bukkit.entity.Player;
@@ -30,7 +32,7 @@ public final class GuideMenuListener implements Listener {
         event.setCancelled(true);
 
         if (!player.hasPermission("rituals.use")) {
-            Messages.send(player, plugin.getPluginConfig().noPermission());
+            CommandFeedback.send(player, plugin.getPluginConfig().noPermission());
             player.closeInventory();
             return;
         }

@@ -1,7 +1,9 @@
 package com.rituals.plugin.admin;
 
+import com.shirecraft.bukkit.chat.CommandFeedback;
+import com.shirecraft.bukkit.chat.LegacyColors;
+
 import com.rituals.plugin.RitualsPlugin;
-import com.rituals.plugin.config.Messages;
 import com.rituals.plugin.gui.Menus;
 import com.rituals.plugin.item.TotemItemStacks;
 import com.rituals.plugin.recipe.RitualRecipeCatalog;
@@ -30,7 +32,7 @@ public final class PlayerGiveActionsMenu implements AdminMenus.AdminScreen {
         this.lookupPage = lookupPage;
         this.lookupScope = lookupScope;
         String name = AdminPlayerHeads.resolveName(targetUuid);
-        this.inventory = Bukkit.createInventory(this, 54, Messages.colorize("&8Give » " + name));
+        this.inventory = Bukkit.createInventory(this, 54, LegacyColors.colorize("&8Give » " + name));
         build(plugin);
     }
 
