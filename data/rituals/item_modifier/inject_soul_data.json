@@ -10,5 +10,5 @@
       "op": "replace"
     }
   ],
-  "function": "minecraft:copy_custom_data"
+  "type": "minecraft:copy_custom_data"
 }

@@ -13,7 +13,7 @@ bootstrap:
     edition: Totems & soul weapons
     hints:
       - "Craft totems, scry, and forge soul-bound gear"
-      - "Type /rituals help for the guidebook and command list"
+      - "Use /rituals help for the guidebook"
     quick_start:
       - label: Rituals help
         command: /rituals help

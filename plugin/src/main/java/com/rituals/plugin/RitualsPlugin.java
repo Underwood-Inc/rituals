@@ -152,7 +152,7 @@ public final class RitualsPlugin extends JavaPlugin {
                         .icon("✦")
                         .edition("Totems & soul weapons")
                         .hint("Craft totems, scry, and forge soul-bound gear")
-                        .hint("Type /rituals help for the guidebook and command list")
+                        .hint("Use /rituals help for the guidebook")
                         .quickStart("Rituals help", "/rituals help", "Guidebook and commands")
                         .quickStart("Recipe guide", "/rituals guide", "Crafting chest and chat recipes"));
     }

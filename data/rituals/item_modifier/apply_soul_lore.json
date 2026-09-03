@@ -33,5 +33,5 @@
     }
   ],
   "mode": "replace_all",
-  "function": "minecraft:set_lore"
+  "type": "minecraft:set_lore"
 }

@@ -9,5 +9,5 @@
     "scale": 1
   },
   "add": true,
-  "function": "minecraft:set_count"
+  "type": "minecraft:set_count"
 }
